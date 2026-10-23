@@ -1,0 +1,19 @@
+[package]
+name = "grobid-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "grobid"
+path = "src/main.rs"
+
+[dependencies]
+grobid-core = { path = "../grobid-core" }
+clap = { workspace = true }
+tokio = { workspace = true }
+anyhow = { workspace = true }
+tracing-subscriber = { workspace = true }
+reqwest = { workspace = true }
+futures = { workspace = true }

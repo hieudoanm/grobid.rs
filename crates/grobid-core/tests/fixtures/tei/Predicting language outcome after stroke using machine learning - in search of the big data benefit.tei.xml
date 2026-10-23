@@ -1,0 +1,2000 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Predicting language outcome after stroke using machine learning: in search of the big data benefit</title>
+				<funder ref="#_eKv8cea #_CVPvCkg #_HZxVwy7">
+					<orgName type="full">Wellcome</orgName>
+				</funder>
+				<funder>
+					<orgName type="full">Medical Research Council</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability  status="unknown">
+					<licence/>
+				</availability>
+				<date type="published" when="2025-08-05">5 August 2025</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct status="extracted">
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Margarita</forename><surname>Saranti</surname></persName>
+							<email>marg.saranti@gmail.com</email>
+							<affiliation key="aff0">
+								<orgName type="department">School of Psychology</orgName>
+								<orgName type="institution">University of Birmingham</orgName>
+								<address>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Douglas</forename><surname>Neville</surname></persName>
+							<idno type="ORCID">0009-0001-6616-8549</idno>
+							<affiliation key="aff2">
+								<orgName type="department">Department of Imaging Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Adam</forename><surname>White</surname></persName>
+							<affiliation key="aff3">
+								<orgName type="department">Department of Computer Science</orgName>
+								<orgName type="institution" key="instit1">City</orgName>
+								<orgName type="institution" key="instit2">University of London</orgName>
+								<address>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Pia</forename><surname>Rotshtein</surname></persName>
+							<affiliation key="aff4">
+								<orgName type="laboratory">Neuroimaging Research Unit</orgName>
+								<orgName type="institution">University of Haifa</orgName>
+								<address>
+									<country key="IL">Israel</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Thomas</forename><forename type="middle">M H</forename><surname>Hope</surname></persName>
+							<affiliation key="aff2">
+								<orgName type="department">Department of Imaging Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Cathy</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+							<affiliation key="aff2">
+								<orgName type="department">Department of Imaging Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Howard</forename><surname>Bowman</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">School of Psychology</orgName>
+								<orgName type="institution">University of Birmingham</orgName>
+								<address>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">School of Computer Science</orgName>
+								<orgName type="institution">University of Birmingham</orgName>
+								<address>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Predicting language outcome after stroke using machine learning: in search of the big data benefit</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2025-08-05">5 August 2025</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">A84F9C988DCC51705E2DBE3EF3AD7CE6</idno>
+					<idno type="DOI">10.1016/j.nicl.2025.103858</idno>
+					<note type="submission">Received 11 April 2025; Received in revised form 11 July 2025; Accepted 1 August 2025 NeuroImage: Clinical 48 (2025) 103858</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.9.1" ident="GROBID" when="2026-11-03T11:40+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<label type="revision">0.9.1</label>
+					<label type="parameters">startPage=-1, endPage=-1, consolidateCitations=0, consolidateHeader=0, consolidateFunders=0, includeRawAffiliations=false, includeRawCitations=false, includeRawCopyrights=false, generateTeiIds=false, generateTeiCoordinates=[], flavor=null, debugLabelingCollector=disabled</label>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>Machine-learning Aphasia Big-data MRI scans Dimensionality reduction Learning curves</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Accurate prediction of post-stroke language outcomes using machine learning offers the potential to enhance clinical treatment and rehabilitation for aphasic patients. This study of 758 English speaking stroke patients from the PLORAS project explores the impact of sample size on the performance of logistic regression and a deep learning (ResNet-18) model in predicting language outcomes from neuroimaging and impairment-relevant tabular data. We assessed the performance of both models on two key language tasks from the Comprehensive Aphasia Test: Spoken Picture Description and Naming, using a learning curve approach. Contrary to expectations, the simpler logistic regression model performed comparably or better than the deep learning model (with overlapping confidence intervals), with both models showing an accuracy plateau around 80% for sample sizes larger than 300 patients. Principal Component Analysis revealed that the dimensionality of the neuroimaging data could be reduced to as few as 20 (or even 2) dominant components without significant loss in accuracy, suggesting that classification may be driven by simple patterns such as lesion size. The study highlights both the potential limitations of current dataset size in achieving further accuracy gains and the need for larger datasets to capture more complex patterns, as some of our results indicate that we might not have reached an absolute classification performance ceiling. Overall, these findings provide insights into the practical use of machine learning for predicting aphasia outcomes and the potential benefits of much larger datasets in enhancing model performance.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Modern deep learning seems to bring its greatest benefit when datasets are very large <ref type="bibr" target="#b11">(Dawson et al., 2023;</ref><ref type="bibr" target="#b38">Shin et al., 2016;</ref><ref type="bibr" target="#b44">Taigman et al., 2014)</ref>. A typical dataset size range used in deep learning (e.g. convolutional neural networks) is millions to tens of millions of samples <ref type="bibr" target="#b14">(He et al., 2015)</ref>, whereas large-scale language models use up to billions of samples <ref type="bibr" target="#b6">(Brants et al., 2007)</ref>. This may be because, with such large datasets, the signal "shines through" the noise and thus, the learning algorithm can be run for a very large number of iterations (potentially with a very small learning rate), allowing the algorithm to build a very intricate classification boundary, with little concern for over-fitting. Massive datasets also enable deep learning to overcome the curse of dimensionality <ref type="bibr" target="#b45">(Theodoridis &amp; Koutroumbas, 2009;</ref><ref type="bibr" target="#b47">Trunk, 1979)</ref> facilitating high classification accuracies even with very high dimensional data.</p><p>This ability to accurately classify high dimensional data seems to promise a substantial improvement in our capacity to predict language deficits and patient recovery after stroke from structural brain scans <ref type="bibr" target="#b17">(Hope et al., 2013;</ref><ref type="bibr" target="#b36">Seghier et al., 2016;</ref><ref type="bibr" target="#b41">Stinear, 2010)</ref>, since high resolution scans contain over half a million voxels. 1 Additionally, although current datasets remain small compared to those typically used for deep learning, many groups are actively working to build and integrate them into a single very large and more effective dataset. One example of organisations that are collaboratively trying to link resources from different real-world settings and standardise the way health data is collected across the UK for research purposes is the "Stroke Data Science Catalyst" (<ref type="url" target="https://bhfdatasciencecentre.org/areas/stroke-data-science-catalyst/">https://bhfdatasciencecentre.org/areas/stroke-data-science- catalyst/</ref>). One of the largest such collaborations is the International Stroke Genetics Consortium (ISGC), which includes genetic data from over 60,000 cases <ref type="bibr" target="#b24">(Malik et al., 2018)</ref>. The Genetics of Neurological Instability after Ischemic Stroke (GENISIS) multi-centre study is another similar effort, which resulted from collaborations inside the ISGC and includes data from over 6,000 S patients <ref type="bibr" target="#b15">(Heitsch et al., 2021)</ref>. Other efforts include the creation of the Stroke Neuroimaging Phenotype Repository (SNIPR), which consists of imaging data from patients from all over the world, reaching data from over 2000 patients and over 6000 imaging sessions <ref type="bibr" target="#b25">(Mohammadian Foroushani et al., 2021)</ref>. Lastly, an effort which was focused on collecting MRI scans is the Enhancing Neuroimaging Genetics through Meta-Analysis (ENIGMA) Stroke Recovery repository, which contains data from over 2,100 patients <ref type="bibr" target="#b23">(Liew et al., 2022)</ref>.</p><p>In previous work <ref type="bibr" target="#b53">(White et al., 2024)</ref>, we explored the classification accuracy of the same dataset and classification problem considered in the current paper. We trained a range of different classifiers with highresolution neuroimaging data (where each voxel is an input feature/ variable) to differentiate between patients who suffer from aphasia or not, following stroke. The neuroimaging-based models included a lightweight 2D Convolution Neural Network (CNN); a 3D Residual Network (ResNet-10); and a 2D Residual Network . Additionally, we used a logistic regression fitted on three tabular variables to predict aphasia outcome. Finally, we also assessed a variety of models trained on Regions of Interest in the MRIs, as well as a range of multimodal approaches, which classified on the basis of both brain-scans and tabular data. The main objective of that work was to compare the models and find the one that performed best on our out-of-sample test data. We were able to show that the best classification accuracy was achieved when the 2D-ResNet-18 was trained on a combination of MRI Regions of Interest, which were identified by the Explainable AI method CLEAR Image <ref type="bibr" target="#b52">(White et al., 2023)</ref>, and schematic representations of the three tabular features. Other multi-modal predictive efforts include <ref type="bibr" target="#b21">Kristinsson et al. (2021)</ref>, where the authors trained stepwise regression models on biographical and neuropsychological data, and <ref type="bibr" target="#b3">Billot et al. (2022)</ref>, where the authors explored disconnectome-symptom mapping using a Support Vector Regression.</p><p>A basic finding from <ref type="bibr" target="#b53">White et al. (2024)</ref> was that the 2D-ResNet-18 and logistic regression performed well compared to other methods. Accordingly, we have focussed on these methods here, enabling us to particularly compare the performance achieved by a state-of-the-art deep learning method (ResNet-18) and a traditional linear approach (logistic regression).</p><p>The difference between the current paper and our previous work, as well as other predictive modelling in this field, is that the current paper focuses on the prospects for big datasets to enable accurate prediction using machine learning, without pursuing the best classification accuracy and by training the model solely on structural MRI scans. As previously stated, while the dataset we have is large compared to other aphasia studies, it remains small by the standards of modern artificial intelligence. Consequently, one would expect that the accuracy we can attain is an underestimate of the maximum possible accuracy. However, it would be useful for the field going forward to obtain an estimate (if only very approximate) for the amount of data that would need to be collected to enable a clinically useful level of accuracy. This could help determine whether clinically useful performance requires data pooling from different research groups which would, in turn, benefit from standardisation of imaging protocols.</p><p>One approach to investigate this question, is to perform a learning curve analysis on sample size <ref type="bibr" target="#b50">(Viering &amp; Loog, 2022)</ref>. This is done by subsampling from the available data and fitting the same classifier to samples of a range of sizes. The plot of accuracy by sample size indicates the pattern by which accuracy is changing with sample size (see Fig. <ref type="figure" target="#fig_4">4</ref>). One could then fit a curve and from it, estimate the sample size required to obtain a particular desired (clinically-useful) accuracy level. This is a motivation for this article.</p><p>The comparison of the learning curve of logistic regression and the ResNet is particularly interesting, as one might expect that logistic regression would achieve higher accuracy with small sample sizes, while ResNet would improve relative to logistic regression as sample size increases. This is because logistic regression is a much simpler model (e.g. we only have three predictors), with many orders of magnitude fewer parameters to fit and a much simpler fitting problem to perform (i.e. fitting an optimal hyperplane). In particular, one would expect that the consequences of the curse of dimensionality<ref type="foot" target="#foot_0">foot_0</ref>  <ref type="bibr" target="#b45">(Theodoridis &amp; Koutroumbas, 2009)</ref> would be much more severe for ResNet than logistic regression. This would suggest that, eventually, when datasets get large enough, the field will obtain the benefits of modern deep learning based artificial intelligence. Looking for this pattern was a main focus of this paper.</p><p>We computed learning curve analyses of classification accuracy on two key tasks for assessing language deficits following stroke: Spoken Picture Description and Naming, which were assessed with the Comprehensive Aphasia Test (CAT) <ref type="bibr" target="#b43">(Swinburn et al., 2004)</ref>.</p><p>Since the curse of dimensionality is such a fundamental constraint on machine learning, we also seek to assess the "underlying" dimensionality of our neuroimaging data. High resolution neuroimaging data contains more than half a million individual variables (i.e. voxels) however, these variables are not independent and are spatially correlated. This, for example, arises from the structure of the brain, the nature of the signal, the smoothness of the data, and the stereotyped way lesions manifest following stroke (due to the regularity of the vasculature across individuals). A standard way to assess the "underlying" data dimensionality is to perform a principal component analysis. If there are strong correlations between imaging data dimensions, the resulting analysis will load heavily on just a few dimensions, indicating that "underlying" dimensionality is low. We will also provide a possible explanation of what the latent dimensions of our imaging data represent.</p><p>From these analyses, we will be able to determine the properties in the dataset that dominate the ResNet classification and reflect on what properties could enable improved classification with increased data.</p><p>More specifically, the line of argument of this paper will be as follows. We will show that 1) logistic regression classifies surprisingly well relative to a deep learning (ResNet) model and 2) for both classification algorithms, learning curves are flat from a few hundred patients onwards, seemingly suggesting that no benefit will accrue from increasing data sets further. This is a pessimistic finding, i.e. regardless of how big data sets become, they cannot do better than the accuracy obtained after a few hundred patients. However, in further analyses, we are able to provide evidence against this conclusion, suggesting that 1) training is 1 High dimensionality in this field could, of course, also be interpreted differently. That is, one could argue that the structure-function relationship of the brain is high dimensional, or the damage-outcome combinations in stroke survivors is high dimensional as language is a complex ability. We, however, consider high dimensionality in terms of imaging resolution and indeed, different perspectives on this image dimensionality are a central theme of this paper.</p><p>not completely stable when the learning curve is stable; 2) despite the flexibility of the ResNet algorithm, including possessing thousands of tunable parameters, its classification seems to focus on a single simple variablelesion-size; and 3) similar classification accuracies can be obtained when the scans are compressed to a very small number of dimensions. These further analyses suggest that the ResNet is learning a very simple solution, which can be captured in a very low dimensional space, indicating that future research needs to investigate how machine learning can benefit from more complex and probably more heterogeneous patterns in the brain imaging data. We conclude by making some suggestions for how this could be done.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Methods</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.">Dataset</head><p>The paper used the same data that was used by <ref type="bibr" target="#b53">White et al. (2024)</ref>. Full details can be found there. In brief, the data was gathered for the Predicting Language Outcome and Recovery After Stroke (PLORAS) project, at University College London <ref type="bibr" target="#b36">(Seghier et al., 2016)</ref>. The portion of the dataset remaining after exclusion criteria comprised 758 MRI scans from patients who experienced varying degrees of aphasia following a stroke, accompanied by tabular data with their clinical and demographic details. The patients included in the study had left, right, or bilateral lesions. The average age at stroke was 56.1 years and the male to female ratio was 2.3:1. The language abilities of the patients was specifically evaluated through the Comprehensive Aphasia Test (CAT) <ref type="bibr" target="#b43">(Swinburn et al., 2004)</ref>. Three variables from the PLORAS tabular data were selected a-priori for having prognostic value for recovery from aphasia <ref type="bibr" target="#b2">(Benghanem et al., 2019;</ref><ref type="bibr" target="#b17">Hope et al., 2013;</ref><ref type="bibr" target="#b20">Johnson et al., 2022;</ref><ref type="bibr" target="#b46">Thye &amp; Mirman, 2018)</ref>: 1) the patients' initial severity of aphasia shortly after their stroke (see below), 2) left hemisphere lesion size, and 3) recovery time, which is the time between the patient's stroke and the CAT assessment.</p><p>Initial severity was calculated from patients' self-reported information taken retrospectively about their ability one week after their stroke. Each participant or their carer completed the PLORAS in-house 'Aphasia Recovery and Therapy Questionnaire' on entry into the study, with assistance from a trained speech and language therapist. Participants are asked whether they were able to generate any speech in the first week after their stroke. If so, how much, and if not, whether they were well enough to speak and whether they could use gesture. This resulted in a 7-point nonlinear Likert scale: ( <ref type="formula">1</ref>  <ref type="formula">2022</ref>)): Severe if they reported being conscious but unable to speak (scores of 2-4), Moderate if they could produce a few words but not sentences (score of 5), Mild if they were able to produce short sentences (score of 6), and Normal if they did not report any impairment (score of 7). Additionally, there is another group of patients which included those whose score was missing or were not well enough to speak (score of 1). Scores from the comprehension, reading and writing questionnaire were not considered for the speaking assessment and not used in the current paper. Carer responses were used for patients who were unable to remember the details or struggled to understand the questions. Nevertheless, the sensitivity/accuracy of the measure is limited by (i) lack of detail on the specific nature of the language impairment, (ii) memory recall which is likely to be worse in those who had early comprehension impairments and (iii) insight into own ability. The distribution of the initial severity scores was: 25.5 % severe, 12.3 % moderate, 24.8 % mild, 17.2 % normal, and 20.2 % missing or unconscious.</p><p>For our binary classification tasks, we selected the Spoken Picture Description (SPD) and Naming tasks from the CAT, as they are both good indicators of functional language abilities and are correlated with aphasia recovery. As in <ref type="bibr" target="#b17">Hope et al. (2013)</ref> and <ref type="bibr" target="#b53">White et al. (2024)</ref>, SPD was chosen because it engages multiple language functions that are needed to use language successfully in the world. Naming was chosen because word finding difficulty (anomia) is considered to be a hallmark indicator of aphasia <ref type="bibr" target="#b10">(Crinion &amp; Leff, 2015;</ref><ref type="bibr" target="#b29">Nardo et al., 2017)</ref>. The total scores were standardised into T-scores (not to be confused with the tstatistic). The T-scores were defined relative to a separate distribution of scores on the same tasks, which were the performance of 27 neurologically normal controls. T-scores provide a more direct representation of the extremity of impairment in these tasks; thus, they are preferred to raw scores. In this paper, the thresholds were 60 for SPD and 63 for Naming, which were the lower cut-off scores that patients with no detectable brain damage and no reported speech production impairments could have on the tasks. Thus, for each of the tasks, the aim was to categorise patients into two classes based on their performance on that task, the ones that were within the impaired range (below threshold) and the ones within the non-impaired/normal range (above threshold).</p><p>As described in <ref type="bibr" target="#b53">White et al. (2024)</ref>, the patients' MRI scans were collected, between 15th July 2010 and 3rd March 2020, from a 1.5T Avanto scanner, a Siemens 3T Trio scanner, and a Siemens 3T Allegra scanner. All scanners acquired 176 sagittal slices with a matrix size of 256 × 224, producing a final spatial resolution of 1 mm isotropic voxels. The 1.5T Avanto scanner used a 3D magnetization-prepared rapid acquisition gradient-echo (MPRAGE) sequence (TR/TE/TI = 2730/ 3.57/1000 ms), while the 3T scanners used a 3D modified driven equilibrium Fourier transform (MDEFT) sequence (TR/TE/TI = 7.92/ 2.48/910 ms).</p><p>The images were preprocessed with the Statistical Parametric Mapping software (<ref type="url" target="https://www.fil.ion.ucl.ac.uk/spm">https://www.fil.ion.ucl.ac.uk/spm</ref>) and spatially normalized into Montreal Neurological Institute (MNI) space using a unified segmentation algorithm <ref type="bibr" target="#b0">(Ashburner &amp; Friston, 2005;</ref><ref type="bibr" target="#b9">Crinion et al., 2007)</ref> optimized for use in patients with focal brain lesions via the addition of an extra 'lesioned-tissue' class <ref type="bibr" target="#b37">(Seghier et al., 2008)</ref>. From this automated lesion identification (ALI) approach, left hemisphere lesion size was calculated by the number of damaged voxels in each patient's binary lesion image. The normalized MRI scans were adapted to a 2D image format, following the specifications set in <ref type="bibr" target="#b34">Roohani et al. (2018)</ref>. The image for each patient was created by stitching 64 of their cross-sectional axial MRI slices in an 8x8 grid of size 632 x 760 pixels; see Fig. <ref type="figure" target="#fig_1">1</ref>. The rationale behind this was that both <ref type="bibr" target="#b53">White et al. (2024)</ref> and <ref type="bibr" target="#b34">Roohani et al. (2018)</ref> demonstrate that 2D stitched MRI representations can perform as well asor even outperform-full 3D volumes. Given the comparable accuracy, 2D models offer important advantages: they require fewer trainable parameters, are more memory-efficient, and are less computationally demanding. Additionally, the reduced model dimensionality helps mitigate challenges associated with the curse of dimensionality, as mentioned in the Introduction.</p><p>The stitched slices images also underwent some preprocessing. The Automated Anatomical Labelling (AAL) atlas <ref type="bibr" target="#b48">(Tzourio-Mazoyer et al., 2002)</ref> was used to define a grey matter segmentation, which was applied as a mask to retain the brain tissue and exclude the background that resulted from stitching the axial scans. Images were then normalized, down sampled to a 256 x 256 image, transformed into tensors, and standardised to Z-scores using the mean and standard deviation from the ImageNet database.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">Models</head><p>As previously discussed, we employed two models for comparison in our learning curve analyses. We chose a binary logistic regression as a baseline model, which used the three a-priori variables (see previous section) as regressors. The BFGS algorithm (named after its co-discoverers, Broyden, Fletcher, Goldfarb, and Shanno) was used as the optimizer for logistic regression. This algorithm is used to approximate the inverse Hessian matrix, avoiding the need for recalculating it on every iteration. This approach enabled accurate fitting of logistic regression on small sample sizes, preventing issues with singular matrix errors. Additionally, this alternative method did not significantly impact the accuracy or standard error when compared to runs employing the default optimization algorithm (Newton-Raphson).</p><p>The machine learning model used for this paper was a 2D Residual Network with an 18-layer architecture, i.e. ResNet-18, which belongs to the class of deep Convolutional Neural Networks (deep CNNs). The model was pretrained on the ImageNet database and then fine-tuned to our dataset during training. To this architecture, we replaced the last fully connected layer with a few extra layers. The output from the previous ResNet layer was passed to a new linear layer with 256 output nodes, from which outputs were fed to a ReLU activation function. Then a dropout (probability = 0.3) layer was used to randomly zero a percentage of input nodes during training to prevent overfitting. Lastly, a linear layer (256,2), calculated the output probabilities for our two classes. The architecture of our model is depicted in Fig. <ref type="figure" target="#fig_2">2</ref>.</p><p>The first added linear layer with 256 output nodes acts as a compression of the 512 nodes representation and it helps reduce memory usage and improve generalisation as the nodes should be enough to capture meaningful abstractions, but not so many that the network overfits. It helps with the balance between model complexity and overfitting.</p><p>While the use of a dropout layer to regulate overfitting is widely accepted when fine-tuning a model to a new task and especially with small or medium-sized datasets <ref type="bibr" target="#b7">(Brigato &amp; Iocchi, 2020;</ref><ref type="bibr" target="#b30">Odusami et al., 2021)</ref>, a more common default value for the probability would be 0.5. By using a lower value of 0.3, which is a value that is supported empirically by community standards, we wanted to balance the regularisation process in order not to hinder the learning capacity of the network (e.g. using a probability of 0.7) or apply too little regularisation (p = 0.1).</p><p>There was an imbalance between the two classes for the SPD and Naming tasks, i.e. the non-aphasic group was bigger than the aphasic group. Therefore, we employed a balanced training approach for ResNet, weighting the model's outputs for the two classes in the loss function. The model was trained for a maximum of 200 epochs with early stopping when the validation set's class-weighted binary crossentropy loss was at its minimum. The neural network was trained using stochastic gradient descent, the learning rate was set to 0.0001, and the classification probabilities were calibrated using Platt scaling <ref type="bibr" target="#b13">(Guo et al., 2017)</ref>. As our objective was to investigate the model's learning curves, we used a fixed learning rate to enable the model to explore more of the loss surface before converging. The notion of using a large, fixed learning rate (e.g. 0.1) to traverse larger distances on the loss surface and enable the optimisation algorithm to find flatter regions to improve the model's generalisation is extensively described by <ref type="bibr" target="#b54">Xing et al. (2018)</ref>. When the learning rate decays as a result of using an annealing approach, shorter steps are taken during optimisation which results in less exploration <ref type="bibr" target="#b40">(Srivastava et al., 2014)</ref>.  In our case, since we are fine-tuning a pre-trained model using a relatively small dataset, the use of a fixed and much smaller learning rate (e.g. 0.0001) has been shown to stabilise the retraining process and yield better accuracy <ref type="bibr" target="#b28">(Nakamura &amp; Harada, 2019)</ref>. In addition to this, the combination of using a dropout layer and a smaller learning rate when fine-tuning a model was found to retain the information that was learnt during pretraining while achieving improvements in the final generalisation performance <ref type="bibr" target="#b40">(Srivastava et al., 2014)</ref>.</p><p>We implemented several preprocessing steps to ensure counterbalanced splits of the dataset for training and testing. As in <ref type="bibr" target="#b53">White et al. (2024)</ref>, patients were divided into five almost equally sized groups, with the intention to equalise factors such as the MRI scanner used, years between stroke and CAT assessment, left hemisphere lesion size, and performance on the SPD and Naming tasks. This balancing was performed on the complete PLORAS dataset (1072 patients) prior to patient exclusion. However, in a follow-up check, we verified that the counterbalancing was preserved after the exclusion. We present the balancing summary in the Tables <ref type="table">1</ref> and <ref type="table" target="#tab_0">2</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.">Learning curves analysis</head><p>The aim of the learning curves analysis was to demonstrate and study the behaviour of the two models with varying sample sizes. For this purpose, we trained and tested the models on continually decreasing sample sizes using a 4 within 5 folds nested cross-validation approach, see Fig. <ref type="figure" target="#fig_3">3</ref>, and then plotted the average test accuracies of the two models for comparison. Starting with the five counterbalanced groups, the procedure was as follows.</p><p>Firstly, the outer loop set the percentage of the available data to use for our sample size, starting at 100% and decreasing by a step of 10% in each loop; see point A in Fig. <ref type="figure" target="#fig_3">3</ref>. In the first nested loop, we repeatedly (five times) selected one out of the 5 groups to be our (hold-out) test set,<ref type="foot" target="#foot_1">foot_1</ref> while the rest of the groups were 1) passed to Logistic regression for fitting, and 2) used for four-fold cross validation of the ResNet. Thus, in the second of these, repeatedly (four times) three of the four groups became the training set for ResNet, with the other becoming the validation set (see inner fold example in Fig. <ref type="figure" target="#fig_3">3</ref>).</p><p>We resampled the respective percentage of data (set in point A of Fig. <ref type="figure" target="#fig_3">3</ref>) from the full sample of each of the counterbalanced patient groups with replacement (i.e. bootstrapping) and then combined them into the training/validation sets. The rationale behind this process was to preserve the initially counter-balanced groups for all sample sizes. Resampling was only performed on the training and validation sets, while the test set remained unchanged in size throughout the process. This bootstrapping procedure was repeated 10 times for each of the four nested folds (see point B in Fig. <ref type="figure" target="#fig_3">3</ref>),<ref type="foot" target="#foot_2">foot_2</ref> essentially producing 40 different balanced accuracies for each test group (4 inner folds x 10 bootstrap repetitions). These 40 accuracies were averaged producing one average balanced accuracy for each of the 5 groups, which were then averaged again to create each sample size point in our learning curves plots.</p><p>We selected balanced accuracy as a metric due to the skewed classes in our dataset and it was calculated by averaging the model's sensitivity and specificity. Balanced accuracy may also be a more informative measure for clinical use, as it is important to correctly classify both patients with no language impairments and patients with substantial deficits. For each model, we also calculated confidence intervals for each sample size as Binomial proportion confidence intervals. <ref type="foot" target="#foot_3">5</ref> These confidence intervals were also used to quantify the tendency of a learning curve to stabilise or not. We calculated the overlap between the maximum sample's confidence interval with each of the small sample sizes to see whether it was large, and when it surpassed 95%. Thus, the more that smaller sample sizes exhibit a large overlap with the maximum sample's confidence interval, the more the tendency to have stabilised.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4.">Principal components analysis (PCA) on the imaging data</head><p>PCA was performed to find the components that captured 95% of the variability in the data. We applied it to the images in their tensor format, as this is the form of the data before ResNet's training procedure begins. The analysis was performed on the flattened tensor images, which were of size 758 samples x 65536 features (=256 x 256 pixels). After the feature reduction, two models were selected for training on the PCAtransformed data. This enabled us to directly assess the classification information contained in different portions of the PCA components (e.g. the strongest components), without reconstructing brain scans, as required of the ResNet. The first model was a Multi-layer Perceptron (MLP) model, with 3 hidden layers, and a sigmoid activation function. The second was a Support Vector Machine (SVM) with a radial basis function (RBF) kernel. We did not perform any parameter tuning for these models, as the purpose was not to obtain the best accuracy for them but to compare them with our already employed models. We trained these two models to obtain their balanced accuracy on the full dataset (of size 758 patients) in order to compare it with ResNet's balanced accuracy. The training/testing process for the MLP was the same as ResNet's, i.e. 4 within 5 folds nested cross-validation (see Fig. <ref type="figure" target="#fig_3">3</ref>), where the validation group was used to stop the model's training. In the SVM case, we used default hyper-parameter settings (including the regularisation parameter, C, which determines the tolerance of errors). Accordingly, there was no need to tune any hyperparameters using nested cross-validation and no explicit validation set, so we repeatedly selected one of the groups to be the hold-out test group again while the rest became the training set (similarly with the training procedure for the Logistic regression). We report the average balanced accuracies across the five test groups for each model in section 3.5.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Results</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">Learning curves for the spoken picture description (SPD) and naming tasks</head><p>In Fig. <ref type="figure" target="#fig_4">4a</ref>, the balanced accuracies of both models on the SPD classification task are plotted across the training dataset size, i.e. sample size, along with their confidence intervals. Maximum accuracy for ResNet was 80.6% and for logistic regression 81.6%. Thus, quantitatively central tendencies for logistic regression outperform those for ResNet across all sample sizes, although the statistical difference in performance between the two models is undecided given the overlap in confidence intervals. Additionally, performance on both classifiers seems to have, or be in the process of, asymptoting by our largest sample size. Similar results were observed for the Naming task in panel b.</p><p>These results are against our initial hypothesis that there would be a sample size where ResNet's machine learning advantage would manifest (e.g. the two learning curves would cross) or, at least, a faster increase for ResNet's accuracy at large sample sizes. However, from 50% of our available dataset (304 patients) onwards, the accuracy difference between the models is very small and their confidence intervals overlap even for smaller samples (122 patients for Naming and 182 patients for SPD). Furthermore, in both classification tasks, the accuracy of the models' learning curves seems to have plateaued at approximately 365 patients. For the SPD task, ResNet's confidence intervals for sample size 365 and 608 have an overlap of 93.5%, while the overlap increases to 95.3% for the comparison between 487 and 608 patients. The average overlap with the last confidence interval, starting from 365 samples onwards, is 94.6%. Accordingly, for the Naming task, confidence intervals have an overlap of 92.5% between sample sizes 365 and 608, increasing to almost 95% for samples 487 and 608. The average overlap from sample 365 for this task is 94.6%. Logistic regression, for both classification tasks, has an overlap of more than 95% for all confidence intervals after sample size 365. The average overlap from sample 365 onwards is 97.8% for SPD and 99% for Naming. This could be an indication that even with a bigger sample size, we would not be able to reach a good enough accuracy to be clinically applicable and that our deep CNN model would never outperform the much simpler regression model.</p><p>Given that the models' confidence intervals overlap, we also investigated the extent to which the models classified the same patients in the same way. We, therefore, calculated that ResNet and logistic regression agreed on their outputs for 89.4% of the patients for SPD and 89.2% for Naming, which highlights a large (per-individual) similarity in their behaviour. This finding raises the possibility that, despite its size (in terms of number of parameters), the sophistication of its learning algorithm and its flexibility in fitting data (c.f. the universal function approximation theorem, (e.g. <ref type="bibr" target="#b18">Hornik et al. (1989)</ref>), the learning problem we have trained our ResNet on actually learns a very simple feature from the data available. One candidate for this feature is lesion-size <ref type="bibr" target="#b22">(Landrigan et al., 2021;</ref><ref type="bibr" target="#b39">Sperber et al., 2023;</ref><ref type="bibr" target="#b46">Thye &amp; Mirman, 2018)</ref>. Providing evidence for this is a central objective of this paper.</p><p>As the models' learning curves for the two tasks were almost identical, we focused all subsequent analyses (from 3.3 onwards) only on the SPD task. As mentioned in the Methods, SPD performance takes into account a range of language abilities, including naming, with the intention to differentiate between aphasic and non-aphasic speech without bias towards fluent or non-fluent types <ref type="bibr" target="#b43">(Swinburn et al., 2004)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">Sanity checks</head><p>As the findings presented in the previous sections were not anticipated, we ran sanity checks to counter the possibility of an error in the logic of our models' training or analysis. We selected two new dependent variables, with the motivation to give ResNet a clear advantage, as we theorized that they would be more easily detectable from the brain scans. Thus, for these experiments, we expected ResNet to, firstly, outperform the logistic regression and, secondly, show that its performance does not always reach an accuracy ceiling by the maximum sample size we have.</p><p>Both experiments were again binary classification problems. The first</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Table 1</head><p>Counterbalancing results for all five groups after patient exclusion.  one was to classify patients based on the size of the damage/lesion in their left hemisphere (large or small). The classification threshold for large versus small was set to 16cm 3 (2000 voxels). The median left hemisphere lesion size across all the available patients was 1184.5 voxels. Setting the threshold to 2000 voxels created imbalanced classes, similar to the imbalance in our language tasks, which was a datasetspecific detail we wanted to preserve for the sanity checks. Left hemisphere lesion size was removed from the logistic regression's independent variables for this experiment to prevent trivial ceiling classification accuracy (i.e. logistic regression was based on two variables: initial severity and recovery time).</p><p>The second experiment was to classify patients based on their age at stroke (older versus younger). Here, the classification threshold was set at 56 years at stroke because the average age at stroke was 56.22 years and this threshold also resulted in imbalanced classes. In this case, left hemisphere lesion size was not removed as an independent variable from the logistic regression model.</p><p>Fig. <ref type="figure" target="#fig_5">5</ref> demonstrates exactly the expected behaviour from ResNet. In panel a (classifying on lesion size), we see its dominance over logistic regression, with accuracy as high as 91%. The shape of ResNet's learning curve shows a rapid increase in accuracy up to around a fifth (182 participants) of the maximum sample size. Additionally, logistic regression performed worse over all sample sizes, as anticipated, because lesion size was removed from the independent variables (as it was the dependent variable for this experiment).</p><p>Panel b (classifying on age at stroke) also shows ResNet outperforming logistic regression and not stabilizing in performance as quickly as for the SPD and Naming classification tasks in Fig. <ref type="figure" target="#fig_4">4</ref>, or the classification of lesion size (Fig. <ref type="figure" target="#fig_5">5a</ref>). We also observe a big general decrease in accuracy for both ResNet and logistic regression, compared to both Fig. <ref type="figure" target="#fig_4">4</ref> and Fig. <ref type="figure" target="#fig_5">5a</ref>, with a maximum of approximately 68%.</p><p>In conclusion, these experiments suggest that ResNet can have a much higher performance than logistic regression and can have a nonasymptotic performance for a large range of our sample sizes. This, in turn, tempers any doubts about our methodology and algorithmic implementation. It also makes the further contribution of indicating that ResNet is able to accurately detect lesion size from the MRI scans, an aspect that is relevant to our later findings in this paper.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.">Learning curves for patients whose outcomes are most difficult to predict</head><p>In this section, we investigate the learning curves of a group of more difficult patients, in order to see whether ResNet's capacity to build non-linear classification boundaries brings a benefit with this group relative to logistic regression and leads to non-asymptotic learning curves. For example, patients with initial severity scores in the almost normal/ normal range are very likely to recover their language ability, often because it was already normal soon after their stroke. Therefore, these patients are easy to predict, inflating estimates of recovery <ref type="bibr" target="#b4">(Bonkhoff et al., 2020;</ref><ref type="bibr" target="#b5">Bowman et al., 2021;</ref><ref type="bibr" target="#b16">Hope et al., 2019)</ref>. Excluding such patients makes classification harder.</p><p>The difficult initial severity group (n = 286) included patients with severe and moderate initial impairments (see descriptive characteristics in Table <ref type="table" target="#tab_1">3</ref>). It excluded (i) patients whose initial severity was not known, including those who were unconscious in the first week post stroke, and (ii) patients who never had any impairment (normal) or whose stroke did not impair the ability to generate short sentences (mild impairment).</p><p>The outcome of interest for this experiment was the total score on the Spoken Picture Description task.</p><p>Contrary to expectation, we found that the learning curves for both ResNet and logistic regression continued to show an asymptotic tendency when the patient sample was limited to those who were more difficult to classify (Fig. <ref type="figure" target="#fig_6">6</ref>). In this case, ResNet's confidence intervals overlap for sample sizes 137 and 229 was 91.5%, increasing to 92.7% for samples 183 and 229 and reaching 99% for the last two samples comparison. The average overlap between the last confidence interval and confidence intervals from sample 137 onwards was 94.8%. For logistic regression, the confidence intervals have a higher than 95% overlap from sample size 137 onwards, with an average of 98.5%. The most prominent effect of making the classification more difficult was to substantially reduce model accuracy and increase confidence intervals.</p><p>In Fig. <ref type="figure" target="#fig_6">6</ref>, we see that both classification models (logistic regression and ResNet) performed worse than with all patients (compare to Fig. <ref type="figure" target="#fig_4">4a</ref>). For the largest sample size for both models, there was a drop of approximately 5% in accuracy for difficult initial severity. Additionally, confidence intervals are wider across all sample sizes for ResNet and logistic regression, compared to the results when including all patients (compare Fig. <ref type="figure" target="#fig_6">6</ref> to Fig. <ref type="figure" target="#fig_4">4a</ref>). These are all signs that both models found this set of patients harder to classify.</p><p>Furthermore, there is no evidence that ResNet does better than logistic regression, with confidence intervals for both models (logistic regression and ResNet) generally overlapping across sample sizes. Most importantly, given the smaller maximum sample size (229 for difficult initial severity), both learning curves in Fig. <ref type="figure" target="#fig_6">6</ref> show a tendency to converge that is similar to what we observed in Fig. <ref type="figure" target="#fig_4">4</ref>.</p><p>However, this comparison of learning curves between different groups is somewhat confounded by the difference in maximum sample size between the two sets of patients: difficult initial severity, and All patients. As the set of patients with difficult initial severity had a smallest maximum sample size, we generated ResNet's learning curves for the All patients case with the same (reduced) maximum sample size. We wanted to investigate whether the more difficult set of participants are exhibiting a learning curve increase, when the learning curve for All patients is at asymptote. The result can be seen in Fig. <ref type="figure" target="#fig_7">7</ref>.</p><p>Here, we see that the curve for the difficult initial severity is superior to that for all the patients for the smallest sample size. However, there is a faster increase in performance when sampling from All patients, eventually giving them higher accuracy than when sampling from the smaller set of patients. Although, in both cases, confidence intervals overlap. Critically, there is no evidence that the difficult patients are further from asymptote than the All-patients group, around the sample size of 229, i.e. their learning curves are not increasing at a faster rate.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4.">Properties of training: non-stabilising learning curves</head><p>The results we have presented in Sections 3.1, 3.2 and 3.3 seem to suggest that increasing the dataset size further is unlikely to improve accuracy. This might be considered as a pessimistic finding, suggesting that the big data benefit is over even when one has reached around 300 patients, i.e. that there is no real big data benefit in the sense of modern AI. However, our analyses have also identified patterns across samplesizes that inform the question of whether we are at absolute stability. We consider one of these patterns in this section and include one more in Appendix A.</p><p>Here, we explored whether the same asymptotic pattern was present for ResNet's training and validation learning curves (Fig. <ref type="figure" target="#fig_8">8a</ref>), as well as assessed the level of over-fitting (Fig. <ref type="figure" target="#fig_8">8b</ref>). Accuracies for training and   The confidence intervals are also coloured for visualisation purposes as they were highly overlapping. validation are acquired from the epoch when the training was stopped, based on the validation loss rule explained in Section 2.2, and calculated following the procedure described in Section 2.3. Fig. <ref type="figure" target="#fig_8">8a</ref> shows highest accuracy for the training set and lowest accuracy for the test set. This is expected because the model's weights are directly tuned on the training data, whereas the validation set influences training more indirectly, by determining the trained model selected (the one with minimum validation loss from amongst 200 epochs of training). Over-fitting in the results shown in Fig. <ref type="figure" target="#fig_8">8a</ref> was assessed by calculating two differences: 1) Training minus Test and 2) Validation minus Test and plotting these differences across sample sizes. As shown in Fig. <ref type="figure" target="#fig_8">8b</ref>, differences between Validation and Test accuracies are consistently less than 0.05, across all sample sizes. In contrast, the differences between Training and Test accuracies are larger, starting at 0.22 and falling to 0.13 as sample size increases. Although there is clear evidence of over-fitting (e.g. Training minus Test accuracy difference is large), the Test accuracy remains a reliable measure of generalization performance because our testing is fully out-of-sample. These two quantifications of over-fitting exhibit broadly similar shapes, both reducing as sample size increases. Most notably, the Training minus Test difference keeps reducing even after the Validation minus Test difference seems to have stabilised, which appears to happen by the sample size of 243 patients. Associated with this, training accuracy gets progressively worse, as observed in panel a. Such reduction in training accuracy has been discussed previously <ref type="bibr" target="#b8">(Cortes et al., 1993)</ref>. Moreover, for the training learning curve, the confidence intervals of sample sizes 365 and 608 have a low overlap of around 77%, which eventually reaches a higher amount of 98.3% between sample sizes 487 and 608. However, we know that training accuracy will tend towards testing accuracy as sample sizes get larger and overfitting is reducing. The average overlap between the last confidence interval and all intervals from sample size 365 onwards is 88.2%.</p><p>The inflated Training minus Test quantification of over-fitting with small samples is likely to arise from patterns in the data that can unreliably "benefit" training accuracy when the signal-to-noise ratio is low (i. e. when the training sample is small). However, as signal-to-noise increases with increasing sample size, the statistics of patterns in the data become closer to the "true" underlying statistics, i.e. sampling error reduces. These true statistics reflect the substantial heterogeneity in the patterns of brain damage that can lead to aphasia, and the infrequency with which each pattern appears in the population. Ultimately, training accuracy will stop reducing when it equals test accuracy. In other words, the amount of data is sufficient that effectively overfitting is no longer an issue.</p><p>The key aspect of the current study is that the Training learning curve has not stabilized, as changes in learning occurred even after the Test learning curves seem to have stabilized. Indeed, although the Validation minus Test across sample size is consistent with the stabilizing learning curves, the Training minus Test across sample size has obviously stabilized less. This raises the possibility that our (Test) accuracy plateau is not an absolute plateau, since there is improvement with sample size, i.e. over-fitting quantified as Training minus Test is reducing. That said, we certainly do not know for sure that such an accuracy improvement (from the plateau) will occur. We discuss the possibility of a learning curve "kicking back up" after having seemingly plateaued in subsection "Optimistic Perspective" of the Discussion.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.5.">PCA</head><p>As previously discussed, a property of neuroimaging data is that it is, in respect of number of voxels, very high dimensional, containing hundreds of thousands of voxels. However, since voxel values are correlated, the underlying latent dimensionality may be a good deal less. We explore this in this section using PCA.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.5.1.">PCA feature reduction findings</head><p>The application of PCA yielded 491 components, which explained 95% of variability in our stitched images. As the maximum number of components that could have been identified was 758 (=size of the dataset), this result was not, in this respect, a massive reduction, but it was nonetheless substantially different to the 65,536 original features of our 2D images, reflecting the number of pixels.</p><p>The bar plot in Fig. <ref type="figure" target="#fig_9">9</ref> shows the amount of variance explained by the first 20 identified PCA-components:</p><p>The first PCA-component explained 21.84% of the variance, the second one approximately 14% and the rest of them explained below 5% of variance. The total variability explained by these 20 PCA-components was 58.67%.</p><p>We then compared classification performance on the PCAtransformed data from all (95%-explained variance) 491 components and 20 (58.67%-explained variance) components. As detailed in section 2.4, we employed a MLP and a SVM along with ResNet-18 for these experiments. In addition to the PCA-transformed data, we reconstructed the stitched images, applying the inverse PCA-transform on the identified components for the purpose of including ResNet in this comparison. Table <ref type="table">4</ref> contains a summary of the results for all three models for each experiment with the PCA-transformed data (referred to as PCA_data in the table) and reconstructed images. Table <ref type="table">4</ref> demonstrates that less computationally complex models than ResNet can reach an accuracy as high as approximately 79% when using the feature reduced data. <ref type="foot" target="#foot_4">6</ref> Additionally, it is striking that ResNet achieved the same performance (or better) using the new compressed, i.e. reconstructed from 20 PCA-components, images. This might highlight that the more advanced machine learning model has not been able to fully reach its potential with our current dataset and that it is focusing on simple patterns which could be identified even when using simpler models and/or data.</p><p>To explore further whether information is lost in going to 20 PCAcomponents (henceforth dominant components), we plotted ResNet's learning curve for the reconstructed images from the dominant components (Fig. <ref type="figure" target="#fig_10">10b</ref>). We also illustrate the learning curves for the reconstructed images from only the first 2 components for comparison (Fig. <ref type="figure" target="#fig_10">10a</ref>), as they are the most explanatory PCA-components from the dominant components. Additionally, we trained ResNet on reconstructed images after removing the influence of these 20 dominant components, thus keeping the remaining 471 (henceforth residual components) and plotted its learning curve (Fig. <ref type="figure" target="#fig_10">10c</ref>).</p><p>ResNet's learning curve in Fig. <ref type="figure" target="#fig_10">10b</ref> is very similar to the basic one (without PCA dimensionality reduction) in Fig. <ref type="figure" target="#fig_4">4a</ref>. We observe a notable boost in accuracy for the two smallest sample sizes. More effective learning with few components, even after reconstruction, is likely to reflect the removal of weaker latent dimensions that carry less information; indeed, this is the logic of feature selection. Indeed, we see a further boost in accuracy for our smallest sample size when only the first 2 dominant components are considered (Fig. <ref type="figure" target="#fig_10">10a</ref>). This gives ResNet's learning curve a similar shape to Fig. <ref type="figure" target="#fig_4">4a</ref>, with a similar maximum accuracy. Furthermore, the accuracy plateau is again evident for both curves in panel a and b. The confidence intervals for sample sizes 365 and 608 have an overlap of around 91% for panel a and 95% for panel b, which increases to 96.2% between samples 548 and 608 for panel a and to 98.4% for panel b. The average overlap between all confidence intervals from sample 365 with the last interval is 94.3% for panel a and 96.6% for panel b.</p><p>The most interesting observation, however, comes from the learning curves for the residual components in Fig. <ref type="figure" target="#fig_10">10c</ref>. Even though this model behaves at chance or close to it for a number of the smaller sample sizes, the shape of its learning curve has a clearly positive slope. Indeed, confidence intervals before sample size 365 have a lower than 80% overlap with the final sample's confidence interval, while the overlap between samples 487 and 608 increases to 97.5% but then drops again to 93.7% between the last two samples. Here, the average overlap between the last confidence interval and all intervals from sample 365 onwards is 87.8%. This could suggest that as we add in more samples, ResNet is starting to identify another, more subtle pattern in the data which is captured by the residual components.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.5.2.">Explaining the PCA-components</head><p>The purpose of our last analysis was to find the correlation of the PCA-components with two (tabular) features that were used in the Logistic regression and, shown in the previous results sections, to have high predictive value: a) Left hemisphere lesion size and b) Initial severity. There are two ways we can link this analysis to our previous findings. Firstly, logistic regression outperformed ResNet (with overlapping confidence intervals) using these tabular features, therefore we know that they are informative of language impairment in stroke patients in our dataset. Moreover, we have observed a very high accuracy for ResNet for the lesion size classification task in Fig. <ref type="figure" target="#fig_5">5a</ref>. Thus, it might be that lesion size is a very important feature for the CNN and it could be driving its classification performance.</p><p>For this analysis, we employed a Linear Regression model to regress left hemisphere lesion size and initial severity scores onto the first 2, the dominant 20, and the residual components using the PCA-transformed data. For each regression model, the predictors were the PCA transformed data (of shape 758x2, 758x20, and 758x471 respectively) and the outcomes were lesion size or initial severity. The R 2 scores are presented in Table <ref type="table">5</ref>.</p><p>In Table <ref type="table">5</ref>, we can clearly see the strong relationship between left lesion size and the dominant components, as they explain 92% of the variance found across all the patients. This is, in turn, consistent with the perspective that it is indeed lesion size that drives ResNet's performance in our basic classification task, since the same classification accuracy is reached when using images reconstructed from the dominant components (see Fig. <ref type="figure" target="#fig_10">10b</ref>), and from the original (undecomposed) images (see Fig. <ref type="figure" target="#fig_4">4a</ref>). Similarly, even though the explained variance drops to 78% for the first 2 components, it still shows a big correlation that can explain the performance seen in Fig. <ref type="figure" target="#fig_10">10a</ref>.</p><p>We also directly compared ResNet's binary predictions for SPD with a binary version of the patients' left hemisphere lesion sizes. We applied a threshold of 2000 voxels to convert the continuous lesion sizes to binary values (same threshold as in our sanity check in section 3.2), with sizes smaller than the threshold being 1s (not aphasic) and larger being 0s (aphasic). We then calculated the number of times ResNet's predictions were equal to the binary lesion sizes and found a 98.5% match. This finding also supports the perspective that ResNet's behaviour with our dataset is strongly driven by left hemisphere lesion size.</p><p>As PCA-components are orthogonal with respect to each other, the fact that the residual components only explain 6% of the lesion size variance comes as no surprise. However, the residual components explain more variance in the initial severity scores than the other two Table <ref type="table">4</ref> a) Average balanced test accuracies for MLP and SVM when using two PCAtransformed datasets: 1) all components (491 components), 2) first 20 components. b) Average balanced test accuracies for ResNet-18 when using two new image datasets: reconstructed images using 1) all components (491), 2) first 20 components. * A feature of these findings is that performance on just 20 components is better than on all 491 components. This is likely to reflect the benefit of feature selection. That is, the signal is stronger relative to the noise in the first 20 components. Training to high accuracy is more difficult when combined with the remaining noisier components.</p><p>Method Accuracy MLP on PCA_data with 491 components 78.8 % MLP on PCA_data with 20 components 79.62 % SVM on PCA_data with 491 components 78.6 % SVM on PCA_data with 20 components 78.9 % ResNet-18 on reconstructed images from 491 components 80.6 % ResNet-18 on reconstructed images from 20 components 80.7 % sets of components. This might indicate that part of the initial severity of the patients could be linked to the other patterns ResNet seems to be gradually learning in Fig. <ref type="figure" target="#fig_10">10c</ref>. We also performed a sanity check to assess how much the regression for the residual components might be confounded by the large number of regressors in the regression model (up to 471). Once regression models get large, even if regressors are just random sequences, they can still explain a dependent variable well, simply because of the complexity/flexibility of the model. Thus, our performance with PCA regressors should really be compared to a baseline model of random regressors, reflecting "chance" performance. Accordingly, we fitted 24 Linear Regression models to sets of residual components that started from the size of 20 and then increased by 20 until the maximum number of components was reached (e.g. the first model used the first 20 residual components, the second model the first 40, ……the twenty third model included 460 and the twenty fourth model included 471). We then performed exactly the same regressions but using regressors that were randomly generated from a Gaussian distribution. This resulted in 24 different models for each type of regressors. The R 2 scores for both PCA and random regressors are plotted in Fig. <ref type="figure" target="#fig_11">11</ref>.</p><p>Fig. <ref type="figure" target="#fig_11">11</ref> displays the effect of fitting a model up to a very large number of regressors (in this case the maximum number was 471). Even though the Gaussian regressors (orange line) are randomly generated, 471 of them are able to explain more than 60% of the variability in lesion size and initial severity (see both Fig. <ref type="figure" target="#fig_11">11a</ref> and <ref type="figure">b</ref>). Notably, in Fig. <ref type="figure" target="#fig_11">11a</ref>, the PCA-components line increases much more slowly than Gaussian (random) regressors line, indicating how uncorrelated the residual components are with left hemisphere lesion size, and thus, how little lesion size information is left in the residual regressors, i.e. much less than chance. Finally, although the residual PCA-components also explain less initial severity variability than chance (blue generally increasing more slowly than orange in Fig. <ref type="figure" target="#fig_11">11b</ref>), they clearly explain considerably more variability in initial severity than in lesion size.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Discussion</head><p>In a series of analyses of a dataset that is large by neuroimaging standards, but small by artificial intelligence standards, we have provided an initial investigation of whether the big data benefits of deep learning are likely to be transformative for the prediction of deficits and recovery from structural brain-scans collected following stroke. There are a number of key findings. 1) Our basic learning curves (see Fig. <ref type="figure" target="#fig_4">4</ref>) seem to suggest that little benefit will accrue from increasing sample sizes beyond about 300 and this is the case whether classifying with ResNet or logistic regression. Table 5 R 2 scores for the correlation of different numbers of PCA-components with left hemisphere lesion size and initial severity scores. Number of components Left hemisphere lesion size Initial severity 2 0.78 0.27 20 0.92 0.37 471 0.06 0.44</p><p>2) ResNet does not perform better than logistic regression. Thus, our results suggest that logistic regression, with just three dimensions, classifies surprisingly well, when compared to deep learning.</p><p>3) The more difficult patients to classify, who are distant from the floor or ceiling ranges, are indeed harder to classify, but most importantly, also exhibit a classification plateau; see Fig. <ref type="figure" target="#fig_6">6</ref>. 4) There is evidence that while testing (and validation) accuracies have plateaued, training accuracy has not, with it reducing from a sample of 243 onwards; see Fig. <ref type="figure" target="#fig_8">8</ref>. This likely reflects a reduction in overfitting as sample size continues to increase. 5) While our dataset is high dimensional (65536 voxels), there is very considerable informational redundancy, as compressing the data to just 20 dimensions or indeed 2 -does not appear to reduce classification accuracy; see Fig. <ref type="figure" target="#fig_10">10a</ref>,b. 6) This reduction to 20 (dominant) dimensions suffers the same accuracy plateau; see Fig. <ref type="figure" target="#fig_10">10b</ref>, as does a reduction to 2 dimensions; see Fig. <ref type="figure" target="#fig_10">10a</ref>. 7) Classifying on the remaining 471 components, the residual components, which would usually be discarded as weak, insignificant and even reflecting noise, does not lead to high accuracy, but importantly, produces key evidence for an increasing learning curve even with larger sample sizes; see Fig. <ref type="figure" target="#fig_10">10c</ref>. 8) The dominant components (first 20 and even first 2) are almost perfectly predictive of lesion size (agreement for 98.5% of patients), while the residual components (remaining 471) are collectively close to completely orthogonal to lesion size (see Table <ref type="table">5</ref>), indicating that they are coding very different information including variability related to initial severity.</p><p>A first conclusion from these findings is that there is quite a simple pattern in the data that can lead to accuracies just over 80%, with the ResNet. This follows from a) this accuracy being reached by just 300 patients (approx.) and there being little, if any, improvement as sample size increases beyond 300; b) the capacity for logistic regression, using just three tabular features, to classify at this accuracy; c) no evident loss in classification performance following latent dimension reduction to just 20 (or even 2) components; d) the almost perfect match between ResNet and classification on lesion size and e) the very strong correlation between dominant latent dimensions and lesion size. That is, the maximum accuracy we have observed can be obtained (i) without needing a large (by AI standards) dataset, (ii) using a linear classifier, (iii) after compressing the data to few dimensions, (iv) by classifying directly on lesion size and (v) when the few dimensions clearly reflect a simple feature of the data: lesion size.</p><p>Although not certain, this raises the possibility that classification performance is actually being obtained on the basis of a rather simple (low dimensional) pattern in the data. Fig. <ref type="figure" target="#fig_10">10a</ref> further adds to this interpretation, as we see that even two dimensions are effectively enough to reach an accuracy as high as 80%.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.">Linearity</head><p>A classic distinction in statistics and machine learning is between (more traditional) purely linear methods and (more recent) non-linear methods. Logistic regression and linear discriminant analysis are classic linear methods, which place a linear hyperplane in the data space <ref type="bibr" target="#b26">(Murphy, 2023)</ref>.</p><p>The most prominent non-linear methods are neural networks (including Multi-layer Perceptrons), which are currently benefitting from the new advances in deep networks <ref type="bibr" target="#b26">(Murphy, 2023)</ref>. Non-neural network approaches, such as support vector machines with non-linear kernels <ref type="bibr" target="#b26">(Murphy, 2023)</ref>, would also fall into this class. In contrast, traditional linear methods are unable to solve linearly inseparable problems, giving non-linear methods an absolute advantage in that context, although the dangers of overfitting increase. XOR is a canonical example of a problem that, despite only involving two input units, cannot be solved with linear methods <ref type="bibr" target="#b31">(O'Reilly &amp; Munakata, 2000)</ref>.</p><p>Modern deep learning techniques will typically show their advantage on datasets that are intrinsically high dimensional, with classification boundaries that cannot be effectively realised with a linear separator, i. e. that are inherently linearly inseparable. In this context, logistic regression (and linear discriminant analysis), especially, with few dimensions, should not perform well. Thus, it is striking that logistic regression performs comparatively well on our classification problem. As previously discussed, this fits with the simple pattern perspective of how classification is being performed, i.e. although the fact that logistic regression can fit comparatively well, does not definitively mean that ResNet is extracting a linear pattern, it does suggest that there is a linear pattern that can exhibit similar accuracy to the ResNet. The obvious candidate for this simple linear pattern is lesion size, according to which a simple threshold could be placed, with all patients with lesions bigger than the threshold being classified as aphasic and all those below nonaphasic. We show in section 3.5.2, that such a simple (indeed trivial) classifier performs, in terms of classification, almost identically to our ResNet.</p><p>Regarding clinical practice, this could mean that the most beneficial use of the structural MRI scans would be to only extract the lesion size information and use it with a simple linear model <ref type="bibr" target="#b39">(Sperber et al., 2023)</ref>. Importantly, if no other benefit resulted from using structural data, lesion size could also be accurately measured on routinely collected CT scans without the need for the more costly MRI equipment.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.">Pessimistic perspective: no big data benefit</head><p>Accepting this uncertainty, the prevalence of the accuracy plateau across our out-of-sample learning curves, i.e. on Test sets, seems a pessimistic finding. That is, it seems to suggest that there will be little truly big data benefit, with accuracy not increasing beyond its current level of just-over 80%, irrespective of whether the sample size increases to 10's of thousands, 100's of thousands, or even millions of patients. Although an accuracy of 80% is not by any means bad, it is still far off the ideally required performance (i.e. a reliable 90-95% accuracy) for this work to be translated into clinical practice.</p><p>Importantly, there will always be a noise ceiling, i.e. a degree of uncertainty introduced by variability in the resolution of the imaging technology, inconsistency with which behavioural measures are administered, etc. All these variables will reduce the effective signal-tonoise ratio of the test being performed, preventing 100% accuracy. If this noise-ceiling prevents accuracy from increasing much beyond 80% with the current data, better prediction accuracies will require a large multi-centre effort to lead to improvements in testing procedures, imaging technology, cognitive screens, etc. Even with such improvements, an absolute noise ceiling may still obtain due to premorbid variability in functional neuroanatomy, e.g. if such variability meant that two demographically similar patients with "identical" lesions and treatments did not have identical symptoms at identical post-stroke time-points.</p><p>However, findings 4) and 7) in the list above stand against this pessimistic perspective. They suggest that absolute stability has not been reached by the Test accuracy plateau in Fig. <ref type="figure" target="#fig_4">4</ref>. That is, at the maximum sample size, overfitting, measured as Training accuracy minus Test accuracy, seems to still be reducing (see Fig. <ref type="figure" target="#fig_8">8</ref>) and accuracy is increasing for the (471) residual components (see Fig. <ref type="figure" target="#fig_10">10c</ref>). Additionally, there is the promise that larger sample sizes, will enable us to train the ResNet for longer before our stopping criterion is reached (see Fig. <ref type="figure" target="#fig_1">A1</ref>), enabling it to extract subtler (more heterogeneous) patterns in the data. These patterns may be reflected in the (471) residual components, which seem to encode different information to the dominant components. Such findings raise the possibility that there are multiple patterns in the data, and we are not currently taking advantage of them all. We call this the multiple patterns perspective.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.">Optimistic perspective: potential big data benefit</head><p>If it is the case that our current classification is working on the basis of a simple pattern in the data (i.e. lesion size), this does not exclude the possibility that there are other patterns. Indeed, our finding of an increasing learning curve for the residual components might suggest an alternative pattern in the data that classification is not currently benefitting from. In this respect, it is important to understand that PCAcomponents are mathematically orthogonal. Thus, the (471) residual components really do reflect a pattern of features that is distinct from the 20 dominant components, consistent with which is our finding that the residual components encode very little information about lesion size, while the dominant components do.</p><p>The multiple patterns perspective raises the following possibility.</p><p>1) When the sample size is relatively small (around or below our maximum number of ~700 scans), training has to be stopped relatively quickly, since it rapidly starts to overfit (as assessed with a validation set). This is basically because noise is still prominent in the data; see Fig. <ref type="figure" target="#fig_1">A1</ref>. 2) With such a (relatively-speaking) short training, the ResNet is unable to pick out subtle (weak) patterns in the data. These patterns may well exhibit linear inseparability (making them harder to learn) and also reflect high heterogeneity of lesion patterns across patients, making any particular pattern/regularity weak. 3) Consequently, the performance we are seeing from the ResNet with our current sample sizes reflect some coarse patterns in the data that may be linearly separable. The notion that lesion size is a dominant (latent) feature that is being used, would fit with this perspective. This position is supported by a) there being no improvement over logistic regression, which includes lesion size as an input feature, b) that the ResNet model is good at predicting lesion size (according to our sanity checks; see Fig. <ref type="figure" target="#fig_5">5a</ref>), c) that patients are classified almost identically by lesion size as by the ResNet and d) that ResNet can classify as well with just a small number of dominant components; see Fig. <ref type="figure" target="#fig_10">10a</ref> and 10b. 4) Essentially, the flat learning curves we are seeing would reflect the maximum performance we can obtain from this coarse pattern.</p><p>This is an optimistic perspective, since it allows for the possibility that as the sample-size increases further, the signal will "shine through", and we will be able to train for longer, before the validation set indicates training should stop due to overfitting. This may enable the classifier to use the subtler patterns and enable our learning curves to kick up again. Indeed, examples of learning curves stabilising but then improving with an increased sample size are present in the literature, e.g. <ref type="bibr" target="#b12">Figueroa et al. (2012)</ref>; <ref type="bibr" target="#b32">Richter &amp; Khoshgoftaar (2019)</ref>.</p><p>This interpretation has some similarity to the local minimum problem (O' <ref type="bibr">Reilly &amp; Munakata, 2000)</ref>. Basically, with current sample sizes, our classifiers are finding a broad, but relatively shallow minimum in the error surface, which is the best we can reach with the amount of training we can do before we start overfitting. With more data, we may be able to reach a deeper minimum that reflects the subtle patterns in the data.</p><p>Gradient descent is just driven by minimising error, if there is an "easy" pattern in the data for which error can be reduced, the algorithm will focus on that, with little "concern for" other weaker (more heterogeneous) patterns. Indeed, the tendency for supervised learning to default to a simpler predictive pattern in data is well known in machine learning, e.g. <ref type="bibr" target="#b1">Beery et al. (2018)</ref>. There is an extensive literature on a simpler regularity in data dominating over more interesting ones; and the phenomenon of defaulting to a simpler feature is familiar as the spurious correlation problem in machine learning, e.g. <ref type="bibr" target="#b35">Sagawa et al. (2019)</ref> and <ref type="bibr" target="#b42">Sun et al. (2022)</ref>. That is, a neural network might obtain high accuracy just by detecting an incidental contextual feature in the training set, e.g. that the images for one class always have a grey background. As a consequence, performance on new data (that does not exhibit the contextual feature) might be poor.</p><p>Our situation, we believe, has similarities to the classic spurious correlation problem. That is, our dominant correlation (lesion size) may be preventing other patterns from being learnt by the ResNet. Importantly, lesion size (our dominating regularity) is a perfectly good feature for a classifier to focus on: a feature that does carry significant information in the world. Nonetheless, the (lesion size) regularity could still obscure more subtle patterns in the data that carry information, but without the statistical reliability of lesion size. In fact, lesion location could be one of these patterns <ref type="bibr" target="#b22">(Landrigan et al., 2021)</ref> as there are cases where a small lesion in a critical area can have devastating effects, whereas a large lesion elsewhere can be recovered from <ref type="bibr" target="#b27">(Naeser et al., 1989;</ref><ref type="bibr" target="#b51">Watila &amp; Balarabe, 2015)</ref>.</p><p>Critically, with more data, the weaker patterns in the data could be benefitted from, since current performance is far from 100%, indicating there is room to reduce error. This may also correspond to enabling the ResNet to more fully focus on lesion location, the central focus of cognitive neuroscience. Another possibility that our analysis raises is that the PCA decomposition will enable different classifiers to be trained on different sets of PCA components, enabling a classifier trained on residual components to focus on the subtler patterns in the data, without being over-shadowed by the dominating correlation. Additionally, the learning curve for such a classification procedure should be increasing, as per Fig. <ref type="figure" target="#fig_10">10c</ref>, indicating that there will be a big data benefit for predicting recovery from stroke using brain scans.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4.">Limitations</head><p>An open question remains regarding the broader applicability of our findings, specifically, to what extent our results are influenced by the particular network structure and hyper-parameters chosen for our investigations. This is a difficult question to definitively answer because the range of possible network structures and hyper-parameter tunings makes a grid search that crosses all these alternatives computationally prohibitively expensive. So, our strategy has been to take an "off the shelf" neural network, for which considerable tuning has already been performed, although, not, of course, on the exact problem domain we are investigating. We did also do some hyper-parameter tuning in the work reported in <ref type="bibr" target="#b53">White et al. (2024)</ref>, the settings of which we have inherited in this study. Nevertheless, as the pool of available Machine Learning models is increasing rapidly, there is a possibility that other state-of-the-art models, like Vision Transformers for example, could potentially be more effective even though we are not aware of any such models that have brought significant improvement in this field.</p><p>As discussed in the Methods, we use a fixed learning rate for ResNet's training. A common alternative approach is to use a learning rate scheduler which reduces (i.e. anneals) the learning rate by 10% (the default percentage) after a fixed number of training epochs. This would mean that when training takes longer, i.e. the epoch number when the training is stopped is big, the learning rate towards the final epochs is very small. One might wonder whether using a fixed learning rate instead contributes to our finding of flat learning curves. However, after training ResNet on the SPD classification task (like Fig. <ref type="figure" target="#fig_4">4a</ref>) with an annealing learning rate (10% reduction very 7 epochs of training), we confirmed that this is not the case. We found that the new learning curve had a slower increase, starting from a lower accuracy (55.3%) for the smallest sample size and finishing at a slightly lower level as well (79.6%). Most importantly, the curve still showed the same convergence tendency as before. Therefore, our learning rate approach does not seem to be a contributing factor to the observed accuracy plateau.</p><p>Another question is whether a multi-modal model, combining imaging and tabular data, would exhibit the same flat learning curves. The observed accuracy plateaus for the models employed in this paper could reflect where structural MRI scans alone or tabular features alone could reach. It is possible that there are interactions between features of the scans and the tabular variables that can only benefit the classification if they are both present in the same model. Indeed, in <ref type="bibr" target="#b53">White et al. (2024)</ref> we found that a hybrid model using MRI Regions of Interest, and three clinical variables achieved a better performance. However, we have not examined the learning curve of that model yet, therefore an answer to this question would be an interesting direction of future work.</p><p>Furthermore, the current study used high resolution T1 images as inputs, which provide high-standard structural brain data, including accurate tissue volumes and lesion size boundaries in chronic lesions. However, other MRI sequences may reveal more about the integrity of surviving brain tissue, such as the increased visibility of white matter hyperintensities (WMHs) in FLAIR images. Since brain health factors such as WMHs have been shown to mediate stroke recovery and aphasia <ref type="bibr" target="#b49">(Vadinova et al., 2023)</ref>, one could hypothesize that multi-sequence modelling may alter the plateau of benefit from increased sample sizes observed here.</p><p>Lastly, an important issue is the reliability of our initial severity measure since we know that it comes with limitations as discussed in section 2.1. Even though it has proved effective in ours and the PLORAS team's work there is still a need for evaluating it against other typical and more objective measures such as the NIHSS scores.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.5.">Relation of this paper with previous submissions</head><p>This paper is one of three recent papers from our group on applying convolution neural networks to the PLORAS data set; see also <ref type="bibr" target="#b53">White et al. (2024)</ref> and <ref type="bibr">Hope, Bowman, PLORAS, Leff &amp; Price (2025)</ref>. The unique contribution of the current paper is (1) to restrict the focus to brain scans; and (2) to explore the implications of sample sizes for the effectiveness of classification. For the first of these points (1), <ref type="bibr" target="#b53">White et al. (2024)</ref> and Hope, Bowman, PLORAS, Leff &amp; Price (2025) both include tabular variables in their models. We do not augment our data features with such variables, since we are seeking to understand the information held just in brain scans for classifying post stroke outcomes. For the second of these points (2), we plot learning curves to understand the impact of increasing sample size; neither of the other papers consider learning curves. This allows us to make a prospective assessment of how accuracy will change as data sets get even larger.</p><p>Because of these differences, a direct comparison of model performance across the three papers is not straightforward. However, our finding that logistic regression with three key tabular variables performed with similar accuracy to our ResNet model on brain scans only may be consistent with the results reported by <ref type="bibr" target="#b53">White et al. (2024)</ref>, see Table <ref type="table">1</ref>. A key difference though is that confidence intervals were not derived for logistic regression in the White et al. paper; if they were, it is likely that the two methods would not be statistically different. Additionally, comparison of the performance we observe in this paper to that in Hope, Bowman, PLORAS, Leff &amp; Price ( <ref type="formula">2025</ref> A definitive comparison of these different approaches awaits a further paper, where we apply the ResNet-18 to predicting continuous scores (as per regression problems).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Conclusions</head><p>The widespread dominance of deep learning highlights the necessity to understand the implications of applying it in this field. We discuss these consequences in this paper, while considering what the acquisition of further data could offer by studying the effect sample size has on the model's performance. Our findings suggest that the predictive ability of structural MRI scans for post-stroke outcomes is currently largely driven by lesion size; a simple, low-dimensional feature that helps linear models achieve performance comparable to deep learning approaches. No significant performance advantage was observed from ResNet-18 over logistic regression, and accuracy plateaus were evident across different analyses, including after dimensionality reduction. This has practical clinical implications: relatively accurate outcome predictions may not require complex models or large sample sizes, but rather, can be reached using basic lesion size information, which could potentially be obtained from routine hospital scans <ref type="bibr" target="#b39">(Sperber et al., 2023)</ref>. However, the evidence that the machine learning model's overfitting is reducing, together with the shape of the curve for the residual PCA components, point to the possibility that more subtle, clinically relevant patterns, such as lesion location, remain inaccessible with current dataset sizes. Thus, while traditional (linear) methods offer a more interpretable and cost-effective path to predicting language outcome after stroke for aphasic patients, clinical applicability of such results may still depend on coordinated, high-quality data collection efforts to enable machine learning models to go beyond lesion size. The spatial map in Fig. <ref type="figure" target="#fig_13">B1a</ref> might seem surprising, since regions in the right hemisphere show the biggest contribution. This is the result of averaging the maps of the first 2 dominant components, since both components load strongly on the left hemisphere but with opposite signs. Fig. <ref type="figure" target="#fig_14">B2</ref> shows the spatial maps for each component separately. In fact, when we regress lesion size onto the first two components in section 3.5.2 (see results in top row of Table <ref type="table">5</ref>), the coefficients we obtain change their sign between the first and second component. This suggests that the regression is focussing on the left hemisphere lesions, which is a blue feature in Fig. <ref type="figure" target="#fig_14">B2a</ref> and red in B2b.</p><p>Importantly, the same cancellation through averaging of effects with opposite signs in different components could be occurring in Fig. <ref type="figure" target="#fig_13">B1b</ref> and <ref type="figure">c</ref>. Thus, a full understanding of what is represented by component 3 to 491 is beyond the scope of this paper. </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><figDesc>) Too unwell to speak and therefore could not give a report on their condition; (2) Not speaking at all and not able to use gestures; (3) Using gestures but not speaking at all; (4) Using only 1 or 2 single words; (5) Using a few single words; (6) Speaking in short sentences; (7) Speaking normally. A similar scale was used to assess comprehension, reading and writing. In the current paper, we focus only on the speaking scale and converted the nonlinear 7-point Likert scale into a linear scale with four severity levels (as in Roberts et al. (</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. Example of a patient's 2D stitched MRI axial slices. This is the resulting image from combining the 64 slices, before the images are pre-processed for training the ResNet-18.</figDesc><graphic coords="4,41.27,55.41,243.79,200.16" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. ResNet-18 adapted architecture. The bottom 4 layers were added in place of the original last fully connected (FC) layer. The dashed arrows after the green and before the light pink blocks of convolutional layers indicate that the right part of the image is a continuation of the left part. ResNet has four main groups of convolutional layers. Each group consists of two residual blocks and each residual block contains two convolutional layers. The four groups are the ones coloured light blue, green, light pink and dark grey. The convolutional layers in each group have different numbers of filters (64, 128, 256, and 512 respectively). The curved lines represent ResNet's "skip" connections, which add the input of a residual block to its output. The dashed connections show an extra 1x1 convolution that needs to be applied because the input and output dimensions of the residual block differ in those cases (as the number of filters has changed for example). Downsampling is also done by using strides of 2 in the first convolution layer of some blocks (denoted by /2). The Dropout layer is used to randomly zero a percentage of input nodes during training to prevent overfitting (0.3 corresponds to 30 % of the nodes). (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)</figDesc><graphic coords="4,310.17,55.41,243.94,371.09" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3. Schematic representation of ResNet-18's training and testing process to create the learning curves. The difference in font size is only for visual purposes so that the text could fit in the respective box.</figDesc><graphic coords="6,40.82,314.42,244.66,222.91" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 4 .</head><label>4</label><figDesc>Fig. 4. Learning curves for the Spoken Picture Description (panel a) and Naming (panel b) classification tasks. The x-axis shows the sample size used for training and the y-axis the average balanced test accuracy on the test groups. Binomial confidence intervals are included for each sample size accuracy point. The confidence intervals are also coloured for visualisation purposes as they were highly overlapping.</figDesc><graphic coords="7,44.33,55.44,506.59,173.38" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 5 .</head><label>5</label><figDesc>Fig. 5. Learning curves for the Left hemisphere lesion size (panel a) and Age at stroke (panel b) classification tasks. The x-axis shows the sample size used for training and the y-axis the average balanced test accuracy on the test groups. Binomial confidence intervals are included for each sample size accuracy point. The confidence intervals are also coloured for visualisation purposes.</figDesc><graphic coords="8,42.18,55.44,510.91,166.18" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Fig. 6 .</head><label>6</label><figDesc>Fig. 6. Learning curves for the classification of SPD outcome based on patients in the difficult initial severity group. The x-axis shows the sample size used for training and the y-axis the average balanced test accuracy on the test groups.Binomial confidence intervals are included for each sample size accuracy point. The confidence intervals are also coloured for visualisation purposes as they were highly overlapping.</figDesc><graphic coords="8,40.82,431.08,244.66,148.61" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Fig. 7 .</head><label>7</label><figDesc>Fig. 7. Comparison of ResNet-18's performance for predicting SPD outcome when trained/tested on different sets of patients. Both models were trained for the sample sizes obtained by the difficult initial severity set of patients. For the 'All patients' curve, we have included ResNet-18's performance until the maximum available sample size. The confidence intervals are again coloured just for visualisation purposes.</figDesc><graphic coords="8,309.83,278.62,244.66,149.47" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Fig. 8 .</head><label>8</label><figDesc>Fig. 8. A) resnet-18's training, validation, and test learning curves for the SPD classification task. The x-axis shows the different training sample sizes and the y-axis the balanced accuracy for those samples. The accuracies for training and validation are obtained from the epoch when training stopped based on the validation loss stopping rule. Binomial confidence intervals are included for each sample size point. The confidence intervals are coloured for visualisation purposes. b) Line plots of the difference between training &amp; test accuracy and validation &amp; test accuracy plotted across sample size.</figDesc><graphic coords="9,51.48,55.44,492.34,169.34" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Fig. 9 .</head><label>9</label><figDesc>Fig. 9. Bar plot with explained variance ratios for the first 20 PCA-components identified by PCA. The PCA-components are numbered on the x-axis and their corresponding explained variance is shown as a decimal number in the range 0 (no variance explained) to 1 (maximum amount of variance explained).</figDesc><graphic coords="10,40.82,55.41,244.66,130.32" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Fig. 10 .</head><label>10</label><figDesc>Fig. 10. Learning curves for the Spoken Picture Description classification task when ResNet-18 is using images that were reconstructed from: a) the first 2 of the dominant components, b) the 20 dominant components, and c) the residual 471 components. The x axis shows the sample size used for training and the y axis the average balanced test accuracy on the test groups. The error bars represent binomial confidence intervals for each sample size accuracy point. The confidence intervals in panels a and b are coloured for visualisation purposes. Logistic regression is included solely for comparison purposes, as it is not affected by any change that is made on the images' dataset.</figDesc><graphic coords="11,42.12,55.39,511.06,323.71" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>Fig. 11 .</head><label>11</label><figDesc>Fig. 11. R 2 scores for the correlation of 1) residual PCA-components, and 2) Gaussian regressors with a) left hemisphere lesion size, and b) initial severity scores. The x-axis shows the number of the models that were fitted and the y-axis the scores.</figDesc><graphic coords="12,127.16,55.40,340.99,121.82" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><figDesc>) is complicated by a number of factors. Firstly, Hope et al. were predicting a continuous variable (i.e. training on a regression problem) with their CNN, while our machine learning models were performing classification. Secondly, Hope et al. used a different (larger) subset of the patients, and thirdly, a different cross-validation regime. Fourthly, Hope et al. was focussed on predicting all CAT outcome scores, which contrasts with our focus on Naming and Spoken Picture Description. Finally, in this paper, initial severity is entered into our logistic regression, however, it was not involved in the Hope et al. work.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head>Fig. B1 .</head><label>B1</label><figDesc>Fig. B1. Spatial maps of a) the Dominant 2 PCA components, b) the Dominant 20 PCA components, and c) the Residual 471 PCA components on a 2D stitched MRI scan.</figDesc><graphic coords="16,79.82,58.43,435.60,332.64" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><head>Fig. B2 .</head><label>B2</label><figDesc>Fig. B2. Spatial maps of a) the first dominant PCA component, and b) the second dominant PCA component.</figDesc><graphic coords="16,97.85,497.32,399.60,160.32" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 2</head><label>2</label><figDesc>Scanner-specific counterbalancing results for all five groups after patient exclusion.</figDesc><table><row><cell>Group</cell><cell>No of patients</cell><cell cols="2">Years between stroke and CAT</cell><cell cols="3">Left hemisphere lesion size (voxels)</cell><cell>SPD score</cell><cell></cell><cell>Naming score</cell><cell></cell></row><row><cell></cell><cell></cell><cell>Average</cell><cell>Median</cell><cell>Average</cell><cell>Median</cell><cell></cell><cell>Average</cell><cell>Median</cell><cell>Average</cell><cell>Median</cell></row><row><cell>1</cell><cell>150</cell><cell>3.71</cell><cell>2.43</cell><cell>5056.8</cell><cell>636</cell><cell></cell><cell>62.1</cell><cell>62.5</cell><cell>65.6</cell><cell>68.5</cell></row><row><cell>2</cell><cell>151</cell><cell>3.88</cell><cell>2.28</cell><cell>5279.0</cell><cell>899</cell><cell></cell><cell>62.8</cell><cell>64</cell><cell>65.8</cell><cell>69</cell></row><row><cell>3</cell><cell>149</cell><cell>3.51</cell><cell>2.37</cell><cell>5955.5</cell><cell>757</cell><cell></cell><cell>61.2</cell><cell>63</cell><cell>63.7</cell><cell>68</cell></row><row><cell>4</cell><cell>158</cell><cell>3.80</cell><cell>2.35</cell><cell>5661.7</cell><cell>1107</cell><cell></cell><cell>61.8</cell><cell>64</cell><cell>64.2</cell><cell>67</cell></row><row><cell>5</cell><cell>150</cell><cell>4.17</cell><cell>2.55</cell><cell>5641.9</cell><cell>666.5</cell><cell></cell><cell>62.1</cell><cell>63.5</cell><cell>65.4</cell><cell>69</cell></row><row><cell>Scanners</cell><cell>Group 1</cell><cell></cell><cell>Group 2</cell><cell></cell><cell>Group 3</cell><cell></cell><cell>Group 4</cell><cell></cell><cell>Group 5</cell><cell></cell></row><row><cell></cell><cell>Count</cell><cell>%</cell><cell>Count</cell><cell>%</cell><cell>Count</cell><cell>%</cell><cell>Count</cell><cell>%</cell><cell>Count</cell><cell>%</cell></row><row><cell>TR2</cell><cell>30</cell><cell>20</cell><cell>29</cell><cell>19.21</cell><cell>28</cell><cell>18.79</cell><cell>22</cell><cell>13.92</cell><cell>22</cell><cell>14.67</cell></row><row><cell>QUA</cell><cell>30</cell><cell>20</cell><cell>29</cell><cell>19.21</cell><cell>27</cell><cell>18.12</cell><cell>32</cell><cell>20.25</cell><cell>36</cell><cell>24</cell></row><row><cell>TRI</cell><cell>26</cell><cell>17.33</cell><cell>23</cell><cell>15.23</cell><cell>20</cell><cell>13.42</cell><cell>32</cell><cell>20.25</cell><cell>25</cell><cell>16.67</cell></row><row><cell>BUC</cell><cell>37</cell><cell>24.67</cell><cell>44</cell><cell>29.14</cell><cell>37</cell><cell>24.83</cell><cell>42</cell><cell>26.58</cell><cell>39</cell><cell>26</cell></row><row><cell>PEN</cell><cell>13</cell><cell>8.67</cell><cell>15</cell><cell>9.93</cell><cell>20</cell><cell>13.42</cell><cell>14</cell><cell>8.86</cell><cell>17</cell><cell>11.33</cell></row><row><cell>PQA</cell><cell>6</cell><cell>4</cell><cell>5</cell><cell>3.31</cell><cell>11</cell><cell>7.38</cell><cell>7</cell><cell>4.43</cell><cell>7</cell><cell>4.67</cell></row><row><cell>ALL</cell><cell>2</cell><cell>1.33</cell><cell>2</cell><cell>1.32</cell><cell>0</cell><cell>0</cell><cell>5</cell><cell>3.16</cell><cell>2</cell><cell>1.33</cell></row><row><cell>PPE</cell><cell>6</cell><cell>4</cell><cell>4</cell><cell>2.65</cell><cell>6</cell><cell>4.03</cell><cell>4</cell><cell>2.53</cell><cell>2</cell><cell>1.33</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 3</head><label>3</label><figDesc>Patient descriptive characteristics for a) The complete patient sample, and b) Severe &amp; Moderate initial severity patients.</figDesc><table><row><cell>Descriptive</cell><cell>All patients</cell><cell></cell><cell cols="2">Difficult initial severity</cell></row><row><cell>characteristics</cell><cell>Average</cell><cell>Standard</cell><cell>Average</cell><cell>Standard</cell></row><row><cell></cell><cell></cell><cell>deviation</cell><cell></cell><cell>deviation</cell></row><row><cell>Age at stroke</cell><cell>56.1</cell><cell>13.1</cell><cell>55.7</cell><cell>13</cell></row><row><cell>Recovery time (years)</cell><cell>3.8</cell><cell>4.4</cell><cell>3.9</cell><cell>4.8</cell></row><row><cell>Scan-stroke (months)</cell><cell>46.4</cell><cell>54.2</cell><cell>47.9</cell><cell>59.1</cell></row><row><cell>Left lesion size</cell><cell>5519.6</cell><cell>9079.9</cell><cell>6672</cell><cell>8644</cell></row><row><cell>Initial severity</cell><cell>4.4</cell><cell>2.2</cell><cell>3.7</cell><cell>1.1</cell></row><row><cell>SPD score</cell><cell>62</cell><cell>9.2</cell><cell>59.5</cell><cell>9.4</cell></row><row><cell>Naming score</cell><cell>64.9</cell><cell>10.4</cell><cell>61.9</cell><cell>11</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_0"><p>In many circumstances, the curse of dimensionality suggests that the amount of data required to train a classifier to a particular accuracy increases exponentially with the number of input dimensions.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_1"><p>To make the connection to our earlier work<ref type="bibr" target="#b19">(Hosseini et al., 2020;</ref><ref type="bibr" target="#b53">White et al., 2024)</ref>, this hold-out set is like a lock-box, which changes on each of the five outer iterations.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_2"><p>To be completely clear, this bootstrapping (B in Fig.3), which was from the original counter-balanced groups (here indicated as Training/Validation), was performed to reflect the variability with which smaller samples (according to the 10 sample sizes) could be selected from the original groups. As discussed in the main text, the accuracies from the 10 bootstrap repetitions at B in Fig.3(times the four folds), were then averaged, to obtain a more reliable accuracy estimate.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_3"><p>Since accuracies are proportions, it is natural to use binomial proportion confidence intervals. This choice avoids the degrees of freedom correction employed in<ref type="bibr" target="#b53">White et al. (2024)</ref>. This is essentially because the unit over which inference is performed is the participant in a binomial proportion confidence interval, rather than the fold in<ref type="bibr" target="#b53">White et al. (2024)</ref>. Folds are not independent samples, because parts of the data appear across different folds, in contrast to participants.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_4"><p>Moreover, hyper-parameter tuning of the MLP and the SVM could improve their performance further.</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><p>Acknowledgements Data acquisition was funded by the <rs type="funder">Wellcome</rs> [<rs type="grantNumber">203147/Z/16/Z</rs>; <rs type="grantNumber">205103/Z/16/Z</rs>; <rs type="grantNumber">224562/Z/21/Z</rs>], the <rs type="funder">Medical Research Council</rs> [MR/</p></div>
+			</div>
+			<listOrg type="funding">
+				<org type="funding" xml:id="_eKv8cea">
+					<idno type="grant-number">203147/Z/16/Z</idno>
+				</org>
+				<org type="funding" xml:id="_CVPvCkg">
+					<idno type="grant-number">205103/Z/16/Z</idno>
+				</org>
+				<org type="funding" xml:id="_HZxVwy7">
+					<idno type="grant-number">224562/Z/21/Z</idno>
+				</org>
+			</listOrg>
+
+			<div type="availability">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Data availability</head><p>Data will be made available on request.</p></div>
+			</div>
+
+
+			<div type="conflict">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Declaration of competing interest</head><p>The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.</p></div>
+			</div>
+
+
+			<div type="contribution">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>CRediT authorship contribution statement Margarita Saranti: Writingoriginal draft, Visualization, Software, Methodology, Formal analysis, Conceptualization. Douglas Neville: Writingreview &amp; editing, Conceptualization. Adam White: Writingreview &amp; editing, Methodology. Pia Rotshtein: Writingreview &amp; editing, Supervision, Methodology, Conceptualization. Thomas M.H. Hope: Writingreview &amp; editing, Methodology, Conceptualization. Cathy J. Price: Writingreview &amp; editing, Supervision, Resources, Funding acquisition, Data curation, Conceptualization. Howard Bowman: Writingoriginal draft, Validation, Supervision, Methodology, Conceptualization.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>M023672/1] and the Stroke Association <ref type="bibr">[TSA 2014/02]</ref>. PLORAS team members contributed to the acquisition and analysis of behavioral data. They include: Storm Anderson, Rachel Bruce, Megan Docksey, Kate Ledingham, Louise Lim, Sophie Roberts, and Hayley Woodgate. We are indebted to the patients and their carers for their generous assistance with our research. Margarita Saranti is supported by a Stroke Association Doctoral Fellowship (SA PGF 22\100013). For the purpose of Open Access, the author has applied a CC BY public copyright licence to any Author Accepted Manuscript version arising from this submission.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Appendix A. Amount of training across sample sizes</head><p>A key reason why test set accuracies typically increase with sample size is because, with more data, training can proceed for longer before overfitting starts, allowing the classifier to benefit from weaker patterns in the data. We wanted to quantify how this "amount of training" is changing with sample size in the ResNet learning we are performing. Accordingly, in addition to the results in section 3.4 we calculated the average number of patterns that get presented to the network during training and the average epoch where training stopped across sample size (see Fig. <ref type="figure" target="#fig_15">A1</ref>).</p><p>For this analysis, we trained our network using the procedure described in section 2.3 but with 5 bootstrap iterations instead of 10 for time efficiency, as the purpose for this analysis was not obtaining the most reliable test accuracy. Furthermore, we increased the maximum number of epochs to 500, because training often reached the limit of 200 epochs for several of the smaller sample sizes. We saved the epoch where training stopped (henceforth stop epoch) based on our stopping criterion (see section 2.2) and calculated the number of patterns/images that were presented to the network as (training + validation set sizes) * stop epoch for each combination of training, validation, and test groups that result from our training process. We then plotted the average training patterns and average stop epoch across each one of our sample sizes. Each average was calculated from 100 numbers (5 outer folds * 4 inner folds * 5 bootstrap repetitions). The upper limit of 500 epochs of training was only reached 15% of the times for the smallest sample size (61 patients). In Fig. <ref type="figure" target="#fig_15">A1</ref>, we see the red line for stop epoch decreasing across sample size and the blue line for training patterns gradually increasing until the 243 patients sample size and then varying between similar numbers of training patterns. The reason that the number of patterns is increasing through most of the plot, while the number of epochs declines is simply because, as sample size increases, there are more patterns presented in each epoch. The key property that we observe is that as sample size goes up, we can train the network more (i.e. present more patterns to it, blue line) before the validation set stops training.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Appendix B. Visualisation of the PCA components</head><p>Here, we include spatial maps of our three sets of PCA components to provide additional interpretability for the regression analysis presented in section 3.5.2.</p><p>We generated these maps by averaging the loadings of the respective number of components, i.e. Fig. <ref type="figure">B1a</ref> is the average of the first 2 components, Fig. <ref type="figure">B1b</ref> the average of the first 20 components, and Fig. <ref type="figure">B1c</ref> is the average of the remaining 471 identified components. Note that each plot has its unique colour bar range, since the different strength of components going into each average made it harder to compare using the same range across the three plots.</p><p>The maps highlight the patterns each set of PCA components capture. As we can see, the dominant 2 components mostly represent right hemisphere lesions, the 20 dominant components capture a differentiation between left and right hemisphere lesions, while the residual 471 components create a rather sparse pattern of smaller regions across the brain.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_15"><head>Fig. A1 .</head><label>A1</label><figDesc>Average training patterns and stop epoch across sample size. The number of patterns is shown on the left-hand size y-axis and the epoch number on the right-hand side y-axis.</figDesc></figure>
+			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct status="extracted" xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Unified segmentation</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ashburner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">J</forename><surname>Friston</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/J.NEUROIMAGE.2005.02.018</idno>
+		<ptr target="https://doi.org/10.1016/J.NEUROIMAGE.2005.02.018" />
+	</analytic>
+	<monogr>
+		<title level="j">Neuroimage</title>
+		<imprint>
+			<biblScope unit="volume">26</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="839" to="851" />
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b1">
+	<monogr>
+		<author>
+			<persName><forename type="first">S</forename><surname>Beery</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Horn</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Van</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">P</forename><surname>Caltech</surname></persName>
+		</author>
+		<ptr target="https://beerys.github.io/CaltechCameraTraps/" />
+		<title level="m">Recognition in Terra Incognita</title>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Aphasia outcome: the interactions between initial severity, lesion size and location</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Benghanem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Rosso</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Arbizu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Moulton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Dormont</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Leger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Pires</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Samson</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s00415-019-09259-3</idno>
+		<ptr target="https://doi.org/10.1007/s00415-019-09259-3" />
+	</analytic>
+	<monogr>
+		<title level="j">J. Neurol</title>
+		<imprint>
+			<biblScope unit="volume">266</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="1303" to="1309" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Structural disconnections associated with language impairments in chronic post-stroke aphasia using disconnectome maps</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Billot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Thiebaut De Schotten</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">B</forename><surname>Parrish</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">K</forename><surname>Thompson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Rapp</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Caplan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kiran</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/J.CORTEX.2022.06.016</idno>
+		<ptr target="https://doi.org/10.1016/J.CORTEX.2022.06.016" />
+	</analytic>
+	<monogr>
+		<title level="j">Cortex</title>
+		<imprint>
+			<biblScope unit="volume">155</biblScope>
+			<biblScope unit="page" from="90" to="106" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Bringing proportional recovery into proportion: Bayesian modelling of post-stroke motor impairment</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">K</forename><surname>Bonkhoff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Bzdok</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">G</forename><surname>Guggisberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">L</forename><surname>Hawe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">P</forename><surname>Dukelow</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">K</forename><surname>Rehme</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">R</forename><surname>Fink</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Grefkes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Bowman</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/brain/awaa146</idno>
+		<ptr target="https://doi.org/10.1093/brain/awaa146" />
+	</analytic>
+	<monogr>
+		<title level="j">Brain</title>
+		<imprint>
+			<biblScope unit="volume">143</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="2189" to="2206" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Inflated Estimates of Proportional Recovery From Stroke: The Dangers of Mathematical Coupling and Compression to Ceiling</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Bowman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bonkhoff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Grefkes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Price</surname></persName>
+		</author>
+		<idno type="DOI">10.1161/STROKEAHA.120.033031</idno>
+		<ptr target="https://doi.org/10.1161/STROKEAHA.120.033031" />
+	</analytic>
+	<monogr>
+		<title level="j">In Stroke</title>
+		<imprint>
+			<biblScope unit="volume">52</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="1915" to="1920" />
+			<date type="published" when="2021">2021</date>
+			<publisher>Wolters Kluwer Health</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b6">
+	<monogr>
+		<title level="m" type="main">Large Language Models in Machine Translation</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Brants</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">C</forename><surname>Popat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">J</forename><surname>Och</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Dean</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2007">2007</date>
+			<publisher>Association for Computational Linguistics</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b7">
+	<monogr>
+		<title level="m" type="main">A Close Look at Deep Learning with Small Data</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Brigato</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Iocchi</surname></persName>
+		</author>
+		<ptr target="http://arxiv.org/abs/2003.12843" />
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Learning Curves: Asymptotic Values and Rate of Convergence</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Cortes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">D</forename><surname>Jackel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Solla</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Vapnik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Denker</surname></persName>
+		</author>
+		<ptr target="https://proceedings.neurips.cc/paper_files/paper/1993/file/1aa48fc" />
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Neural Information Processing Systems</title>
+		<editor>
+			<persName><forename type="first">J</forename><surname>Cowan</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">G</forename><surname>Tesauro</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">J</forename><surname>Alspector</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>Morgan-Kaufmann</publisher>
+			<date type="published" when="1993">1993</date>
+			<biblScope unit="volume">6</biblScope>
+		</imprint>
+	</monogr>
+	<note>bf979d3b917e-Paper.pdf</note>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Spatial normalization of lesioned brains: performance evaluation and impact on fMRI analyses</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Crinion</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ashburner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Brett</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Price</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Friston</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/J.NEUROIMAGE.2007.04.065</idno>
+		<ptr target="https://doi.org/10.1016/J.NEUROIMAGE.2007.04.065" />
+	</analytic>
+	<monogr>
+		<title level="j">Neuroimage</title>
+		<imprint>
+			<biblScope unit="volume">37</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="866" to="875" />
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Using functional imaging to understand therapeutic effects in poststroke aphasia</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">T</forename><surname>Crinion</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<ptr target="https://journals.lww.com/co-neurology/fulltext/2015/08000/using_functional_imaging_to_understand_therapeutic.5.aspx" />
+	</analytic>
+	<monogr>
+		<title level="j">Curr. Opin. Neurol</title>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Impact of dataset size and convolutional neural network architecture on transfer learning for carbonate rock classification</title>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">L</forename><surname>Dawson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Dubrule</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">M</forename><surname>John</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cageo.2022.105284</idno>
+		<ptr target="https://doi.org/10.1016/j.cageo.2022.105284" />
+	</analytic>
+	<monogr>
+		<title level="j">Comput. Geosci</title>
+		<imprint>
+			<biblScope unit="volume">171</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Predicting sample size required for classification performance</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">L</forename><surname>Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Zeng-Treitler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kandula</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">H</forename><surname>Ngo</surname></persName>
+		</author>
+		<idno type="DOI">10.1186/1472-6947-12-8</idno>
+		<ptr target="https://doi.org/10.1186/1472-6947-12-8" />
+	</analytic>
+	<monogr>
+		<title level="j">BMC Med. Inf. Decis. Making</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b13">
+	<monogr>
+		<author>
+			<persName><forename type="first">C</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Pleiss</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">Q</forename><surname>Weinberger</surname></persName>
+		</author>
+		<ptr target="http://arxiv.org/abs/1706.04599" />
+		<title level="m">On Calibration of Modern Neural Networks</title>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b14">
+	<monogr>
+		<author>
+			<persName><forename type="first">K</forename><surname>He</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ren</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Sun</surname></persName>
+		</author>
+		<ptr target="http://arxiv.org/abs/1512.03385" />
+		<title level="m">Deep Residual Learning for Image Recognition</title>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Early neurological change after ischemic stroke is associated with 90-day outcome</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Heitsch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Ibanez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Carrera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Binkley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Strbian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tatlisumak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bustamante</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ribó</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Molina</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Dávalos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>López-Cancio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Muñoz-Narbona</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Soriano-Tárraga</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Giralt-Steinhauer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Obach</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Slowik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Pera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Lapicka-Bodzioch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Derbisz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Lee</surname></persName>
+		</author>
+		<idno type="DOI">10.1161/STROKEAHA.119.028687</idno>
+		<ptr target="https://doi.org/10.1161/STROKEAHA.119.028687" />
+	</analytic>
+	<monogr>
+		<title level="j">Stroke</title>
+		<imprint>
+			<biblScope unit="volume">52</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="132" to="141" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Recovery after stroke: not so proportional after all?</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M H</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Friston</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Rotshtein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Bowman</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/brain/awy302</idno>
+		<ptr target="https://doi.org/10.1093/brain/awy302" />
+	</analytic>
+	<monogr>
+		<title level="j">Brain</title>
+		<imprint>
+			<biblScope unit="volume">142</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="15" to="22" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Predicting outcome and recovery after stroke with lesions extracted from MRI images</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M H</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Seghier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/J.NICL.2013.03.005</idno>
+		<ptr target="https://doi.org/10.1016/J.NICL.2013.03.005" />
+	</analytic>
+	<monogr>
+		<title level="j">NeuroImage: Clinical</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="424" to="433" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Multilayer feedforward networks are universal approximators</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Hornik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Stinchcombe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>White</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/0893-6080(89)90020-8</idno>
+		<ptr target="https://doi.org/10.1016/0893-6080" />
+	</analytic>
+	<monogr>
+		<title level="j">Neural Netw</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="90020" to="90028" />
+			<date type="published" when="1989">1989</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b19">
+	<analytic>
+		<title level="a" type="main">I tried a bunch of things: the dangers of unexpected overfitting in classification of brain data</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hosseini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Powell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Collins</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Callahan-Flintoft</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Jones</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Bowman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Wyble</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/J.NEUBIOREV.2020.09.036</idno>
+		<ptr target="https://doi.org/10.1016/J.NEUBIOREV.2020.09.036" />
+	</analytic>
+	<monogr>
+		<title level="j">Neurosci. Biobehav. Rev</title>
+		<imprint>
+			<biblScope unit="volume">119</biblScope>
+			<biblScope unit="page" from="456" to="467" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Predictors beyond the lesion: Health and demographic factors associated with aphasia severity</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Johnson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Nemati</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Bonilha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Rorden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Busby</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Basilakos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Newman-Norlund</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">E</forename><surname>Hillis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Hickok</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fridriksson</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/J.CORTEX.2022.06.013</idno>
+		<ptr target="https://doi.org/10.1016/J.CORTEX.2022.06.013" />
+	</analytic>
+	<monogr>
+		<title level="j">Cortex</title>
+		<imprint>
+			<biblScope unit="volume">154</biblScope>
+			<biblScope unit="page" from="375" to="389" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Individualized response to semantic versus phonological aphasia therapies in stroke</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kristinsson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Basilakos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Elm</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">A</forename><surname>Spell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Bonilha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Rorden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">B</forename><surname>Den Ouden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Cassarly</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Sen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hillis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Hickok</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fridriksson</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/braincomms/fcab174</idno>
+		<ptr target="https://doi.org/10.1093/braincomms/fcab174" />
+	</analytic>
+	<monogr>
+		<title level="j">Brain Commun</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page">174</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b22">
+	<analytic>
+		<title level="a" type="main">A data-driven approach to post-stroke aphasia classification and lesion-based prediction</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">F</forename><surname>Landrigan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Mirman</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/brain/awab010</idno>
+		<ptr target="https://doi.org/10.1093/brain/awab010" />
+	</analytic>
+	<monogr>
+		<title level="j">Brain</title>
+		<imprint>
+			<biblScope unit="volume">144</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="1372" to="1383" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b23">
+	<analytic>
+		<title level="a" type="main">The ENIGMA Stroke Recovery Working Group: Big data neuroimaging to study brain-behavior relationships after stroke</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">L</forename><surname>Liew</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Zavaliangos-Petropulu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Jahanshad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Lang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">S</forename><surname>Hayward</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">R</forename><surname>Lohse</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Juliano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Assogna</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">A</forename><surname>Baugh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">K</forename><surname>Bhattacharya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Bigjahan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">R</forename><surname>Borich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">A</forename><surname>Boyd</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Brodtmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">M</forename><surname>Buetefisch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">D</forename><surname>Byblow</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Cassidy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">B</forename><surname>Conforto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">C</forename><surname>Craddock</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">M</forename><surname>Thompson</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/hbm.25015</idno>
+		<ptr target="https://doi.org/10.1002/hbm.25015" />
+	</analytic>
+	<monogr>
+		<title level="m">Human Brain Mapping</title>
+		<imprint>
+			<publisher>John Wiley and Sons Inc</publisher>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="volume">43</biblScope>
+			<biblScope unit="page" from="129" to="148" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Multiancestry genome-wide association study of 520,000 subjects identifies 32 loci associated with stroke and stroke subtypes</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Malik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Chauhan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Traylor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Sargurupremraj</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Okada</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mishra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Rutten-Jacobs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">K</forename><surname>Giese</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">W</forename><surname>Van Der Laan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Gretarsdottir</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">D</forename><surname>Anderson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Chong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">H H</forename><surname>Adams</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Ago</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Almgren</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Amouyel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Ay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M</forename><surname>Bartz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><forename type="middle">R</forename><surname>Benavente</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Yamaji</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/s41588-018-0058-3</idno>
+		<ptr target="https://doi.org/10.1038/s41588-018-0058-3" />
+	</analytic>
+	<monogr>
+		<title level="j">Nat. Genet</title>
+		<imprint>
+			<biblScope unit="volume">50</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="524" to="537" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b25">
+	<analytic>
+		<title level="a" type="main">The stroke neuro-imaging phenotype repository: an open data science platform for stroke research</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Mohammadian Foroushani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Dhar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Gurney</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hamzehloo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">S</forename><surname>Marcus</surname></persName>
+		</author>
+		<idno type="DOI">10.3389/fninf.2021.597708</idno>
+		<ptr target="https://doi.org/10.3389/fninf.2021.597708" />
+	</analytic>
+	<monogr>
+		<title level="j">Front. Neuroinf</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b26">
+	<monogr>
+		<title level="m" type="main">Probabilistic Machine Learning: Advanced Topics</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">P</forename><surname>Murphy</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+			<publisher>MIT Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b27">
+	<analytic>
+		<title level="a" type="main">SEVERE NONFLUENCY IN APHASIA: ROLE OF THE MEDIAL SUBCALLOSAL FASCICULUS AND OTHER WHITE MATTER PATHWAYS IN RECOVERY OF SPONTANEOUS SPEECH</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Naeser</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">L</forename><surname>Palumbo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Helm-Estabrooks</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Stiassny-Eder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Albert</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/brain/112.1.1</idno>
+		<ptr target="https://doi.org/10.1093/brain/112.1.1" />
+	</analytic>
+	<monogr>
+		<title level="j">Brain</title>
+		<imprint>
+			<biblScope unit="volume">112</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1" to="38" />
+			<date type="published" when="1989">1989</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b28">
+	<monogr>
+		<author>
+			<persName><forename type="first">A</forename><surname>Nakamura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Harada</surname></persName>
+		</author>
+		<ptr target="http://arxiv.org/abs/1910.00216" />
+		<title level="m">Revisiting Fine-tuning for Few-shot Learning</title>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Less is more: neural mechanisms underlying anomia treatment in chronic aphasic patients</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Nardo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Holland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">T</forename><surname>Crinion</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/brain/awx234</idno>
+		<ptr target="https://doi.org/10.1093/brain/awx234" />
+	</analytic>
+	<monogr>
+		<title level="j">Brain</title>
+		<imprint>
+			<biblScope unit="volume">140</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="3039" to="3054" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Analysis of features of alzheimer&apos;s disease: detection of early stage from functional brain changes in magnetic resonance images using a finetuned resnet18 network</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Odusami</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Maskeliūnas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Damaševičius</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Krilavičius</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/diagnostics11061071</idno>
+		<ptr target="https://doi.org/10.3390/diagnostics11061071" />
+	</analytic>
+	<monogr>
+		<title level="j">Diagnostics</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b31">
+	<monogr>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">C</forename><surname>O'reilly</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Munakata</surname></persName>
+		</author>
+		<title level="m">Computational Explorations in Cognitive Neuroscience: Understanding the Mind by Simulating the Brain</title>
+		<imprint>
+			<publisher>MIT Press</publisher>
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Learning Curve Estimation with Large Imbalanced Datasets</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">N</forename><surname>Richter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M</forename><surname>Khoshgoftaar</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ICMLA.2019.00135</idno>
+		<ptr target="https://doi.org/10.1109/ICMLA.2019.00135" />
+	</analytic>
+	<monogr>
+		<title level="m">18th IEEE International Conference on Machine Learning and Applications (ICMLA)</title>
+		<imprint>
+			<date type="published" when="2019">2019. 2019</date>
+			<biblScope unit="page" from="763" to="768" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Better long-term speech outcomes in stroke survivors who received early clinical speech and language therapy: what&apos;s driving recovery?</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Roberts</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">M</forename><surname>Bruce</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Lim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Woodgate</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Ledingham</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Anderson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">L</forename><surname>Lorca-Puls</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gajardo-Vidal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M H</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">W</forename><surname>Green</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">T</forename><surname>Crinion</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/09602011.2021.1944883</idno>
+		<ptr target="https://doi.org/10.1080/09602011.2021.1944883" />
+	</analytic>
+	<monogr>
+		<title level="j">Neuropsychol. Rehabil</title>
+		<imprint>
+			<biblScope unit="volume">32</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="2319" to="2341" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b34">
+	<monogr>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">H</forename><surname>Roohani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Sajid</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Madhyastha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M</forename><surname>Hope</surname></persName>
+		</author>
+		<ptr target="http://arxiv.org/abs/1811.10520" />
+		<title level="m">Predicting Language Recovery after Stroke with Convolutional Networks on Stitched MRI</title>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b35">
+	<monogr>
+		<title level="m" type="main">Distributionally Robust Neural Networks for Group Shifts: On the Importance of Regularization for Worst-Case Generalization</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Sagawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">W</forename><surname>Koh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">B</forename><surname>Hashimoto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Liang</surname></persName>
+		</author>
+		<ptr target="http://arxiv.org/abs/1911.08731" />
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b36">
+	<analytic>
+		<title level="a" type="main">The PLORAS database: a data repository for predicting language outcome and recovery after stroke</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Seghier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Patel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Prejawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ramsden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Selmer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Lim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Browne</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Rae</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Haigh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Ezekiel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M H</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/J.NEUROIMAGE.2015.03.083</idno>
+		<ptr target="https://doi.org/10.1016/J.NEUROIMAGE.2015.03.083" />
+	</analytic>
+	<monogr>
+		<title level="j">Neuroimage</title>
+		<imprint>
+			<biblScope unit="volume">124</biblScope>
+			<biblScope unit="page" from="1208" to="1212" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Lesion identification using unified segmentation-normalisation models and fuzzy clustering</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Seghier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ramlackhansingh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Crinion</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/J.NEUROIMAGE.2008.03.028</idno>
+		<ptr target="https://doi.org/10.1016/J.NEUROIMAGE.2008.03.028" />
+	</analytic>
+	<monogr>
+		<title level="j">Neuroimage</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1253" to="1266" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Deep convolutional neural networks for computer-aided detection: CNN architectures, dataset characteristics and transfer learning</title>
+		<author>
+			<persName><forename type="first">H.-C</forename><surname>Shin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">R</forename><surname>Roth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Gao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Nogues</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Yao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Mollura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">M</forename><surname>Summers</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/TMI.2016.2528162</idno>
+		<ptr target="https://doi.org/10.1109/TMI.2016.2528162" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Med. Imaging</title>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="1285" to="1298" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Stroke lesion size still a useful biomarker for stroke severity and outcome in times of highdimensional models</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Sperber</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Gallucci</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Mirman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Arnold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">M</forename><surname>Umarova</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/J.NICL.2023.103511</idno>
+		<ptr target="https://doi.org/10.1016/J.NICL.2023.103511" />
+	</analytic>
+	<monogr>
+		<title level="j">NeuroImage: Clinical</title>
+		<imprint>
+			<biblScope unit="volume">40</biblScope>
+			<date type="published" when="2023">2023. 103511</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b40">
+	<analytic>
+		<title level="a" type="main">Dropout: a simple way to prevent neural networks from overfitting</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Srivastava</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Hinton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Krizhevsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Salakhutdinov</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Mach. Learn. Res</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b41">
+	<analytic>
+		<title level="a" type="main">Prediction of recovery of motor function after stroke</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Stinear</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/S1474-4422(10)70247-7</idno>
+		<ptr target="https://doi.org/10.1016/S1474-4422(10)70247-7" />
+	</analytic>
+	<monogr>
+		<title level="j">Lancet Neurol</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page" from="1228" to="1232" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b42">
+	<monogr>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Murphy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ebrahimi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>D'amour</surname></persName>
+		</author>
+		<ptr target="http://arxiv.org/abs/2211.15646" />
+		<title level="m">Beyond Invariance: Test-Time Label-Shift Adaptation for Distributions with &quot;Spurious&quot; Correlations</title>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b43">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">K</forename><surname>Swinburn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Porter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Howard</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Comprehensive Aphasia Test</title>
+		<imprint>
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b44">
+	<analytic>
+		<title level="a" type="main">DeepFace: closing the gap to humanlevel performance in face verification</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Taigman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ranzato</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Wolf</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/CVPR.2014.220</idno>
+		<ptr target="https://doi.org/10.1109/CVPR.2014.220" />
+	</analytic>
+	<monogr>
+		<title level="m">IEEE Conf. Comput. Vis. Pattern Recogn</title>
+		<imprint>
+			<date type="published" when="2014">2014. 2014</date>
+			<biblScope unit="page" from="1701" to="1708" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b45">
+	<monogr>
+		<author>
+			<persName><forename type="first">S</forename><surname>Theodoridis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Koutroumbas</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/B978-1-59749-272-0.X0001-2</idno>
+		<ptr target="https://doi.org/10.1016/B978-1-59749-272-0.X0001-2" />
+		<title level="m">Pattern Recognition</title>
+		<imprint>
+			<publisher>Elsevier</publisher>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b46">
+	<analytic>
+		<title level="a" type="main">Relative contributions of lesion location and lesion size to predictions of varied language deficits in post-stroke aphasia</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Thye</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Mirman</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/J.NICL.2018.10.017</idno>
+		<ptr target="https://doi.org/10.1016/J.NICL.2018.10.017" />
+	</analytic>
+	<monogr>
+		<title level="j">NeuroImage: Clinical</title>
+		<imprint>
+			<biblScope unit="volume">20</biblScope>
+			<biblScope unit="page" from="1129" to="1138" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b47">
+	<analytic>
+		<title level="a" type="main">A problem of dimensionality: a simple example</title>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">V</forename><surname>Trunk</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/TPAMI.1979.4766926</idno>
+		<ptr target="https://doi.org/10.1109/TPAMI.1979.4766926" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Pattern Anal. Mach. Intell</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="306" to="307" />
+			<date type="published" when="1979">1979</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Automated anatomical labeling of activations in SPM using a macroscopic anatomical parcellation of the MNI MRI single-subject brain</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Tzourio-Mazoyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Landeau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Papathanassiou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Crivello</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Etard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Delcroix</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Mazoyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Joliot</surname></persName>
+		</author>
+		<idno type="DOI">10.1006/NIMG.2001.0978</idno>
+		<ptr target="https://doi.org/10.1006/NIMG.2001.0978" />
+	</analytic>
+	<monogr>
+		<title level="j">Neuroimage</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="273" to="289" />
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Early subacute white matter hyperintensities and recovery of language after stroke</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Vadinova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">J</forename><surname>Sihvonen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">L</forename><surname>Garden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Ziraldo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Roxbury</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>O'brien</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Copland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">L</forename><surname>Mcmahon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">L E</forename><surname>Brownsett</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Neurorehabil. Neural Repair</title>
+		<imprint>
+			<biblScope unit="volume">37</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="218" to="227" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b50">
+	<analytic>
+		<title level="a" type="main">The shape of learning curves: a review</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Viering</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Loog</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/TPAMI.2022.3220744</idno>
+		<ptr target="https://doi.org/10.1109/TPAMI.2022.3220744" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Pattern Anal. Mach. Intell</title>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Factors predicting post-stroke aphasia recovery</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Watila</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Balarabe</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/J.JNS.2015.03.020</idno>
+		<ptr target="https://doi.org/10.1016/J.JNS.2015.03.020" />
+	</analytic>
+	<monogr>
+		<title level="j">J. Neurol. Sci</title>
+		<imprint>
+			<biblScope unit="volume">352</biblScope>
+			<biblScope unit="issue">1-2</biblScope>
+			<biblScope unit="page" from="12" to="18" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b52">
+	<analytic>
+		<title level="a" type="main">Contrastive counterfactual visual explanations with overdetermination</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>White</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">H</forename><surname>Ngan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Phelan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Ryan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">S</forename><surname>Afgeh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">C</forename><surname>Reyes-Aldasoro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">D</forename><surname>Garcez</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10994-023-06333-w</idno>
+		<ptr target="https://doi.org/10.1007/s10994-023-06333-w" />
+	</analytic>
+	<monogr>
+		<title level="j">Mach. Learn</title>
+		<imprint>
+			<biblScope unit="volume">112</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="3497" to="3525" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Predicting recovery following stroke: deep learning, multimodal data and feature selection using explainable AI</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>White</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Saranti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Garcez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M H</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Bowman</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/J.NICL.2024.103638</idno>
+		<ptr target="https://doi.org/10.1016/J.NICL.2024.103638" />
+	</analytic>
+	<monogr>
+		<title level="j">NeuroImage: Clinical</title>
+		<imprint>
+			<biblScope unit="volume">43</biblScope>
+			<date type="published" when="2024">2024. 103638</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b54">
+	<monogr>
+		<author>
+			<persName><forename type="first">C</forename><surname>Xing</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Arpit</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Tsirigotis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Bengio</surname></persName>
+		</author>
+		<ptr target="http://arxiv.org/abs/1802.08770" />
+		<title level="m">A Walk with SGD</title>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

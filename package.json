@@ -1,0 +1,23 @@
+{
+  "name": "@grobid/workspace",
+  "version": "0.0.1",
+  "description": "Grobid - Workspace",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@12.18.0",
+  "engines": {
+    "node": "26.13.0"
+  },
+  "scripts": {
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "build": "turbo build",
+    "format": "turbo format"
+  },
+  "devDependencies": {
+    "husky": "9.1.7",
+    "turbo": "2.11.10"
+  }
+}

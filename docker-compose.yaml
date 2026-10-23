@@ -1,0 +1,12 @@
+services:
+  grobid:
+    image: grobid/grobid:0.9.1-crf
+    container_name: grobid
+    restart: unless-stopped
+    init: true
+    ports:
+      - "8070:8070"
+    environment:
+      JAVA_TOOL_OPTIONS: "-Xms1g -Xmx4g"
+    ulimits:
+      core: 0

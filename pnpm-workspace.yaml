@@ -1,0 +1,10 @@
+packages:
+  - 'packages/**'
+  - 'crates'
+  - '!packages/**/.venv/**'
+  - '!packages/web/.next/**'
+
+minimumReleaseAge: 1440 # 1 day, in minutes (7d breaks install: renovate pins fresh versions)
+
+allowBuilds:
+  unrs-resolver: false

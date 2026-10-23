@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="900" height="560">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e1e2e"/>
+      <stop offset="100%" stop-color="#181825"/>
+    </linearGradient>
+    <linearGradient id="titlebar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#313244"/>
+      <stop offset="100%" stop-color="#45475a"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="560" rx="16" fill="url(#bg)"/>
+
+  <rect x="0" y="0" width="900" height="40" rx="16" fill="url(#titlebar)"/>
+  <rect x="0" y="24" width="900" height="16" fill="url(#titlebar)"/>
+
+  <circle cx="24" cy="20" r="6" fill="#f5c2e0"/>
+  <circle cx="44" cy="20" r="6" fill="#f9e2af"/>
+  <circle cx="64" cy="20" r="6" fill="#a6e3a1"/>
+
+  <text x="90" y="25" fill="#bac2de" font-family="system-ui, sans-serif" font-size="13">terminal — grobid-cli</text>
+
+  <g transform="translate(24, 56)" font-family="SF Mono, Menlo, Consolas, monospace" font-size="14">
+
+    <text x="0" y="22" fill="#a6adc8">$</text>
+    <text x="20" y="22" fill="#cdd6f4">curl -fsSL https://raw.githubusercontent.com/hieudoanm/grobid-cli/master/scripts/install.sh | bash</text>
+
+    <text x="0" y="46" fill="#8888a0">Downloading grobid binary from https://github.com/hieudoanm/grobid-cli/releases/download/latest/grobid ...</text>
+    <text x="0" y="70" fill="#a6e3a1">Installed to ~/.local/bin/grobid</text>
+    <text x="0" y="94" fill="#8888a0">Make sure ~/.local/bin is in your PATH, e.g.:</text>
+    <text x="0" y="118" fill="#8888a0">  export PATH="$PATH:~/.local/bin"</text>
+    <text x="0" y="142" fill="#a6e3a1">Docker is installed.</text>
+
+    <text x="0" y="178" fill="#a6adc8">$</text>
+    <text x="20" y="178" fill="#cdd6f4">grobid -v</text>
+    <text x="0" y="202" fill="#cba6f7">2026.10.23.20.20.54</text>
+
+    <text x="0" y="238" fill="#a6adc8">$</text>
+    <text x="20" y="238" fill="#cdd6f4">grobid</text>
+    <text x="0" y="262" fill="#cba6f7">2026.10.23.20.20.54</text>
+
+    <text x="0" y="286" fill="#7f849c">[2026-10-23 23:15:12] [INFO] ============================================================</text>
+    <text x="0" y="310" fill="#7f849c">[2026-10-23 23:15:12] [INFO] Converting PDFs to Markdown via GROBID</text>
+    <text x="0" y="334" fill="#7f849c">[2026-10-23 23:15:12] [INFO] ============================================================</text>
+
+    <text x="0" y="358" fill="#7f849c">[2026-10-23 23:15:12] [INFO] PDF dir: /Users/hieudoan/git/github.com/hieudoanm/grobid-cli/pdf</text>
+    <text x="0" y="382" fill="#7f849c">[2026-10-23 23:15:12] [INFO] TEI dir: /Users/hieudoan/git/github.com/hieudoanm/grobid-cli/tei</text>
+    <text x="0" y="406" fill="#7f849c">[2026-10-23 23:15:12] [INFO] MD dir: /Users/hieudoan/git/github.com/hieudoanm/grobid-cli/md</text>
+
+    <text x="0" y="430" fill="#cdd6f4">$</text>
+    <rect x="16" y="418" width="8" height="16" fill="#cdd6f4">
+      <animate attributeName="opacity" values="1;0" dur="1s" repeatCount="indefinite"/>
+    </rect>
+
+    <text x="0" y="466" fill="#585b70" font-size="12">grobid-cli v0.0.1 · GROBID 0.9.1</text>
+  </g>
+</svg>

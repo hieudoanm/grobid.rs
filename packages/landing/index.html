@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>grobid.rs — PDF to Markdown for LLMs</title>
+  <meta name="description" content="Convert PDF articles to clean, structured Markdown via GROBID TEI XML — local-first, resumable, with metadata in YAML frontmatter." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="svg/logo.svg" />
+  <meta property="og:title" content="grobid.rs — PDF to Markdown for LLMs" />
+  <meta property="og:description" content="Convert PDF articles to clean, structured Markdown via GROBID TEI XML — local-first, resumable, with metadata in YAML frontmatter." />
+  <meta property="og:url" content="https://hieudoanm.github.io/grobid.rs/" />
+  <meta property="og:image" content="https://hieudoanm.github.io/grobid.rs/svg/og-image.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#f7f7f4" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">
+        <img src="svg/logo.svg" alt="" width="28" height="28" />
+        <span>grobid.rs</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#demo">Demo</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#install">Install</a>
+      </nav>
+      <a class="btn btn-primary btn-sm" href="https://github.com/hieudoanm/grobid.rs" target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1>Turn research PDFs into clean Markdown for LLMs.</h1>
+        <p class="lede">
+          grobid.rs converts PDFs to structured Markdown via GROBID TEI XML —
+          entirely on your machine. Metadata lands in YAML frontmatter,
+          sections and references stay intact, and nothing leaves your
+          environment.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary btn-lg" href="#install">Get started</a>
+          <a class="btn btn-ghost btn-lg" href="#demo">See it in action</a>
+        </div>
+        <dl class="stats">
+          <div><dt>pdf → md</dt><dd>one command</dd></div>
+          <div><dt>0</dt><dd>cloud calls</dd></div>
+          <div><dt>resumable</dt><dd>skips finished files</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Features</h2>
+          <p>A focused pipeline that turns messy PDFs into LLM-ready Markdown —
+          with honest TEI XML as the intermediate format.</p>
+        </div>
+        <div class="grid grid-3">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3>Local-first &amp; private</h3>
+            <p>GROBID runs in a Docker container on your machine. Your PDFs never leave your environment — safe for unpublished research and sensitive documents.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+            </div>
+            <h3>One command</h3>
+            <p>Drop PDFs into a pdf/ directory and run grobid. A single Rust binary orchestrates the whole pdf/ → tei/ → md/ pipeline.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <h3>Rich metadata</h3>
+            <p>Title, authors, year, journal, volume/issue/pages, and DOI are extracted into YAML frontmatter — ready for search, citation, and RAG pipelines.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+            </div>
+            <h3>Resumable</h3>
+            <p>Already-converted TEI XML and Markdown files are skipped, so interrupted or repeated runs pick up exactly where they left off.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            </div>
+            <h3>Structure preserved</h3>
+            <p>Headings, paragraphs, lists, tables, formulas, figures, and the reference list are rendered faithfully — no flat wall of text.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+            </div>
+            <h3>Auto-starts GROBID</h3>
+            <p>If the GROBID service is not running, the CLI launches the official Docker image on port 8070 and waits until it is ready.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>See it in action</h2>
+          <p>One command converts every PDF in pdf/ — TEI XML lands in tei/ and Markdown with frontmatter lands in md/.</p>
+        </div>
+        <div class="grid grid-demo">
+          <figure class="terminal terminal-wide">
+            <figcaption>Convert a folder of PDFs</figcaption>
+            <pre><code><span class="prompt">$</span> grobid
+<span class="out">[INFO] Converting PDFs to Markdown via GROBID</span>
+<span class="out">[INFO] Processing 2 file(s) with 2 concurrent request(s)</span>
+<span class="out">[INFO] [1/2] PDF → TEI: paper.pdf</span>
+<span class="out">[INFO]   wrote paper.tei.xml</span>
+<span class="out">[INFO] [1/2] TEI → MD: paper.tei.xml</span>
+<span class="out">[INFO]   wrote paper.md</span>
+<span class="out">[INFO] Conversion completed</span></code></pre>
+          </figure>
+          <figure class="terminal">
+            <figcaption>Custom data directory</figcaption>
+            <pre><code><span class="prompt">$</span> GROBID_DATA_DIR=~/papers grobid
+<span class="out">[INFO] PDF dir: /Users/you/papers/pdf</span>
+<span class="out">[INFO] MD dir: /Users/you/papers/md</span></code></pre>
+          </figure>
+          <figure class="terminal">
+            <figcaption>Version</figcaption>
+            <pre><code><span class="prompt">$</span> grobid --version
+<span class="out">grobid 0.0.1 (build 2026.11.07.23.10.04)</span></code></pre>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>How the CLI works</h2>
+          <p>A three-step local pipeline: PDFs in, structured Markdown out.</p>
+        </div>
+        <div class="grid grid-3">
+          <article class="card step">
+            <span class="step-num">01</span>
+            <h3>Drop in PDFs</h3>
+            <p>Put your PDFs into a pdf/ directory — or point GROBID_DATA_DIR anywhere else. The CLI auto-creates pdf/, tei/, and md/ on first run.</p>
+            <code class="snippet">pdf/  ←  your papers</code>
+          </article>
+          <article class="card step">
+            <span class="step-num">02</span>
+            <h3>Run grobid</h3>
+            <p>The CLI starts the GROBID Docker container if needed, then calls processFulltextDocument for each PDF and writes the TEI XML to tei/.</p>
+            <code class="snippet">grobid   # starts GROBID on :8070 if required</code>
+          </article>
+          <article class="card step">
+            <span class="step-num">03</span>
+            <h3>Get Markdown</h3>
+            <p>TEI is rendered to clean Markdown — headings, lists, tables, formulas, figures, and references — with metadata in YAML frontmatter.</p>
+            <code class="snippet">md/  →  paper.md</code>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="install" class="section section-alt">
+      <div class="container container-narrow">
+        <div class="section-head">
+          <h2>Get started</h2>
+          <p>Grab the prebuilt binary from GitHub Releases, or build from source with Cargo. Docker is only needed for the GROBID service, which the CLI can start for you. Requires Docker; Rust 1.85+ for source builds.</p>
+        </div>
+        <figure class="terminal">
+          <figcaption>Install</figcaption>
+          <pre><code><span class="prompt">$</span> curl -fsSL https://raw.githubusercontent.com/hieudoanm/grobid.rs/master/scripts/install.sh | bash
+<span class="out">Installed to ~/.local/bin/grobid</span>
+<span class="prompt">$</span> mkdir -p pdf && cp paper.pdf pdf/
+<span class="prompt">$</span> grobid
+<span class="out">md/paper.md</span></code></pre>
+        </figure>
+        <p class="install-note">Or build from source: <code>./scripts/install-local.sh</code> — see the <a href="https://github.com/hieudoanm/grobid.rs/blob/master/README.md" target="_blank" rel="noreferrer">README</a> for details.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary btn-lg" href="https://github.com/hieudoanm/grobid.rs" target="_blank" rel="noreferrer">View on GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year">2026</span> grobid.rs</span>
+      <span>Local PDF → Markdown via GROBID · MIT licensed</span>
+      <nav>
+        <a href="https://github.com/hieudoanm/grobid.rs" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://github.com/hieudoanm/grobid.rs/blob/master/README.md" target="_blank" rel="noreferrer">README</a>
+        <a href="https://github.com/hieudoanm/grobid.rs/blob/master/crates/README.md" target="_blank" rel="noreferrer">CLI reference</a>
+        <a href="https://github.com/hieudoanm/grobid.rs/blob/master/LICENSE" target="_blank" rel="noreferrer">License</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

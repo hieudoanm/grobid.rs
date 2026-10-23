@@ -1,0 +1,2 @@
+pnpm turbo run format
+pnpm turbo run lint

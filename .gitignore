@@ -1,0 +1,16 @@
+.turbo/
+node_modules/
+.next/
+target/
+coverage.json
+*.tsbuildinfo
+
+# Secrets
+.env
+.env.local
+*.pem
+*.key
+secrets/
+
+# Tract
+.tracers-cache
