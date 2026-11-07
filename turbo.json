@@ -15,6 +15,7 @@
         "dist/**",
         ".next/**",
         "!.next/cache/**",
+        "out/**",
         "docs/**",
         "pkg/**",
         "build/**"

@@ -2,175 +2,121 @@
 
 ## Project Overview
 
-grobid-cli converts PDF articles to Markdown via GROBID TEI XML. Built upon [GROBID](https://github.com/grobidOrg). The CLI is designed to make PDFs AI-friendly by producing clean, structured Markdown with metadata in frontmatter.
+grobid.rs converts PDF articles to Markdown via GROBID TEI XML, making PDFs
+AI-friendly. It is a pnpm/turbo monorepo plus a root-level Rust workspace:
 
-**Problem:** AI models struggle with raw PDFs (messy structure, headers/footers, citations).  
-**Solution:** Use GROBID to extract structured content and convert to clean Markdown.
+- **`crates/`** — Rust workspace (`grobid`): converts all PDFs in `pdf/` to TEI
+  XML in `tei/` and Markdown in `md/`, auto-starting GROBID in Docker.
+  - `grobid-core` — GROBID HTTP client, Docker management, TEI parsing,
+    metadata extraction, Markdown rendering
+  - `grobid-cli` — `grobid` binary (clap + tokio) and batch orchestration
+- **`packages/landing`** — Next.js 16 static landing page (`output: 'export'`)
+  deployed to GitHub Pages; markets the CLI only, no app functionality.
 
-## Architecture
+Pipeline: `pdf/` → GROBID `processFulltextDocument` → TEI XML → Markdown with
+YAML frontmatter (title, authors, year, journal, volume/issue/pages, DOI).
 
-### Source Structure
+## Repository Layout
 
 ```
-src/grobid/
-├── __init__.py      # Public API, exports version
-├── main.py          # Entry point
-├── cli.py           # CLI logic (convert_pdf_to_md)
-├── config.py        # Configuration (ports, images, paths, NS, META_FIELDS)
-├── utils.py         # Logging (timestamped, levels: fatal/error/warn/info/debug/trace) & helpers
-├── paths.py         # Path resolution (PDF_DIR, TEI_DIR, MD_DIR)
-├── grobid_client.py # Docker GROBID management & PDF→TEI via grobid-client-python
-├── metadata.py      # Metadata extraction from TEI
-├── render.py        # TEI → Markdown conversion (inline, blocks, tables, lists, figures)
-└── version.py       # Dynamic version from file mtime (build timestamp for binaries)
+Cargo.toml             # Rust workspace root (members: crates/grobid-*)
+Cargo.lock
+rust-toolchain.toml    # stable + rustfmt/clippy
+Makefile               # cargo build/test/lint/fmt/clean at workspace root
+crates/
+├── package.json       # @grobid/cli turbo shim → make -C ..
+├── grobid-core/       # grobid-core library
+│   ├── src/
+│   │   ├── config.rs       # env config, ports, image, META_FIELDS
+│   │   ├── grobid_client.rs# Docker management + PDF→TEI HTTP calls
+│   │   ├── metadata.rs     # TEI → Metadata (frontmatter fields)
+│   │   ├── render.rs       # TEI → Markdown rendering + unit tests
+│   │   ├── paths.rs        # pdf/tei/md dir resolution
+│   │   ├── utils.rs        # logging, yaml_string, text helpers
+│   │   └── version.rs      # version from binary mtime
+│   └── tests/fixtures/ # sample pdf/tei/md fixture data
+└── grobid-cli/        # grobid binary (clap + tokio)
+    └── tests/e2e.sh   # end-to-end run against the fixtures
+packages/
+└── landing/              # Next.js 16 static site (App Router, React 19, TS)
+    └── src/
+        ├── app/               # layout, page, error/not-found/loading
+        ├── components/        # Navbar, Hero, Features, DemoSection,
+        │                      # Pipeline, InstallSection, Footer, etc.
+        └── lib/site.ts        # BASE_PATH, assetPath, GITHUB_URL
 ```
 
-### Pipeline
+## Commands
 
-1. **Auto-start GROBID**: If not running, starts `grobid/grobid:0.9.1-crf` in Docker on port 8070
-2. **PDF → TEI**: Uses `grobid-client-python` to call `processFulltextDocument` service
-3. **TEI → Markdown**: Parses TEI XML with lxml, extracts metadata/title/authors/abstract/body/references, renders to Markdown with YAML frontmatter
+```bash
+# Root (turbo across packages)
+pnpm dev | lint | test | build | format
 
-### Single Entry Point
+# CLI (Rust workspace at repo root)
+cargo build --release        # binary at target/release/grobid
+cargo test --workspace
+cargo clippy --workspace --all-targets -- -D warnings
+cargo fmt --all -- --check
+make test lint fmt build     # or via turbo: pnpm test / pnpm lint / pnpm build
 
-- Command: `grobid` (via `pyproject.toml` scripts: `grobid = "grobid.main:main"`)
-- Behavior: Converts all PDFs in `pdf/` dir to TEI in `tei/` and Markdown in `md/`
-- Resumable: Skips existing TEI and Markdown files
-- Auto-creates directories
+# Landing (Next.js, static export)
+cd packages/landing
+pnpm dev            # next dev on :3000
+pnpm build          # static export to out/
+pnpm lint           # eslint
+pnpm typecheck      # tsc --noEmit
+pnpm test:run       # vitest run (single pass)
+pnpm test:coverage  # vitest run --coverage (80% thresholds)
+pnpm format         # prettier --write
+```
 
-### Version Management
-
-- **Package version**: Defined in `pyproject.toml` as `0.0.1`
-- **Runtime version**: `src/grobid/version.py` provides dynamic `__version__` based on file modification time (or binary mtime when frozen with PyInstaller)
-- **Build-time version**: `Makefile` generates `src/grobid/_version.py` with timestamp during binary build
-- **Public API**: `__version__` exported from `src/grobid/__init__.py` (currently hardcoded to `0.1.0`, should align with dynamic version)
+Git hooks: `.husky/pre-commit` runs `pnpm turbo run format` + `lint`
+(`pre-commit install` to enable).
 
 ## Environment Variables
 
-- `GROBID_DATA_DIR` or `ARTICLES_DATA_DIR`: Data directory (default: cwd)
-- `GROBID_PORT`: GROBID port (default: 8070)
-- `GROBID_IMAGE`: Docker image (default: `grobid/grobid:0.9.1-crf`)
-- `GROBID_CONTAINER`: Container name (default: `grobid-cli`)
+| Variable               | Default                  | Used by |
+| ---------------------- | ------------------------ | ------- |
+| `GROBID_DATA_DIR` / `ARTICLES_DATA_DIR` | cwd | CLI: base dir for `pdf/`, `tei/`, `md/` |
+| `GROBID_PORT`          | `8070`                   | CLI + compose |
+| `GROBID_IMAGE`         | `grobid/grobid:0.9.1-crf`| CLI Docker auto-start |
+| `GROBID_CONTAINER`     | `grobid-cli`             | CLI Docker auto-start |
+| `RUST_LOG`             | info                     | CLI tracing filter |
 
-## Tech Stack
+## Conventions
 
-### Runtime
+- **Rust**: edition 2021, exact-pinned deps (`=`) managed by renovate,
+  `anyhow` for errors, `tracing` + custom timestamped `Logger`, clippy
+  `-D warnings`, `cargo fmt`.
+- **Landing**: TypeScript strict, server components by default, daisyUI +
+  Tailwind 4, static export with `basePath: '/grobid.rs'` in production —
+  always reference assets via `assetPath()` from `src/lib/site.ts`.
+- **Versions**: pnpm pinned via `packageManager` in root `package.json`
+  (corepack); Node `26.13.0`; Rust deps pinned exactly in the root
+  `Cargo.toml` workspace.
+- **Supply chain**: `pnpm-workspace.yaml` sets `minimumReleaseAge: 1440`
+  (1 day — longer windows break installs since renovate pins fresh
+  versions); dependency build scripts gated by `allowBuilds`.
 
-- **Python** 3.15.1 (`.python-version`, `pyproject.toml: requires-python = "==3.15.1"`)
-- **Build**: `setuptools==84.2.1` (PEP 517)
-- **Virtual env**: `uv` with `.venv`
+## Docker & Release
 
-### Core Dependencies
+- `docker-compose.yaml` (repo root): `grobid` service only (the landing
+  page is static and needs no container).
+- CI (`.github/workflows/ci.yaml`): CLI lint/test/build on ubuntu, landing
+  lint/test/build producing `packages/landing/out`, deploy of `out/` to
+  GitHub Pages on master (requires Pages source = "GitHub Actions"), then a
+  `latest` GitHub Release with the Linux binary (`scripts/install.sh`
+  downloads it to `~/.local/bin`; `scripts/install-local.sh` builds from
+  source).
 
-| Package                | Version   | Purpose                       |
-| ---------------------- | --------- | ----------------------------- |
-| `grobid-client-python` | `==0.2.1` | GROBID TEI XML service client |
-| `lxml`                 | `==6.1.3` | XML parsing (TEI → Markdown)  |
+## Gotchas
 
-### Dev Dependencies (from uv.lock)
-
-| Package       | Version   | Purpose                   |
-| ------------- | --------- | ------------------------- |
-| `pytest`      | `9.1.1`   | Testing                   |
-| `ruff`        | `0.17.2`  | Linting + formatting      |
-| `mypy`        | `2.4.0`   | Static type checking      |
-| `pyinstaller` | `6.22.3`  | Binary builds             |
-| `pre-commit`  | `==4.7.0` | Git hooks (lint + format) |
-| `pytest-cov`  | `6.2.1`   | Test coverage             |
-
-### Tooling
-
-- **Package manager**: `uv` (or `pip`)
-- **Lint/Format**: `ruff` (replaces `black`)
-- **Pre-commit**: local hooks → `make lint`, `make format` (`.pre-commit-config.yaml`)
-- **CI/CD**: GitHub Actions (`.github/workflows/ci.yaml`)
-- **Release**: `softprops/action-gh-release` → GitHub Releases tagged `latest`
-
-### External Services
-
-- **GROBID**: Docker image `grobid/grobid:0.9.1-crf` on port 8070
-- **Docker**: required for GROBID container management
-
-## Dependencies
-
-- `lxml==6.1.3` - XML parsing
-- `grobid-client-python==0.2.1` - PDF processing (GROBID TEI service)
-- `pyinstaller==6.22.3` (dev) - Binary builds
-- `pytest==9.1.1`, `ruff==0.17.2`, `mypy==2.4.0`, `pre-commit==4.7.0`, `pytest-cov==6.2.1` (dev) - Testing/linting/type-checking
-
-## Build & Test
-
-```bash
-make lint    # ruff check src tests
-make format  # ruff format + ruff check --fix
-make test    # pytest with coverage
-make build   # Generates _version.py with timestamp, then pyinstaller --onefile --name grobid src/grobid/main.py
-```
-
-Pre-commit hooks (`.pre-commit-config.yaml`):
-
-```bash
-pre-commit install
-pre-commit run --all-files
-```
-
-### Pre-commit Configuration (`.pre-commit-config.yaml`)
-
-```yaml
-repos:
-  - repo: local
-    hooks:
-      - id: lint
-        name: Run lint
-        entry: make lint
-        language: system
-        pass_filenames: false
-
-      - id: format
-        name: Run format
-        entry: make format
-        language: system
-        pass_filenames: false
-```
-
-## GitHub Actions (`.github/workflows/ci.yaml`)
-
-CI workflow runs on push/PR to master:
-1. **Lint**: `ruff check src tests` + `black --check src tests`
-2. **Test**: `pytest tests -v --cov=src/grobid --cov-report=term-missing`
-3. **Build**: `pyinstaller --onefile --name grobid src/grobid/main.py`
-4. **Upload artifact**: Binary uploaded for release job
-
-On push to master, the release job:
-- Deletes old "latest" release and tag
-- Creates new "latest" release with binary using `softprops/action-gh-release@v3.0.3`
-
-## Docker Compose (`docker-compose.yaml`)
-
-```yaml
-services:
-  grobid:
-    image: grobid/grobid:0.9.1-crf
-    container_name: grobid
-    restart: unless-stopped
-    init: true
-    ports:
-      - "8070:8070"
-    environment:
-      JAVA_TOOL_OPTIONS: "-Xms1g -Xmx4g"
-    ulimits:
-      core: 0
-```
-
-## Installation Script (`scripts/install.sh`)
-
-Downloads latest binary from GitHub Releases, installs to `~/.local/bin`, checks for Docker and prompts to install if missing.
-
-## Code Style
-
-- Python 3.15.1
-- Type hints where appropriate
-- Timestamped logging with levels (fatal, error, warn, info, debug, trace)
-- Keep files under ~200 lines
-- Minimal, focused implementation
-- Formatting via `ruff format` (not `black`)
+- The TEI parser matches elements by **local name** (namespace-agnostic);
+  `render.rs` helpers `descendant_named`/`descendants_named`/`tei_root` are
+  the canonical way to query the tree — do not reintroduce xpath-string
+  matching (`first_element`/`find_all` are legacy shims for a few patterns).
+- Metadata author/DOI/journal lookups are scoped to `teiHeader` on purpose —
+  document-wide search picks up reference-list authors.
+- Resumable pipeline: existing `tei/*.tei.xml` and `md/*.md` are skipped;
+  the CLI exits non-zero if any file failed.
+- The landing page must stay static — no API routes or server logic.

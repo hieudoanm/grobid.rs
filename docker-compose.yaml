@@ -10,16 +10,3 @@ services:
       JAVA_TOOL_OPTIONS: "-Xms1g -Xmx4g"
     ulimits:
       core: 0
-
-  web:
-    build:
-      context: packages/web
-      dockerfile: Dockerfile
-    container_name: grobid-web
-    restart: unless-stopped
-    ports:
-      - "3000:3000"
-    environment:
-      - GROBID_URL=http://grobid:8070
-    depends_on:
-      - grobid

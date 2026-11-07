@@ -2,9 +2,9 @@
 
 **Convert PDF articles to Markdown via GROBID TEI XML — making PDFs AI-friendly on your own machine.**
 
-grobid.rs is a local, full-stack document-conversion studio. Drop PDFs into a `pdf/` directory, run the `grobid` command, and get clean, structured Markdown with rich metadata in YAML frontmatter — plus TEI XML intermediates. GROBID starts automatically in Docker on port 8070, and an optional Next.js web app offers a UI for upload-and-convert. Everything runs locally via Docker Compose — no cloud account or infrastructure setup.
+grobid.rs is a local, focused document-conversion tool. Drop PDFs into a `pdf/` directory, run the `grobid` command, and get clean, structured Markdown with rich metadata in YAML frontmatter — plus TEI XML intermediates. GROBID starts automatically in Docker on port 8070, and a static landing page documents the CLI. Everything runs locally — no cloud account or infrastructure setup.
 
-[📄 Documentation](docs/index.html) · [🚀 Quick Start](#get-started) · [🔍 See It In Action](#see-it-in-action)
+[📚 Documentation](docs/README.md) · [🚀 Quick Start](#get-started) · [🔍 See It In Action](#see-it-in-action)
 
 ![grobid.rs](assets/og/og.png)
 
@@ -19,7 +19,7 @@ A useful local conversion tool needs to make it possible to:
 - Extract title, authors, journal, year, volume, issue, pages, and DOI as YAML frontmatter.
 - Preserve abstract, article sections, references, tables, lists, and formulas.
 - Convert resumably: skip TEI and Markdown files that already exist.
-- Run the whole system with Docker Compose: GROBID service plus optional web UI.
+- Run the whole system with Docker Compose: the GROBID service on port 8070.
 
 grobid.rs brings these workflows together in one coherent application.
 
@@ -42,13 +42,13 @@ grobid.rs provides a focused, local-first workflow: drop PDFs into `pdf/`, run `
 - **PDFs to Markdown in minutes** — One command turns a folder of PDFs into LLM-ready Markdown with metadata.
 - **Honest conversion** — GROBID's TEI XML is the intermediate format; Markdown renders TEI faithfully with no information loss layer.
 - **Reproducible by design** — Every run records data directory, ports, image, container name, and library versions.
-- **Developer-friendly** — Python 3.15 CLI (`uv`/`setuptools`), Next.js web UI, Docker Compose topology, `ruff`/`mypy`/`pytest` tooling.
+- **Developer-friendly** — Rust CLI (`cargo`), static Next.js landing page, Docker Compose topology, `clippy`/`vitest`/`eslint` tooling.
 
 ## See It in Action
 
 ![Grobid CLI Demo](assets/demo/demo.png)
 
-Or read the full walkthrough in [`docs/index.html`](docs/index.html).
+Or read the full documentation in [`docs/`](docs/README.md).
 
 ## Get Started
 
@@ -57,7 +57,7 @@ The fastest way to run grobid.rs locally:
 ### Prerequisites
 
 - [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) v2
-- [Python 3.15.1](https://www.python.org/) (for source install)
+- Rust toolchain (only needed to build the CLI from source; a prebuilt binary is available)
 
 ### Run the stack
 
@@ -65,14 +65,8 @@ The fastest way to run grobid.rs locally:
 docker compose up --build
 ```
 
-This starts GROBID on port 8070 and the optional web app on port 3000.
-
-### Open the app
-
-| Service | URL                     |
-| ------- | ----------------------- |
-| GROBID  | <http://127.0.0.1:8070> |
-| Web app | <http://127.0.0.1:3000> |
+This starts the GROBID service on port 8070. The CLI auto-starts its own
+container if needed, so Compose is optional for one-off runs.
 
 Stop and clean up:
 
@@ -142,18 +136,24 @@ curl -fsSL https://github.com/hieudoanm/grobid.rs/releases/download/latest/grobi
 chmod +x /usr/local/bin/grobid
 ```
 
-Or use the install script (checks for Docker and prompts to install if missing):
+Or use the install script — it downloads the binary, checks for Docker, and warns if it is missing:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/hieudoanm/grobid.rs/master/packages/cli/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/hieudoanm/grobid.rs/master/scripts/install.sh | bash
 ```
+
+> **Note:** the release currently ships a single `linux/amd64` binary. On
+> other platforms, build from source instead.
 
 #### Option 2: From source
 
 ```bash
-pip install -e .
-# or
-uv pip install -e .
+# Build and install to ~/.local/bin (or $INSTALL_DIR)
+./scripts/install-local.sh
+
+# or manually
+cargo build --release
+# binary at target/release/grobid
 ```
 
 ## Use Cases
@@ -168,21 +168,21 @@ uv pip install -e .
 - **Focused scope** — Does one thing well: convert PDFs to Markdown via GROBID TEI XML. No AutoML bloat.
 - **Transparent** — Clear pipeline (PDF → TEI → Markdown), TEI intermediates preserved, metadata as frontmatter.
 - **Local-first** — Runs entirely on your machine via Docker Compose; no vendor lock-in or external dependencies.
-- **Production-minded** — Real Python CLI + Next.js implementation with tests, linting, type-checking, and binary releases.
+- **Production-minded** — Real Rust CLI + static Next.js landing page with tests, linting, type-checking, and binary releases.
 
 ## Project Status and Trust
 
 - **Maturity:** Software demonstration (beta). PDF → TEI → Markdown conversion is implemented, including auto-starting GROBID, resumable conversion, and YAML frontmatter metadata.
 - **License:** [MIT License](LICENSE) — see the `LICENSE` file for full terms.
-- **Testing:** `pytest`, `ruff` (lint + format), `mypy` (type checking), `pre-commit` hooks, GitHub Actions CI.
+- **Testing:** `cargo test` + `clippy` + `fmt` (CLI), `vitest` + `eslint` + `prettier` (landing), `pre-commit` hooks, GitHub Actions CI.
 
 ## Community and Contributions
 
 Contributions, bug reports, and feature suggestions are welcome. See existing resources:
 
 - [AGENTS.md](AGENTS.md) — project overview, architecture, environment variables, tech stack, build & test
-- [packages/cli/README.md](packages/cli/README.md) — CLI tool for batch conversion
-- [packages/web/README.md](packages/web/README.md) — Next.js web app for upload-and-convert
+- [crates/README.md](crates/README.md) — CLI tool for batch conversion
+- [packages/landing/README.md](packages/landing/README.md) — static landing page for the CLI
 
 To report issues or propose changes, open an issue or pull request in this repository.
 
