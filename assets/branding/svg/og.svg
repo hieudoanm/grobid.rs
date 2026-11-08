@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+  <!-- White background -->
+  <rect width="1280" height="640" fill="#ffffff"/>
+  
+  <!-- Grid lines (same as logo) -->
+  <line x1="0.0" y1="0" x2="0.0" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="56.888888888888886" y1="0" x2="56.888888888888886" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="113.77777777777777" y1="0" x2="113.77777777777777" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="170.66666666666666" y1="0" x2="170.66666666666666" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="227.55555555555554" y1="0" x2="227.55555555555554" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="284.44444444444446" y1="0" x2="284.44444444444446" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="341.3333333333333" y1="0" x2="341.3333333333333" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="398.2222222222222" y1="0" x2="398.2222222222222" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="455.1111111111111" y1="0" x2="455.1111111111111" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="512.0" y1="0" x2="512.0" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="568.8888888888889" y1="0" x2="568.8888888888889" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="625.7777777777777" y1="0" x2="625.7777777777777" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="682.6666666666666" y1="0" x2="682.6666666666666" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="739.5555555555555" y1="0" x2="739.5555555555555" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="796.4444444444443" y1="0" x2="796.4444444444443" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="853.3333333333333" y1="0" x2="853.3333333333333" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="910.2222222222222" y1="0" x2="910.2222222222222" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="967.1111111111111" y1="0" x2="967.1111111111111" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="1024.0" y1="0" x2="1024.0" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="1080.888888888889" y1="0" x2="1080.888888888889" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="1137.7777777777778" y1="0" x2="1137.7777777777778" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="1194.6666666666665" y1="0" x2="1194.6666666666665" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="1251.5555555555554" y1="0" x2="1251.5555555555554" y2="640" stroke="#cccccc" stroke-width="1"/>
+  <line x1="0" y1="0.0" x2="1280" y2="0.0" stroke="#cccccc" stroke-width="1"/>
+  <line x1="0" y1="56.888888888888886" x2="1280" y2="56.888888888888886" stroke="#cccccc" stroke-width="1"/>
+  <line x1="0" y1="113.77777777777777" x2="1280" y2="113.77777777777777" stroke="#cccccc" stroke-width="1"/>
+  <line x1="0" y1="170.66666666666666" x2="1280" y2="170.66666666666666" stroke="#cccccc" stroke-width="1"/>
+  <line x1="0" y1="227.55555555555554" x2="1280" y2="227.55555555555554" stroke="#cccccc" stroke-width="1"/>
+  <line x1="0" y1="284.44444444444446" x2="1280" y2="284.44444444444446" stroke="#cccccc" stroke-width="1"/>
+  <line x1="0" y1="341.3333333333333" x2="1280" y2="341.3333333333333" stroke="#cccccc" stroke-width="1"/>
+  <line x1="0" y1="398.2222222222222" x2="1280" y2="398.2222222222222" stroke="#cccccc" stroke-width="1"/>
+  <line x1="0" y1="455.1111111111111" x2="1280" y2="455.1111111111111" stroke="#cccccc" stroke-width="1"/>
+  <line x1="0" y1="512.0" x2="1280" y2="512.0" stroke="#cccccc" stroke-width="1"/>
+  <line x1="0" y1="568.8888888888889" x2="1280" y2="568.8888888888889" stroke="#cccccc" stroke-width="1"/>
+  <line x1="0" y1="625.7777777777777" x2="1280" y2="625.7777777777777" stroke="#cccccc" stroke-width="1"/>
+
+  <!-- Logo on the left -->
+  <g transform="translate(200, 192.0) scale(0.5)">
+    <rect width="512" height="512" fill="none"/>
+    <g>
+      <rect x="113.77777777777777" y="113.77777777777777" width="284.44444444444446" height="56.888888888888886" fill="#000000"/>
+      <rect x="113.77777777777777" y="113.77777777777777" width="56.888888888888886" height="284.44444444444446" fill="#000000"/>
+      <rect x="113.77777777777777" y="341.3333333333333" width="284.44444444444446" height="56.888888888888886" fill="#000000"/>
+      <rect x="341.3333333333333" y="227.55555555555554" width="56.888888888888886" height="170.66666666666666" fill="#000000"/>
+      <rect x="227.55555555555554" y="227.55555555555554" width="170.66666666666666" height="56.888888888888886" fill="#000000"/>
+    </g>
+  </g>
+  
+  <!-- Text section on the right, vertically centered with logo -->
+  <g transform="translate(650, 320.0)">
+    <text x="0" y="-10" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="#000000" letter-spacing="-1" text-anchor="start" dominant-baseline="middle">Grobid CLI</text>
+    <text x="0" y="60" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="400" fill="#333333" text-anchor="start" dominant-baseline="middle">Convert PDF articles to Markdown</text>
+  </g>
+</svg>

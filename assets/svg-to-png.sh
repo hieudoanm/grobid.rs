@@ -1,57 +1,56 @@
 #!/usr/bin/env bash
-# Convert SVG sources in assets/svg/ to PNGs in assets/images/ (output size
-# comes from each SVG's intrinsic dimensions), then refresh the flat
-# landing page assets: packages/landing/ (logo.svg, og-image.png,
-# favicon.ico).
+# Convert every SVG under assets/**/svg/ to a sibling PNG under assets/**/png/.
+# Output keeps each SVG's intrinsic size and aspect ratio.
 #
 # Usage: assets/svg-to-png.sh
 
 set -euo pipefail
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SVG_DIR="$REPO_ROOT/assets/svg"
-PNG_DIR="$REPO_ROOT/assets/images"
-LANDING_DIR="$REPO_ROOT/packages/landing"
+ASSETS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+JOBS="${JOBS:-4}"
 
-if ! command -v rsvg-convert >/dev/null 2>&1; then
-  echo "rsvg-convert not found. Install librsvg:"
-  echo "  macOS:  brew install librsvg"
-  echo "  Debian: sudo apt-get install librsvg2-bin"
-  echo "  Arch:   sudo pacman -S librsvg"
+command -v rsvg-convert >/dev/null 2>&1 || {
+  echo "rsvg-convert is required but not installed" >&2
+  echo "  macOS:  brew install librsvg" >&2
+  echo "  Debian: sudo apt-get install librsvg2-bin" >&2
+  echo "  Arch:   sudo pacman -S librsvg" >&2
   exit 1
-fi
+}
 
-mkdir -p "$PNG_DIR"
+pids=()
+count=0
+while IFS= read -r -d '' svg; do
+  (
+    png="$(dirname "$svg" | sed 's|/svg$|/png|')/$(basename "${svg%.svg}").png"
 
-for svg in "$SVG_DIR"/*.svg; do
-  name="$(basename "$svg" .svg)"
-  png="$PNG_DIR/$name.png"
-  echo "Converting $svg -> $png"
-  rsvg-convert -o "$png" "$svg"
+    if [ ! -s "$svg" ]; then
+      echo "skip (empty): $svg" >&2
+      exit 0
+    fi
+
+    mkdir -p "$(dirname "$png")"
+    if rsvg-convert -o "$png" "$svg"; then
+      echo "converted $svg -> $png"
+    else
+      echo "failed: $svg" >&2
+      exit 1
+    fi
+  ) &
+  pids+=("$!")
+  count=$((count + 1))
+  if [ "${#pids[@]}" -ge "$JOBS" ]; then
+    wait "${pids[0]}" || true
+    pids=("${pids[@]:1}")
+  fi
+done < <(find "$ASSETS_DIR" -type f -path '*/svg/*.svg' -print0)
+
+status=0
+for pid in "${pids[@]}"; do
+  wait "$pid" || status=1
 done
 
-# Landing page assets (flat static site in packages/landing).
-if [[ -f "$SVG_DIR/logo.svg" ]]; then
-  cp "$SVG_DIR/logo.svg" "$LANDING_DIR/logo.svg"
-fi
-if [[ -f "$SVG_DIR/og.svg" ]]; then
-  echo "Converting $SVG_DIR/og.svg -> $LANDING_DIR/og-image.png"
-  rsvg-convert -o "$LANDING_DIR/og-image.png" "$SVG_DIR/og.svg"
+if [ "$count" -eq 0 ]; then
+  echo "no svg files found under $ASSETS_DIR/*/svg" >&2
 fi
 
-# favicon.ico: multi-size icon rendered from the logo.
-if [[ -f "$SVG_DIR/logo.svg" ]]; then
-  if command -v magick >/dev/null 2>&1; then
-    tmpdir="$(mktemp -d)"
-    trap 'rm -rf "$tmpdir"' EXIT
-    for size in 16 32 48 256; do
-      rsvg-convert -w "$size" -h "$size" "$SVG_DIR/logo.svg" -o "$tmpdir/favicon-$size.png"
-    done
-    magick "$tmpdir"/favicon-*.png "$LANDING_DIR/favicon.ico"
-    echo "Wrote $LANDING_DIR/favicon.ico"
-  else
-    echo "warning: magick not found — skipping favicon.ico (install ImageMagick)" >&2
-  fi
-fi
-
-echo "Done."
+exit "$status"
