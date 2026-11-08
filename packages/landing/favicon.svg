@@ -1,22 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
-    <pattern id="grid" width="56.888888888888886" height="56.888888888888886" patternUnits="userSpaceOnUse">
-      <path d="M 56.888888888888886 0 L 0 0 0 56.888888888888886" fill="none" stroke="#cccccc" stroke-width="1"/>
+    <pattern id="grid" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M16 0H0V16" fill="none" stroke="#e5e7eb" stroke-width="1"/>
     </pattern>
   </defs>
-  
-  <!-- White background -->
   <rect width="512" height="512" fill="#ffffff"/>
-  
-  <!-- Letter G -->
-  <g>
-    <rect x="113.77777777777777" y="113.77777777777777" width="284.44444444444446" height="56.888888888888886" fill="#000000"/>
-    <rect x="113.77777777777777" y="113.77777777777777" width="56.888888888888886" height="284.44444444444446" fill="#000000"/>
-    <rect x="113.77777777777777" y="341.3333333333333" width="284.44444444444446" height="56.888888888888886" fill="#000000"/>
-    <rect x="341.3333333333333" y="227.55555555555554" width="56.888888888888886" height="170.66666666666666" fill="#000000"/>
-    <rect x="227.55555555555554" y="227.55555555555554" width="170.66666666666666" height="56.888888888888886" fill="#000000"/>
-  </g>
-  
-  <!-- Grid overlay covering the whole square -->
   <rect width="512" height="512" fill="url(#grid)"/>
+  <g transform="translate(64 64)" fill="none" stroke="#111827" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M48 48H336" stroke-width="16"/>
+    <path d="M48 48V336" stroke-width="16"/>
+    <path d="M48 336H336" stroke-width="16"/>
+    <path d="M336 168V336" stroke-width="16"/>
+    <path d="M336 168H192" stroke-width="16"/>
+    <path d="M72 72H336" stroke-width="16"/>
+    <path d="M72 72V312" stroke-width="16"/>
+    <path d="M72 312H312" stroke-width="16"/>
+    <path d="M312 192V312" stroke-width="16"/>
+    <path d="M312 192H192" stroke-width="16"/>
+    <path d="M96 96H336" stroke-width="16"/>
+    <path d="M96 96V288" stroke-width="16"/>
+    <path d="M96 288H288" stroke-width="16"/>
+    <path d="M288 216V288" stroke-width="16"/>
+    <path d="M288 216H192" stroke-width="16"/>
+  </g>
 </svg>
