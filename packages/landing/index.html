@@ -42,6 +42,7 @@
   <main id="top">
     <section class="hero">
       <div class="container hero-inner">
+        <div class="hero-content">
         <h1>Turn research PDFs into clean Markdown for LLMs.</h1>
         <p class="lede">
           grobid.rs converts PDFs to structured Markdown via GROBID TEI XML —
@@ -58,6 +59,15 @@
           <div><dt>0</dt><dd>cloud calls</dd></div>
           <div><dt>resumable</dt><dd>skips finished files</dd></div>
         </dl>
+        </div>
+        <figure class="terminal hero-demo">
+          <figcaption>pdf/ → md/ in one command</figcaption>
+          <pre><code><span class="prompt">$</span> grobid
+<span class="out">[INFO] Converting PDFs to Markdown via GROBID</span>
+<span class="out">[INFO] [1/2] PDF → TEI: paper.pdf</span>
+<span class="out">[INFO]   wrote paper.md</span>
+<span class="out">[INFO] Conversion completed</span></code></pre>
+        </figure>
       </div>
     </section>
 
