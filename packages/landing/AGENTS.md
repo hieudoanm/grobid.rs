@@ -9,8 +9,9 @@ year-injection snippet. Deployed to GitHub Pages as-is.
 ## Conventions
 
 - Keep it dependency-free: edit `index.html`/`styles.css` directly.
-- Asset URLs are relative (`svg/logo.svg`, `favicon.ico`) so the page works
-  under the `/grobid.rs/` Pages base path and from `file://`.
+- Asset URLs are relative (`logo.svg`, `favicon.ico`, `og-image.png`) so the
+  page works under the `/grobid.rs/` Pages base path and from `file://`.
+  The directory is flat — no asset subdirectories.
 - Light theme only; terminal mockups stay dark via their own colour tokens — no theme toggle, no JS theming.
 - Design follows the "AI unslop" rules (see repo notes): no filler badges,
   monospace only for code/commands, one accent colour (teal), consistent

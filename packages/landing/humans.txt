@@ -1,0 +1,8 @@
+/* TEAM */
+Project: grobid.rs — PDF to Markdown for LLMs
+Role: Local-first PDF → Markdown converter powered by GROBID
+Repository: https://github.com/hieudoanm/grobid.rs
+
+/* THANKS */
+Built with HTML, CSS, and Rust.
+Powered by GROBID (https://github.com/kermitt2/grobid).

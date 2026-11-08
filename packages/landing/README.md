@@ -6,9 +6,14 @@ Static landing page for grobid.rs — plain HTML + CSS, no build step.
 
 ```
 index.html    # single-page site (nav, hero, features, demo, pipeline, install, footer)
+404.html      # GitHub Pages 404 page
 styles.css    # all styles; light page, dark terminals
-svg/          # logo.svg + og-image.png
+logo.svg      # brand mark (nav, 404)
+og-image.png  # Open Graph image (1280x640)
 favicon.ico
+robots.txt    # allow all + sitemap reference
+sitemap.xml   # single-URL sitemap for the Pages site
+humans.txt    # project/team credits
 ```
 
 Asset paths are relative, so the same files work locally and under the

@@ -39,12 +39,9 @@ crates/
 └── grobid-cli/        # grobid binary (clap + tokio)
     └── tests/e2e.sh   # end-to-end run against the fixtures
 packages/
-└── landing/              # static site: index.html + styles.css + svg/
-    └── src/
-        ├── app/               # layout, page, error/not-found/loading
-        ├── components/        # Navbar, Hero, Features, DemoSection,
-        │                      # Pipeline, InstallSection, Footer, etc.
-        └── lib/site.ts        # BASE_PATH, assetPath, GITHUB_URL
+└── landing/              # flat static site deployed to GitHub Pages:
+                          # index.html, 404.html, styles.css, logo.svg,
+                          # og-image.png, favicon.ico, robots/sitemap/humans.txt
 ```
 
 ## Commands
