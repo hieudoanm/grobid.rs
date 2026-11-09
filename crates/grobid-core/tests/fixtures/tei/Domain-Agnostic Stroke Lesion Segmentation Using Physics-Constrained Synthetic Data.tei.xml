@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Domain-Agnostic Stroke Lesion Segmentation Using Physics-Constrained Synthetic Data</title>
+				<funder ref="#_hJD3eyA">
+					<orgName type="full">NVIDIA</orgName>
+				</funder>
+				<funder ref="#_HETuDdN #_nAjChru">
+					<orgName type="full">Wellcome Trust</orgName>
+				</funder>
+				<funder ref="#_V7YYpuy #_hHvzq4Y #_EBwPXyN">
+					<orgName type="full">Wellcome</orgName>
+				</funder>
+				<funder ref="#_7CMHUSJ">
+					<orgName type="full">EPSRC</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability  status="unknown">
+					<licence/>
+				</availability>
+				<date type="published" when="2025-06-01">1 Jun 2025</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct status="extracted">
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Liam</forename><surname>Chalcroft</surname></persName>
+							<email>l.chalcroft@cs.ucl.ac.uk</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Imaging Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Jenny</forename><surname>Crinion</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">Institute of Cognitive Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Cathy</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Imaging Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">John</forename><surname>Ashburner</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Imaging Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Domain-Agnostic Stroke Lesion Segmentation Using Physics-Constrained Synthetic Data</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2025-06-01">1 Jun 2025</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">49D24A1475171B99199C3781D6D37380</idno>
+					<idno type="arXiv">arXiv:2412.03318v3[eess.IV]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.9.1" ident="GROBID" when="2026-11-09T16:58+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<label type="revision">0.9.1</label>
+					<label type="parameters">startPage=-1, endPage=-1, consolidateCitations=0, consolidateHeader=0, consolidateFunders=0, includeRawAffiliations=false, includeRawCitations=false, includeRawCopyrights=false, generateTeiIds=false, generateTeiCoordinates=[], flavor=null, debugLabelingCollector=disabled</label>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Segmentation</term>
+					<term>Synthetic Data</term>
+					<term>Quantitative MRI</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Segmenting stroke lesions in MRI is challenging due to diverse acquisition protocols that limit model generalisability. In this work, we introduce two physics-constrained approaches to generate synthetic quantitative MRI (qMRI) images that improve segmentation robustness across heterogeneous domains. Our first method, qATLAS, trains a neural network to estimate qMRI maps from standard MPRAGE images, enabling the simulation of varied MRI sequences with realistic tissue contrasts. The second method, qSynth, synthesises qMRI maps directly from tissue labels using label-conditioned Gaussian mixture models, ensuring physical plausibility. Extensive experiments on multiple out-of-domain datasets show that both methods outperform a baseline UNet, with qSynth notably surpassing previous synthetic data approaches. These results highlight the promise of integrating MRI physics into synthetic data generation for robust, generalisable stroke lesion segmentation. Code is available at <ref type="url" target="https://github.com/liamchalcroft/qsynth">https://github.com/liamchalcroft/qsynth</ref> </p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>Segmenting brain pathologies in MRI is vital for clinical and research applications, yet remains challenging due to the variability of acquisition protocols across hospitals. Recent work shows that even for diffusion-weighted MRI -arguably the modality of choice in acute stroke -dedicated CNNs can equal human raters when trained on large, carefully curated cohorts <ref type="bibr" target="#b16">[17]</ref>. While public datasets achieve high performance using standardised sequences (e.g., T1w, T2w, FLAIR) with similar parameters, clinical data rarely conforms to these ideal conditions <ref type="bibr" target="#b20">[21,</ref><ref type="bibr" target="#b5">6]</ref>. Existing domain adaptation methods either require prior target domain knowledge or many unlabelled images <ref type="bibr" target="#b9">[10,</ref><ref type="bibr" target="#b24">25]</ref>, and synthetic approaches like SynthSeg <ref type="bibr" target="#b1">[2]</ref> can produce unrealistic contrasts for heterogeneous stroke lesions <ref type="bibr" target="#b0">[1,</ref><ref type="bibr" target="#b7">8]</ref>.</p><p>To address these limitations, we propose generating synthetic images using quantitative MRI (qMRI) parameters and physics-based forward models to ensure physical plausibility. qMRI provides voxel-level tissue properties -proton density (PD), longitudinal relaxation rate (R 1 ), effective transverse relaxation rate (R * 2 ), and magnetisation transfer (MT) -that enable the simulation of diverse MRI sequences while preserving tissue characteristics. Since acquiring full qMRI data is time-consuming, recent deep learning methods estimate qMRI maps from standard sequences <ref type="bibr" target="#b3">[4,</ref><ref type="bibr" target="#b23">24,</ref><ref type="bibr" target="#b2">3]</ref>, making large-scale synthetic data generation feasible.</p><p>We introduce two methods for domain-agnostic stroke lesion segmentation. The first, qATLAS, trains a qMRI estimation model on MPRAGE images to augment the ATLAS dataset <ref type="bibr" target="#b15">[16]</ref> with simulated sequences. The second, qSynth, extends previous synthetic approaches <ref type="bibr" target="#b0">[1,</ref><ref type="bibr" target="#b7">8]</ref> by sampling qMRI maps from intensity priors derived from real data, ensuring greater physical realism. By embedding MRI physics into data synthesis, our framework bridges the gap between synthetic and clinical data, thereby improving segmentation robustness across diverse imaging domains.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Methods</head><p>We propose two methods, qATLAS and qSynth, for domain-agnostic stroke lesion segmentation. Both leverage qMRI parameter maps to generate diverse, physicsconstrained training data, enhancing robustness and generalisability.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">qATLAS: Estimating qMRI from MPRAGE</head><p>qATLAS fits an nnU-Net <ref type="bibr" target="#b13">[14]</ref> that predicts four qMRI maps (PD, R 1 , R * 2 , MT) from a single MPRAGE ‡ . Training used 51 subjects (22 healthy, 29 stroke; 80/20 split) with 3D-EPI ground-truth maps from hMRI <ref type="bibr" target="#b21">[22]</ref>. Thus any routine MPRAGE can be converted to qMRI and fed to our physics-based simulator.</p><p>Diverse MPRAGE images were simulated using NiTorch with parameters: T R ∼ U(1.9, 2.5) s, T I ∼ U(0.6, 1.2) s, T E ∼ U(2, 4) ms, α ∼ U(5 • , 12 • ), and B 0 ∼ U(0.3, 7) T.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Data Augmentation:</head><p>We applied standard augmentations (elastic/affine deformations, bias field, Gibbs ringing, Rician noise, and random cropping to 192 3 voxels) using MONAI <ref type="bibr" target="#b6">[7]</ref>. Figure <ref type="figure">1</ref> illustrates examples of the augmented training data.</p><p>Model Architecture and Training: Our U-Net comprises five encoder stages (channels: 24, 48, 96, 192, 384), each with two residual units, using GELU activations <ref type="bibr" target="#b12">[13]</ref>, instance normalisation <ref type="bibr" target="#b22">[23]</ref>, linear upsampling, and 0.1 dropout. The network outputs four channels corresponding to PD, R 1 , R * 2 , and MT. To enforce positivity, PD, R 1 , and R * 2 are computed as the exponential of their raw outputs, while MT is computed as 100 times the sigmoid of its raw output.</p><p>Training was performed over 200,000 iterations (batch size 1) using AdamW (lr=10 -4 , β 1 = 0.9, β 2 = 0.999, weight decay=0.01). An initial 20,000 iterations</p><formula xml:id="formula_0">‡ Estimating R *</formula><p>2 from one T1 is ill-posed; errors mainly affect simulated T2w/FLAIR.</p><p>Fig. <ref type="figure">1</ref>: Examples of training data for qMRI parameter map prediction in the qATLAS method. used L2 loss; thereafter, we employed a combined loss L = L1(y, ŷ) + L2(y, ŷ) + L1(∇y, ∇ŷ) + L2(∇y, ∇ŷ) augmented by a perceptual LPIPS loss <ref type="bibr" target="#b26">[27]</ref> (weight 0.1) using features from a pretrained Med3D encoder <ref type="bibr" target="#b8">[9]</ref>.</p><p>Figure <ref type="figure" target="#fig_0">2</ref> displays examples of predicted qMRI maps from input MPRAGE images in the ATLAS dataset <ref type="bibr" target="#b15">[16]</ref>. Simulation of MRI Sequences: We used the estimated qMRI maps from the ATLAS dataset to simulate diverse MRI sequences via a physics-based generative model (see Section 2.3), thereby creating the qATLAS dataset for segmentation training.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">qSynth: Synthesising qMRI Maps from Tissue Labels</head><p>The qSynth method generates synthetic qMRI maps directly from segmentation labels using label-conditioned Gaussian Mixture Models (GMMs). We first define prior distributions for each qMRI parameter (PD, R 1 , R * 2 , MT) for different tissue types (gray matter, white matter, cerebrospinal fluid, and lesions). These priors are estimated from the population used in qATLAS (for anatomy or pathology where real data is not available, it is feasible that parameters could be estimated based on values reported in literature). For each voxel in a segmentation label, the corresponding qMRI parameters are sampled from the appropriate prior, thereby producing a synthetic qMRI map that reflects realistic tissue properties. Healthy tissue maps are obtained using the Multibrain SPM toolbox <ref type="bibr" target="#b4">[5]</ref>, and lesion masks are generated by overlaying random binary lesion maps onto these healthy tissue maps (see <ref type="bibr" target="#b7">[8]</ref> for further details).</p><p>Simulation of MRI Sequences: The synthetic qMRI maps are then used with our physics-based generative model (Section 2.3) to simulate diverse MRI sequences, resulting in the qSynth dataset for training an alternative segmentation model.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3">Physics-Based Generative Model</head><p>Both qATLAS and qSynth use a physics-based generative model to simulate realistic MRI images from qMRI parameter maps via standard signal equations. We simulate several common MRI sequences, including Fast Spin-Echo (FSE), Gradient-Echo (GRE), Fluid-Attenuated Inversion Recovery (FLAIR), and Magnetisation-Prepared Rapid Gradient Echo (MPRAGE).</p><p>For example, the FSE signal is computed as:</p><formula xml:id="formula_1">S FSE = B 1 PD 1 -e -R1T R e -R2T E ,</formula><p>where B 1 is the receive field strength, PD is the proton density, R 1 and R 2 (≈ R2 * ) are the relaxation rates, and T R and T E are the repetition and echo times, respectively. Similar equations are used for GRE, FLAIR, and MPRAGE sequences. Acquisition parameters (e.g., T R , T E , T I , T X , T D , and α) were sampled from physically plausible distributions; please refer to our code repository § for the complete sampling details.</p><p>To mimic realistic MRI data, we add Rician noise by perturbing the simulated signal S MRI with independent Gaussian noise on the real and imaginary components:</p><formula xml:id="formula_2">S noisy = (S MRI + n r ) 2 + n 2 i , n r , n i ∼ N (0, σ 2 ).</formula><p>All simulations and noise additions were implemented using the NiTorch library ¶ . Additional augmentations -such as elastic deformations, bias field variations, axis flips, Gaussian noise, low-resolution reslicing, and random cropping to 192 × 192 × 192 voxels -were applied using MONAI <ref type="bibr" target="#b6">[7]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4">Segmentation Model Training</head><p>We trained nnUNet-based segmentation models <ref type="bibr" target="#b13">[14]</ref> on four settings: (i) real MPRAGE images from the ATLAS dataset (baseline), (ii) the qATLAS dataset (from MPRAGE-derived qMRI maps), (iii) a synthetic data model using the public Synth method <ref type="bibr" target="#b7">[8]</ref>, and (iv) the qSynth method. The qSynth method differs from Synth in that Synth directly samples the random tissue intensities, while qSynth uses intensity priors to first synthesise qMRI parameter maps, which may then be used to generate realistic tissue intensities via random variations of real forward models. For Synth and qSynth, we additionally evaluated models trained on a mixture of synthetic and real ATLAS images.</p><p>Model Architecture and Training Details: All models use PReLU activations <ref type="bibr" target="#b11">[12]</ref> with one residual unit per block. The qATLAS model performs binary segmentation (background vs. stroke lesion), while the qSynth model predicts additional healthy tissue classes (gray matter, white matter, GM/WM partial volume, and cerebrospinal fluid). Baseline and qATLAS models were trained on the ATLAS dataset (N=419/105/131 train/validation/test), whereas Synth and qSynth models used ATLAS lesion labels combined with healthy tissue labels from OASIS-3 (N=2579/100 train/validation) as detailed in <ref type="bibr" target="#b7">[8]</ref>.</p><p>All models were optimised using a combined Dice and cross-entropy loss with the AdamW optimiser <ref type="bibr" target="#b18">[19]</ref> (lr=10 -4 , β 1 = 0.9, β 2 = 0.999, weight decay=0.01) and a learning rate scheduler η n = η 0 (1 -n N ) 0.9 . Training was run for 700,000 iterations with a batch size of 1.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">Experiments</head><p>We evaluated segmentation models on four datasets: ATLAS, comprising 131 subjects (isotropic MPRAGE) <ref type="bibr" target="#b15">[16]</ref> for in-domain evaluation; ARC, with 229 subjects (T1w, T2w, FLAIR) <ref type="bibr" target="#b10">[11,</ref><ref type="bibr" target="#b14">15]</ref> for out-of-domain testing; PLORAS, consisting of 406 subjects (106 T2w, 300 FLAIR) from various UK hospitals; and ISLES 2015, including 28 subjects (T1w, T2w, FLAIR, DWI) <ref type="bibr" target="#b19">[20]</ref> with acute lesions.</p><p>All scans were resliced to 1 mm, histogram-normalised and z-scored, then segmented with a 192 3 sliding window (50 % overlap, Gaussian blending) and 8flip TTA <ref type="bibr" target="#b25">[26]</ref>. For multi-modal sets (ARC, ISLES15) we averaged per-voxel logits across contrasts before soft-max and post-processing (reported as 'Ensemble'). Dice and HD95 (95-percentile Hausdorff, mm) were computed on predictions/GT padded to 256 3 ; only the lesion channel is reported for Synth/qSynth. Dataset caveat. Synth/qSynth are trained on a much larger multi-site cohort with multi-class labels, whereas qATLAS and the baseline use ATLAS only (binary masks). Thus absolute score differences combine physics, training-set size, label granularity and pre-stripped skulls in ISLES15; isolating each factor is left for future work.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Results</head><p>Fig. <ref type="figure">3</ref>: Dice metric performance for all datasets.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ATLAS:</head><p>The ATLAS test set is considered in-domain. The baseline model is expected to perform optimally, while the qMRI generator model must accurately reproduce MPRAGE details to match this performance. As shown in Tables 1 &amp; 2 and Figure <ref type="figure">3</ref>, the baseline outperformed the qMRI-based methods, with no statistically significant differences except between Synth and qSynth. Notably, qSynth significantly outperformed Synth, indicating that the physicsconstrained pipeline reduces domain shift between simulated and real data. ARC: The ARC dataset exhibits moderate domain shift in the T1w channel and larger shifts in T2 and FLAIR. As shown in Tables 1 &amp; 2 and Figure <ref type="figure">3</ref>, qATLAS underperformed relative to the baseline (though not significantly). For T1w, qSynth initially lagged behind Synth but reached comparable performance when real data was integrated; in T2w, qSynth outperformed all models, and in Table <ref type="table">1</ref>: Median Dice (top line) and 95 % CI (tiny line). Best, second, and third best are bold, underlined, and italic.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">Conclusion</head><p>We proposed two physics-aware generators for stroke-lesion segmentation training: qATLAS, which derives qMRI maps from a single MPRAGE, and qSynth, which samples qMRI from learned intensity priors. qATLAS boosts T1-weighted performance but degrades on contrasts dominated by non-R 1 parameters; qSynth delivers the most consistent cross-domain gains, yet both remain below fully in-domain models. Future work should explore domain adaptation techniques or domain-conditioning via hypernetworks to further close this gap. Additionally, our framework can be extended to other tasks (e.g., registration, superresolution), other pathologies (e.g. glioblastoma), and other anatomies (e.g., cardiac, abdomen). We also plan to integrate recent advances in more realistic lesion simulations <ref type="bibr" target="#b17">[18]</ref> to further enhance synthetic data fidelity. Overall, embedding MRI physics in data generation represents a promising step toward robust, generalisable segmentation in diverse clinical scenarios.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 2 :</head><label>2</label><figDesc>Fig. 2: Examples of predicted qMRI parameter maps from input MPRAGE images of the ATLAS dataset in the qATLAS method.</figDesc><graphic coords="3,169.35,488.37,276.66,140.68" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><graphic coords="6,134.77,314.18,345.83,160.11" type="bitmap" /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_0"><p>§ https://github.com/liamchalcroft/qsynth</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_1"><p>¶ https://github.com/balbasty/nitorch</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><p>Acknowledgments. LC is supported by the <rs type="funder">EPSRC</rs>-funded <rs type="affiliation">UCL Centre for Doctoral Training in Intelligent, Integrated Imaging in Healthcare (i4health</rs>) (<rs type="grantNumber">EP/S021930/1</rs>), and the <rs type="funder">Wellcome Trust</rs> (<rs type="grantNumber">203147/Z/16/Z</rs> and <rs type="grantNumber">205103/Z/16/Z</rs>). CP is funded by <rs type="funder">Wellcome</rs> (<rs type="grantNumber">203147/Z/16/Z</rs>, <rs type="grantNumber">205103/Z/16/Z</rs> and <rs type="grantNumber">224562/Z/21/Z</rs>). This research was supported by <rs type="funder">NVIDIA</rs> and used NVIDIA RTX <rs type="grantNumber">A6000 48GB</rs>.</p></div>
+			</div>
+			<listOrg type="funding">
+				<org type="funding" xml:id="_7CMHUSJ">
+					<idno type="grant-number">EP/S021930/1</idno>
+				</org>
+				<org type="funding" xml:id="_HETuDdN">
+					<idno type="grant-number">203147/Z/16/Z</idno>
+				</org>
+				<org type="funding" xml:id="_nAjChru">
+					<idno type="grant-number">205103/Z/16/Z</idno>
+				</org>
+				<org type="funding" xml:id="_V7YYpuy">
+					<idno type="grant-number">203147/Z/16/Z</idno>
+				</org>
+				<org type="funding" xml:id="_hHvzq4Y">
+					<idno type="grant-number">205103/Z/16/Z</idno>
+				</org>
+				<org type="funding" xml:id="_EBwPXyN">
+					<idno type="grant-number">224562/Z/21/Z</idno>
+				</org>
+				<org type="funding" xml:id="_hJD3eyA">
+					<idno type="grant-number">A6000 48GB</idno>
+				</org>
+			</listOrg>
+
+			<div type="conflict">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Disclosure of Interests.</head><p>The authors have no competing interests to declare that are relevant to the content of this article.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Dataset Modality Baseline qATLAS Synth Synth +Real qSynth qSynth +Real ATLAS T1w 0.575 (0.522-0.628) 0.508 (0.460-0.556) 0.197 (0.155-0.239) 0.482 (0.431-0.534) 0.294 (0.250-0.338) 0.501 (0.450-0.551) ARC T1w 0.752 (0.713-0.790) 0.710 (0.673-0.747) 0.467 (0.430-0.504) 0.723 (0.684-0.762) 0.394 (0.359-0.429) 0.683 (0.643-0.723) T2w 0.000 (0.000-0.007) 0.395 (0.363-0.426) 0.626 (0.588-0.665) 0.268 (0.233-0.302) 0.674 (0.640-0.709) 0.691 (0.655-0.726) FLAIR 0.122 (0.076-0.169) 0.032 (0.005-0.059) 0.096 (0.070-0.123) 0.141 (0.097-0.185) 0.344 (0.300-0.388) 0.382 (0.332-0.431) Ensemble 0.012 (0.000-0.032) 0.586 (0.549-0.622) 0.597 (0.562-0.631) 0.602 (0.566-0.638) 0.676 (0.642-0.709) 0.735 (0.701-0.770) PLORAS T2w 0.000 (0.000-0.006) 0.085 (0.049-0.122) 0.204 (0.150-0.258) 0.126 (0.073-0.179) 0.304 (0.253-0.356) 0.288 (0.238-0.338) FLAIR 0.000 (0.000-0.002) 0.000 (0.000-0.017) 0.328 (0.298-0.358) 0.294 (0.264-0.325) 0.361 (0.333-0.388) 0.309 (0.283-0.335) ISLES15 T1w 0.000 (0.000-0.064) 0.252 (0.142-0.363) 0.304 (0.213-0.396) 0.110 (0.012-0.208) 0.002 (0.000-0.078) 0.013 (0.000-0.087) T2w 0.000 (0.000-0.002) 0.082 (0.000-0.170) 0.074 (0.000-0.184) 0.111 (0.007-0.216) 0.222 (0.114-0.329) 0.225 (0.117-0.333) FLAIR 0.000 (0.000-0.000) 0.004 (0.000-0.052) 0.372 (0.255-0.489) 0.212 (0.085-0.340) 0.392 (0.281-0.504) 0.332 (0.226-0.439) DWI 0.000 (0.000-0.000) 0.001 (0.000-0.027) 0.082 (0.000-0.168) 0.056 (0.000-0.144) 0.243 (0.155-0.331) 0.162 (0.076-0.249) Ensemble 0.000 (0.000-0.000) 0.048 (0.000-0.123) 0.272 (0.157-0.388) 0.423 (0.302-0.545) 0.335 (0.222-0.448) 0.404 (0.284-0.524)</p><p>FLAIR and ensemble evaluations, it achieved statistically significant improvements, highlighting its robustness under domain shift.</p><p>Why do real scans help more in some contrasts than others? We currently model the entire lesion with a single Gaussian intensity prior. This approximation is adequate for T2w or FLAIR images, where stroke lesions are nearly isointense within the lesion core, so mixing in real data offers only marginal gain and can even dilute the synthetic coverage. In T1w scans stroke appearance is markedly more heterogeneous, so a single-mode prior under-represents the true lesion distribution. Injecting real ATLAS images therefore supplies the missing high-variance examples and yields the largest Dice improvement for T1w. Future work could address this imbalance by using multi-modal lesion priors.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>PLORAS:</head><p>The PLORAS dataset, containing real clinical data from UK hospitals, highlights the superiority of qSynth over baseline and qATLAS models as seen in Tables <ref type="table">1</ref> &amp; <ref type="table" target="#tab_1">2</ref>. qSynth also demonstrated moderate but consistent improvements over Synth, reflecting its capacity to generalise effectively to diverse real-world clinical scenarios.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ISLES 2015:</head><p>The ISLES 2015 dataset, featuring co-registered T1w, T2w, FLAIR, and DWI channels with acute stroke lesions, posed unique challenges. DWI channels, absent in qMRI simulations, were unseen during qATLAS/qSynth training. Nevertheless, qSynth significantly outperformed all models, including Synth, which could have trained on DWI-like data. qSynth achieved the highest Dice scores for T2w and FLAIR modalities, while both Synth and qSynth showed strong ensemble performance. For T1w, qATLAS and Synth achieved the best results. The dataset's skull-stripped images likely conferred an advantage to Synth/qSynth models compared to other methods.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2 :</head><label>2</label><figDesc>95th-percentile Hausdorff distance (HD95, mm) -median on top, 95 % CI beneath. Lowest, 2nd-lowest, and 3rd-lowest scores are bold, underlined, and italic.</figDesc><table><row><cell>Dataset</cell><cell>Modality</cell><cell>Baseline</cell><cell>qATLAS</cell><cell>Synth</cell><cell>Synth +Real</cell><cell>qSynth</cell><cell>qSynth +Real</cell></row><row><cell>ATLAS</cell><cell>T1w</cell><cell>19.7 (10.2-29.3)</cell><cell>34.4 (26.5-42.2)</cell><cell>63.7 (59.6-67.9)</cell><cell>22.6 (12.0-33.3)</cell><cell>51.3 (43.5-59.2)</cell><cell>38.0 (28.2-47.8)</cell></row><row><cell></cell><cell>T1w</cell><cell>8.8 (2.5-15.0)</cell><cell>11.8 (5.6-18.1)</cell><cell>57.1 (52.9-61.3)</cell><cell>11.0 (4.0-18.0)</cell><cell>31.0 (26.6-35.5)</cell><cell>13.0 (6.8-19.2)</cell></row><row><cell>ARC</cell><cell>T2w</cell><cell>74.4 (71.4-77.4)</cell><cell>54.5 (50.7-58.2)</cell><cell>46.1 (42.2-50.0)</cell><cell>64.0 (60.5-67.4)</cell><cell>39.0 (34.8-43.2)</cell><cell>43.0 (38.7-47.2)</cell></row><row><cell></cell><cell>FLAIR</cell><cell>58.5 (49.5-67.4)</cell><cell>59.7 (50.7-68.7)</cell><cell>57.6 (49.2-65.9)</cell><cell>52.2 (43.3-61.1)</cell><cell>50.3 (41.3-59.2)</cell><cell>44.0 (34.5-53.5)</cell></row><row><cell></cell><cell>Ensemble</cell><cell>48.2 (40.1-56.3)</cell><cell>16.4 (10.9-22.0)</cell><cell>44.0 (39.9-48.2)</cell><cell>20.1 (14.8-25.3)</cell><cell>31.6 (27.2-36.0)</cell><cell>20.7 (16.2-25.2)</cell></row><row><cell>PLORAS</cell><cell>T2w</cell><cell>70.9 (65.9-76.0)</cell><cell>59.6 (54.4-64.8)</cell><cell>67.5 (61.3-73.7)</cell><cell>70.3 (64.9-75.8)</cell><cell>60.4 (54.6-66.3)</cell><cell>60.7 (55.2-66.3)</cell></row><row><cell></cell><cell>FLAIR</cell><cell>66.8 (61.2-72.4)</cell><cell>65.4 (58.4-72.3)</cell><cell>69.7 (66.8-72.6)</cell><cell>74.3 (71.4-77.2)</cell><cell>73.3 (70.4-76.2)</cell><cell>73.0 (70.2-75.7)</cell></row><row><cell></cell><cell>T1w</cell><cell>69.8 (30.0-109.7)</cell><cell>51.5 (40.0-63.0)</cell><cell>58.6 (48.5-68.6)</cell><cell>52.5 (29.9-75.0)</cell><cell>56.3 (19.6-93.1)</cell><cell>56.3 (17.8-94.8)</cell></row><row><cell>ISLES15</cell><cell>T2w</cell><cell>63.1 (57.8-68.4)</cell><cell>59.4 (43.3-75.4)</cell><cell>72.3 (65.7-78.9)</cell><cell>75.0 (68.4-81.7)</cell><cell>66.1 (58.3-73.8)</cell><cell>67.7 (59.8-75.6)</cell></row><row><cell></cell><cell>FLAIR</cell><cell>71.8 (38.5-105.2)</cell><cell>65.8 (51.2-80.5)</cell><cell>56.1 (49.5-62.7)</cell><cell>56.1 (38.7-73.4)</cell><cell>64.5 (55.0-73.9)</cell><cell>66.0 (57.5-74.5)</cell></row><row><cell></cell><cell>DWI</cell><cell>83.7 (57.3-110.2)</cell><cell>75.9 (71.2-80.6)</cell><cell>83.7 (76.3-91.0)</cell><cell>84.9 (77.2-92.6)</cell><cell>75.7 (67.9-83.5)</cell><cell>74.4 (67.1-81.7)</cell></row><row><cell></cell><cell>Ensemble</cell><cell>256.0 (0.0-256.0)</cell><cell>60.2 (25.9-94.4)</cell><cell>60.1 (49.7-70.5)</cell><cell>47.3 (24.2-70.4)</cell><cell>67.5 (59.7-75.3)</cell><cell>56.3 (48.1-64.5)</cell></row></table></figure>
+			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct status="extracted" xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Joint segmentation of multiple sclerosis lesions and brain anatomy in MRI scans of any contrast and resolution with CNNs</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Billot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Cerri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">V</forename><surname>Leemput</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/isbi48211.2021.9434127</idno>
+		<ptr target="https://doi.org/10.1109/isbi48211.2021.9434127" />
+	</analytic>
+	<monogr>
+		<title level="m">2021 IEEE 18th International Symposium on Biomedical Imaging (ISBI)</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2021-04">Apr 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b1">
+	<analytic>
+		<title level="a" type="main">SynthSeg: Segmentation of brain MRI scans of any contrast and resolution without retraining</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Billot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">N</forename><surname>Greve</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Puonti</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.media.2023.102789</idno>
+		<ptr target="https://doi.org/10.1016/j.media.2023.102789" />
+	</analytic>
+	<monogr>
+		<title level="j">Medical Image Analysis</title>
+		<imprint>
+			<biblScope unit="volume">86</biblScope>
+			<biblScope unit="page">102789</biblScope>
+			<date type="published" when="2023-05">May 2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Unsupervised Heteromodal Physics-Informed Representation of MRI Data: Tackling Data Harmonisation, Imputation and Domain Shift</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Borges</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Fernandez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">D</forename><surname>Tudosiu</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-031-44689-4_6</idno>
+		<ptr target="http://dx.doi.org/10.1007/978-3-031-44689-4_6" />
+		<imprint>
+			<date type="published" when="2023">2023</date>
+			<publisher>Springer Nature Switzerland</publisher>
+			<biblScope unit="page" from="53" to="63" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b3">
+	<monogr>
+		<title level="m" type="main">Acquisition-invariant brain mri segmentation with informative uncertainties</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Borges</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Shaw</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Varsavsky</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Flexible Bayesian Modelling for Nonlinear Image Registration</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Brudfors</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Balbastre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Flandin</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-59716-0_25</idno>
+		<ptr target="https://doi.org/10.1007/978-3-030-59716-0_25" />
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<publisher>Springer International Publishing</publisher>
+			<biblScope unit="page" from="253" to="263" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Leveraging high-quality research data for ischemic stroke lesion segmentation on clinical data</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Brzus</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">D</forename><surname>Boes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bruss</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">J</forename><surname>Johnson</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ISBI53787.2023.10230775</idno>
+		<ptr target="http://dx.doi.org/10.1109/ISBI53787.2023.10230775" />
+	</analytic>
+	<monogr>
+		<title level="m">2023 IEEE 20th International Symposium on Biomedical Imaging (ISBI)</title>
+		<imprint>
+			<date type="published" when="2023-04">Apr 2023</date>
+			<biblScope unit="page" from="1" to="5" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b6">
+	<monogr>
+		<title level="m" type="main">Monai: An open-source framework for deep learning in healthcare</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">J</forename><surname>Cardoso</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Brown</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b7">
+	<monogr>
+		<title level="m" type="main">Synthetic data for robust stroke segmentation</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Chalcroft</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Pappas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ashburner</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/2404.01946" />
+		<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b8">
+	<monogr>
+		<author>
+			<persName><forename type="first">S</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Ma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zheng</surname></persName>
+		</author>
+		<title level="m">Med3d: Transfer learning for 3d medical image analysis</title>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Crossmoda 2021 challenge: Benchmark of cross-modality domain adaptation techniques for vestibular schwannoma and cochlea segmentation</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Dorent</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kujawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ivory</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.media.2022.102628</idno>
+		<ptr target="http://dx.doi.org/10.1016/j.media.2022.102628" />
+	</analytic>
+	<monogr>
+		<title level="j">Medical Image Analysis</title>
+		<imprint>
+			<biblScope unit="volume">83</biblScope>
+			<biblScope unit="page">102628</biblScope>
+			<date type="published" when="2023-01">Jan 2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b10">
+	<analytic>
+		<title level="a" type="main">The Aphasia Recovery Cohort, an open-source chronic stroke repository</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Gibson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Newman-Norlund</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Bonilha</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/s41597-024-03819-7</idno>
+		<ptr target="http://dx.doi.org/10.1038/s41597-024-03819-7" />
+	</analytic>
+	<monogr>
+		<title level="j">Scientific Data</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1" to="8" />
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b11">
+	<monogr>
+		<title level="m" type="main">Delving deep into rectifiers: Surpassing human-level performance on ImageNet classification</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>He</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ren</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Sun</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b12">
+	<monogr>
+		<title level="m" type="main">Gaussian error linear units (gelus</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Hendrycks</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Gimpel</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b13">
+	<analytic>
+		<title level="a" type="main">nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Isensee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">F</forename><surname>Jaeger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">A A</forename><surname>Kohl</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/s41592-020-01008-z</idno>
+		<ptr target="https://doi.org/10.1038/s41592-020-01008-z" />
+	</analytic>
+	<monogr>
+		<title level="j">Nature Methods</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="203" to="211" />
+			<date type="published" when="2020-12">Dec 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Progressive lesion necrosis is related to increasing aphasia severity in chronic stroke</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Johnson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Newman-Norlund</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Teghipco</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.nicl.2024.103566</idno>
+		<ptr target="https://doi.org/10.1016/j.nicl.2024.103566" />
+	</analytic>
+	<monogr>
+		<title level="j">Neu-roImage: Clinical</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<date type="published" when="2024">1 2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b15">
+	<analytic>
+		<title level="a" type="main">A large, curated, opensource stroke neuroimaging dataset to improve lesion segmentation algorithms</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">L</forename><surname>Liew</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">P</forename><surname>Lo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">R</forename><surname>Donnelly</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/s41597-022-01401-7</idno>
+		<idno>41597-022-01401-7</idno>
+		<ptr target="https://doi.org/10.1038/s" />
+	</analytic>
+	<monogr>
+		<title level="j">Scientific Data</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<date type="published" when="2022-06">Jun 2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Deep learning-based detection and segmentation of diffusion abnormalities in acute ischemic stroke</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">F</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hsu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Xu</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/s43856-021-00062-8</idno>
+		<ptr target="http://dx.doi.org/10.1038/s43856-021-00062-8" />
+	</analytic>
+	<monogr>
+		<title level="j">Communications Medicine</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<date type="published" when="2021-12">Dec 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b17">
+	<monogr>
+		<title level="m" type="main">Unraveling normal anatomy via fluiddriven anomaly randomization</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">L</forename><surname>Aguila</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">E</forename><surname>Iglesias</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/2501.13370" />
+		<imprint>
+			<date type="published" when="2025">2025</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b18">
+	<monogr>
+		<author>
+			<persName><forename type="first">I</forename><surname>Loshchilov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Hutter</surname></persName>
+		</author>
+		<title level="m">Decoupled weight decay regularization</title>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b19">
+	<analytic>
+		<title level="a" type="main">ISLES 2015 -a public evaluation benchmark for ischemic stroke lesion segmentation from multispectral MRI</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Maier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">H</forename><surname>Menze</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Der Gablentz</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.media.2016.07.009</idno>
+		<ptr target="https://doi.org/10.1016/j.media.2016.07.009" />
+	</analytic>
+	<monogr>
+		<title level="j">Medical Image Analysis</title>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="page" from="250" to="269" />
+			<date type="published" when="2017-01">Jan 2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b20">
+	<monogr>
+		<title level="m" type="main">A robust ensemble algorithm for ischemic stroke lesion segmentation: Generalizability and clinical utility beyond the isles challenge</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>De La Rosa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Reyes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">L</forename><surname>Liew</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/2403.19425" />
+		<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b21">
+	<analytic>
+		<title level="a" type="main">hmri -a toolbox for quantitative mri in neuroscience and clinical research</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Tabelow</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Balteau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ashburner</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neuroimage.2019.01.029</idno>
+		<ptr target="http://dx.doi.org/10.1016/j.neuroimage.2019.01.029" />
+	</analytic>
+	<monogr>
+		<title level="j">NeuroImage</title>
+		<imprint>
+			<biblScope unit="volume">194</biblScope>
+			<biblScope unit="page" from="191" to="210" />
+			<date type="published" when="2019-07">Jul 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b22">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><surname>Ulyanov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Vedaldi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Lempitsky</surname></persName>
+		</author>
+		<title level="m">Instance normalization: The missing ingredient for fast stylization</title>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b23">
+	<monogr>
+		<title level="m" type="main">Unsupervised learning of mri tissue properties using mri physics models</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Varadarajan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">L</forename><surname>Bouman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Van Der Kouwe</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b24">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Shelhamer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Liu</surname></persName>
+		</author>
+		<title level="m">Tent: Fully test-time adaptation by entropy minimization</title>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b25">
+	<monogr>
+		<title level="m" type="main">Automatic Brain Tumor Segmentation Using Convolutional Neural Networks with Test-Time Augmentation</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ourselin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Vercauteren</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-11726-9_6</idno>
+		<ptr target="http://dx.doi.org/10.1007/978-3-030-11726-9_6" />
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<publisher>Springer International Publishing</publisher>
+			<biblScope unit="page" from="61" to="72" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b26">
+	<monogr>
+		<author>
+			<persName><forename type="first">R</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Isola</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Efros</surname></persName>
+		</author>
+		<title level="m">The unreasonable effectiveness of deep features as a perceptual metric</title>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

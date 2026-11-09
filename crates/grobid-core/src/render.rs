@@ -281,26 +281,70 @@ fn render_children(element: Node, depth: usize) -> String {
     blocks.join("\n\n")
 }
 
-/// Render a single bibliography entry (biblStruct or bibl) as a readable line:
-/// "Authors. Title. Journal. Year" when the structure is present, otherwise a
-/// flattened text fallback.
-fn render_reference(entry: Node) -> String {
-    let mut parts: Vec<String> = Vec::new();
+/// A parsed bibliography entry (biblStruct or bibl).
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ParsedReference {
+    pub authors: Vec<String>,
+    pub title: Option<String>,
+    pub container: Option<String>,
+    pub year: Option<String>,
+    pub doi: Option<String>,
+}
+
+impl ParsedReference {
+    /// Canonical display form: "Authors. Title. Container. Year", with the
+    /// title linked to doi.org when a DOI is present.
+    pub fn render(&self) -> String {
+        let mut parts: Vec<String> = Vec::new();
+        if !self.authors.is_empty() {
+            parts.push(self.authors.join(", "));
+        }
+        if let Some(title) = &self.title {
+            match &self.doi {
+                Some(doi) => parts.push(format!("[{title}](https://doi.org/{doi})")),
+                None => parts.push(title.clone()),
+            }
+        }
+        if let Some(container) = &self.container {
+            parts.push(container.clone());
+        }
+        if let Some(year) = &self.year {
+            parts.push(year.clone());
+        }
+        parts.join(". ")
+    }
+}
+
+/// Extract the DOI from a `idno[@type='DOI']` descendant, if any.
+fn reference_doi(entry: Node) -> Option<String> {
+    descendants_named(entry, "idno")
+        .iter()
+        .filter(|n| {
+            n.attribute("type")
+                .is_some_and(|t| t.eq_ignore_ascii_case("doi"))
+        })
+        .map(|n| text_content(n))
+        .find(|s| !s.is_empty())
+}
+
+/// Parse a single bibliography entry (biblStruct or bibl).
+pub fn parse_reference(entry: Node) -> ParsedReference {
+    let mut parsed = ParsedReference {
+        doi: reference_doi(entry),
+        ..Default::default()
+    };
 
     // Authors and analytic (work) title.
     if let Some(analytic) = descendant_named(entry, "analytic") {
-        let authors: Vec<String> = descendants_named(analytic, "author")
+        parsed.authors = descendants_named(analytic, "author")
             .iter()
             .map(|a| author_name(*a))
             .filter(|s| !s.is_empty())
             .collect();
-        if !authors.is_empty() {
-            parts.push(authors.join(", "));
-        }
         if let Some(title) = descendant_named(analytic, "title") {
             let t = inline(title);
             if !t.is_empty() {
-                parts.push(t);
+                parsed.title = Some(t);
             }
         }
     }
@@ -316,7 +360,7 @@ fn render_reference(entry: Node) -> String {
         for t in titles {
             let s = inline(t);
             if !s.is_empty() {
-                parts.push(s);
+                parsed.container = Some(s);
                 break;
             }
         }
@@ -328,14 +372,36 @@ fn render_reference(entry: Node) -> String {
                     .map(|w| w.chars().take(4).collect::<String>())
                     .unwrap_or_else(|| text_content(&date));
                 if !year.is_empty() {
-                    parts.push(year);
+                    parsed.year = Some(year);
                 }
             }
         }
     }
 
-    if !parts.is_empty() {
-        return parts.join(". ");
+    parsed
+}
+
+/// All bibliography entries (biblStruct/bibl) inside the document's listBibl
+/// elements, in document order.
+pub fn extract_references(tei: Node) -> Vec<ParsedReference> {
+    let mut out = Vec::new();
+    for list in descendants_named(tei, "listBibl") {
+        for child in list.children() {
+            if child.is_element() && matches!(child.tag_name().name(), "biblStruct" | "bibl") {
+                out.push(parse_reference(child));
+            }
+        }
+    }
+    out
+}
+
+/// Render a single bibliography entry as a readable line, falling back to
+/// flattened text when no structured fields are present.
+fn render_reference(entry: Node) -> String {
+    let parsed = parse_reference(entry);
+    let rendered = parsed.render();
+    if !rendered.is_empty() {
+        return rendered;
     }
     text_content(&entry)
 }
@@ -572,5 +638,45 @@ mod tests {
         assert!(md.contains("## Article"));
         // Real GROBID output includes a reference list.
         assert!(md.contains("## References"));
+    }
+
+    #[test]
+    fn links_reference_titles_to_doi() {
+        let xml = r#"<TEI><text><body/></text><back><div type="references"><listBibl>
+          <biblStruct>
+            <analytic><author><surname>Doe</surname></author>
+              <title>Linked Paper</title></analytic>
+            <monogr><title level="j">Nature</title></monogr>
+            <idno type="DOI">10.1234/example.1</idno>
+          </biblStruct>
+          <biblStruct>
+            <monogr><title>No DOI Here</title></monogr>
+          </biblStruct>
+        </listBibl></div></back></TEI>"#;
+        let doc = roxmltree::Document::parse(xml).unwrap();
+        let tei = tei_root(doc.root());
+        let refs = extract_references(tei);
+        assert_eq!(refs.len(), 2);
+        assert_eq!(refs[0].doi.as_deref(), Some("10.1234/example.1"));
+        assert_eq!(refs[0].title.as_deref(), Some("Linked Paper"));
+        assert_eq!(refs[1].doi, None);
+        let md = refs[0].render();
+        assert!(md.contains("[Linked Paper](https://doi.org/10.1234/example.1)"));
+        assert!(refs[1].render().contains("No DOI Here"));
+        assert!(!refs[1].render().contains("doi.org"));
+    }
+
+    #[test]
+    fn extracts_reference_dois_from_real_fixture() {
+        let path = concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/tests/fixtures/tei/Predicting language outcome after stroke using machine learning - in search of the big data benefit.tei.xml"
+        );
+        let content = std::fs::read_to_string(path).unwrap();
+        let doc = roxmltree::Document::parse(&content).unwrap();
+        let refs = extract_references(tei_root(doc.root()));
+        assert!(!refs.is_empty());
+        let with_doi = refs.iter().filter(|r| r.doi.is_some()).count();
+        assert!(with_doi > 0, "expected DOI-bearing references in fixture");
     }
 }

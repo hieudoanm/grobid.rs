@@ -1,0 +1,1130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Precision-Optimised Post-Stroke Prognoses</title>
+				<funder ref="#_2jg5yF5 #_dkKg6mf">
+					<orgName type="full">Wellcome Trust</orgName>
+				</funder>
+				<funder ref="#_xPceHV3 #_8nfYtzv #_C7Hh3Ag">
+					<orgName type="full">Wellcome</orgName>
+				</funder>
+				<funder ref="#_bV93Khc #_nGxzTJA">
+					<orgName type="full">Medical Research Council</orgName>
+				</funder>
+				<funder ref="#_mQ5ETf4 #_SctCDzK">
+					<orgName type="full">Stroke Association</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct status="extracted">
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Thomas</forename><forename type="middle">M H</forename><surname>Hope</surname></persName>
+							<email>t.hope@ucl.ac.uk</email>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Department of Imaging Neuroscience</orgName>
+								<orgName type="department" key="dep2">Institute of Neurology</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<settlement>London</settlement>
+									<country>UK |</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">Department of Psychology and Social Sciences</orgName>
+								<orgName type="institution">John Cabot University</orgName>
+								<address>
+									<settlement>Rome</settlement>
+									<country>Italy |</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">|</forename><forename type="middle">Howard</forename><surname>Bowman</surname></persName>
+							<affiliation key="aff2">
+								<orgName type="department">Department of Brain Repair and Rehabilitation</orgName>
+								<orgName type="institution">UCL Queen Square Institute of Neurology</orgName>
+								<address>
+									<settlement>London</settlement>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Rachel</forename><forename type="middle">M</forename><surname>Bruce</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Department of Imaging Neuroscience</orgName>
+								<orgName type="department" key="dep2">Institute of Neurology</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<settlement>London</settlement>
+									<country>UK |</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Alex</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+							<affiliation key="aff2">
+								<orgName type="department">Department of Brain Repair and Rehabilitation</orgName>
+								<orgName type="institution">UCL Queen Square Institute of Neurology</orgName>
+								<address>
+									<settlement>London</settlement>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Cathy</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Department of Imaging Neuroscience</orgName>
+								<orgName type="department" key="dep2">Institute of Neurology</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<settlement>London</settlement>
+									<country>UK |</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Precision-Optimised Post-Stroke Prognoses</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">5985E7B8D50AD4621956047F77B4C450</idno>
+					<idno type="DOI">10.1002/acn3.70077</idno>
+					<note type="submission">Received: 27 November 2024 | Revised: 2 April 2025 | Accepted: 24 April 2025</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.9.1" ident="GROBID" when="2026-11-09T16:58+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<label type="revision">0.9.1</label>
+					<label type="parameters">startPage=-1, endPage=-1, consolidateCitations=0, consolidateHeader=0, consolidateFunders=0, includeRawAffiliations=false, includeRawCitations=false, includeRawCopyrights=false, generateTeiIds=false, generateTeiCoordinates=[], flavor=null, debugLabelingCollector=disabled</label>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>cognition</term>
+					<term>confidence</term>
+					<term>language</term>
+					<term>lesions</term>
+					<term>machine learning</term>
+					<term>stroke</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Background: Current medicine cannot confidently predict who will recover from post-stroke impairments. Researchers have sought to bridge this gap by treating the post-stroke prognostic problem as a machine learning problem, reporting prediction error metrics across samples of patients whose outcomes are known. This approach effectively shares prediction error equally among the patients, which is contrary to the long-held clinical intuition that some patients' outcomes are more predictable than other patients' outcomes. Here, we test that intuition empirically, by asking whether those 'more predictable' patients can be identified before their outcomes are known. Methods: Drawing on lesion location and demographic data, we use ensemble classifiers to predict the presence of a variety of different language impairments in a large sample of stroke patients. We tune these models to maximise their Positive Predictive Value (or precision): that is, the probability that patients assigned to a class are really members of that class. We test whether those tuned models have high precision on independent data. Results: Precision-tuned models might only classify a subset of patients, but for that reduced set, the classifications are very likely to be correct: typically &gt; 90% and sometimes &gt; 95%. Small reductions of target precision could rapidly raise the proportion of patients for whom 'high enough precision' predictions can be made. Conclusions: High precision prognoses are possible when predicting language outcomes after stroke. Providing such predictions for subsets of patients might be a reasonable intermediate step on the way to providing them for all.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">| Introduction</head><p>Stroke is the leading cause of overall disease burden in the world <ref type="bibr" target="#b0">[1]</ref>, and those who survive the initial insult often suffer from cognitive impairments. Language impairments (aphasia) occur in around 1/3 of stroke patients, and can be especially distressing <ref type="bibr" target="#b1">[2]</ref>; these patients want to know whether and when they might recover <ref type="bibr" target="#b2">[3]</ref>. Recently, many researchers have sought to fill this gap by learning associations between putative prognostic factors and outcomes, for patients whose outcomes are known, and generalising those models to predict outcomes for new patients (e.g., <ref type="bibr" target="#b3">[4]</ref><ref type="bibr" target="#b4">[5]</ref><ref type="bibr" target="#b5">[6]</ref><ref type="bibr" target="#b6">[7]</ref>). The quality of these models is then typically reported via some measure of sample-wide (or test-set-wide) prediction error, with smaller/fewer errors implying better predictions. This approach assumes that prediction error is distributed equally across the sample, implying that we cannot predict in advance the prognostic error associated with a specific individual. Though sensibly conservative, this assumption is contrary to the long-held intuition that some patients' outcomes are more predictable than others' outcomes. If true, that intuition could allow for incremental solutions to the post-stroke prognostic problm, whereby confident prognoses can be predicted for some patients, even before they can be made for all. Moreover, any reliable distinction between patients whose outcomes can versus cannot be predicted with high confidence, can potentially tell us something new about how the language system recovers after stroke. Here, we test this intuition empirically, demonstrating the feasibility of identifying 'more predictable' patients without knowing their outcome scores in advance-and thereby introducing a method that can predict that subset of patients' outcomes with high confidence, after their stroke.</p><p>Different medical domains will define 'high confidence' differently. When a dermatologist examines a mole on a patient's skin, for example, the riskiest mistake is to dismiss a potentially fatal melanoma as something more benign. It is therefore imperative that most or all patients who are cleared of melanoma, actually do not have one. In other words, the Negative Predictive Value (NPV) for the melanoma classification must not fall below some fixed, and presumably very high threshold: perhaps approaching 100%. To ensure this, we might be prepared to accept a relatively high rate of false positives, because the cost of those errors is wasted resources (unnecessary biopsies) rather than lost lives. This implies a lower Positive Predictive Value (PPV): the proportion of positive classifications or diagnoses that prove to be correct. PPV is also known as precision. In this sense, practical melanoma-detection models will likely operate under asymmetrical constraints on PPV and NPV.</p><p>Practical post-stroke prognostic models might also operate with asymmetrical constraints. First, patients might want to be told that they are expected to recover even if the confidence in that prediction is not especially high. However, this should still be balanced against the potential disappointment if the prediction is wrong, potentially compounding their distress and even delaying the arrangement of support services that are necessary for long-term aphasia. And the negative prediction-that they will not recover-might never be wanted no matter how high its confidence. Receiving this kind of bad news can cause its own harm to patients and also risks becoming a self-fulfilling prophecy if it discourages patients from engaging with rehabilitation <ref type="bibr" target="#b7">[8]</ref>. But it is sometimes evidently necessary to deliver bad news in many areas of medicine, and stroke is no exception.</p><p>Identifying such patients early makes it possible to manage their expectations, whilst employing mechanisms to preserve hope. This can include focusing on compensatory strategies/interventions and factors that can be modified, as well as highlighting support available <ref type="bibr" target="#b8">[9,</ref><ref type="bibr">10]</ref>. In the case of aphasia, this could include information-giving, training in functional strategies, provision of alternative and augmentative communication, psychological support, and potentially putting long-term care into place. All whilst devoting targeted research into new impairment-based interventions for this group. Clinicians will naturally want to take the most optimistic stance possible on post-stroke recovery, so might only be prepared to deliver negative prognoses if their confidence was extremely high (and perhaps not even then). In other words, the precision required when predicting that patients will not recover (a negative prediction), might be much higher than that required when predicting that patients will recover (a positive prediction). This is analogous to the imbalance for melanoma detection.</p><p>Stroke prognoses differ from dermatological diagnoses in another important respect. When judging whether a patient has melanoma, a dermatologist must either refer them for further tests or discharge them: they cannot simply refuse to decide either way. But it is currently permissible-even advisable-to refuse to predict individually specific post-stroke prognoses, when clinicians doubt that those predictions can be made with confidence <ref type="bibr" target="#b12">[11]</ref>. This context presents an opportunity to build on the long-held clinical intuition that some patients' outcomes are more predictable than others. Even if the ultimate goal, of making confident predictions for all patients, still remains out of reach, perhaps we can still make confident predictions for some?</p><p>Here, we show that this is indeed possible, at least when predicting language outcomes after stroke. Using only standard model calibration methods and a simple classification model, we can tune the way we classify patients' outcomes so that those classifications are only made when their confidence is high. Our aim in this work was to measure whether we could make such high precision predictions reliably-or more formally, to measure whether this precision-tuning process would generalise out of sample in this domain. Our results show that it does generalise well out of sample.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FIGURE 1</head><p>| A schematic illustration of the data pre-processing and analysis procedure. After selecting the sample, we extract MRI data, non-brain demographic variables, and language outcome scores for the selected patients. Tables <ref type="table" target="#tab_0">1</ref> and <ref type="table" target="#tab_1">2</ref> report the results of the outer loop cross validation, emphasising those patients for whom 'high precision' classifications were made.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">| Data</head><p>Our patient data are drawn from the Predicting Language Outcome and Recovery After Stroke (PLORAS) dataset <ref type="bibr" target="#b13">[12]</ref>, which associates more than 1500 stroke survivors with: (a) clinical and demographic data; (b) high resolution, T1-weighted structural MRI; and (c) scores from the Comprehensive Aphasia Test (CAT) <ref type="bibr" target="#b14">[13]</ref>: a standardisoverrepresentbehavioural tasks, designed to assess the severity of participants' language and cognitive impairments. Data were acquired primarily but not exclusively in the chronic phase, ranging from 2 months to &gt; 10 years post-stroke. We have described this dataset in detail elsewhere <ref type="bibr" target="#b13">[12]</ref>; here, we repeat only those elements that are salient to the current analysis.</p><p>The CAT defines 34 task scores, including 29 that refer to language skills, and 5 that refer to non-linguistic, general cognitive skills <ref type="bibr" target="#b14">[13]</ref>. Here, we present analyses of 8 language summary scores, which represent the main language skills including:</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>(a) verbal fluency; (b) auditory comprehension; (c) written comprehension; (d) repetition; (e) naming; (f) spoken scene description; (g) reading; and</head><p>(h) writing. Detailed descriptions of these scores, and the tasks from which each score is derived, are provided in the manual for the CAT <ref type="bibr" target="#b14">[13]</ref>. Scores are represented as t-scores, defined relative to a distribution of scores for each task, acquired from 236 people with aphasia. Lower t-scores imply worse task performance, and therefore more severe impairment in that task.</p><p>The T1-weighted MRI scans were acquired using a variety of Siemens scanners since 2003-typically but not exclusively on the same day as, or within a few days of, the conduct of the behavioral assessment. We also acquired clinical and demographic data at the same time, such as the participants' age at stroke onset and their sex assigned at birth. Finally, a (large) subset of patients also completed our in-house Aphasia Recovery and Therapy Questionnaire, asking them to rate the severity of their aphasic symptoms both soon after stroke and at the time of assessment. This provides the subjective self-report data referred to below.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">| Sample Selection</head><p>The PLORAS dataset excludes patients who have had multiple strokes, or who suffer serious comorbid neurological conditions (such as Alzhemier's or Parkinson's disease). From this set, we selected all patients who had complete outcome scores data in at least one of our 8 domains of interest. Where patients had visited us more than once, we used only the data from the first visit. This resulted in a sample of 1367 patients, including 458 women and 909 men. This is a much more skewed ratio than would be expected in the wider stroke survivor population (e.g., <ref type="bibr" target="#b15">[14]</ref>), and this difference could be important here because the incidence of post-stroke aphasia is also thought to be slightly higher in women than men <ref type="bibr" target="#b16">[15]</ref> although the severity of aphasia is reported to be worse in men than women <ref type="bibr" target="#b17">[16]</ref>. So, we give this variable extra attention in our analyses. 1195 of the participants were right handed pre-stroke, with the remainder either left handed or ambidextrous. 1223 were native English speakers. The average age at stroke was 56 years ± 13.3 years, and the average time post-stroke at assessment was 46.3 months ± 56.8 months. The average lesion volume was 64.0 cm 3 ± 82.7 cm 3 .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3">| MRI Pre-Processing</head><p>All scans were processed using the Automatic Lesion Identification (ALI) toolbox <ref type="bibr" target="#b18">[17]</ref>, which is an elaboration of the popular Unified Segmentation algorithm <ref type="bibr" target="#b19">[18]</ref>, adapted for use in the damaged brain. The ALI toolbox derives continuous lesion evidence at the voxel level by comparing each participant's scan to a distribution of reference scans acquired on the same scanners from neurologically normal controls. The result is a whole-brain continuous lesion image in standard Montreal Neurological Institute space. Binary lesion images are thresholded continuous lesion images (threshold = 0.3).</p><p>These binary lesion images were then re-encoded as lesion load variables, representing the proportion of a series of anatomically defined regions ("masks") that each patient's lesion appears to destroy. We drew the 116 region masks from the first iteration of the Automatic Anatomical Labelling Atlas <ref type="bibr" target="#b20">[19]</ref>. The masks all refer to grey matter regions, parcellating both the cortex and subcortical structures into non-overlapping regions. We treat the outcome prediction problem as a binary classification, thresholding the language outcome score variables into binary classes. Thresholds in each case are defined by the authors of the CAT <ref type="bibr" target="#b14">[13]</ref>. Scores below the threshold fall in the lower 5% of a normative distribution of scores in the same tasks, assigned to a separate sample of 27 neurologically normal controls. Scores in this range are considered to be in the 'aphasic' range, whereas scores above the threshold are considered to be in the 'normal' range. This is a crude representation of the participants' language outcomes, because it may mask variation (e.g., within the aphasic range) that is both scientifically and clinically meaningful-and that patients might want to know. Nevertheless, this is a natural and well justified starting point for analyses like ours, that aim to measure whether precision-tuning can generalise out of sample in this domain.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4">| Data for Modelling</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.5">| Classification Models</head><p>Our binary language outcome variables are often unbalanced, with more participants in one group than the other (see Table <ref type="table" target="#tab_0">1</ref>). So, we attempted to predict these outcomes using a Random Under-Sampling Boosted (RUS Boosted) classification ensemble <ref type="bibr" target="#b21">[20]</ref>. RUS Boosting is specifically designed to cater to classification problems with unbalanced classes. As the name suggests, the method works by randomly excluding some cases from the majority class during training. All of the other hyperparameters of the model were left at their default values, as specified by Matlab 2024a. The default parameters are as follows: 'NumLearningCycles' = 100; 'LearnRate' = 0.1; MaxNumSplits = 10; 'MinLeafSize' = 1; and 'NumBins' = 10.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.6">| Model Training, Hyperparameter Tuning and Testing</head><p>We used nested cross-validation to train and test one of these models for each of the language outcomes: that is, 8 models in total. The nesting is necessary because we need to tune two key hyperparameters of each model: thresholds that determine whether we will count a patient as having been either 'classified with high confidence', or 'not classified with high confidence'. Like many other classification models, a RUS Boosted tree actually does more than just assign cases to classes. These models also predict a continuous 'score' variable for each class: that is, a total of 2 score variables in the case of binary classification, which is how our current outcome prediction problem is framed. The detailed ranges and relationship between these variables will vary depending on the particular model being employed, but the default behaviour of these models is that cases are assigned to the class with the higher score variable value.</p><p>Our tuneable model hyperparameters are thresholds on these score variable values: one threshold for each of the two outcome classes that we consider. We use them to interfere with the models' default behaviour. Rather than assigning a case to the class with the highest score variable value, we only count the classification if the score variable value is higher than our defined threshold for that class. In effect, we are selecting only the most confident subset of the model's classifications. The chance that these classifications are correct-their precision-should be higher for this subset.</p><p>In each fold of the nested cross-validation, we divide the sample into training set (80%), validation set (10%) and testing set (10%). We train a classification ensemble on the training set, then use it to predict outcomes for the validation set. This is the stage at which we search for score variable thresholds that maximise the precision for both classes (i.e., 'aphasic' and 'normal' range). Then, we use both the trained model and the score thresholds to predict outcomes for the testing set-counting only those classifications whose score variable values surpass our thresholds. Reported results are precision estimates for both the positive prediction (that a patient's outcome will be in the normal range), and the negative prediction (that a patient's outcome will be in the aphasic range). In the results, we refer to these as the Positive Predictive Value (PPV) and the Negative Predictive Value (NPV), respectively.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.7">| Analyses 1 and 2</head><p>Analysis 1 repeats our procedure 1000 times, using the whole sample, and reports the results. However, since our sample is cross-sectional, we have no objective data concerning their language skills soon after stroke. Therefore, there is a strong risk that some of the participants whose outcomes are 'normal' in any given language domain, might never have suffered aphasic symptoms in that domain. Since clinical stroke populations will presumably only want such predictions if they are suffering from aphasia, this is a potentially dramatic shift in the distribution of our sample, relative to the target population.</p><p>Analysis 2 addresses the confound by restricting the predictions in each analysis to patients who reported a relevant, functional impairment at 1 month post-stroke. Only a subset of patients made these subjective reports, via our in-house questionnaires, if they remembered their skills in understanding, speaking, reading, and writing. Language ability levels were reported on 7-point Likert scales. In each case, a score of 7 represented the judgment that the relevant skill was perfectly spared/recovered at 1 month post-stroke. Patients used a score of 1 if they had no memory of their skills at 1 month post-stroke-perhaps because they were unconscious at the time, or otherwise too ill to make the judgment. Therefore, we included only patients who scored less than 7 and more than 1 in these analyses.</p><p>Analysis 2 is complicated by need to map between subjective self-report scores and objective outcome scores. Subjective scores for 'reading' and 'writing' naturally map to our objective outcome scores for the same language skills. The subjective score for 'understanding' is taken to describe early symptoms relevant to both of the two 'comprehension' outcomes: written and auditory comprehension. And participants were considered to have been initially impaired on all of the four other language tasks-fluency, naming, scene description and reading-if the reported impaired 'speaking' soon after stroke.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">| Results</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">| Analysis 1a: Training Versus Validation NPV and PPV</head><p>As expected, there is a strong relationship between the withinsample NPV and PPV thresholds and the same figures when measured in the validation set (Figure <ref type="figure" target="#fig_1">2</ref>, top row). However, the relationship is still imperfect; for example, for very high training set thresholds of PPV (&gt; 95%), some loss of PPV is often observed in the validation set.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">| Analysis 1b: Test Set NPV and PPV</head><p>Table <ref type="table" target="#tab_0">1</ref> reports the NPV and PPV/precision of our confidencetuned classifications, as well as the numbers of patients for whom those 'highly confident' classifications are made (Figure <ref type="figure">1</ref>, bottom row). These results illustrate surprisingly high confidence. 6/8 PPV values are &gt; 90%, and 3/8 are &gt; 95%. The lowest PPV values were for the repeating task (83.2%) and the scene description task (88.3%). 6/8 mean NPV values were also &gt; 90%, the exceptions being for the fluency task (87.8%) and the writing task (89.2%). The best result was for the prediction that patients would have fluency skills in the normal range, which was correct 97.3% of the time.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">| Analysis 2: Test Set NPV and PPV for Patients Reporting Acute Impairment</head><p>This analysis is the same as Analysis 1b, except that in this case we restricted the analyses to patients who reported an initial impairment in a language function that the outcome score purports to measure. This restricted sample naturally resulted in a reduction of the numbers of patients for whom a classification is made, primarily because those who reported normal speech soon after stroke were no longer contributing to confident NPV results. However, this made little difference to the out-of-sample PPV and NPV results (Table <ref type="table" target="#tab_1">2</ref>). The biggest reduction in confidence was for the NPV for outcomes in the fluency task, which dropped from 87.8% to 82.1%. The biggest improvement was for the NPV for outcomes in the auditory comprehension task, from 90% to 97.9%.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4">| Model Interpretation</head><p>Although our principal aim in this paper was to show that the precision tuning procedure can generalize out of sample, we Note that when the predictions are made with the most permissive NPV and PPV thresholds, these proportions are often &gt; 100% because these predictions are also being made for a fraction of the sample that compose the other (wrong) class. Notably, the functions relating validation set coverage to training set PPV are convex (bottom row). This suggests that the coverage for these predictions would increase rapidly with only a comparatively minor reduction in threshold precision. To capture the importance of predictor variables in our models, we used the standard 'predictorImportance' function, as distributed under Matlab 2024a, which calculates importance as the average reduction in class purity when using each predictor to split the data, wherever that predictor is used in the larger classification ensemble. 'Class purity' is the proportion of cases assigned to the same class that are really members of the same class; higher purity implies higher accuracy in the classification. Left hemisphere lesion volume was the most important variable in 5/8 tasks, and one of the 10 most important in a further two tasks. This is consistent with the wellknown fact that the left hemisphere plays a dominant role in language function <ref type="bibr" target="#b22">[21]</ref>. And the most important variable for the 8th task, repetition, was damage in the left superior temporal lobe, which is a large left hemisphere region that might be a good proxy for left hemisphere volume, and was also a top 10 predictor for every other language outcome. However, damage in this region might also be especially relevant to auditory word repetition because it includes the left temporal gyrus, which is known to support the maintenance of auditory shortterm memory <ref type="bibr" target="#b23">[22]</ref>.</p><p>Another key brain region appeared to be the left middle temporal gyrus (LMTG), which had top 10 importance across 6/8 tasks. The LMTG is involved in the storage and retrieval of semantic memory, and specifically in lexical and syntactic processing, as well as having extensive connectivity to other key language areas such as Broca's area (which has long been claimed to orchestrate speech production) <ref type="bibr" target="#b24">[23]</ref>. The exceptions, where LMTG damage was less relevant, were the repeating and reading tasks. Conceivably, this reflects patients' ability to perform these tasks using phonetic rather than semantic processing.</p><p>The most consistently significant, non-brain factor was time post-stroke at assessment: top 5 for all tasks except for reading (19th). This is consistent with a long history of our and others' prior work, which emphasises the role of this variable in analysing post-stroke outcomes <ref type="bibr" target="#b3">[4]</ref>. To examine this further, we conducted a post hoc analysis on the times post-stroke at assessment for patients deemed to be 'predictable with high confidence' versus 'not predictable with high confidence', in each of the 8 tasks. In each case, the groups were defined by the average of classifications made across all 100 repetitions of the cross-validation for each task: patients assigned to a class more often than not (after applying our thresholding procedure) were placed in the 'predictable' group. Using Wilcoxon ranked sum tests, we then compared the times post-stroke at assessment across the two groups, and as expected, high confidence classifications tended to favour patients assessed later post-stroke. The differences just missed significance for the auditory comprehension and naming tasks (Z = 1.82, p = 0.069; and Z = 1.79, p = 0.075, respectively), but was significant for the other 6 tasks: fluency: Z = 2.05, p = 0.04; written comprehension: Z = 3.04, p = 0.002; repeating: Z = 2.67, p = 0.008; scene description: Z = 4.26, p &lt; 0.001; reading: Z = 4.12, p &lt; 0.001; writing: Z = 3.81, p = 0.002.</p><p>Another consistently important factor was bilingualism-which coded whether or not the language of assessment (English) was also the participant's native language. Native English speakers were found to score higher in most CAT tasks in a prior study of a subsample of the current sample <ref type="bibr" target="#b25">[24]</ref>, so it is no surprise here that non-native English speakers were generally assigned a lower chance of having 'recovered' when assessed. Age at stroke onset was the 2nd most important variable for 2/8 tasks (fluency and reading), and the 13th most important for the auditory comprehension task, but was not in the top 20 for any other task. As expected, participants who were younger at stroke onset were assigned a higher chance of recovering in these tasks: fluency: (Z = -2.90, p = 0.004; reading: Z = 3.16, p &lt; 0.001). These results were calculated using the same approach as employed to analyse the effect of time post-stroke, but this time comparing only the groups predicted to recover, to the groups predicted not to recover, for each task.</p><p>Pre-stroke handedness and sex (assigned at birth) were generally not assigned much importance, with the only marginal exception being for the reading task, where they were the 20th and 21st most important variables, respectively. This suggests that the sex distribution bias in our sample (909 men: 458 women) might not play an important role in our results. However notably, there were significant differences in the proportions of men and women deemed to have 'highly predictable' outcomes in 6/8 tasks: see Table <ref type="table" target="#tab_2">3</ref>. There were disproportionately more women in the 'predictable' group for the fluency task (Z = 2.65, p = 0.008), but this was reversed for the other 5 tasks, perhaps suggesting that sex plays a slightly more significant role here than our feature importance analyses suggest.</p><p>Indeed, all of these model interpretation results should probably be interpreted with caution, because as yet, we are not sure how to properly account for the way in which our analyses interfere with default model behaviour. For example, the feature importance metrics take no account of our score variable thresholding procedure, so might weight some predictor variables highly even though they play comparatively little role in deciding which patients receive a 'high confidence' classification (and vice versa). In other words, we are not sure that our analyses here are as meaningful as they should be, and also not sure how to adjust them: this a focus of ongoing work.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">| Discussion</head><p>When predicting the outcomes of a large sample of stroke patients, we have shown that, for many language impairments, it is possible to: (a) distinguish 'more predictable' from 'less predictable' patients; and (b) make high confidence predictions for the more predictable patients, in independent samples. Though likely familiar to many other fields, this is the first application of these methods (as far as we know) to the problem of predicting language outcomes after stroke.</p><p>Naturally, at least without new data or methods, our precisiontuning procedure trades confidence against coverage. As mentioned previously, in the context of binary regression, our classification model (and many others too) will return exactly two 'score' variables when presented with a case: one for each of the two classes to which that case might be assigned. The class with the higher score variable value corresponds to the class label that the model will predict. Our precision tuning procedure interferes with this default behaviour, by specifying thresholds for those score variables. We only 'count' a classification as having been made, if the score variable value associated with a class is above the threshold for that class. As those thresholds increase, more cases will receive no classification at all. This is why coverage tends to decrease. But ever-higher thresholds also restrict the model to cases where it is most confident in its classification. In turn, this suggests that the model is more likely to be correct for those cases. This is not guaranteed, but our results show that it does in fact happen: that we gain higher precision, albeit at the cost of reduced coverage.</p><p>To make the point that precision tuning can generalise out of sample, in this domain, we have tuned our models to maximise their precision, regardless of the cost in terms of coverage. Future variants of our approach might well benefit from taking a more balanced approach: that is, making predictions for more of a sample, by lowering our score variable thresholds and thus accepting a lower level of required precision. Notably, our results suggest that the coverage of our predictions (i.e., the number of patients who receive a 'high confidence' prediction) will increase rapidly with small reductions in target precision. This is implied by the convex curves, relating coverage to required precision, in the lower panels of Figure <ref type="figure" target="#fig_1">2</ref>.</p><p>Quite what the optimal balance is between coverage and confidence will be a matter for clinical judgement-and might vary both depending on the direction of the prediction (normal or impaired) or indeed even the patients themselves. For example, some patients might prefer not to know their prognosis at all if the news is bad, no matter how high its confidence. And some might want to hear potentially good news even if its confidence was much lower than we have targeted here. To respect those variable preferences, the calibration of our confidence-its reliability and validity-might be more important than its absolute level. We make no assumptions about what levels of confidence might be appropriate for either side of this prediction in clinical practice. Our aim here has simply been to direct attention to this as-yet under-studied dimension of the problem by showing that high confidence predictions can in principle be made.</p><p>Confidence in that calibration should be higher as the sample used to measure it grows larger, and our PLORAS sample is large by the standards of the field. However, even in large samples, selection biases can make distribution shift a likely barrier to clinical exploitation. Since our confidence measures are made over the samples we have, they could well change if the distributions of clinical populations are different in important respects. Analysis 2 was motivated by one likely cause of distribution shift in Analysis 1: the inclusion of patients who did not report initial impairment of the language functions whose outcomes we were predicting. Since we presume that clinical populations will be restricted to those suffering from a relevant, acute impairment, Analysis 2 implemented that restriction, and its results suggest that our confidence-tuning method is robust to that distribution shift. (d) was only collected for a subset of the sample. Ongoing work aims to address these limitations. There are also other likely distribution shifts to consider. For example, 73.7% of our PLORAS patients were under 65 at stroke onset, whereas ~70% of patients in the wider stroke survivor population were older than 65 when their strokes occurred. From a separate analysis of subsets of our own study sample, we know that age at stroke onset is relevant to our language scores (Roberts et al., in submission). Other biases are likely driven by the exclusion of patients suffering from concurrent, serious neurological disorders (such as Alzheimer's or Parkinson's disease) and the predominance of patients who were tested many years post-stroke. Such biases are probably inevitable, particularly since our sample only included patients who were able to travel to our assessment facilities in central London.</p><p>These statistical barriers to clinical translation are accompanied by technical barriers-mostly concerning the reliance of our current analyses on lesion data derived from research quality MRI, acquired during the chronic phase post-stroke. Clinically routine MRI is typically acquired at lower resolutions and with more variable contrasts and fields of view. Lesion segmentation is already difficult in research-quality brain images <ref type="bibr" target="#b26">[25]</ref>: clinical images pose a more formidable challenge. And even if that technical challenge can be met, the underlying lesion 'signal' in brain scans acquired acutely might be obscured by oedema <ref type="bibr" target="#b27">[26]</ref>. Work to surmount these technical and statistical challenges is ongoing.</p><p>Finally, our analysis is also somewhat divorced from its practical context because our representation of 'recovery', as a binary variable, is likely too simplistic. In the past, we and others have used richer and more continuous representations of recovery, and predicted them with regression models instead <ref type="bibr" target="#b3">[4,</ref><ref type="bibr" target="#b4">5,</ref><ref type="bibr" target="#b28">[27]</ref><ref type="bibr" target="#b29">[28]</ref><ref type="bibr" target="#b30">[29]</ref>. These more continuous representations are attractive because they can capture variation that is both clinically and scientifically significant, such as recovery from more severe aphasia to less severe aphasia. In this work, we have effectively ignored that variation for pragmatic reasons-because a focus on the binary 'aphasic/recovered' distinction is the simplest and best justified starting point, when the goal is to measure whether precision tuned predictions can generalise out of sample, in this domain. But our methods here could well be extended to capture more (or all) of that more detailed variation. This could be done by varying the cut-off thresholds that we impose, as others have done in related work, such as: (a) distinguishing 'severe impairment' from 'mild or moderate' impairment <ref type="bibr" target="#b31">[30]</ref>; or (b) distinguishing 'excellent recovery' from other types of recovery <ref type="bibr" target="#b32">[31]</ref>. Indeed, both of those adjusted cut-off thresholds could also be used together with the threshold that we have employed ('aphasic versus recovered'), and potentially many others as well. By training multiple pairs of models to make high precision decisions for multiple binary classification thresholds, our precision tuning procedure can naturally be extended to capture the dynamic range of the outcome scores at any level of precision that is deemed to be scientifically or clinically useful.</p><p>Despite their limitations, our current results demonstrate that it might be fruitful to take a different perspective on this problem, which has challenged so many researchers for so long. Over more than a decade, we and others have tackled it by acquiring ever larger samples and attempting to derive ever better predictive results across those whole samples <ref type="bibr" target="#b3">[4,</ref><ref type="bibr" target="#b4">5,</ref><ref type="bibr" target="#b13">12,</ref><ref type="bibr" target="#b25">24,</ref><ref type="bibr" target="#b28">27,</ref><ref type="bibr" target="#b29">28,</ref><ref type="bibr" target="#b31">30,</ref><ref type="bibr" target="#b33">[32]</ref><ref type="bibr" target="#b34">[33]</ref><ref type="bibr" target="#b35">[34]</ref>.</p><p>Given the difficulty of the problem of providing high confidence predictions for every patient, we suggest that, as a first step, we should focus on solving the problem incrementally-delivering what clinical benefit we can now (or soon), while working to expand the pool of patients for whom high confidence prognoses can be made.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><figDesc>Our models' predictor (i.e., independent) variables appended the 116 lesion load variables derived from MRI to a further 8 variables per patient. The extra variables convey: (a) time post-stroke at scan; (b) age at stroke onset; (c) pre-stroke handedness; (d) sex assigned at birth; (e) whether English was their native language; (f) total lesion volume; and also lesion volume in the (g) left and (h) right hemispheres, respectively. Our models therefore have a total of 124 predictor variables per patient.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>FIGURE 2 |</head><label>2</label><figDesc>FIGURE 2 | Average validation set classification performance versus training set confidence. For both NPV (top left) and PPV (top right), the validation set values are generally lower than the training set values indicating some absolute loss of performance. Nevertheless, validation set NPV and PPV are both high in the best case. The bottom row shows the proportions of the correct class that receive each type of 'high confidence' prediction.Note that when the predictions are made with the most permissive NPV and PPV thresholds, these proportions are often &gt; 100% because these predictions are also being made for a fraction of the sample that compose the other (wrong) class. Notably, the functions relating validation set coverage to training set PPV are convex (bottom row). This suggests that the coverage for these predictions would increase rapidly with only a comparatively minor reduction in threshold precision.</figDesc><graphic coords="5,99.21,176.09,396.85,240.98" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><graphic coords="2,308.98,406.53,238.11,253.51" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>TABLE 1 |</head><label>1</label><figDesc>Test set confidence (NPV and PPV) and coverage (the proportions of the samples receiving a classification). All figures are presented as the means and standard deviations across 100 cross-validation runs; coverage is represented as the proportion of the relevant sample that received a classification. The 'Total no.' figures refer to the total number of patients in the sample whose scores are either 'aphasic' (third column) or 'normal' (final column).</figDesc><table><row><cell>Task</cell><cell>NPV %</cell><cell>% classified</cell><cell>Total no.</cell><cell>PPV %</cell><cell>% classified</cell><cell>Total no.</cell></row><row><cell>Fluency</cell><cell>87.8 ± 3.2</cell><cell>15.6 ± 2.4</cell><cell>344</cell><cell>97.3 ± 0.5</cell><cell>37.0 ± 2.8</cell><cell>1012</cell></row><row><cell>Comp. (aud)</cell><cell>90.0 ± 5.1</cell><cell>6.2 ± 2.3</cell><cell>422</cell><cell>95.2 ± 1.0</cell><cell>25.6 ± 2.7</cell><cell>914</cell></row><row><cell>Comp. (writ)</cell><cell>92.7 ± 2.9</cell><cell>9.2 ± 2.1</cell><cell>526</cell><cell>92.1 ± 1.9</cell><cell>11.3 ± 2.1</cell><cell>822</cell></row><row><cell>Repeating</cell><cell>92.6 ± 1.5</cell><cell>38.7 ± 8.3</cell><cell>662</cell><cell>83.2 ± 2.7</cell><cell>25.3 ± 5.7</cell><cell>675</cell></row><row><cell>Naming</cell><cell>93.5 ± 2.5</cell><cell>14.5 ± 2.8</cell><cell>475</cell><cell>96.8 ± 1.4</cell><cell>11.5 ± 2.5</cell><cell>864</cell></row><row><cell>Scene desc.</cell><cell>94.9 ± 2.2</cell><cell>16.3 ± 4.9</cell><cell>569</cell><cell>88.3 ± 2.4</cell><cell>17.8 ± 3.7</cell><cell>766</cell></row><row><cell>Reading</cell><cell>90.5 ± 3.2</cell><cell>11.4 ± 2.7</cell><cell>471</cell><cell>93.9 ± 2.1</cell><cell>14.6 ± 2.1</cell><cell>861</cell></row><row><cell>Writing</cell><cell>89.2 ± 2.0</cell><cell>27.5 ± 1.9</cell><cell>376</cell><cell>94.7 ± 1.2</cell><cell>18.6 ± 2.0</cell><cell>929</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>TABLE 2 |</head><label>2</label><figDesc>Test set confidence and coverage as in Table1, but including only patients who reported suffering from a relevant, functional impairment 1-month post-stroke.</figDesc><table><row><cell>Task</cell><cell>NPV (%)</cell><cell>No. classified</cell><cell>Total no.</cell><cell>PPV (%)</cell><cell>No. classified</cell><cell>Total no.</cell></row><row><cell>Fluency</cell><cell>82.1 ± 9.7</cell><cell>79.0 ± 6.0</cell><cell>138</cell><cell>97.2 ± 0.8</cell><cell>32.8 ± 2.5</cell><cell>393</cell></row><row><cell>Comp. (aud)</cell><cell>97.9 ± 4.0</cell><cell>32.9 ± 4.7</cell><cell>130</cell><cell>95.8 ± 2.0</cell><cell>22.5 ± 3.2</cell><cell>275</cell></row><row><cell>Comp. (writ)</cell><cell>96.7 ± 2.7</cell><cell>10.4 ± 2.2</cell><cell>171</cell><cell>92.0 ± 3.8</cell><cell>10.1 ± 2.2</cell><cell>240</cell></row><row><cell>Repeating</cell><cell>87.0 ± 1.2</cell><cell>18.8 ± 4.5</cell><cell>253</cell><cell>79.0 ± 4.5</cell><cell>23.2 ± 5.6</cell><cell>268</cell></row><row><cell>Naming</cell><cell>91.4 ± 3.8</cell><cell>15.5 ± 3.7</cell><cell>187</cell><cell>99.0 ± 1.6</cell><cell>10.4 ± 2.5</cell><cell>334</cell></row><row><cell>Scene desc.</cell><cell>93.0 ± 1.8</cell><cell>11.2 ± 3.7</cell><cell>223</cell><cell>86.1 ± 4.9</cell><cell>9.8 ± 3.2</cell><cell>298</cell></row><row><cell>Reading</cell><cell>91.4 ± 4.8</cell><cell>18.5 ± 3.4</cell><cell>137</cell><cell>98.3 ± 2.1</cell><cell>12.8 ± 2.3</cell><cell>274</cell></row><row><cell>Writing</cell><cell>89.0 ± 2.3</cell><cell>35.2 ± 5.0</cell><cell>120</cell><cell>97.0 ± 1.6</cell><cell>15.0 ± 2.1</cell><cell>294</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>TABLE 3 |</head><label>3</label><figDesc>The proportions of women in the groups whose outcomes were deemed to be either predictable with high confidence or not predictable with high confidence. The table also reports the p-values and z-scores for two proportion z-tests employed to compare whether these proportions were significantly different for each of the 8 outcome scores that we considered.</figDesc><table><row><cell></cell><cell></cell><cell></cell><cell cols="2">% women</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell>Not</cell></row><row><cell>Task</cell><cell>p</cell><cell>z</cell><cell>Predictable</cell><cell>predictable</cell></row><row><cell>Fluency</cell><cell>0.008</cell><cell>2.65</cell><cell>39.67</cell><cell>31.43</cell></row><row><cell>Comp. Aud</cell><cell cols="2">0.018 -2.36</cell><cell>24.03</cell><cell>34.36</cell></row><row><cell>Comp. Spk</cell><cell cols="2">0.011 -2.54</cell><cell>18.75</cell><cell>34.09</cell></row><row><cell>Repeating</cell><cell cols="2">0.003 -3.00</cell><cell>23.03</cell><cell>34.83</cell></row><row><cell>Naming</cell><cell cols="2">0.037 -2.08</cell><cell>25.53</cell><cell>34.28</cell></row><row><cell cols="3">Scene Desc. 0.010 -2.58</cell><cell>24.00</cell><cell>34.55</cell></row><row><cell>Reading</cell><cell>0.755</cell><cell>0.31</cell><cell>34.48</cell><cell>33.19</cell></row><row><cell>Writing</cell><cell cols="2">0.110 -1.60</cell><cell>26.21</cell><cell>33.95</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_0"><p>23289503, 2025, 8, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/acn3.70077 by NICE, National Institute for Health and Care Excellence, Wiley Online Library on [09/11/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><head>Acknowledgements</head><p>This work was funded by <rs type="funder">Wellcome</rs> (<rs type="grantNumber">203147/Z/16/Z</rs>, <rs type="grantNumber">205103/Z/16/Z</rs> and <rs type="grantNumber">224562/Z/21/Z</rs>); the <rs type="funder">Medical Research Council</rs> (<rs type="grantNumber">MR/M023672/1</rs>); and the <rs type="funder">Stroke Association</rs> (<rs type="grantNumber">TSA 2014/02</rs>). We thank the patients and their carers for their assistance with our research, as well as the members of the PLORAS patient team employed between 2003 and 2020 for their efforts in acquiring and curating the patient data.</p></div>
+			</div>
+			<div type="funding">
+<div><p>This work was supported by <rs type="funder">Wellcome Trust</rs> (<rs type="grantNumber">203147/Z/16/Z</rs>, <rs type="grantNumber">205103/Z/16/Z</rs>), <rs type="funder">Medical Research Council</rs> (<rs type="grantNumber">MR/M023672/1</rs>), The <rs type="funder">Stroke Association</rs> (<rs type="grantNumber">TSA 2014/02</rs>).</p></div>
+			</div>
+			<listOrg type="funding">
+				<org type="funding" xml:id="_xPceHV3">
+					<idno type="grant-number">203147/Z/16/Z</idno>
+				</org>
+				<org type="funding" xml:id="_8nfYtzv">
+					<idno type="grant-number">205103/Z/16/Z</idno>
+				</org>
+				<org type="funding" xml:id="_C7Hh3Ag">
+					<idno type="grant-number">224562/Z/21/Z</idno>
+				</org>
+				<org type="funding" xml:id="_bV93Khc">
+					<idno type="grant-number">MR/M023672/1</idno>
+				</org>
+				<org type="funding" xml:id="_mQ5ETf4">
+					<idno type="grant-number">TSA 2014/02</idno>
+				</org>
+				<org type="funding" xml:id="_2jg5yF5">
+					<idno type="grant-number">203147/Z/16/Z</idno>
+				</org>
+				<org type="funding" xml:id="_dkKg6mf">
+					<idno type="grant-number">205103/Z/16/Z</idno>
+				</org>
+				<org type="funding" xml:id="_nGxzTJA">
+					<idno type="grant-number">MR/M023672/1</idno>
+				</org>
+				<org type="funding" xml:id="_SctCDzK">
+					<idno type="grant-number">TSA 2014/02</idno>
+				</org>
+			</listOrg>
+
+			<div type="availability">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Data Availability Statement</head><p>Patient data are available on the conclusion of a data sharing agreement with University College London. Interested researchers should contact C.J.P. in the first instance. Software developed to run these analyses can be accessed at <ref type="url" target="https://github.com/tmhhopegit/precision_prognoses">https://github.com/tmhhopegit/precision_prognoses</ref>.</p></div>
+			</div>
+
+
+			<div type="conflict">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Disclosure</head><p>Open Access: The authors have applied a CC BY public copyright licence to any Author Accepted Manuscript version arising from this submission.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conflicts of Interest</head><p>The authors declare no conflicts of interest.</p></div>
+			</div>
+
+
+			<div type="contribution">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Author Contributions</head><p>T.M.H.H., C.J.P., and H.B. contributed to the conception and design of the study. T.M.H.H., C.J.P., R.M.B., and A.P.L. contributed to the acquisition and analysis of the data. T.M.H.H. and C.J.P. contributed to drafting the text or preparing the figures.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct status="extracted" xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Global, Regional, and National Burden of Disorders Affecting the Nervous System, 1990-2021: A Systematic Analysis for the Global Burden of Disease Study 2021</title>
+		<idno type="DOI">10.1016/s1474-4422(24)00038-3</idno>
+		<ptr target="https://doi.org/10.1016/s1474-4422" />
+	</analytic>
+	<monogr>
+		<title level="j">Lancet Neurology</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="page" from="38" to="41" />
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b1">
+	<monogr>
+		<title level="m">Stroke-Association, &quot;ed Stroke-Association</title>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Prognostication in Post-Stroke Aphasia: Perspectives of People With Aphasia on Receiving Information About Recovery</title>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">B Y</forename><surname>Cheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">J</forename><surname>Ryan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Copland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Wallace</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/09602011.2022.2051565</idno>
+		<ptr target="https://doi.org/" />
+	</analytic>
+	<monogr>
+		<title level="j">Neuropsychological Rehabilitation</title>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="page" from="871" to="902" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Predicting Outcome and Recovery After Stroke With Lesions Extracted From MRI Images</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M H</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Seghier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.nicl.2013.03.005</idno>
+		<ptr target="https://doi.org/10" />
+	</analytic>
+	<monogr>
+		<title level="j">NeuroImage: Clinical</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="424" to="433" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Predicting Language Outcomes After Stroke: Is Structural Disconnection a Useful Predictor?</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M H</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.nicl.2018.03.037</idno>
+		<idno>09/11/2026</idno>
+		<ptr target="https://doi.org/10.1016/j.nicl.2018.03.037" />
+	</analytic>
+	<monogr>
+		<title level="m">Library for rules of use; OA articles are governed by the applicable Creative Commons License NeuroImage</title>
+		<imprint>
+			<date type="published" when="2018">23289503, 2025. 2018</date>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="22" to="29" />
+		</imprint>
+		<respStmt>
+			<orgName>National Institute for Health and Care Excellence</orgName>
+		</respStmt>
+	</monogr>
+	<note>See the Terms and Conditions Clinical</note>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Enhanced Estimations of Post-Stroke Aphasia Severity Using Stacked Multimodal Predictions</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Pustina</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">B</forename><surname>Coslett</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Ungar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><forename type="middle">K</forename><surname>Faseyitan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">D</forename><surname>Medaglia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Avants</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/hbm.23752</idno>
+		<ptr target="https://doi.org/10.1002/hbm.23752" />
+	</analytic>
+	<monogr>
+		<title level="j">Human Brain Mapping</title>
+		<imprint>
+			<biblScope unit="volume">38</biblScope>
+			<biblScope unit="page" from="5603" to="5615" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b6">
+	<monogr>
+		<title level="m" type="main">Mapping Language Networks Using the Structural and Dynamic Brain Connectomes</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Del Gaizo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fridriksson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Yourganov</surname></persName>
+		</author>
+		<idno type="DOI">10.1523/ENEURO.0204-17.2017</idno>
+		<idno>ENEURO.0204-0217.2017</idno>
+		<ptr target="https://doi.org/10.1523/ENEURO.0204-17.2017" />
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="volume">4</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Intersection of Prognosis and Palliation in Neurocritical Care</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Rubin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bonomo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename><surname>Hemphill</surname></persName>
+		</author>
+		<idno type="DOI">10.1097/mcc.0000000000000396</idno>
+		<idno>1097/ mcc. 00000 00000 000396</idno>
+		<ptr target="https://doi.org/10" />
+	</analytic>
+	<monogr>
+		<title level="m">Current Opinion in Critical Care</title>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="page" from="134" to="139" />
+		</imprint>
+	</monogr>
+	<note>3rd.</note>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Clinical Practice Guidelines for Communicating Prognosis and End-Of-Life Issues With Adults in the Advanced Stages of a Life-Limiting Illness, and Their Caregivers</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Clayton</surname></persName>
+		</author>
+		<idno type="DOI">10.5694/j.1326-5377.2007.tb01100.x</idno>
+		<ptr target="https://doi.org/10.5694/j" />
+	</analytic>
+	<monogr>
+		<title level="j">Medical Journal of Australia</title>
+		<imprint>
+			<biblScope unit="volume">186</biblScope>
+			<biblScope unit="page" from="1326" to="5377" />
+			<date type="published" when="2007">2007. 2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b9">
+	<monogr>
+		<title/>
+		<idno type="DOI">10.5694/j.1326-5377.2007.tb01100.x</idno>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b10">
+	<analytic>
+		<title level="a" type="main">If You Don&apos;t Know, All of a Sudden, They&apos;re Gone: Caregiver Perspectives About Prognostic Communication for Disabled Elderly Adults</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">G</forename><surname>Cagle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">M</forename><surname>Mcclymont</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">N</forename><surname>Thai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">K</forename><surname>Smith</surname></persName>
+		</author>
+		<idno type="DOI">10.1111/jgs.14137</idno>
+		<ptr target="https://doi.org/" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the American Geriatrics Society</title>
+		<imprint>
+			<biblScope unit="volume">64</biblScope>
+			<biblScope unit="page" from="1299" to="1306" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b11">
+	<monogr>
+		<title/>
+		<idno type="DOI">10.1111/jgs.14137</idno>
+		<idno>1111/ jgs. 14137</idno>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Prognostication in Post-Stroke Aphasia: How Do Speech Pathologists Formulate and Deliver Information About Recovery?</title>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">B Y</forename><surname>Cheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">E</forename><surname>Worrall</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Copland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Wallace</surname></persName>
+		</author>
+		<idno type="DOI">10.1111/1460-6984.12534</idno>
+		<ptr target="https://doi.org/10.1111/1460-6984.12534" />
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Language &amp; Communication Disorders</title>
+		<imprint>
+			<biblScope unit="volume">55</biblScope>
+			<biblScope unit="page" from="520" to="536" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b13">
+	<analytic>
+		<title level="a" type="main">The PLORAS Database: A Data Repository for Predicting Language Outcome and Recovery After Stroke</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Seghier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Patel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Prejawa</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neuroimage.2015.03.083</idno>
+		<ptr target="https://doi.org/10.1016/j.neuroimage.2015.03.083" />
+	</analytic>
+	<monogr>
+		<title level="j">NeuroImage</title>
+		<imprint>
+			<biblScope unit="volume">124</biblScope>
+			<biblScope unit="page" from="1208" to="1212" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b14">
+	<monogr>
+		<author>
+			<persName><forename type="first">K</forename><surname>Swinburn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Porter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Howard</surname></persName>
+		</author>
+		<title level="m">Comprehensive Aphasia Test</title>
+		<imprint>
+			<publisher>Psychology Press</publisher>
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Regional, and Country-Specific Lifetime Risks of Stroke</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">G L R O S</forename><surname>Collaborators</surname></persName>
+		</author>
+		<idno type="DOI">10.1056/NEJMoa1804492</idno>
+		<ptr target="https://doi.org/10.1056/NEJMoa1804492" />
+	</analytic>
+	<monogr>
+		<title level="j">New England Journal of Medicine</title>
+		<imprint>
+			<biblScope unit="volume">379</biblScope>
+			<biblScope unit="page" from="2429" to="2437" />
+			<date type="published" when="1990">1990 and 2016. 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Meta-Analysis and Systematic Review of the Relationship Between Sex and the Risk or Incidence of Poststroke Aphasia and Its Types</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">T</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">P</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Zhang</surname></persName>
+		</author>
+		<idno type="DOI">10.1186/s12877-024-04765-0</idno>
+		<idno>1186/ s1287 7-024-04765 -0</idno>
+		<ptr target="https://doi.org/10" />
+	</analytic>
+	<monogr>
+		<title level="j">BMC Geriatrics</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="page">220</biblScope>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Gender Differences in Aphasia Outcomes: Evidence From the AphasiaBank</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Sharma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">M</forename><surname>Briley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">H</forename><surname>Wright</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">L</forename><surname>Perry</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Fang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Ellis</surname></persName>
+		</author>
+		<idno type="DOI">10.1111/1460-6984.12486</idno>
+		<ptr target="https://doi.org/10.1111/1460-6984.12486" />
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Language &amp; Communication Disorders</title>
+		<imprint>
+			<biblScope unit="volume">54</biblScope>
+			<biblScope unit="page" from="806" to="813" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Lesion Identification Using Unified Segmentation-Normalisation Models and Fuzzy Clustering</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Seghier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ramlackhansingh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Crinion</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neuroimage.2008.03.028</idno>
+		<ptr target="https://doi.org/10.1016/j.neuroimage.2008.03.028" />
+	</analytic>
+	<monogr>
+		<title level="j">NeuroImage</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="page" from="1253" to="1266" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Unified Segmentation</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ashburner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">J</forename><surname>Friston</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neuroimage.2005.02.018</idno>
+		<idno>02. 018</idno>
+		<ptr target="https://doi.org/10.1016/j.neuroimage" />
+	</analytic>
+	<monogr>
+		<title level="j">NeuroImage</title>
+		<imprint>
+			<biblScope unit="volume">26</biblScope>
+			<biblScope unit="page" from="839" to="851" />
+			<date type="published" when="2005">2005. 2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Automated Anatomical Labeling of Activations in SPM Using a Macroscopic Anatomical Parcellation of the MNI MRI Single-Subject Brain</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Tzourio-Mazoyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Landeau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Papathanassiou</surname></persName>
+		</author>
+		<idno type="DOI">10.1006/nimg.2001.0978</idno>
+		<ptr target="https://doi.org/10.1006/nimg.2001.0978" />
+	</analytic>
+	<monogr>
+		<title level="j">Neuro-Image</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="page" from="273" to="289" />
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b21">
+	<analytic>
+		<title level="a" type="main">RUSBoost: A Hybrid Approach to Alleviating Class Imbalance</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Seiffert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M</forename><surname>Khoshgoftaar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">V</forename><surname>Hulse</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Napolitano</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Systems, Man, and Cybernetics -Part A: Systems and Humans</title>
+		<imprint>
+			<biblScope unit="volume">40</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="185" to="197" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Stroke Lesion Size -Still a Useful Biomarker for Stroke Severity and Outcome in Times of High-Dimensional Models</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Sperber</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Gallucci</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Mirman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Arnold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">M</forename><surname>Umarova</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.nicl.2023</idno>
+		<ptr target="https://doi.org/10.1016/j.nicl.2023" />
+	</analytic>
+	<monogr>
+		<title level="j">NeuroImage: Clinical</title>
+		<imprint>
+			<biblScope unit="volume">40</biblScope>
+			<biblScope unit="page">103511</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b23">
+	<analytic>
+		<title level="a" type="main">The Left Superior Temporal Gyrus Is a Shared Substrate for Auditory Short-Term Memory and Speech Comprehension: Evidence From 210 Patients With Stroke</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M</forename><surname>Schofield</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">T</forename><surname>Crinion</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Seghier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Grogan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">W</forename><surname>Green</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/brain/awp273</idno>
+		<ptr target="https://doi.org/10.1093/brain/awp273" />
+	</analytic>
+	<monogr>
+		<title level="j">Brain</title>
+		<imprint>
+			<biblScope unit="volume">132</biblScope>
+			<biblScope unit="page" from="3401" to="3410" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Neural Connectivity Underlying Core Language Functions</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Bohsali</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.bandl.2025.105535</idno>
+		<ptr target="https://doi.org/10.1016/j.bandl.2025.105535" />
+	</analytic>
+	<monogr>
+		<title level="j">Brain and Language</title>
+		<imprint>
+			<biblScope unit="volume">262</biblScope>
+			<biblScope unit="page">105535</biblScope>
+			<date type="published" when="2025">2025</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Comparing Language Outcomes in Monolingual and Bilingual Stroke Patients</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Parker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Grogan</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/brain/awv020</idno>
+		<ptr target="https://doi.org/10.1093/brain/awv020" />
+	</analytic>
+	<monogr>
+		<title level="j">Brain</title>
+		<imprint>
+			<biblScope unit="volume">138</biblScope>
+			<biblScope unit="page" from="1070" to="1083" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b26">
+	<analytic>
+		<title level="a" type="main">A Comparison of Automated Lesion Segmentation Approaches for Chronic Stroke T1-Weighted MRI Data</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">L</forename><surname>Ito</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">L</forename><surname>Liew</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/hbm.24729</idno>
+		<ptr target="https://doi.org/10.1002/hbm.24729" />
+	</analytic>
+	<monogr>
+		<title level="j">Human Brain Mapping</title>
+		<imprint>
+			<biblScope unit="volume">40</biblScope>
+			<biblScope unit="page" from="4669" to="4685" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Cerebral Edema After Ischemic Stroke: Pathophysiology and Underlying Mechanisms</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Gu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Piao</surname></persName>
+		</author>
+		<idno type="DOI">10.3389/fnins.2022.988283</idno>
+		<ptr target="https://doi.org/10.3389/fnins.2022.988283" />
+	</analytic>
+	<monogr>
+		<title level="j">Frontiers in Neuroscience</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page">988283</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Generalizing Post-Stroke Prognoses From Research Data to Clinical Data</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Loughnan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">L</forename><surname>Lorca-Puls</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gajardo-Vidal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Espejo-Videla</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">R</forename><surname>Gillebert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Mantini</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">NeuroImage: Clinical</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="page">102005</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Predicting Language Recovery After Stroke With Convolutional Networks on Stitched MRI</title>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">H</forename><surname>Roohani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Sajid</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">S</forename><surname>Madhyastha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M H</forename><surname>Hope</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">ArXiv</title>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Distinguishing the Effect of Lesion Load From Tract Disconnection in the Arcuate and Uncinate Fasciculi</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Seghier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Prejawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">NeuroImage</title>
+		<imprint>
+			<biblScope unit="volume">125</biblScope>
+			<biblScope unit="page" from="1169" to="1173" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Distinct Brain Morphometry Patterns Revealed by Deep Learning Improve Prediction of Post-Stroke Aphasia Severity</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Teghipco</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Newman-Norlund</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fridriksson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Rorden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Bonilha</surname></persName>
+		</author>
+		<idno type="DOI">10.21203/rs.3.rs-3126126/v1</idno>
+		<ptr target="https://doi.org/10.21203/rs.3.rs-3126126/v1" />
+	</analytic>
+	<monogr>
+		<title level="j">Communications Medicine</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page">115</biblScope>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b32">
+	<analytic>
+		<title level="a" type="main">PREP2: A Biomarker-Based Algorithm for Predicting Upper Limb Function After Stroke</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">M</forename><surname>Stinear</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">D</forename><surname>Byblow</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Ackerley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Smith</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">M</forename><surname>Borges</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">A</forename><surname>Barber</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/acn3.488</idno>
+		<ptr target="https://doi.org/10.1002/acn3.488" />
+	</analytic>
+	<monogr>
+		<title level="j">Annals of Clinical and Translational Neurology</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page" from="811" to="820" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Progressive Lesion Necrosis Is Related to Increasing Aphasia Severity in Chronic Stroke</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Johnson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Newman-Norlund</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Teghipco</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Rorden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Bonilha</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.nicl.2024.103566</idno>
+		<ptr target="https://doi.org/10.1016/j.nicl.2024.103566" />
+	</analytic>
+	<monogr>
+		<title level="j">Neuroimage: Clinical</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="page">103566</biblScope>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Latent Disconnectome Prediction of Long-Term Cognitive-Behavioural Symptoms in Stroke</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Talozzi</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/brain/awad013</idno>
+		<ptr target="https://doi.org/10.1093/brain/awad013" />
+	</analytic>
+	<monogr>
+		<title level="j">Brain</title>
+		<imprint>
+			<biblScope unit="volume">146</biblScope>
+			<biblScope unit="page" from="1963" to="1978" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Multivariate Lesion-Symptom Mapping Using Support Vector Regression</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">Y</forename><surname>Kimberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">B</forename><surname>Coslett</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">F</forename><surname>Schwartz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wang</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/hbm.22590</idno>
+		<ptr target="https://doi.org/10.1002/hbm.22590" />
+	</analytic>
+	<monogr>
+		<title level="j">Human Brain Mapping</title>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="page" from="5861" to="5876" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

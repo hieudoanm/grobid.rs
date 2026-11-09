@@ -21,6 +21,8 @@ pub fn frontmatter(meta: &Metadata) -> String {
             "pages" => meta.pages.clone().unwrap_or_default(),
             "doi" => meta.doi.clone().unwrap_or_default(),
             "doi_link" => meta.doi_link.clone().unwrap_or_default(),
+            "type" => meta.kind.clone().unwrap_or_default(),
+            "cited_by" => meta.cited_by.map(|n| n.to_string()).unwrap_or_default(),
             _ => String::new(),
         };
         if value.is_empty() {
@@ -48,6 +50,12 @@ pub struct Metadata {
     pub pages: Option<String>,
     pub doi: Option<String>,
     pub doi_link: Option<String>,
+    /// Work type (e.g. `journal-article`); only set via Crossref enrichment.
+    pub kind: Option<String>,
+    /// Citation count from Crossref (`is-referenced-by-count`).
+    pub cited_by: Option<i64>,
+    /// Abstract plain text; corpus index only, not emitted in frontmatter.
+    pub abstract_text: Option<String>,
 }
 
 pub(crate) fn extract_metadata_doc(doc: &roxmltree::Document) -> Metadata {

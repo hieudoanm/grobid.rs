@@ -81,10 +81,14 @@ the TEI, the Markdown `#` heading falls back to the input file's stem.
 
 ## References
 
-Entries inside `listBibl` (`biblStruct`/`bibl`) are rendered by
-`render_reference`: authors, analytic title, container title (preferring
-`level="j"`), and imprint year are joined into `Authors. Title. Journal. Year`;
-unstructured entries fall back to flattened text.
+Entries inside `listBibl` (`biblStruct`/`bibl`) are parsed by
+`parse_reference` into a `ParsedReference` (authors, analytic title,
+container title preferring `level="j"`, imprint year, and `idno[@type='DOI']`)
+and rendered as `Authors. Title. Journal. Year`. When a DOI is present the
+title becomes a `[Title](https://doi.org/…)` link; unstructured entries fall
+back to flattened text. `extract_references` exposes the same parsed list
+to the corpus indexer (`corpus.rs`), which stores citation edges — including
+DOIs of works not present in the corpus — in `grobid.db`.
 
 ## Tests
 

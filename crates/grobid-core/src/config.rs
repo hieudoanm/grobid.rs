@@ -7,7 +7,8 @@ pub const NS: &str = "http://www.tei-c.org/ns/1.0";
 
 /// Metadata fields emitted in YAML frontmatter.
 pub const META_FIELDS: &[&str] = &[
-    "title", "authors", "year", "journal", "volume", "issue", "pages", "doi", "doi_link",
+    "title", "authors", "year", "journal", "volume", "issue", "pages", "doi", "doi_link", "type",
+    "cited_by",
 ];
 
 /// GROBID service name.

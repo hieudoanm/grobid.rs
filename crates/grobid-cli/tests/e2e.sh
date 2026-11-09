@@ -1,28 +1,148 @@
 #!/usr/bin/env bash
+# End-to-end test: PDF -> GROBID -> TEI -> Markdown -> corpus DB ->
+# search / stats / graph, using the fixture PDF in a throwaway data dir.
+#
+# Requires: cargo, docker (the CLI auto-starts the GROBID container),
+# and the grobid/grobid image (pulled automatically on first run).
+# Set E2E_ENRICH=1 to also exercise Crossref enrichment (needs network).
+#
+# Usage: crates/grobid-cli/tests/e2e.sh
+
 set -euo pipefail
 
-# Directory of this script: crates/grobid-cli/tests
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
-BINARY_PATH="$REPO_ROOT/target/release/grobid"
-DATA_DIR="$REPO_ROOT/crates/grobid-core/tests/fixtures"
+FIXTURES="$REPO_ROOT/crates/grobid-core/tests/fixtures"
+BINARY_PATH="$REPO_ROOT/target/debug/grobid"
+PDF_NAME="Predicting language outcome after stroke using machine learning - in search of the big data benefit"
+DOI="10.1016/j.nicl.2025.103858"
 
-# Check if binary exists, if not build it
-if [[ ! -f "$BINARY_PATH" ]]; then
-    echo "Binary not found at $BINARY_PATH"
-    echo "Building..."
-    cargo build --release --manifest-path "$REPO_ROOT/Cargo.toml"
-fi
+pass() { echo "  PASS: $1"; }
+fail() { echo "  FAIL: $1" >&2; exit 1; }
 
-# Verify binary exists after build
-if [[ ! -f "$BINARY_PATH" ]]; then
-    echo "ERROR: Binary still not found after build"
-    exit 1
-fi
+# --- Build the binary (debug is enough for e2e and much faster) ---
+echo "==> Building grobid (debug)"
+cargo build --manifest-path "$REPO_ROOT/Cargo.toml" -p grobid-cli
+[ -x "$BINARY_PATH" ] || fail "binary not found at $BINARY_PATH"
 
-# Run the binary on the fixture PDF directory
-echo "Running grobid on PDFs in $DATA_DIR/pdf"
+# --- Throwaway data dir with ONLY the PDF (forces the full pipeline) ---
+DATA_DIR="$(mktemp -d -t grobid-e2e)"
+trap 'rm -rf "$DATA_DIR"' EXIT
+mkdir -p "$DATA_DIR/pdf"
+cp "$FIXTURES/pdf/"*.pdf "$DATA_DIR/pdf/"
+PDF_COUNT="$(find "$DATA_DIR/pdf" -name '*.pdf' | wc -l | tr -d ' ')"
+
+# Pin the GROBID environment so a developer's exported GROBID_URL /
+# GROBID_PORT / GROBID_CONTAINER can't silently redirect the test.
+unset GROBID_URL ARTICLES_DATA_DIR || true
 export GROBID_DATA_DIR="$DATA_DIR"
-cd "$DATA_DIR"
-"$BINARY_PATH" --version
-"$BINARY_PATH"
+export GROBID_PORT="${E2E_GROBID_PORT:-8070}"
+export GROBID_CONTAINER="${E2E_GROBID_CONTAINER:-grobid-cli}"
+export GROBID_IMAGE="${E2E_GROBID_IMAGE:-grobid/grobid:0.9.1-crf}"
+
+echo "==> Data dir: $DATA_DIR"
+
+# --- 0. Preflight: docker must be reachable ---
+if ! docker info >/dev/null 2>&1; then
+  fail "docker daemon not reachable — start Docker Desktop, then re-run"
+fi
+
+# --- 1. Full conversion: PDF -> TEI -> MD -> corpus ---
+echo "==> Running grobid (PDF -> TEI -> MD -> corpus)"
+"$BINARY_PATH" || fail "grobid conversion exited non-zero"
+
+TEI_FILE="$DATA_DIR/tei/$PDF_NAME.tei.xml"
+MD_FILE="$DATA_DIR/md/$PDF_NAME.md"
+GROBID_DIR="$DATA_DIR/.grobid"
+DB_FILE="$GROBID_DIR/grobid.db"
+INDEX_FILE="$GROBID_DIR/index.json"
+META_DIR="$GROBID_DIR/metadata"
+META_FILE="$META_DIR/$PDF_NAME.json"
+PROCESS_FILE="$GROBID_DIR/process.json"
+
+[ -s "$TEI_FILE" ] || fail "TEI output missing: $TEI_FILE"
+pass "TEI generated"
+[ -s "$MD_FILE" ] || fail "Markdown output missing: $MD_FILE"
+pass "Markdown generated"
+
+# --- 2. Markdown content assertions ---
+grep -q '^title: ' "$MD_FILE" || fail "frontmatter title missing"
+grep -q "doi: \"$DOI\"" "$MD_FILE" || fail "frontmatter DOI missing"
+grep -q "https://doi.org/" "$MD_FILE" || fail "no doi.org reference links in Markdown"
+grep -q '## References' "$MD_FILE" || fail "References section missing"
+pass "Markdown frontmatter + DOI-linked references"
+
+# --- 3. Corpus DB + index.json ---
+[ -s "$DB_FILE" ] || fail "corpus DB missing: $DB_FILE"
+[ -s "$INDEX_FILE" ] || fail "index.json missing: $INDEX_FILE"
+grep -q "$DOI" "$INDEX_FILE" || fail "index.json does not contain the work DOI"
+pass "corpus DB + index.json"
+
+# --- 3b. Per-work metadata files ---
+META_COUNT="$(find "$META_DIR" -name '*.json' 2>/dev/null | wc -l | tr -d ' ')"
+[ "$META_COUNT" -eq "$PDF_COUNT" ] || fail "expected $PDF_COUNT metadata files, got $META_COUNT"
+[ -s "$META_FILE" ] || fail "metadata file missing: $META_FILE"
+grep -q "\"doi\": \"$DOI\"" "$META_FILE" || fail "metadata JSON missing DOI"
+grep -q '"references"' "$META_FILE" || fail "metadata JSON missing references array"
+python3 -c "import json;json.load(open('$META_FILE'))" || fail "metadata JSON invalid"
+pass "per-work metadata files ($META_COUNT)"
+
+# --- 3c. Process manifest ---
+[ -s "$PROCESS_FILE" ] || fail "process manifest missing: $PROCESS_FILE"
+python3 - "$PROCESS_FILE" "$PDF_COUNT" <<'PYEOF' || fail "process manifest content wrong"
+import json, sys
+m = json.load(open(sys.argv[1]))
+runs = m.get("runs", [])
+assert runs, "no runs recorded"
+r = runs[-1]
+assert r["total"] == int(sys.argv[2]), f'total {r["total"]} != {sys.argv[2]}'
+assert r["converted"] + r["cached"] + r["failed"] == r["total"]
+assert r["failed"] == 0
+assert r["grobid_url"].startswith("http")
+assert len(r["files"]) == r["total"]
+PYEOF
+pass "process manifest (.grobid/process.json)"
+
+# --- 4. Corpus commands ---
+"$BINARY_PATH" stats | tee "$DATA_DIR/stats.txt" >/dev/null
+grep -q 'Works:' "$DATA_DIR/stats.txt" || fail "stats output malformed"
+grep -q 'References:' "$DATA_DIR/stats.txt" || fail "stats missing reference counts"
+pass "grobid stats"
+
+"$BINARY_PATH" search stroke | tee "$DATA_DIR/search.txt" >/dev/null
+grep -q "$DOI" "$DATA_DIR/search.txt" || fail "search 'stroke' did not find the work"
+pass "grobid search"
+
+if "$BINARY_PATH" search zzz-no-such-work-zzz | grep -q 'No works matching'; then
+  pass "grobid search (no-match path)"
+else
+  fail "search no-match path broken"
+fi
+
+"$BINARY_PATH" graph || fail "grobid graph exited non-zero"
+[ -s "$GROBID_DIR/index.html" ] || fail "index.html not written"
+grep -q 'd3@7' "$GROBID_DIR/index.html" || fail "graph HTML missing d3"
+grep -q "$DOI" "$GROBID_DIR/index.html" || fail "graph HTML missing work DOI"
+grep -q 'ext:' "$GROBID_DIR/index.html" || fail "graph HTML missing external ref nodes"
+pass "grobid graph (index.html)"
+
+# --- 5. Resumability: second run must be a full cache hit, still exit 0 ---
+echo "==> Re-running grobid (cached)"
+"$BINARY_PATH" | tee "$DATA_DIR/rerun.txt" >/dev/null
+grep -q 'Using existing TEI' "$DATA_DIR/rerun.txt" || fail "cached run did not reuse TEI"
+grep -q 'Using existing MD' "$DATA_DIR/rerun.txt" || fail "cached run did not reuse MD"
+pass "resumable second run"
+
+# --- 6. Optional: Crossref enrichment ---
+if [ "${E2E_ENRICH:-0}" = "1" ]; then
+  echo "==> Testing --enrich (Crossref)"
+  rm -f "$MD_FILE"
+  "$BINARY_PATH" --enrich || fail "enriched run exited non-zero"
+  grep -q '^type: ' "$MD_FILE" || echo "  WARN: no 'type' in frontmatter (Crossref unreachable?)"
+  grep -q 'cited_by' "$MD_FILE" || echo "  WARN: no 'cited_by' in frontmatter (Crossref unreachable?)"
+  pass "enrich run completed"
+else
+  echo "==> Skipping --enrich (set E2E_ENRICH=1 to enable; needs network)"
+fi
+
+echo "==> ALL E2E CHECKS PASSED"

@@ -1,0 +1,2041 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Predicting Online Behavioural Responses to Transcranial Direct Current Stimulation in Stroke Patients with Anomia</title>
+				<funder ref="#_5GC2rEn #_3XBcGHG">
+					<orgName type="full">Wellcome Centre for Human Neuroimaging</orgName>
+				</funder>
+				<funder ref="#_q2aNdKk">
+					<orgName type="full">Wellcome</orgName>
+				</funder>
+				<funder ref="#_jERGcVR #_ASfZKdF">
+					<orgName type="full">unknown</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability  status="unknown">
+					<licence/>
+				</availability>
+				<date type="published" when="2024-03-01">1 March 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct status="extracted">
+					<analytic>
+						<author>
+							<persName><forename type="first">Alexander</forename><surname>Hunold</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Marcus</forename><surname>Meinzer</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Thomas</forename><forename type="middle">M H</forename><surname>Hop</surname></persName>
+							<email>t.hope@ucl.ac.uk</email>
+							<idno type="ORCID">0000-0002-0831-3541</idno>
+							<affiliation key="aff0">
+								<orgName type="department">Institute of Cognitive Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<postCode>WC1N 3AZ</postCode>
+									<settlement>London</settlement>
+									<country>UK;</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="laboratory">Wellcome Centre for Human Neuroimaging</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<postCode>WC1N 3AR</postCode>
+									<settlement>London</settlement>
+									<country>UK;</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="department">Department of Education</orgName>
+								<orgName type="institution">University of Roma Tre</orgName>
+								<address>
+									<postCode>00185</postCode>
+									<settlement>Rome</settlement>
+									<country>Italy;</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Sasha</forename><surname>Ondobaka</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Institute of Cognitive Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<postCode>WC1N 3AZ</postCode>
+									<settlement>London</settlement>
+									<country>UK;</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Hay</forename><surname>Akkad</surname></persName>
+							<email>haya.akkad.14@ucl.ac.uk</email>
+							<idno type="ORCID">0000-0001-8080-6562</idno>
+							<affiliation key="aff0">
+								<orgName type="department">Institute of Cognitive Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<postCode>WC1N 3AZ</postCode>
+									<settlement>London</settlement>
+									<country>UK;</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Davide</forename><surname>Nardo</surname></persName>
+							<email>davidenardo@gmail.com</email>
+							<affiliation key="aff2">
+								<orgName type="department">Department of Education</orgName>
+								<orgName type="institution">University of Roma Tre</orgName>
+								<address>
+									<postCode>00185</postCode>
+									<settlement>Rome</settlement>
+									<country>Italy;</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Katerina</forename><surname>Pappa</surname></persName>
+							<email>katerina.pappa@strath.ac.uk</email>
+							<idno type="ORCID">0000-0003-3322-496X</idno>
+							<affiliation key="aff3">
+								<orgName type="department">Department of Psychological Sciences &amp; Health</orgName>
+								<orgName type="institution">University of Strathclyde</orgName>
+								<address>
+									<postCode>G1 1XP</postCode>
+									<settlement>Glasgow</settlement>
+									<country>UK;</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Cathy</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+							<email>c.j.price@ucl.ac.uk</email>
+							<idno type="ORCID">0000-0003-3322-496X</idno>
+							<affiliation key="aff1">
+								<orgName type="laboratory">Wellcome Centre for Human Neuroimaging</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<postCode>WC1N 3AR</postCode>
+									<settlement>London</settlement>
+									<country>UK;</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Alexander</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+							<email>a.leff@ucl.ac.uk</email>
+							<idno type="ORCID">0000-0002-0831-3541</idno>
+							<affiliation key="aff0">
+								<orgName type="department">Institute of Cognitive Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<postCode>WC1N 3AZ</postCode>
+									<settlement>London</settlement>
+									<country>UK;</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Jennifer</forename><forename type="middle">T</forename><surname>Crinion</surname></persName>
+							<email>j.crinion@ucl.ac.uk</email>
+							<idno type="ORCID">0000-0001-8080-6562</idno>
+							<affiliation key="aff0">
+								<orgName type="department">Institute of Cognitive Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<postCode>WC1N 3AZ</postCode>
+									<settlement>London</settlement>
+									<country>UK;</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Predicting Online Behavioural Responses to Transcranial Direct Current Stimulation in Stroke Patients with Anomia</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-03-01">1 March 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">35769F4DF91817E8E78E5D02E3E2B948</idno>
+					<idno type="DOI">10.3390/life14030331</idno>
+					<note type="submission">Received: 21 December 2023 Revised: 31 January 2024 Accepted: 20 February 2024</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.9.1" ident="GROBID" when="2026-11-09T16:58+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<label type="revision">0.9.1</label>
+					<label type="parameters">startPage=-1, endPage=-1, consolidateCitations=0, consolidateHeader=0, consolidateFunders=0, includeRawAffiliations=false, includeRawCitations=false, includeRawCopyrights=false, generateTeiIds=false, generateTeiCoordinates=[], flavor=null, debugLabelingCollector=disabled</label>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>neurostimulation</term>
+					<term>stroke</term>
+					<term>aphasia</term>
+					<term>prediction</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Anomia, or difficulty naming common objects, is the most common, acquired impairment of language. Effective therapeutic interventions for anomia typically involve massed practice at high doses. This requires significant investment from patients and therapists. Aphasia researchers have increasingly looked to neurostimulation to accelerate these treatment effects, but the evidence behind this intervention is sparse and inconsistent. Here, we hypothesised that group-level neurostimulation effects might belie a more systematic structure at the individual level. We sought to test the hypothesis by attempting to predict the immediate (online), individual-level behavioural effects of anodal and sham neurostimulation in 36 chronic patients with anomia, performing naming and size judgement tasks. Using clinical, (pre-stimulation) behavioural and MRI data, as well as Partial Least Squares regression, we attempted to predict neurostimulation effects on accuracies and reaction times of both tasks. Model performance was assessed via cross-validation. Predictive performances were compared to that of a null model, which predicted the mean neurostimulation effects for all patients. Models derived from pre-stimulation data consistently outperformed the null model when predicting neurostimulation effects on both tasks' performance. Notably, we could predict behavioural declines just as well as improvements. In conclusion, inter-patient variation in online responses to neurostimulation is, to some extent, systematic and predictable. Since declines in performance were just as predictable as improvements, the behavioural effects of neurostimulation in patients with anomia are unlikely to be driven by placebo effects. However, the online effect of the intervention appears to be as likely to interfere with task performance as to improve it.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Anomia is perhaps the most common symptom of acquired language impairment <ref type="bibr" target="#b0">[1]</ref>. Anomia primarily presents as a difficulty with naming common objects. Treatments for anomia typically depend on massed practice and require high doses to work <ref type="bibr" target="#b1">[2]</ref>. To really achieve any benefit, patients and therapists need to invest significant time and effort. To try to alleviate that effort, research interest has increasingly turned to potential accelerants of treatment for aphasia, including drugs <ref type="bibr" target="#b2">[3]</ref> and neurostimulation <ref type="bibr" target="#b3">[4]</ref>. One promising example of the latter type of intervention is transcranial Direct Current Stimulations (tDCS), which is both relatively inexpensive and tolerable by most patients <ref type="bibr" target="#b4">[5]</ref>.</p><p>A typical tDCS setup involves two electrodes: an active electrode and a return electrode. The active electrode is placed on the scalp over the target brain region. The return electrode is placed elsewhere, either on the head (e.g., over the contralateral supraorbital area) or on a region away from the head, such as the contralateral shoulder. The tDCS electrodes interact to create an electrical field that alters cell membrane potentials. In turn, this modulates the likelihood of neuronal firing in and potentially around/beyond the target brain region <ref type="bibr" target="#b5">[6]</ref>. Exactly what kind of modulation it makes is still a matter of debate. In broad terms, cathodal tDCS is thought to decrease the excitability of neurons in the target region, while anodal tDCS is thought to increase their excitability. However, this dichotomy is derived from studies stimulating the motor cortices <ref type="bibr" target="#b6">[7]</ref>, leaving the precise effects on other brain regions largely unknown <ref type="bibr" target="#b7">[8]</ref>. And, even when stimulating the motor cortices, those precise effects depend on the details of the set-up (e.g., the size of the electrodes, the distance between them, and the intensity of the stimulation) <ref type="bibr" target="#b8">[9]</ref>.</p><p>Nevertheless, there is increasing evidence that tDCS can be used to modulate language task performance, both in the neurologically normal <ref type="bibr" target="#b4">[5,</ref><ref type="bibr" target="#b9">10,</ref><ref type="bibr" target="#b10">11]</ref> and the damaged <ref type="bibr" target="#b3">[4,</ref><ref type="bibr" target="#b5">6,</ref><ref type="bibr" target="#b8">9,</ref><ref type="bibr" target="#b11">12]</ref> brain. In the study of anomia, one natural stimulation site is the left inferior frontal gyrus (LIFG). Activity in this region (which includes Broca's area) has a long association with semantic language <ref type="bibr" target="#b12">[13]</ref>, and the same activity is known to correlate with naming performance in stroke patients with aphasia <ref type="bibr" target="#b13">[14]</ref><ref type="bibr" target="#b14">[15]</ref><ref type="bibr" target="#b15">[16]</ref><ref type="bibr" target="#b16">[17]</ref>. Consistent with these findings, anodal tDCS was shown to enhance stroke patients' naming accuracy when applied over the LIFG <ref type="bibr" target="#b17">[18]</ref>. However, the evidence here is inconsistent because other studies either failed to find the effect or found it but only with cathodal tDCS (e.g., <ref type="bibr" target="#b18">[19]</ref>).</p><p>One reason for this inconsistency might be that there is no real effect. If this is true, the modest effects reported <ref type="bibr" target="#b3">[4,</ref><ref type="bibr" target="#b11">12]</ref> might be artefacts of within-subject noise in those experiments. Alternatively, the effects might be real but also small enough that they are hard to distinguish because of the between-subject noise. In either case, one might justifiably doubt the effects' clinical relevance. However, even in studies that fail to find significant group effects, at least some individual patients often respond well <ref type="bibr" target="#b19">[20]</ref>. The primary aim of this study was to test the claim that those responses are really artefacts of noise.</p><p>Following the model of our own recent work in the study of therapy effects <ref type="bibr" target="#b20">[21]</ref>, we test this by trying to predict individual responses with models trained only on other patients' data. If we can find enough consistency to make those predictions, the implication is that the individual variance cannot be (wholly) driven by noise. From this perspective, apparently modest group-level effects might belie more complex individual-level effects. Some subset of the participants might be more likely to respond, perhaps much more significantly, than the group-level literature suggests <ref type="bibr" target="#b20">[21]</ref>. To the extent that these online effects predict longer-term gains <ref type="bibr" target="#b17">[18]</ref>, we could then stratify patients for tDCS-enhanced treatment by identifying those who are most likely to benefit.</p><p>Our focus in what follows is on a study designed to measure online neurostimulation effects on naming performance, using a size judgement task as a control <ref type="bibr" target="#b21">[22]</ref>. We ask whether neurostimulation responses in either task are predictable. Our secondary hypothesis concerns the handling of anomic patients whose lesions damaged the LIFG. We assumed that patients would not respond well to neurostimulation over the damaged cortex, so we needed an alternative stimulation site for these patients. Following prior evidence of right homologue adaptation during recovery in patients with LIFG damage (e.g., <ref type="bibr" target="#b22">[23]</ref>), we chose to stimulate the right homologue of LIFG (i.e., RIFG) in these patients.</p><p>Anodal stimulation was applied at each site (i.e., LIFG/RIFG), following the logic of the Bimodal Balance Recovery (BBR) model <ref type="bibr" target="#b23">[24]</ref>. The BBR was initially advanced as a model of recovery from post-stroke hemiparesis, building on prior findings suggesting that the bilateral motor cortices exhibit mutual inhibition <ref type="bibr" target="#b24">[25]</ref>. If this is true, one might naturally seek to enhance ipsilateral motor function by using neurostimulation to inhibit contralateral motor activation. This is sometimes called 'inter-hemispheric rebalancing' <ref type="bibr" target="#b25">[26]</ref>. The BRR model posits an exception to this rule whenever the ipsilateral motor cortex suffered extensive damage. In this case, the theory is that the damage will extinguish or severely reduce the 'structural reserve' available to make use of inter-hemispheric rebalancing. So, rather than inhibiting the contralateral hemisphere, the BBR model contends that we might best promote recovery by recruiting (activating) those contralateral homologues <ref type="bibr" target="#b26">[27]</ref>.</p><p>Driven by this model, our secondary hypothesis was that excitatory neurostimulation over RIFG in patients with extensive LIFG damage would yield responses consistent with those for LIFG neurostimulation in patients whose lesions spared the LIFG. We test the hypothesis by training models with data from patients stimulated at one site and using them to predict neurostimulation responses for patients stimulated at the other site. Reasonable predictions are evidence that the BRR model might be applicable to recovery from post-stroke aphasia.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Methods</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.">The Neurostimulation Experiment</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.1.">Participants</head><p>The study included 36 participants, all of whom survived a first-time left-hemisphere stroke at least one year before entering the study, had normal hearing, normal or correctedto-normal visual acuity, and no previous history of neurological or psychiatric disease, as well as no contraindications to MRI scanning. Inclusion criteria were as follows: (i) anomia as determined by the naming subtest of the Comprehensive Aphasia Test <ref type="bibr" target="#b27">[28]</ref>; (ii) good single-word comprehension as assessed by the spoken words comprehension subtest of the Comprehensive Aphasia Test; (iii) relatively spared ability to repeat single monosyllabic words from the Psycholinguistic Assessments of Language Processing in Aphasia <ref type="bibr" target="#b28">[29]</ref>; (iv) absence of speech apraxia as determined by the Apraxia Battery for Adults <ref type="bibr" target="#b30">[30]</ref>. Informed consent was obtained from all participants prior to participation under approval from the Central London Research Ethics Committee, UK.</p><p>All participants' lesions were assessed by JC as either sparing or damaging the LIFG. Participants who suffered extensive damage to LIFG were assigned to the Broca's area damaged (BD) group and stimulated over RIFG. Otherwise, patients were assigned to the Broca's area preserved (BP) group and stimulated over LIFG. There were 18 participants in each group.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.2.">Experimental Design</head><p>Participants completed two simultaneous fMRI/tDCS sessions, one with anodal stimulation and the other with sham stimulation, separated by a one-week wash-out period. Sessions were counter-balanced across subjects. In each session, participants completed both a picture naming task and a size judgement task: stimulation responses were measured as their accuracies or reaction times on each task during anodal stimulation minus accuracies/reaction times on the same task during sham stimulation. Each task also manipulated both visual object information (by adding noise to the images) and auditory object information (with phonemic cues), but our stimulation response variables averaged across these conditions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.3.">Behavioural Tasks</head><p>The naming task required participants to name each presented object as quickly and as accurately as possible. The judgement task required them to decide whether the object would fit inside a microwave oven (yes/no verbal responses), the aim being to study lexical retrieval in naming while controlling for object identification, decision-making, and a vocal speech response. This experimental design and these stimuli are described in detail in <ref type="bibr" target="#b21">[22]</ref>.</p><p>Each object picture was a black-and-white line drawing of a concrete object. A trial started with a 1 s presentation of a fixation cross, followed by simultaneous appearance of the object picture with the auditory cues (squiggly lines/geometric shapes superimposed on the images and auditory stimuli corresponding to the first phoneme of an object name or its vocoded version). Pictures were displayed for 2.5 s, followed by a blank screen for 0.35 s. The order of experimental conditions was pseudo-randomized within a block (i.e., avoiding more than three trials of the same condition in a row), and objects were counterbalanced across participants to control for psycholinguistic features like frequency, concreteness, imageability, and initial phoneme.</p><p>Stimulus presentation and behavioural data acquisition were controlled using Matlab. Overt spoken responses were recorded online using a dual-channel, noise-cancelling fibre optical microphone system (FOMRI III; <ref type="url" target="http://www.optoacoustics.com">http://www.optoacoustics.com</ref>). These recordings were reviewed offline to calculate speech accuracy scores (% correct) for each participant. Auditory cues were delivered via MR-compatible headphones (MR Confon, Magdeburg, Germany; <ref type="url" target="http://www.mr-confon.de">www.mr-confon.de</ref> (accessed on 20 December 2023)). Participants completed a short training period before entering the scanner for each session, both to familiarise themselves with the task and to practice speaking softly, thus minimising motion in the scanner. Stimuli used during the training were not used during the neurostimulation session. A total of 480 target words were selected from the IPNP database <ref type="bibr" target="#b31">[31]</ref> (n = 220) and from the MRC Psycholinguistic Database <ref type="bibr" target="#b32">[32]</ref> (n = 260). Object names were monosyllabic words with a consonant-vowel-consonant (CVC) phonological structure.</p><p>Response accuracy in the judgement task (i.e., deciding whether an object would fit inside a microwave oven) was defined relative to a normative standard derived from a separate experiment run using Amazon's web-based Mechanical Turk platform (MTurk; see <ref type="bibr" target="#b33">[33]</ref>). A total of 32 adult participants viewed all the 480 stimuli that we used in the main experiment (without visual or auditory cues) and used yes/no button press responses to indicate whether each object would fit in a microwave oven. Moreover, 62/480 items did not reach our threshold of 70% agreement in these responses, so they were excluded from the main analysis. Judgement and naming reaction times were timed from stimulus onset until the patient responded. Stimulation responses for both tasks were calculated as the naming accuracy/reaction time during anodal stimulation minus the naming accuracy/reaction time during sham stimulation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.4.">Neurostimulation with Concurrent fMRI</head><p>The current analysis makes no reference to the fMRI data that were collected concurrently with the application of neurostimulation. Nevertheless, the tDCS was delivered during an fMRI experiment, so we describe the key elements of that procedure here.</p><p>Neurostimulation was delivered using an MR-compatible stimulation system (neuro-Conn; <ref type="url" target="https://www.neurocaregroup.com/dc_stimulator_mr.html">https://www.neurocaregroup.com/dc_stimulator_mr.html</ref> (accessed on 20 December 2023)) via a pair of MR-compatible leads and rectangular rubber electrodes (5 × 7 cm), allowing for a current density of 0.057 mA/cm 2 (cf. <ref type="bibr" target="#b10">[11]</ref>). For those participants identified (by JC, from structural MRI images) as 'LIFG intact', the anode was placed over the LIFC (equivalent to position FC5 in 10-20 EEG nomenclature), and the cathode was placed over the contralateral frontopolar cortex (FP2). For participants identified as 'LIFG damaged', these stimulation sites were mirrored with the anode placed over the right hemisphere IFG (RIFG). Both electrodes and the sites on the scalp where the electrodes were placed were covered with EEG conductive paste to ensure a flush and comfortable fit between the electrode surface and the scalp. Electrodes were secured to the head using 3M Coban elastic wrap bandage and placed in adherence with the manufacturer's MR safety guidelines. Care was taken in connecting the leads backward along the centre of the scanner bore to minimise the possibility of radio frequency-induced heating and to ensure that any gradient switching-induced AC currents were well below the level that might cause stimulation. The stimulator was placed outside the Faraday cage of the scanner, and the stimulating current was fed to the participant through two stages of radio frequency filtration to prevent interference from being picked up by the scanner.</p><p>A scanner pulse triggered the onset of the stimulation at a given slice in the acquisition sequence. The current was increased slowly during the first 15 s to the desired stimulation threshold (2 mA), termed the ramp-up phase. A constant direct current (2 mA) was delivered for 20 min. At the end of the stimulation period, the current was decreased to 0 mA over 1 s (ramp-down). For sham stimulation, the ramp-up phase was followed by 15 s of 2 mA stimulation, which was immediately followed by a 1 s ramp-down phase. This active sham protocol makes for a more efficient double-blinding process: both stimulation and sham protocols produced sensations of comparable quality (a mild tingling, typically under the electrode placed over the contralateral orbital/frontopolar edge). Participants habituated to the sensation quickly and reported minimal discomfort with no adverse sensations during both anodal and sham tDCS stimulation runs. The position of the anode and cathode electrodes for each subject was recorded and reproduced across scanning sessions. Full details of the tDCS-fMRI procedure validated both quantitatively and qualitatively (in the same MRI scanner used to collect the present data) can be found in Nardo et al. <ref type="bibr" target="#b34">[34]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.5.">Structural MRI Acquisition and Analysis</head><p>Structural MRI was acquired during the same scanning sessions as the simultaneous tDCS and fMRI. Whole-brain structural imaging was performed on a 3T Siemens TIM-Trio system (Siemens, Erlangen, Germany) at the Wellcome Centre for Human Neuroimaging. T2*-weighted echo-planar images (EPI) with BOLD contrast were acquired using a 12channel head coil. Structural MRI data were processed into binary lesion images using the Automatic Lesion Identification toolbox <ref type="bibr" target="#b35">[35]</ref>, running under SPM 12 in Matlab. We employed the (120,231) left-hemisphere voxels from the "fuzzy" lesion images produced by the toolbox to represent patients' lesions. Voxel values in these regions range from 0 to 1, with higher values indicating greater evidence that the voxel is damaged, and evidence is derived by comparing tissue intensity in each voxel to intensities from a population of neurologically normal controls.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">Data Analysis</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.1.">Data</head><p>Our key interest here was in whether behavioural neurostimulation responses might be predictable at the individual level. Neurostimulation responses are differences in average performance in both naming and judgement tasks during either sham or anodal stimulation. We consider two types of difference-in accuracies and reaction times-for each of the two tasks, leading to four dependent variables. We attempt to predict these four dependent variables in four separate analyses.</p><p>Our independent variables, or predictors, were defined based on our own past work attempting to predict individual responses to neurorehabilitation <ref type="bibr" target="#b36">[36]</ref>. These included the following: (a) clinical data, (b) lesion data, and (c) behavioural data. All were acquired at baseline before the neurostimulation part of the experiment began.</p><p>The clinical data included the following: age at stroke onset, sex assigned at birth, time post-stroke, pre-and post-stroke handedness, years of formal schooling, and total lesion volume. The lesion data consisted of lesion probability values from a total of 120,213 2 mm 3 voxels from the left hemisphere of the Montreal Neurological Institute brain. The behavioural variables were derived from a comprehensive battery of language and nonlanguage tests administered to assess participants' language and cognitive abilities. The tests included the following: the (full) Comprehensive Aphasia Test <ref type="bibr" target="#b27">[28]</ref>, the PALPA 8 and 9 <ref type="bibr" target="#b28">[29]</ref>, the Boston Naming Test <ref type="bibr" target="#b37">[37]</ref>, the Pyramids and Palm Trees test <ref type="bibr" target="#b38">[38]</ref>, the Cattel Culture Fair IQ Test (Scale 2, Form A) <ref type="bibr" target="#b39">[39]</ref>, the Rey-Osterrieth Complex Figure Test <ref type="bibr" target="#b40">[40]</ref>, digit-span tasks from the Wechsler Adult Intelligence Scale <ref type="bibr" target="#b41">[41]</ref>, the Delis-Kaplan Executive Function System test <ref type="bibr" target="#b42">[42]</ref>, the Hopkins Verbal Learning Test <ref type="bibr" target="#b43">[43]</ref>, and the Children's Sustained Attention to Response Task <ref type="bibr" target="#b44">[44]</ref>. A complete list of all the 96 variables derived from these tests is included in Supplementary Materials. A very small number of these behavioural variables was missing for some patients (0.69% of the behavioural data values), and we used mean imputation to fill in these missing values.</p><p>As mentioned previously, we were interested in whether the neurostimulation responses (or dependent variables) might be predictable, given these independent variables. But we were also interested in which data types (clinical, behavioural, or lesion) were more predictive and in what combination. So, we trained and tested machine learning models from each data type separately and from every combination of those data types. With three data types to consider, this gave us a total of 7 combinations of predictors to try for each of 4 dependent variables. So, the whole analysis consists of training and testing a total of 28 different models.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.2.">Associating Predictors to Responses with Partial Least Squares Regression</head><p>Given the very large number of predictors relative to the sample size (n = 36), we employed Partial Least Squares (PLS) regression to reduce the predictors' dimensionality efficiently. PLS regression employs a data dimensionality reduction procedure analogous to Principal Components Analysis (PCA). In PCA regression, one would first derive latent variables from the independent variables via PCA, then select some subset of those variables (typically the first N components), and then perform a standard linear regression. By contrast, where PCA would derive latent variables that explain as much of the variance of the independent variables as possible, PLS regression derives them to explain dependent variable variance (neurostimulation responses, in our analysis). PLS regression should, thus, be more efficient than PCA regression and, perhaps, therefore, more robust to highdimensional data.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.3.">Model Assessment and Model Comparison</head><p>Predictive performance was assessed with 100 times 10-fold cross-validation. First, we divide the sample into 10 groups. Then, we train a PLS regression model with data from participants in 9 of those groups and use the trained model to predict responses for the participants in the 10th group. The only hyperparameter that requires tuning in these models is the number of components to employ for the data dimensionality reduction step. We set this number in a nested manner, using an inner loop of 10-fold cross-validation that operates only on the training data for each fold of the main cross-validation loop. We repeat this procedure 10 times so that every group is the test group exactly once. And then we repeat that whole procedure 100 times, with 100 different partitions of the sample into 10 groups. Resultant measures of (mean squared) prediction error are averages across these folds and repetitions. Notably, all folds of all cross-validation analyses (i.e., the ways in which the original sample is divided into 10 groups) are kept constant across all model configurations.</p><p>We assessed our models in relative terms, by comparing them each to a baseline model. The baseline model assumes that individual variance in neurostimulation responses is not predictable, so it simply predicts the mean neurostimulation response for all participants. When our data-driven models outperform this baseline model (have smaller prediction errors), we can conclude that individual treatment responses are predictable, at least to some extent. We use the traditional, paired, non-parametric Wilcoxon signed rank test to compare MSEs across models and further threshold those statistics with a paired permutation test. The test construes the two vectors to be compared as having labels reflecting the models used to generate them. The null hypothesis is that those labels are arbitrary because the models' performances differ only by chance. By shuffling those labels, we can, therefore, create a null distribution of paired test statistics. If the real comparison between the real sets of prediction errors yields statistics that are extreme relative to the null distribution (p &lt; 0.05), we conclude that the performance difference between the models is significant.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.4.">Model Interpretation</head><p>PLS regression models can be interpreted by examining the weights of each of their components on each of the original variables. However, this approach can be challenging when there are multiple components to consider and because the sign of each component is arbitrary: i.e., positive weights on a given component do not necessarily imply a positive relationship between the highly weighted independent variables and the dependent variable(s). We circumvent these issues with 'data perturbation'.</p><p>Having first trained a PLS model on the original data, we then used that trained model to make further predictions after randomly shuffling the predictors. Having repeated this procedure 1000 times, we will have 1000 sets of predictions for 1000 sets of permuted predictors. We calculate the influence that each predictor value has on the predictions as the (Pearson's) correlation between the two. If the predicted value increases when a predictor value increases (and vice versa), that predictor will obtain a positive weight. By contrast, if the predicted value decreases when the predictor value increases (and vice versa), that predictor will obtain a negative weight. To confirm the stability of the weights assigned using this data perturbation procedure, we ran the whole process 10 times (i.e., for a total of 10,000 random perturbations). Predictor weights assigned in any 1000-iteration block were very strongly correlated with weights assigned in other blocks (all r ≥ 0.99).</p><p>When using lesion data, we have &gt;100,000 voxel values to consider and, therefore, &gt;100,000 weights on those voxels. We report these weights after first aggregating them within series of region masks drawn from publicly available atlases <ref type="bibr" target="#b45">[45]</ref><ref type="bibr" target="#b46">[46]</ref><ref type="bibr" target="#b47">[47]</ref><ref type="bibr" target="#b48">[48]</ref>. This regionlevel encoding allows us to summarise the voxel-level coefficients at the level of brain regions and white matter tracts.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Results</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">Patient Characteristics</head><p>Our sample of 36 stroke patients included 26 men and 10 women. The mean age was 59.1 years (±12.5 years), the mean time post-stroke at assessment was 10.4 yrs (±8.0 years), and the patients' mean years of schooling was 13.8 years (±2.4 years). The sample was divided into two sub-groups, depending on whether their lesions preserved or partially preserved the left inferior frontal gyrus (Broca's area preserved: BP or Broca's area destroyed: BD). The two groups were not significantly different in age at stroke onset, time post-stroke at assessment, or years of schooling (all p &gt; 0.1). The mean lesion size across the whole sample was 125.0 cm 3 (±106.4 cm 3 ), with patients in the BD group suffering significantly larger lesions (183.3 cm 3 ±115.1 cm 3 ) than the BP group (66.7 cm 3 ±106.4 cm 3 ): Z = 3.33, p &lt; 0.001. See Figure <ref type="figure" target="#fig_0">1</ref> for a lesion frequency plot.</p><p>relationship between the highly weighted independent variables and the dependent variable(s). We circumvent these issues with 'data perturbation'.</p><p>Having first trained a PLS model on the original data, we then used that trained model to make further predictions after randomly shuffling the predictors. Having repeated this procedure 1000 times, we will have 1000 sets of predictions for 1000 sets of permuted predictors. We calculate the influence that each predictor value has on the predictions as the (Pearson's) correlation between the two. If the predicted value increases when a predictor value increases (and vice versa), that predictor will obtain a positive weight. By contrast, if the predicted value decreases when the predictor value increases (and vice versa), that predictor will obtain a negative weight. To confirm the stability of the weights assigned using this data perturbation procedure, we ran the whole process 10 times (i.e., for a total of 10,000 random perturbations). Predictor weights assigned in any 1000-iteration block were very strongly correlated with weights assigned in other blocks (all r ≥ 0.99).</p><p>When using lesion data, we have &gt;100,000 voxel values to consider and, therefore, &gt;100,000 weights on those voxels. We report these weights after first aggregating them within series of region masks drawn from publicly available atlases <ref type="bibr" target="#b45">[45]</ref><ref type="bibr" target="#b46">[46]</ref><ref type="bibr" target="#b47">[47]</ref><ref type="bibr" target="#b48">[48]</ref>. This regionlevel encoding allows us to summarise the voxel-level coefficients at the level of brain regions and white matter tracts.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Results</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">Patient Characteristics</head><p>Our sample of 36 stroke patients included 26 men and 10 women. The mean age was 59.1 years (±12.5 years), the mean time post-stroke at assessment was 10.4 yrs (±8.0 years), and the patients' mean years of schooling was 13.8 years (±2.4 years). The sample was divided into two sub-groups, depending on whether their lesions preserved or partially preserved the left inferior frontal gyrus (Broca's area preserved: BP or Broca's area destroyed: BD). The two groups were not significantly different in age at stroke onset, time post-stroke at assessment, or years of schooling (all p &gt; 0.1). The mean lesion size across the whole sample was 125.0 cm 3 (±106.4 cm 3 ), with patients in the BD group suffering significantly larger lesions (183.3 cm 3 ±115.1 cm 3 ) than the BP group (66.7 cm 3 ±106.4 cm 3 ): Z = 3.33, p &lt; 0.001. See Figure <ref type="figure" target="#fig_0">1</ref> for a lesion frequency plot. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">In-Scanner Behaviour and Stimulation Responses</head><p>Table 1 reports participants' in-scanner performance under both sham and anodal stimulation. Under sham stimulation, the BP group was significantly more accurate than the BD group in naming (Z = 2.48, p = 0.013) but not judgement (Z = 1.43, p = 0.150). The </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">In-Scanner Behaviour and Stimulation Responses</head><p>Table 1 reports participants' in-scanner performance under both sham and anodal stimulation. Under sham stimulation, the BP group was significantly more accurate than the BD group in naming (Z = 2.48, p = 0.013) but not judgement (Z = 1.43, p = 0.150). The BP group was also numerically faster than the BD group in the judgement task, though this did not reach significance (Z = 1.91, p = 0.057), and there was also no significant difference in reaction times for the naming task (Z = 0.21, p = 0.837). Under anodal stimulation, the results were similar in that the BP group was more accurate in naming than the BD group (Z = 2.86, p = 0.004), and there were no other significant differences between the groups (all p &gt; 0.3).</p><p>Table <ref type="table">1</ref>. In-scanner performance. Accuracies and reaction times (mean and standard deviation) for the whole sample and both sub-groups in the naming and judgement tasks, respectively, under both sham and anodal stimulation. Bold, underlined font highlights where the BP group was significantly more accurate than the BD group in naming under both tDCS conditions (sham: Z = 2.48, p = 0.013; anodal: Z = 2.86, p = 0.004).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ALL BP BD</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>SHAM</head><p>Judgement % 74.9 (±15.2) 78.2 (±13.7) 71.6 (±16.4) Judgement RT (s) 1.63 (±0.28) 1.54 (±0.31) 1.72 (±0.24) Naming % 66.8 (±16.9) 72.2 (±16.6) 61.3 (±15.9) Naming RT (s) 1.57 (±0.26) 1.57 (±0.23) 1.57 (±0.29) ANODAL Judgement % 75.5 (±13.8) 77.0 (±13.3) 73.9 (±14.6) Judgement RT (s) 1.64 (±0.31) 1.59 (±0.34) 1.70 (±0.27) Naming % 67.8 (±16.0) 74.7 (±14.2) 60.8 (±14.8) Naming RT (s) 1.55 (±0.23) 1.58 (±0.24) 1.52 (±0.22)</p><p>Crucially, there were no significant effects of anodal neurostimulation (compared to sham stimulation), either on accuracies or on reaction times in either task, either across the group as a whole or in either of the two sub-groups: all p &gt; 0.2. This is despite evident variance at the individual level in all four independent variables: i.e., the stimulation appears to significantly alter some patients' accuracies and/or reaction times, even though there is no consistent, group-level effect. We hypothesised the null effects at the group level might belie a more systematic structure in the patients' individual responses to neurostimulation, which are illustrated in Figure <ref type="figure" target="#fig_2">2</ref>. We reasoned that if the changes themselves are predictable, these individual-level effects cannot be dismissed as artefacts of noise.</p><p>BP group was also numerically faster than the BD group in the judgement task, though this did not reach significance (Z = 1.91, p = 0.057), and there was also no significant difference in reaction times for the naming task (Z = 0.21, p = 0.837). Under anodal stimulation, the results were similar in that the BP group was more accurate in naming than the BD group (Z = 2.86, p = 0.004), and there were no other significant differences between the groups (all p &gt; 0.3).</p><p>Table <ref type="table">1</ref>. In-scanner performance. Accuracies and reaction times (mean and standard deviation) for the whole sample and both sub-groups in the naming and judgement tasks, respectively, under both sham and anodal stimulation. Bold, underlined font highlights where the BP group was significantly more accurate than the BD group in naming under both tDCS conditions (sham: Z = 2.48, p = 0.013; anodal: Z = 2.86, p = 0.004).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ALL BP BD</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>SHAM</head><p>Judgement % 74.9 (±15.2) 78.2 (±13.7) 71.6 (±16.4) Judgement RT (s) 1.63 (±0.28) 1.54 (±0.31) 1.72 (±0.24) Naming % 66.8 (±16.9) 72.2 (±16.6) 61.3 (±15.9) Naming RT (s) 1.57 (±0.26) 1.57 (±0.23) 1.57 (±0.29) ANODAL Judgement % 75.5 (±13.8) 77.0 (±13.3) 73.9 (±14.6) Judgement RT (s) 1.64 (±0.31) 1.59 (±0.34) 1.70 (±0.27) Naming % 67.8 (±16.0) 74.7 (±14.2) 60.8 (±14.8) Naming RT (s) 1.55 (±0.23) 1.58 (±0.24) 1.52 (±0.22)</p><p>Crucially, there were no significant effects of anodal neurostimulation (compared to sham stimulation), either on accuracies or on reaction times in either task, either across the group as a whole or in either of the two sub-groups: all p &gt; 0.2. This is despite evident variance at the individual level in all four independent variables: i.e., the stimulation appears to significantly alter some patients' accuracies and/or reaction times, even though there is no consistent, group-level effect. We hypothesised the null effects at the group level might belie a more systematic structure in the patients' individual responses to neurostimulation, which are illustrated in Figure <ref type="figure" target="#fig_2">2</ref>. We reasoned that if the changes themselves are predictable, these individual-level effects cannot be dismissed as artefacts of noise. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.">Predictive Performance</head><p>With three data types to consider (clinical, behavioural, and lesion data), we employed a total of eight model configurations: i.e., seven combinations of predictor data types, plus an eight combination for the null model, which does not employ any predictor data (because it simply predicts the mean stimulation response of the patients in its training sample). Table <ref type="table" target="#tab_0">2</ref> records the results, highlighting the best models for stimulation responses (accuracies and reaction times) in the judgement and naming tasks, respectively. All our dependent variables-stimulation responses for accuracies and reaction times in the naming and judgement tasks-appeared to be predictable. Each could be predicted by some combination of pre-stimulation data at better (lower) error rates than those associated with the null model. Lesion data were a component of the best models' predictors for one-third of the dependent variables. The exception was for predicting stimulation effects on reaction times in the judgement task, where the best model included clinical and behavioural data only (see Table <ref type="table" target="#tab_0">2</ref>); however, lesions alone were also able to make betterthan-null-model predictions for this variable.</p><p>The best models for each response variable were also all significantly better (after FWE correction) than the next best, implying that their advantages, though numerically small, were highly consistent across cross-validation folds. The best models were also all very significantly better than the null model: all FWE p &lt; 0.001. These results imply that the small advantages enjoyed by these models are very consistent across the 100 repetitions of the cross-validation process. Since all stimulation response variables were standardised prior to running the predictive analyses, their MSEs are also comparable. Stimulation effects on naming accuracy appeared more predictable than stimulation effects on naming reaction times, whereas this order was reversed for the judgement task.</p><p>Finally, no model relied simply on predicting improvements (increasing accuracies or decreasing reaction times) consequent to neurostimulation. If any model only predicts change in one direction, it follows that the predictions for those patients whose performance changed in the other direction should be less accurate. To test this, we employed a Bayesian analysis of variance <ref type="bibr" target="#b49">[49]</ref>, measuring whether the direction of empirical change (stimulation responses greater versus lesser than sham responses) mediated the MSEs of each of our models' mean predictions. In fact, there was strong evidence against a mediating effect for all dependent variables: BF = 0.04 (judgement accuracy); 0.04 (judgement reaction times); 0.03 (naming accuracy); and 0.08 (naming reaction times). As in past work <ref type="bibr" target="#b50">[50]</ref>, we interpret these results as evidence of systematicity/predictability in both the improvements and the declines in performance, here associated with neurostimulation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4.">Examining the Role of Stimulation Site</head><p>One feature of the experimental design deserves consideration: half of the patients in this sample were stimulated in the LIFG, whereas the other half, with no or minimal preservation of LIFG after stroke, were stimulated in the RIFG. If responses to stimulation at each site are different, our models might have simply discovered this feature of the experimental design, confounding our results. There were no significant differences in the stimulation responses for each group in either the judgement task (Wilcoxon rank sum test; accuracies: z = 0.98, p = 0.33; reaction times: z = 1.12, p = 0.26) or the naming task (accuracies: z = 1.60, p = 0.10; reaction times: z = 0.97, p = 0.33). However, this maintains the possibility that there is some subtler interaction, for example, with the lesion site, which drives the whole-sample predictive results.</p><p>One way to test this would be to repeat the analyses described in the last section for each sub-group separately. However, this test is confounded by the significant reduction in the sample sizes of each sub-group relative to the whole group, which is already smaller than might be preferred for predictive modelling. Instead, we compared the performances of our best models for each task when predicting between stimulation sites to their performance when predicting across stimulation sites.</p><p>If the stimulation site is a key driver of the original whole-sample results, it should be particularly important to train our models with some examples of patients who were stimulated at LIFG and some examples of patients who were stimulated at RIFG. It follows that predictions for each sub-group based on training only with the other ('between-group splits') should be less accurate than predictions derived based on training with exemplars from both sub-groups ('across-group splits'). We tested this by running each of our four best PLS regression models (one for each dependent variable) through split-half cross-validation with the between-group split and comparing its MSE to a distribution of MSEs obtained for the same model over 1000 cross-validation runs with across-group splits. To the extent that our results for each dependent variable are confounded by the stimulation site, we expected more across-group MSEs to be smaller than the between-group MSE for that variable.</p><p>The proportions of across-group MSEs that were, in fact, smaller than each betweengroup MSE were as follows: 84% (judgement accuracies), 15% (naming accuracies), 61% (judgement reaction times), and 36% (naming reaction times).</p><p>Quite how high these proportions would need to be to demonstrate a stimulationsite confound remains an open question. A threshold of &gt;95% seems consistent with the standard definition of significance but might be considered too conservative here. Instead, we interpret these proportions as convincing evidence that the stimulation site is not driving our results for reaction times in both tasks and for accuracy in the naming task because they imply that the between-group MSE was at least within the inter-quartile range of those across-group MSEs. Neurostimulation-induced changes in judgement accuracy, however, were outside that range (84%), suggesting that stimulation-site confounds might be more relevant in this case.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.5.">Interpreting the Best Models</head><p>Each of the four best PLS regression models assigns non-zero weights to all its predictors, and in this sense, none of the predictors are strictly redundant in any model. Nevertheless, while we report all model weights, either in Figure <ref type="figure" target="#fig_3">3</ref> below (for lesion-related weights) or in the Supplementary Materials (for non-lesion weights), for the sake of parsimony, we concentrate only on the most important variables here, i.e., those assigned the weights of the largest magnitude.</p><p>Each of the four best PLS regression models assigns non-zero weights to all its predictors, and in this sense, none of the predictors are strictly redundant in any model. Nevertheless, while we report all model weights, either in Figure <ref type="figure" target="#fig_3">3</ref> below (for lesion-related weights) or in the supplementary material (for non-lesion weights), for the sake of parsimony, we concentrate only on the most important variables here, i.e., those assigned the weights of the largest magnitude. In those models that included lesion data, the strongest weights, implying that more damage drives less improvement/more decline in performance after neurostimulation, were assigned to the inferior temporal cortex (judgement accuracy), the putamen (naming accuracy), and the superior longitudinal fasciculus (SLF) (naming reaction times). Note that in the first two cases, these weights were negative because higher accuracies imply better performance, but in the third case (naming reaction times), the weight was positive, implying a greater tendency to lengthen reaction times with more damage to the SLF. In these models, the strongest weights implying the opposite relationship, with more lesion damage predicting worse responses to neurostimulation, were found in the cuneus (judgement accuracy: 0.53) and the cingulum (naming accuracy: 0.50 and naming reaction times: 0.50).</p><p>In those models that included behavioural data, the strongest weights predicting greater performance improvement with better pre-stimulation performance were on scores in the Rey immediate copy task (0.04; judgement accuracy), successful self-corrections in confrontation naming (0.05; naming accuracy), and the PALPA 9 repetition task In those models that included lesion data, the strongest weights, implying that more damage drives less improvement/more decline in performance after neurostimulation, were assigned to the inferior temporal cortex (judgement accuracy), the putamen (naming accuracy), and the superior longitudinal fasciculus (SLF) (naming reaction times). Note that in the first two cases, these weights were negative because higher accuracies imply better performance, but in the third case (naming reaction times), the weight was positive, implying a greater tendency to lengthen reaction times with more damage to the SLF. In these models, the strongest weights implying the opposite relationship, with more lesion damage predicting worse responses to neurostimulation, were found in the cuneus (judgement accuracy: 0.53) and the cingulum (naming accuracy: 0.50 and naming reaction times: 0.50).</p><p>In those models that included behavioural data, the strongest weights predicting greater performance improvement with better pre-stimulation performance were on scores in the Rey immediate copy task (0.04; judgement accuracy), successful self-corrections in confrontation naming (0.05; naming accuracy), and the PALPA 9 repetition task (0.10; judgement reaction times). In the same models, the strongest weights implying the opposite relationship, predicting worse responses to neurostimulation with better pre-treatment performance, were scores on the CAT verbal fluency task (0.06; judgement accuracies), the CAT summary score for all auditory comprehension tasks (0.09; naming accuracy), and the recognition subtest of the Hopkins Verbal Learning Test (0.23; judgement reaction times).</p><p>Finally, in those (two) models that employed clinical data, the strongest weights were on time post-stroke when predicting naming accuracies (-0.06), implying that patients assessed sooner after stroke responded better to the neurostimulation. When predicting judgement reaction times, the strongest weight was on total lesion volume (0.14), suggesting that patients with larger lesions tended to have longer reaction times during anodal rather than sham stimulation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Discussion</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.">Inter-Individual Variance in Neurostimulation Responses Is Predictable</head><p>TDCS has attracted growing attention as a potential accelerant for the rehabilitation of aphasia <ref type="bibr" target="#b11">[12]</ref>, and evidence suggests that the immediate, online impact of tDCS might predict those longer-term rehabilitation effects <ref type="bibr" target="#b3">[4]</ref>. However, the real impact of tDCS is still somewhat unclear because, while many studies report significant facilitation of language via tDCS (e.g., <ref type="bibr" target="#b3">[4,</ref><ref type="bibr" target="#b9">10,</ref><ref type="bibr" target="#b18">19,</ref><ref type="bibr">51]</ref>), these effects appear modest and inconsistent <ref type="bibr" target="#b5">[6,</ref><ref type="bibr" target="#b8">9,</ref><ref type="bibr" target="#b11">12]</ref>.</p><p>One potential explanation for this inconsistency follows from a recent study of the effects of tDCS on verbal fluency in the healthy (young) adult brain <ref type="bibr" target="#b19">[20]</ref>, in which the authors reported a 'paradoxical' decline in performance rather than the expected improvement. If these interference effects can also occur in the damaged brain, modest or null neurostimulation effects at the group level might belie a more complex dichotomy of improvements and declines at the individual level. Certainly, a visual inspection of our own patients' neurostimulation responses is consistent with this notion because, for some patients, tDCS improves performance, while in others, it declines (see Figure <ref type="figure" target="#fig_2">2</ref>).</p><p>Notably, this is also the expected pattern if neurostimulation responses were driven entirely by (measurement and/or stimulation-induced) noise. However, noise-induced changes should not be predictable, and many of the models that we tested made significantly better predictions than those of a baseline model, in which each patient's prediction was simply the mean stimulation response of the group in each task (see Table <ref type="table">1</ref>). We also found strong <ref type="bibr" target="#b52">[52]</ref> evidence against a mediating effect of the direction of change on the predictability of change: i.e., both directions of change were (approximately) equally predictable. Since neurostimulation responses were significantly predictable, and both directions of response appeared equally predictable, it follows that neither direction of response is an artefact of noise. We hope that this result will encourage future reports of these studies to distinguish participants whose performance declines with tDCS rather than simply distinguishing 'responders' from 'non-responders', as is currently common <ref type="bibr" target="#b11">[12]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.">The BRR Model Is Supported</head><p>Notably, it was typically also just as easy to predict stimulation responses for one stimulation site (left inferior frontal gyrus) after training only with patients stimulated at the contralateral homologue (and vice versa) as it was when training with exemplars from both stimulation sites. The implication is that, to some approximation, the functional role of the LIFG in patients whose strokes spared it is comparable to that of the RIFG in patients with severe damage to the LIFG. As far as we know, this is the first evidence that the Bimodal Balance Recovery (BBR) model <ref type="bibr" target="#b23">[24]</ref> might apply to recovery from aphasia, as well as motor impairment, after stroke.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.">Model Weights Are (Often) Plausible in the Context of Prior Research</head><p>The weights assigned by each of our four best models were broadly plausible. The emphasis on the inferior temporal cortex (ITC), in the best model for judgement accuracies, is consistent with the role that the ITC is thought to play in object recognition via the ventral visual stream <ref type="bibr" target="#b53">[53,</ref><ref type="bibr" target="#b54">54]</ref>. The emphasis on the putamen and supervening white matter in the model for naming accuracies is consistent with that region's extensive connectivity to left hemisphere language networks <ref type="bibr" target="#b55">[55]</ref>. And the emphasis on the superior longitudinal fasciculus in the model for naming reaction times is also consistent with studies relating the preservation of this tract to long-term language outcomes after stroke <ref type="bibr" target="#b56">[56,</ref><ref type="bibr" target="#b57">57]</ref>. Notably, lesion damage in each of the regions that were positively associated with neurostimulation responses (i.e., more damage = better response) was significantly anti-correlated with lesion damage in those regions where the damage had the more intuitive association with neurostimulation responses (i.e., more damage = poorer response). This suggests that these models' more counter-intuitive weights (more damage = better response) might reflect the contingent distribution of the lesions suffered by these patients. In other words, regions where more damage appears to improve responses to neurostimulation might best be explained as regions where damage predicts the preservation of other regions required to benefit from the intervention.</p><p>Weights on behavioural variables were more difficult to interpret. The weight on the immediate-copy condition from the Rey Complex Figure Task, in the model for judgement accuracies, is sensible in that it implies that better recovered or more preserved executive functioning skills, visuospatial abilities, and/or working memory <ref type="bibr" target="#b58">[58]</ref> after stroke, might encourage better responses to neurostimulation in the size judgement task. The weight on self-corrections of errors in confrontation naming in the model for naming accuracies is plausible in that it links better preserved/recovered error monitoring in naming to improvements in naming capacity consequent to neurostimulation.</p><p>However, the emphasis on scores in the PALPA9 word repetition task in the model for judgement reaction times (better scores = faster responses) is difficult to explain. And in all models, counter-intuitive weights (better pre-stimulation performance predicts worse stimulation responses) were stronger than intuitive weights. This perhaps suggests an element of regression to the mean, with patients suffering greater impairment more likely to respond better to neurostimulation and vice versa.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4.">Limitations</head><p>However, given the relatively small sample size (n = 36) compared to the number of predictors that we considered (&gt;100,000, when lesion data are included), we would caution against strong interpretations of these weights. Indeed, sample-size limitations impose quite strict limits on our confidence in all our results.</p><p>Our modelling approach offers a principled and (largely) unbiased way to measure whether stimulation responses are predictable in principle. This method is also, demonstrably, robust to the high dimensionality of the data that we considered. But with the sample we have, it might be difficult or impossible to identify the 'best' (or perhaps even 'right') models to predict neurostimulation responses. We assume that these models will include only a subset of the independent variables that we considered, and there is no guarantee that the weights on those variables will be consistent with what we see here. Attempts to identify that subset via feature selection are highly susceptible to overfitting in feature selection space <ref type="bibr" target="#b20">[21]</ref>. In theory, statistical significance tests on model weights might be a viable alternative approach to revealing a subset of predictors whose influence is expected to be stable <ref type="bibr" target="#b59">[59]</ref>. However, results like this might give the (fallacious) impression that those weights can be interpreted in isolation, which is why we avoided it here. Another attractive, if heuristic, alternative would be to explore sparse variants of Partial Least Squares regression (e.g., <ref type="bibr" target="#b60">[60]</ref>). This is a focus of ongoing work. But though we can mitigate the limits of small-sample inference with careful methodology, we cannot hope to completely extinguish those limits. And since these therapy studies are extremely resource intensive, small-sample limits are likely to remain significant in all or most work like this, at least in the near future.</p><p>Similarly, our current results are limited because our sample is not representative of the population of patients with anomic stroke. First, we only considered patients in the chronic phase post-stroke, so our results cannot speak to neurostimulation effects in patients whose strokes were more recent. Second, we selected patients whose lesions were restricted to the left hemisphere of the brain, so we cannot know if our models would generalise to patients with right hemisphere or bilateral lesions. And third, our sample was selected to clarify the effect of neurostimulation on the contralateral and ipsilateral IFG. Therefore, we had to select a sample of participants whose lesion distribution might well depart from that of the wider population of stroke survivors with anomia. Moreover, lesion site differences confound any analysis of the detailed differences between responses to neurostimulation over either the LIFG or the RIFG. This is because patients were only stimulated over the LIFG if that region was preserved and because the LIFG is known to be an important node in the neuroanatomical network that is thought to implement naming skills.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Conclusions</head><p>Nevertheless, and despite their limitations, our results suggest that individual responses to neurostimulation in both judgement and naming tasks are at least somewhat systematic and predictable. Stimulation-induced declines in performance appeared to be just as predictable as stimulation-induced improvements, encouraging a greater focus on 'decliners' in future neurostimulation studies, in addition to 'responders' and (possibly) 'non-responders'. And the apparent ease with which we could predict stimulation responses with the between-site split adds confidence that responses to stimulation at each site were consistent or at least consistently related to patients' behavioural impairments and lesions. We hope that these results will encourage a more personalised approach to the application of neurostimulation in post-stroke aphasia, maximising its potential to improve the efficiency of therapies for post-stroke aphasia.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 .</head><label>1</label><figDesc>Figure 1. Lesion frequency plot for the sample of 36 patients.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 1 .</head><label>1</label><figDesc>Figure 1. Lesion frequency plot for the sample of 36 patients.</figDesc><graphic coords="7,78.55,425.91,436.56,126.24" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 2 .</head><label>2</label><figDesc>Figure 2. Stimulation responses.Mean accuracies (top) and reaction times (bottom) in sham vs. anodal stimulation and in the judgement (left) and naming (right) tasks. The numbers of patients whose stimulation responses were positive (/negative) in each case were as follows: judgement accuracies: 15<ref type="bibr" target="#b20">(21)</ref>; naming accuracies: 20 (16); judgement reaction times (measured in seconds): 20 (16); naming reaction times: 19<ref type="bibr" target="#b16">(17)</ref>.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 3 .</head><label>3</label><figDesc>Figure 3.Weights on the lesion voxels in our best models for stimulation responses for accuracies in the judgement task (top) and naming task (middle) and for reaction times in the naming task (bottom). Note that no brain image is shown for the model predicting stimulation responses on reaction times in the judgement task because lesion data played no part in the best model for that variable.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 3 .</head><label>3</label><figDesc>Figure 3.Weights on the lesion voxels in our best models for stimulation responses for accuracies in the judgement task (top) and naming task (middle) and for reaction times in the naming task (bottom). Note that no brain image is shown for the model predicting stimulation responses on reaction times in the judgement task because lesion data played no part in the best model for that variable.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 2 .</head><label>2</label><figDesc>Model predictive performances.Median and inter-quartile ranges of Mean Squared Errors (MSE) achieved by models driven by different combinations of data across 1000 repetitions of a 10-fold cross-validation process. The bold, underlined figures in each column represent best-case performance when predicting that type of neurostimulation response. Folds are kept consistent across models. The best-performing accuracy models, with the lowest median MSE, employed behavioural and lesion variables for the judgement task and clinical, behavioural, and lesion variables for the naming task. DEM-demographics; BEH-behavioural data; LES-lesion data. Notably, all stimulus-response variables were standardised here prior to learning, so MSEs are comparable across them.</figDesc><table><row><cell>DATA</cell><cell>JUDGEMENT %</cell><cell>NAMING %</cell><cell cols="2">JUDGEMENT RT NAMING RT</cell></row><row><cell>NULL</cell><cell>1.034/0.033</cell><cell>1.028/0.027</cell><cell>1.033/0.033</cell><cell>1.032/0.030</cell></row><row><cell>DEM</cell><cell>1.213/0.075</cell><cell>0.984/0.057</cell><cell>1.315/0.090</cell><cell>1.379/0.115</cell></row><row><cell>BEH</cell><cell>1.146/0.081</cell><cell>0.838/0.091</cell><cell>0.861/0.128</cell><cell>0.980/0.093</cell></row><row><cell>LES</cell><cell>0.846/0.120</cell><cell>0.780/0.095</cell><cell>0.828/0.073</cell><cell>0.916/0.080</cell></row><row><cell>DEM + BEH</cell><cell>1.153/0.078</cell><cell>0.775/0.09</cell><cell>0.723/0.118</cell><cell>1.020/0.040</cell></row><row><cell>DEM + LES</cell><cell>0.848/0.121</cell><cell>0.779/0.094</cell><cell>0.830/0.073</cell><cell>0.917/0.08</cell></row><row><cell>BEH + LES</cell><cell>0.842/0.107</cell><cell>0.749/0.087</cell><cell>0.819/0.067</cell><cell>0.919/0.08</cell></row><row><cell>DEM + BEH + LES</cell><cell>0.845/0.107</cell><cell>0.748/0.087</cell><cell>0.821/0.070</cell><cell>0.933/0.066</cell></row></table></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><head>Acknowledgments:</head><p>We thank <rs type="person">John Duncan</rs> (<rs type="affiliation">University of Cambridge</rs>) for his support in the initial discussion of this study's design.</p></div>
+			</div>
+			<div type="funding">
+<div><p>Funding: This research was funded by <rs type="funder">Wellcome</rs>, via a Senior Clincial Fellowship awarded to J.T.C. (<rs type="grantNumber">106161/Z/14/Z</rs>), neuroimaging data acquisition and analyses were supported by funding from the <rs type="funder">Wellcome Centre for Human Neuroimaging</rs> [<rs type="grantNumber">203147/Z/16/Z</rs>], a <rs type="grantName">Wellcome principal fellowship</rs> to C.J.P. [<rs type="grantNumber">224562/Z/21/Z</rs>] and a <rs type="grantName">Stroke Association Fellowship</rs> to <rs type="person">T.M.H.H.</rs> (<rs type="grantNumber">TSA PDF 2017/02</rs>). A.P.L was supported by research professorship funding from The <rs type="affiliation">National Institute for Health and Care</rs> [<rs type="grantNumber">RP-2015-06-012</rs>].</p></div>
+			</div>
+			<listOrg type="funding">
+				<org type="funding" xml:id="_q2aNdKk">
+					<idno type="grant-number">106161/Z/14/Z</idno>
+				</org>
+				<org type="funding" xml:id="_5GC2rEn">
+					<idno type="grant-number">203147/Z/16/Z</idno>
+					<orgName type="grant-name">Wellcome principal fellowship</orgName>
+				</org>
+				<org type="funding" xml:id="_3XBcGHG">
+					<idno type="grant-number">224562/Z/21/Z</idno>
+					<orgName type="grant-name">Stroke Association Fellowship</orgName>
+				</org>
+				<org type="funding" xml:id="_jERGcVR">
+					<idno type="grant-number">TSA PDF 2017/02</idno>
+				</org>
+				<org type="funding" xml:id="_ASfZKdF">
+					<idno type="grant-number">RP-2015-06-012</idno>
+				</org>
+			</listOrg>
+
+			<div type="availability">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Data Availability Statement:</head><p>The data described in this study are available to accredited researchers from JC upon request. The data are not publicly available due to privacy restrictions in accordance with consent provided by participants.</p></div>
+			</div>
+
+
+			<div type="conflict">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conflicts of Interest:</head><p>The authors declare no conflict of interest. The funders had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript; or in the decision to publish the results.</p></div>
+			</div>
+
+
+			<div type="contribution">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Author Contributions: Conceptualization, T.M.H.H., A.P.L., C.J.P. and J.T.C.; methodology, T.M.H.H., S.O. and D.N.; formal analysis, T.M.H.H.; investigation, H.A., K.P., D.N. and S.O.; resources, C.J.P. and J.T.C.; writing-original draft preparation, T.M.H.H., H.A. and J.T.C.; writing-review and editing, C.J.P., A.P.L., S.O., K.P. and D.N.; project administration and funding acquisition, J.T.C. All authors have read and agreed to the published version of the manuscript.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Supplementary Materials:</head><p>The following supporting information can be downloaded at: <ref type="url" target="https://www.mdpi.com/article/10.3390/life14030331/s1">https://  www.mdpi.com/article/10.3390/life14030331/s1</ref>, Table <ref type="table">S1</ref>: Weights on clinical variables where they appear in the best model for a given stimulation response variable; Table <ref type="table">S2</ref>: Weights on behavioural variables where they appear in the best model for a given stimulation response variable.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Institutional Review Board Statement:</head><p>The study was conducted in accordance with the Declaration of Helsinki and approved by the Queen Square Research Ethics Committee, UK. REC reference 16/LO/0901.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Informed Consent Statement:</head><p>Informed consent was obtained from all participants prior to participation in the study.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct status="extracted" xml:id="b0">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>Laine</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Martin</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Anomia</surname></persName>
+		</author>
+		<title level="m">Theoretical and Clinical Aspects</title>
+		<meeting><address><addrLine>London, UK</addrLine></address></meeting>
+		<imprint>
+			<publisher>Psychology Press</publisher>
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Speech and language therapy for aphasia following stroke</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Brady</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Kelly</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Godwin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Enderby</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Campbell</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Cochrane Database of Systematic Reviews</title>
+		<meeting><address><addrLine>Hoboken, NJ, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>John Wiley &amp; Sons</publisher>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Drug treatment of poststroke aphasia</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>Bakheit</surname></persName>
+		</author>
+		<idno type="DOI">10.1586/14737175.4.2.211</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Expert Rev. Neurother</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page" from="211" to="217" />
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b3">
+	<analytic>
+		<title level="a" type="main">tDCS in post-stroke aphasia: The role of stimulation parameters, behavioral treatment and patient characteristics</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>De Aguiar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">L</forename><surname>Paolazzi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Miceli</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cortex.2014.08.015</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Cortex</title>
+		<imprint>
+			<biblScope unit="volume">63</biblScope>
+			<biblScope unit="page" from="296" to="316" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Transcranial direct current stimulation: State of the art</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Nitsche</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">G</forename><surname>Cohen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">M</forename><surname>Wassermann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Priori</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Lang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Antal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Paulus</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Hummel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">S</forename><surname>Boggio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Fregni</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.brs.2008.06.004</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Brain Stimul</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="206" to="223" />
+			<date type="published" when="2008">2008. 2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Transcranial direct current stimulation (tDCS) to improve naming ability in post-stroke aphasia: A critical review</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">F</forename><surname>Alharbi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Armijo-Olivo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">S</forename><surname>Kim</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.bbr.2017.05.050</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Behav. Brain Res</title>
+		<imprint>
+			<biblScope unit="volume">332</biblScope>
+			<biblScope unit="page" from="7" to="15" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b6">
+	<monogr>
+		<title level="m" type="main">Mechanisms and Effects of Transcranial Direct Current Stimulation</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Giordano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bikson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">S</forename><surname>Kappenman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">P</forename><surname>Clark</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">B</forename><surname>Coslett</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">R</forename><surname>Hamblin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Hamilton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Jankord</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">J</forename><surname>Kozumbo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">A</forename><surname>Mckinley</surname></persName>
+		</author>
+		<idno type="DOI">10.1177/1559325816685467</idno>
+		<imprint>
+			<date type="published" when="2017">2017. 1559325816685467</date>
+			<biblScope unit="volume">15</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Excitability changes induced in the human motor cortex by weak transcranial direct current stimulation</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Nitsche</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Paulus</surname></persName>
+		</author>
+		<idno type="DOI">10.1111/j.1469-7793.2000.t01-1-00633.x</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Physiol</title>
+		<imprint>
+			<biblScope unit="volume">527</biblScope>
+			<biblScope unit="page" from="633" to="639" />
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+	<note>Pt</note>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Transcranial Direct Current Stimulation as a Tool to Induce Language Recovery in Patients with Post-Stroke Aphasia</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Ulanov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">Y</forename><surname>Shtyrov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">A</forename><surname>Stroganova</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s11055-019-00854-5</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Neurosci. Behav. Physiol</title>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="page" from="1169" to="1180" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Transcranial direct current stimulation over multiple days improves learning and maintenance of a novel vocabulary</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Meinzer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Jähnigen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Copland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Darkow</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Grittner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Avirame</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">D</forename><surname>Rodriguez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Lindenberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Flöel</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cortex.2013.07.013</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Cortex</title>
+		<imprint>
+			<biblScope unit="volume">50</biblScope>
+			<biblScope unit="page" from="137" to="147" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Speech facilitation by left inferior frontal cortex stimulation</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Holland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Josephs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Galea</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Desikan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename><surname>Rothwell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Crinion</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cub.2011.07.021</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Curr. Biol</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="page" from="1403" to="1407" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Transcranial direct current stimulation in post-stroke aphasia rehabilitation: A systematic review</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Biou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Cassoudesalle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Cogné</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Sibon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>De Gabory</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Dehail</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Aupy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Glize</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.rehab.2019.01.003</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Ann. Phys. Rehabil. Med</title>
+		<imprint>
+			<biblScope unit="volume">62</biblScope>
+			<biblScope unit="page" from="104" to="121" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Remarques sur le siége de la faculté du langage articulé, suivies d&apos;une observation d&apos;aphémie (perte de la parole)</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Broca</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Bull. Société Anat</title>
+		<imprint>
+			<biblScope unit="volume">1861</biblScope>
+			<biblScope unit="page" from="330" to="357" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Recovery and treatment of aphasia after stroke: Functional imaging studies</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">T</forename><surname>Crinion</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<idno type="DOI">10.1097/WCO.0b013e3282f1c6fa</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Curr. Opin. Neurol</title>
+		<imprint>
+			<biblScope unit="volume">20</biblScope>
+			<biblScope unit="page" from="667" to="673" />
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Functional MRI of language in aphasia: A review of the literature and the methodological challenges</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Crosson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Mcgregor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">S</forename><surname>Gopinath</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">W</forename><surname>Conway</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Benjamin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">L</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">B</forename><surname>Moore</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>Raymer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">W</forename><surname>Briggs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">G</forename><surname>Sherod</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s11065-007-9024-z</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Neuropsychol. Rev</title>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="page" from="157" to="177" />
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Single-trial fMRI shows contralesional activity linked to overt naming errors in chronic aphasic patients</title>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">A</forename><surname>Postman-Caucheteux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">M</forename><surname>Birn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">H</forename><surname>Pursley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Butman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Solomon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Picchioni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Mcardle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">R</forename><surname>Braun</surname></persName>
+		</author>
+		<idno type="DOI">10.1162/jocn.2009.21261</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Cogn. Neurosci</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="page" from="1299" to="1318" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Activity in preserved left hemisphere regions predicts anomia severity in aphasia</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fridriksson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Bonilha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Baker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Moser</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Rorden</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/cercor/bhp160</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Cereb. Cortex</title>
+		<imprint>
+			<biblScope unit="volume">20</biblScope>
+			<biblScope unit="page" from="1013" to="1019" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Using Transcranial Direct-Current Stimulation to Treat Stroke Patients with Aphasia</title>
+		<author>
+			<persName><forename type="first">Julie</forename><surname>Baker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Rorden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Fridriksson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename></persName>
+		</author>
+		<idno type="DOI">10.1161/STROKEAHA.109.576785</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Stroke</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="page" from="1229" to="1236" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Improved naming after transcranial direct current stimulation in aphasia</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Monti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Cogiamanian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Marceglia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Ferrucci</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Mameli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mrakic-Sposta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Vergari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Zago</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Priori</surname></persName>
+		</author>
+		<idno type="DOI">10.1136/jnnp.2007.135277</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Neurol. Neurosurg. Psychiatry</title>
+		<imprint>
+			<biblScope unit="volume">79</biblScope>
+			<biblScope unit="page" from="451" to="453" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Failure to Improve Verbal Fluency with Transcranial Direct Current Stimulation</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Klaus</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Hartwigsen</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neuroscience.2020.09.003</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Neuroscience</title>
+		<imprint>
+			<biblScope unit="volume">449</biblScope>
+			<biblScope unit="page" from="123" to="133" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Lesion-site-dependent responses to therapy after aphasic stroke</title>
+		<author>
+			<persName><forename type="first">O</forename><forename type="middle">M</forename><surname>Aguilar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Kerry</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y.-H</forename><surname>Ong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">F</forename><surname>Callaghan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Crinion</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><forename type="middle">V J</forename><surname>Woodhead</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M H</forename><surname>Hope</surname></persName>
+		</author>
+		<idno type="DOI">10.1136/jnnp-2017-317446</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Neurol. Neurosurg. Psychiatry</title>
+		<imprint>
+			<biblScope unit="volume">89</biblScope>
+			<biblScope unit="page" from="1352" to="1354" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Modulating the left inferior frontal cortex by task domain, cognitive challenge and tDCS</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Nardo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Pappa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Duncan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Zeidman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">F</forename><surname>Callaghan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Crinion</surname></persName>
+		</author>
+		<idno type="DOI">10.1101/2021.02.05.429968</idno>
+		<idno>biorxiv:2021.02.05.429968</idno>
+	</analytic>
+	<monogr>
+		<title level="j">bioRxiv</title>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Neural correlates of recovery from aphasia after damage to left inferior frontal cortex</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Rosen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Petersen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Linenweber</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Snyder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>White</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Chapman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Dromerick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fiez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Corbetta</surname></persName>
+		</author>
+		<idno type="DOI">10.1212/WNL.55.12.1883</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Neurology</title>
+		<imprint>
+			<biblScope unit="volume">55</biblScope>
+			<biblScope unit="page" from="1883" to="1894" />
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Modulation of brain plasticity in stroke: A novel model for neurorehabilitation</title>
+		<author>
+			<persName><forename type="first">Di</forename><surname>Pino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Pellegrino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Assenza</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Capone</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Ferreri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Formica</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Ranieri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Tombini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ziemann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Rothwell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename></persName>
+		</author>
+		<idno type="DOI">10.1038/nrneurol.2014.162</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nat. Rev. Neurol</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Intermanual differences in movement-related interhemispheric inhibition</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Duque</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Murase</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Celnik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Hummel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Harris-Love</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Mazzocchio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Olivier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">G</forename><surname>Cohen</surname></persName>
+		</author>
+		<idno type="DOI">10.1162/jocn.2007.19.2.204</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Cogn. Neurosci</title>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="page" from="204" to="213" />
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b25">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Harris-Love</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">M</forename><surname>Harrington</surname></persName>
+		</author>
+		<idno type="DOI">10.3389/fneur.2017.00224</idno>
+		<title level="m">Non-Invasive Brain Stimulation to Enhance Upper Limb Motor Practice Poststroke: A Model for Selection of Cortical Site. Front. Neurol</title>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page">224</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Recovery of post stroke proximal arm function, driven by complex neuroplastic bilateral brain activation patterns and predicted by baseline motor dysfunction severity</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Pundik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">P</forename><surname>Mccabe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Hrovat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">E</forename><surname>Fredrickson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Tatsuoka</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">J</forename><surname>Feng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">J</forename><surname>Daly</surname></persName>
+		</author>
+		<idno type="DOI">10.3389/fnhum.2015.00394</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Front. Hum. Neurosci</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page">394</biblScope>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b27">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">K</forename><surname>Swinburn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Porter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Howard</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Comprehensive Aphasia Test</title>
+		<imprint>
+			<date type="published" when="2004">2004</date>
+			<publisher>Psychology Press</publisher>
+			<pubPlace>London, UK</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b28">
+	<analytic>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Lesser</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Coltheart</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Psycholinguistic Assessments of Language Processing in Aphasia</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b29">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Laurence</forename><surname>Erlbaum</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Associates</forename></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1992">1992</date>
+			<pubPlace>Hove, UK</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b30">
+	<monogr>
+		<title level="m" type="main">Apraxia Battery for Adults</title>
+		<author>
+			<persName><surname>Dabul</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2000">2000</date>
+			<pubPlace>Austin, TX, USA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b31">
+	<analytic>
+		<title level="a" type="main">A new on-line resource for psycholinguistic studies</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Szekely</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Jacobsen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>D'amico</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Devescovi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Andonova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Herron</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">C</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Pechmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Pléh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Wicha</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jml.2004.03.002</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Mem. Lang</title>
+		<imprint>
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="page" from="247" to="250" />
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b32">
+	<analytic>
+		<title level="a" type="main">MRC psycholinguistic database: Machine-usable dictionary, version 2.00</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Wilson</surname></persName>
+		</author>
+		<idno type="DOI">10.3758/BF03202594</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Behav. Res. Methods Instrum. Comput</title>
+		<imprint>
+			<biblScope unit="volume">20</biblScope>
+			<biblScope unit="page" from="6" to="10" />
+			<date type="published" when="1988">1988</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b33">
+	<analytic>
+		<title level="a" type="main">An evaluation of Amazon&apos;s Mechanical Turk, its rapid rise, and its effective use</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">D</forename><surname>Buhrmester</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Talaifar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">D</forename><surname>Gosling</surname></persName>
+		</author>
+		<idno type="DOI">10.1177/1745691617706516</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Perspect. Psychol. Sci</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="page" from="149" to="154" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Transcranial direct current stimulation with functional magnetic resonance imaging: A detailed validation and operational guide</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Nardo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Creasey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Negus</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Pappa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Aghaeifar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Reid</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Josephs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">F</forename><surname>Callaghan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">T</forename><surname>Crinion</surname></persName>
+		</author>
+		<idno type="DOI">10.12688/wellcomeopenres.16679.2</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Wellcome Open Res</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page">143</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Lesion identification using unified segmentationnormalisation models and fuzzy clustering</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Seghier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ramlackhansingh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Crinion</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neuroimage.2008.03.028</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Neuroimage</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="page" from="1253" to="1266" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Lesion site and therapy time predict responses to a therapy for anomia after stroke: A prognostic model development study</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M H</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Nardo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Holland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ondobaka</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Akkad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Crinion</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/s41598-021-97916-x</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Sci. Rep</title>
+		<imprint>
+			<biblScope unit="volume">2021</biblScope>
+			<date>18572</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b37">
+	<monogr>
+		<author>
+			<persName><forename type="first">E</forename><surname>Kaplan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Goodglass</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Weintraub</surname></persName>
+		</author>
+		<title level="m">Boston Naming Test</title>
+		<meeting><address><addrLine>Austin, TX, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b38">
+	<monogr>
+		<title level="m" type="main">The Pyramids and Palm Trees Test: A Test of Semantic Access from Words and Pictures</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Howard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">E</forename><surname>Patterson</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1992">1992</date>
+			<publisher>Thames Valley Test Company: London, UK</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b39">
+	<monogr>
+		<title level="m" type="main">Cattell Culture Fair Intelligence Test: A Measure</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">B</forename><surname>Cattell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Cattell</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1960">1960</date>
+			<publisher>Bobbs-Merrill</publisher>
+			<pubPlace>New York, NY, USA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b40">
+	<analytic>
+		<title level="a" type="main">Le test de copie d&apos;une figure complexe; contribution a l&apos;etude de la perception et de la memoire</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">A</forename><surname>Osterrieth</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Arch. Psychol</title>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="page" from="206" to="356" />
+			<date type="published" when="1944">1944</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b41">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><surname>Wechsler</surname></persName>
+		</author>
+		<title level="m">Wechsler Adult Intelligence Scale-Fourth Edition</title>
+		<meeting><address><addrLine>San Antonio, TX, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+		<respStmt>
+			<orgName>WAIS-IV); Psychological Corporation</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b42">
+	<monogr>
+		<title level="m" type="main">Executive Function System</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">C</forename><surname>Delis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Kaplan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">H</forename><surname>Kramer</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Delis-Kaplan</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2001">2001</date>
+			<publisher>Psychological Corporation</publisher>
+			<pubPlace>San Antonio, TX, USA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Hopkins Verbal Learning Test--Revised: Professional Manual</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Brandt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">H</forename><surname>Benedict</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Psychological Assessment Resources</title>
+		<imprint>
+			<date type="published" when="2001">2001</date>
+			<pubPlace>Odessa, FL, USA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b44">
+	<analytic>
+		<title level="a" type="main">Oops!&apos;: Performance correlates of everyday attentional failures in traumatic brain injured and normal subjects</title>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">H</forename><surname>Robertson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Manly</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Andrade</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">T</forename><surname>Baddeley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Yiend</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/S0028-3932(97)00015-8</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Neuropsychologia</title>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="page" from="747" to="758" />
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b45">
+	<analytic>
+		<title level="a" type="main">Tract probability maps in stereotaxic spaces: Analyses of white matter anatomy and tract-specific quantification</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Hua</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Wakana</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Jiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">S</forename><surname>Reich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">A</forename><surname>Calabresi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">J</forename><surname>Pekar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">C</forename><surname>Van Zijl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mori</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neuroimage.2007.07.053</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Neuroimage</title>
+		<imprint>
+			<biblScope unit="volume">39</biblScope>
+			<biblScope unit="page" from="336" to="347" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b46">
+	<analytic>
+		<title level="a" type="main">A new SPM toolbox for combining probabilistic cytoarchitectonic maps and functional imaging data</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">B</forename><surname>Eickhoff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">E</forename><surname>Stephan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Mohlberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Grefkes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">R</forename><surname>Fink</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Amunts</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Zilles</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neuroimage.2004.12.034</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Neuroimage</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="page" from="1325" to="1335" />
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b47">
+	<analytic>
+		<title level="a" type="main">Automated anatomical labeling of activations in SPM using a macroscopic anatomical parcellation of the MNI MRI single-subject brain</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Tzourio-Mazoyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Landeau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Papathanassiou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Crivello</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Etard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Delcroix</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Mazoyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Joliot</surname></persName>
+		</author>
+		<idno type="DOI">10.1006/nimg.2001.0978</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Neuroimage</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="page" from="273" to="289" />
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b48">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mori</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Wakana</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">C</forename><surname>Van Zijl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">M</forename><surname>Nagae-Poetscher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">White</forename><surname>Mri Atlas Of Human</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Matter</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2011">2011</date>
+			<publisher>Elsevier</publisher>
+			<biblScope unit="volume">2</biblScope>
+			<pubPlace>Amsterdam, The Netherlands</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b49">
+	<analytic>
+		<title level="a" type="main">A Default Bayesian Hypothesis Test for ANOVA Designs</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Wetzels</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">P P P</forename><surname>Grasman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E.-J</forename><surname>Wagenmakers</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/00031305.2012.695956</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Am. Stat</title>
+		<imprint>
+			<biblScope unit="volume">66</biblScope>
+			<biblScope unit="page" from="104" to="111" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b50">
+	<analytic>
+		<title level="a" type="main">Right hemisphere structural adaptation and changing language skills years after left hemisphere stroke</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M H</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Prejawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Bruce</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Haigh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Lim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ramsden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Oberhuber</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Ludersdorfer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Crinion</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Brain</title>
+		<imprint>
+			<biblScope unit="volume">140</biblScope>
+			<biblScope unit="page" from="1718" to="1728" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Can tDCS enhance treatment of aphasia after stroke?</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Holland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Crinion</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/02687038.2011.616925</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Aphasiology</title>
+		<imprint>
+			<biblScope unit="volume">26</biblScope>
+			<biblScope unit="page" from="1169" to="1191" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b52">
+	<monogr>
+		<title level="m" type="main">Theory of Probability</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Jeffreys</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1961">1961</date>
+			<publisher>Oxford University Press</publisher>
+			<pubPlace>Oxford, UK</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Comparison of deep neural networks to spatio-temporal cortical dynamics of human visual object recognition reveals hierarchical correspondence</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">M</forename><surname>Cichy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Khosla</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Pantazis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Torralba</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Oliva</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/srep27755</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Sci. Rep</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<date type="published" when="2016">2016. 27755</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b54">
+	<analytic>
+		<title level="a" type="main">How Does the Brain Solve Visual Object Recognition?</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">J</forename><surname>Dicarlo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Zoccolan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">C</forename><surname>Rust</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neuron.2012.01.010</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Neuron</title>
+		<imprint>
+			<biblScope unit="volume">73</biblScope>
+			<biblScope unit="page" from="415" to="434" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b55">
+	<analytic>
+		<title level="a" type="main">The role of the putamen in language: A meta-analytic connectivity modeling study</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Viñas-Guasch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">J</forename><surname>Wu</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s00429-017-1450-y</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Brain Struct. Funct</title>
+		<imprint>
+			<biblScope unit="volume">222</biblScope>
+			<biblScope unit="page" from="3991" to="4004" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b56">
+	<analytic>
+		<title level="a" type="main">Beyond the arcuate fasciculus: Consensus and controversy in the connectional anatomy of language</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">S</forename><surname>Dick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Tremblay</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/brain/aws222</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Brain</title>
+		<imprint>
+			<biblScope unit="volume">135</biblScope>
+			<biblScope unit="page" from="3529" to="3550" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b57">
+	<analytic>
+		<title level="a" type="main">Behavioural clusters and predictors of performance during recovery from stroke</title>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">E</forename><surname>Ramsey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">S</forename><surname>Siegel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Lang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Strube</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">L</forename><surname>Shulman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Corbetta</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/s41562-016-0038</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nat. Hum. Behav. 2017</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page">38</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b58">
+	<analytic>
+		<title level="a" type="main">Relationship between accuracy and organizational approach on the Rey-Osterrieth Complex Figure and the Differential Ability Scales: A pilot investigation</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">R</forename><surname>Smith</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">E</forename><surname>Zahka</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/09297040500350953</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Child. Neuropsychol</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page" from="383" to="390" />
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b59">
+	<analytic>
+		<title level="a" type="main">Estimating the statistical significance of spatial maps for multivariate lesion-symptom analysis</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Yourganov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fridriksson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Rorden</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cortex.2018.09.004</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Cortex</title>
+		<imprint>
+			<biblScope unit="volume">108</biblScope>
+			<biblScope unit="page" from="276" to="278" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b60">
+	<analytic>
+		<title level="a" type="main">Sparse partial least squares regression for simultaneous dimension reduction and variable selection</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Chun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Keleş</surname></persName>
+		</author>
+		<idno type="DOI">10.1111/j.1467-9868.2009.00723.x</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. R. Stat. Soc. Ser. B (Stat. Methodol.)</title>
+		<imprint>
+			<biblScope unit="volume">72</biblScope>
+			<biblScope unit="page" from="3" to="25" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b61">
+	<monogr>
+		<title level="m" type="main">The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods</title>
+		<imprint>
+			<publisher>Disclaimer/Publisher&apos;s Note</publisher>
+		</imprint>
+	</monogr>
+	<note>instructions or products referred to in the content</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

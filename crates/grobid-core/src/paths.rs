@@ -6,15 +6,47 @@ use std::sync::OnceLock;
 use crate::config::get_data_dir;
 use crate::utils::log;
 
-/// PDF, TEI, and MD directories, resolved lazily from the environment on
-/// first use so callers never have to remember an init step.
+/// Base data directory, resolved lazily from the environment on first use.
+fn base_dir() -> PathBuf {
+    static BASE: OnceLock<PathBuf> = OnceLock::new();
+    BASE.get_or_init(get_data_dir).clone()
+}
+
+/// PDF, TEI, and MD directories.
 pub fn dirs() -> (PathBuf, PathBuf, PathBuf) {
-    static DIRS: OnceLock<(PathBuf, PathBuf, PathBuf)> = OnceLock::new();
-    DIRS.get_or_init(|| {
-        let base = get_data_dir();
-        (base.join("pdf"), base.join("tei"), base.join("md"))
-    })
-    .clone()
+    let base = base_dir();
+    (base.join("pdf"), base.join("tei"), base.join("md"))
+}
+
+/// Hidden working directory for all generated corpus artifacts
+/// (`<data-dir>/.grobid/`), sibling to `pdf/`, `tei/`, and `md/`.
+pub fn grobid_dir() -> PathBuf {
+    base_dir().join(".grobid")
+}
+
+/// Corpus SQLite database (`<data-dir>/.grobid/grobid.db`).
+pub fn db_path() -> PathBuf {
+    grobid_dir().join("grobid.db")
+}
+
+/// Per-work metadata JSON directory (`<data-dir>/.grobid/metadata/`).
+pub fn metadata_dir() -> PathBuf {
+    grobid_dir().join("metadata")
+}
+
+/// Portable JSON search index (`<data-dir>/.grobid/index.json`).
+pub fn index_path() -> PathBuf {
+    grobid_dir().join("index.json")
+}
+
+/// Process/run manifest (`<data-dir>/.grobid/process.json`).
+pub fn process_path() -> PathBuf {
+    grobid_dir().join("process.json")
+}
+
+/// Interactive corpus dashboard output (`<data-dir>/.grobid/index.html`).
+pub fn graph_path() -> PathBuf {
+    grobid_dir().join("index.html")
 }
 
 /// Compute the TEI XML path for a given PDF path.

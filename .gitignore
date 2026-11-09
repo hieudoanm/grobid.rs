@@ -13,4 +13,4 @@ coverage.json
 secrets/
 
 # Tract
-.tracers-cache
+.tracers-cache/

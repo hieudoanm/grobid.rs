@@ -1,0 +1,2253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">The impact of pre-stroke formal education on language test performance in aphasic and nonaphasic stroke survivors</title>
+				<funder ref="#_SnuFFSc">
+					<orgName type="full">Stroke Association</orgName>
+				</funder>
+				<funder ref="#_aXSV5R5 #_yBPAhpQ #_wC47f6Q">
+					<orgName type="full">Wellcome</orgName>
+				</funder>
+				<funder ref="#_kUTCm6T">
+					<orgName type="full">Medical Research Council</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability  status="unknown">
+					<licence/>
+				</availability>
+				<date type="published" when="2024-12-05">05 Dec 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct status="extracted">
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Sophie</forename><forename type="middle">M</forename><surname>Roberts</surname></persName>
+							<email>sophie.roberts@ucl.ac.uk</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Imaging Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<settlement>London</settlement>
+									<country>UK;</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Rachel</forename><surname>Bruce</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Imaging Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<settlement>London</settlement>
+									<country>UK;</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Thomas</forename><forename type="middle">M H</forename><surname>Hope</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Imaging Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<settlement>London</settlement>
+									<country>UK;</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Sharon</forename><surname>Geva</surname></persName>
+							<idno type="ORCID">0000-0002-1476-7048</idno>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Imaging Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<settlement>London</settlement>
+									<country>UK;</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">School of Psychology and Sports Sciences</orgName>
+								<orgName type="institution">Anglia Ruskin University</orgName>
+								<address>
+									<settlement>Cambridge</settlement>
+									<country>UK;</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Storm</forename><surname>Anderson</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Imaging Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<settlement>London</settlement>
+									<country>UK;</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Hayley</forename><surname>Woodgate</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Imaging Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<settlement>London</settlement>
+									<country>UK;</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Kate</forename><surname>Ledingham</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Imaging Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<settlement>London</settlement>
+									<country>UK;</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Andrea</forename><surname>Gajardo-Vidal</surname></persName>
+							<affiliation key="aff2">
+								<orgName type="department" key="dep1">Centro de Investigación en Complejidad Social (CICS)</orgName>
+								<orgName type="department" key="dep2">Facultad de Gobierno</orgName>
+								<orgName type="institution">Universidad del Desarrollo</orgName>
+								<address>
+									<settlement>Concepción</settlement>
+									<country>Chile;</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Diego</forename><forename type="middle">L</forename><surname>Lorca-Puls</surname></persName>
+							<affiliation key="aff3">
+								<orgName type="department">Sección de Neurología</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Jennifer</forename><forename type="middle">T</forename><surname>Crinion</surname></persName>
+							<affiliation key="aff5">
+								<orgName type="department">Institute of Cognitive Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<settlement>London</settlement>
+									<country>UK;</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Alexander</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+							<idno type="ORCID">0000-0002-0831-3541</idno>
+							<affiliation key="aff5">
+								<orgName type="department">Institute of Cognitive Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<settlement>London</settlement>
+									<country>UK;</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff6">
+								<orgName type="department">Department of Brain Repair and Rehabilitation</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<settlement>London</settlement>
+									<country>UK;</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">David</forename><forename type="middle">W</forename><surname>Green</surname></persName>
+							<affiliation key="aff7">
+								<orgName type="department">Department of Experimental Psychology</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<settlement>London</settlement>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Cathy</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Imaging Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<settlement>London</settlement>
+									<country>UK;</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><surname>Cathy</surname></persName>
+							<affiliation key="aff4">
+								<orgName type="department" key="dep1">Departamento de Especialidades</orgName>
+								<orgName type="department" key="dep2">Facultad de Medicina</orgName>
+								<orgName type="institution">Universidad de Concepción</orgName>
+								<address>
+									<settlement>Concepción</settlement>
+									<country>Chile;</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff8">
+								<orgName type="department">Department of Imaging Neuroscience</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<addrLine>12 Queen Square</addrLine>
+									<postCode>WC1N 3AR</postCode>
+									<settlement>London</settlement>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">The impact of pre-stroke formal education on language test performance in aphasic and nonaphasic stroke survivors</title>
+					</analytic>
+					<monogr>
+						<idno type="ISSN">0268-7038 (Print) 1464-5041</idno>
+						<imprint>
+							<date type="published" when="2024-12-05">05 Dec 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">6BD3F66C5A970C0A18F3BB74492B4269</idno>
+					<idno type="DOI">10.1080/02687038.2024.2434864</idno>
+					<note type="submission">Received 1 July 2024 Accepted 10 November 2024</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.9.1" ident="GROBID" when="2026-11-09T16:58+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<label type="revision">0.9.1</label>
+					<label type="parameters">startPage=-1, endPage=-1, consolidateCitations=0, consolidateHeader=0, consolidateFunders=0, includeRawAffiliations=false, includeRawCitations=false, includeRawCopyrights=false, generateTeiIds=false, generateTeiCoordinates=[], flavor=null, debugLabelingCollector=disabled</label>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Aphasia</term>
+					<term>education</term>
+					<term>assessment</term>
+					<term>recovery</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Background: A greater amount of education is known to positively impact language skills in neurotypical populations, but its influence on language outcomes and recovery after stroke remains unclear.</p><p>Aims: This study of 749 stroke survivors, with and without aphasia, investigated (A) which aphasia assessment tasks benefitted most from more pre-stroke education; and whether the effect of education (B) differs for aphasic and non-aphasic participants or other stroke and non-stroke-related variables, and/or (C) facilitates recovery from post-stroke aphasia. Methods: Participants ranged from one month to 42 years poststroke. They were assessed using (i) the Comprehensive Aphasia Test (CAT), and (ii) self-report questionnaires that measured speech production, comprehension, reading, and writing at one week and one year post-stroke. Multiple regression analyses investigated the effect of education amount, and its interaction with other variables, on language outcomes and recovery. Bayesian statistics assessed the strength of the evidence for any observed effects. Many variables including lesion size, age at stroke, and initial severity were controlled for. Results: (A) More years of formal education were associated with better overall language skills, with significant, albeit small effects found for semantic and letter fluency (β = 0.123 and 0.166) and spoken picture description, specifically, the number of words produced (β = 0.085) and grammatical well-formedness (β = 0.087). (B) The benefit of more pre-stroke education was mostly additive with the effects of other variables including initial aphasia severity and left hemisphere lesion size, but was reduced in older participants ARTICLE HISTORY</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Introduction</head><p>This study investigates whether, how and to what degree the amount of pre-stroke education a person received influences post-stroke speech and language ability and recovery. It focuses on three specific questions in a large cohort of stroke survivors: (A) Which aphasia assessment tasks are most influenced by the amount of pre-stroke education? (B) How does the impact of education vary with other stroke-related and non-stroke factors? and (C) To what extent does pre-stroke education influence post-stroke language recovery? By including stroke survivors with and without aphasia, our study is the first to disentangle how much the effects of pre-stroke education, observed for questions A-C, are explained by (i) the generic benefits of education on language test performance (expected in both aphasic and non-aphasic participants) versus (ii) a specific role of prestroke education in aiding language outcomes and recovery (i.e., a greater impact of prestroke education on aphasic than non-aphasic participants). Answering these questions is important for understanding whether education should be considered a prognostic factor in aphasia research and clinical practice.</p><p>Further and Higher Education, in the UK, refer to formal learning or training that is delivered by trained instructors, and typically takes place at educational institutions. Formal education increases exposure to specialised vocabularies, independent learning, and critical and flexible thinking. It also enhances cognitive, communication and problemsolving skills. The long-term influence of a rich language environment, offered through education, can manifest through better performance on tasks that test verbal fluency, object naming, digit span, and sentence comprehension and production. Numerous studies have demonstrated this in neurotypical populations (see Table <ref type="table" target="#tab_0">S1</ref>) including an early study that used language tasks from a popular aphasia assessment <ref type="bibr" target="#b4">(Borod et al., 1980)</ref>. The advantage of education in neurotypical populations has been observed over multiple studies, despite wide variation in methodological factors such as: the definition of education, the participants' ethnicities and languages, education systems, and other covariates considered in the analyses.</p><p>Although an abundance of evidence has shown that education benefits language abilities in neurotypical populations, very few studies have demonstrated educational benefits on post-stroke language ability. One study, with 173 stroke patients, reported that more education was associated with better reading scores (written word comprehension and oral reading) but not with better auditory comprehension or naming scores <ref type="bibr" target="#b16">(González-Fernández et al., 2011)</ref>. This was observed after controlling for age, sex, lesion volume and socio-economic status. Another study of 39 participants reported that the initial severity of aphasia was worse when education and occupational status were lower <ref type="bibr" target="#b12">(Connor et al., 2001)</ref>, and a study of 168 participants associated more education with better auditory comprehension scores in those with chronic aphasia <ref type="bibr" target="#b26">(Lwi et al., 2021)</ref>. However, other studies have found no significant impact of education on aphasia outcome. For example, a recent and well powered study by <ref type="bibr" target="#b20">Johnson et al. (2022)</ref> reported that years of education was not significantly predictive of chronic aphasia severity in 147 participants when other demographic, lesion, and cognitive variables were factored out.</p><p>Inconsistency in the effect of education has also been demonstrated in studies that focused on the degree of recovery from post stroke aphasia. Only one study, using a cohort of 235 patients, demonstrated that education influenced post-stroke language recovery <ref type="bibr" target="#b21">(Kim et al., 2019)</ref> even after factoring out the influence of age, initial severity and lesion size. This finding motivates further research, particularly as the authors did not explore the education effect in depth, for example to determine which language tasks were most sensitive to education. Nor did they determine whether the effect of education varies with the effects of other variables. In contrast no significant effect of education was observed on aphasia recovery in three much smaller studies: <ref type="bibr" target="#b12">Connor et al. (2001)</ref> with 39 patients, <ref type="bibr" target="#b24">Lazar et al. (2008)</ref> with 22 patients, and <ref type="bibr" target="#b26">Lwi et al. (2021)</ref>, with 44 patients.</p><p>A benefit of education on language abilities after brain injury may be explained by "cognitive reserve". Cognitive reserve describes a property of the brain that reduces an individual's susceptibility to, or compensates for, pathology or injury, by utilising behavioural strategies, or engaging alternative neural networks <ref type="bibr" target="#b45">(Stern et al., 2023)</ref>. Education is likely to be one of many factors that contribute to cognitive reserve that is acquired throughout the lifetime (along with social engagement, mentally stimulating pursuits, physical activity and genetics). In the dementia literature, it has been argued that greater cognitive reserve may delay the onset of cognitive decline <ref type="bibr" target="#b28">(Meng et al., 2012;</ref><ref type="bibr" target="#b43">Stern, 2009</ref><ref type="bibr" target="#b44">Stern, , 2012;;</ref><ref type="bibr" target="#b46">Stern et al., 2020)</ref> or the detection of cognitive decline when premorbid abilities were very high. If greater cognitive reserve renders individuals more resilient to cognitive decline in the face of neurodegeneration, it might also be the case that cognitive reserve protects against cognitive impairment following stroke. For example, post-stroke aphasia outcome and/or recovery may be better in people who received more education and who, as a result, can capitalise on more efficient cognitive strategies. These individuals would likely also benefit from higher socioeconomic status <ref type="bibr" target="#b40">(Sheridan &amp; McLaughlin, 2016)</ref>, that may enable greater access to healthcare and treatment, which promote a faster recovery. However, several systematic reviews have shown very inconsistent evidence for the relationship between socioeconomic status and recovery, and highlighted the need for more studies <ref type="bibr" target="#b14">(Contador et al., 2023;</ref><ref type="bibr" target="#b22">Laura &amp; Roza, 2022;</ref><ref type="bibr" target="#b30">Nunnari et al., 2014;</ref><ref type="bibr" target="#b37">Rosenich et al., 2020;</ref><ref type="bibr" target="#b48">Tao et al., 2023)</ref>. Plausibly, the benefit of more education, and cognitive reserve, on language abilities is lost when patients have extensive damage to the neural systems that normally support language recovery. In other words, the benefit of education may depend on one or more of the many lesion-and non-lesion factors that are known to influence aphasia outcome and recovery.</p><p>Alternatively, a benefit of education on post-stroke language outcomes could reflect the generic benefit of education on language abilities that is observed in neurotypical populations. In other words, an advantageous effect of education is present pre-stroke, and detected during language assessment; but pre-stroke language abilities are not measured in aphasic stroke survivors, meaning effects of education that are observed on post-stroke language abilities could be misinterpreted. Testing this hypothesis would only be possible by including a control group (without stroke or aphasia).</p><p>Returning now to the questions addressed by the current study, we make the following hypotheses. First, regarding Question A, we hypothesised that the benefit of education would be stronger on Reading and Written comprehension tests than Naming or Repetition as found by <ref type="bibr" target="#b16">González-fernández et al. (2011)</ref>, and also stronger on Picture description than Naming. Our reasoning is that Naming and Repetition are relatively simple tasks, which use common vocabulary, and in the case of Repetition, do not necessarily require semantic knowledge of the items. Even knowledge of the items characterised as "low frequency" (e.g., pineapple, drum) may not depend on the amount of prior education undertaken. Conversely, Reading and Written comprehension utilise literacy skills that are more explicitly associated with formal education, as well as with experience of examination and assessment. Picture description allows multiple different words to be used for the same target (e.g., man, father, grandfather) whereas correct Naming responses are typically limited to one specific word. Picture description also benefits from syntactic variety and better grammar <ref type="bibr" target="#b53">(Zanichelli et al., 2020)</ref> which are enhanced by more education. Second, regarding Question B, we hypothesised that more education would have a reduced effect in participants who had worse post-stroke language ability because, in these participants, other factors (e.g., lesion size) are stronger determinants of language ability post-stroke, potentially overriding the pre-existing benefit of education. Despite this variability, our third hypothesis regarding Question C was that more education would enhance the degree of post-stroke language recovery, measured both during the first year and well into the chronic stage of recovery. This hypothesis was motivated by the findings of <ref type="bibr" target="#b21">Kim et al. (2019)</ref>, even though this study focused on recovery only within the first year post-stroke.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Methods</head><p>The study was approved by the London Queen Square Research Ethics Committee (study reference number 13/LO/1515). All participants gave written informed consent (or assent via a consultee) to participate.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Participant selection</head><p>Participants were selected from the Predicting Language Outcome and Recovery After Stroke (PLORAS) database <ref type="bibr" target="#b38">(Seghier et al., 2016)</ref>. The database holds demographic, behavioural and lesion data for over 1500 stroke patients, who are recruited from various locations around the UK, including via the National Institute for Health and Care Research (NIHR) Clinical Research Network, stroke groups and conferences, and word-of-mouth recommendations. Participants were selected if they (1) were native English speakers, (2) had a clinically-diagnosed stroke in either the left or right hemisphere, and (3) had no other neurological disorders that might influence their speech and language abilities. They were excluded if they (a) had unknown initial speaking ability (n = 212), (b) were too medically unwell (e.g., in a coma) to attempt speech production one week post-stroke (n = 145), (c) had inconsistent self-reported language ability compared to their objectively assessed language abilities (n = 12), or (d) had an unknown (n = 6) or outlying amount of prestroke education (n = 5; with 14-16 years). These criteria identified 749 eligible participants (see Table <ref type="table" target="#tab_0">1</ref>).</p><p>A complete set of behavioural, demographic and lesion data was available for most of the participants. However, 182 participants had missing data for several variables (initial reading/comprehension severity, hearing, vision, and CAT task scores), and were excluded from the relevant analyses; see the Statistical Analyses section for more details. The impact of excluding these participants is considered in the Discussion.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Pre-stroke education</head><p>Education amount was measured, via participant reports, as the number of years of formal education completed since the age of 14. This represented the "least" amount of education completed by a participant in the sample. This study's definition of formal education includes subject-based qualifications such as, within the UK education system, GCSEs, AS and A levels (or equivalent qualifications), and undergraduate and post-graduate degrees and diplomas. Apprenticeships, work-related qualifications and continuing professional development courses are not included, as they typically involve different learning content, style and assessment methods compared to school or university-based education, which relies more heavily on written material and examination. The potential implications of their exclusion from our definition of "formal education" is considered in the Discussion. The number of years of education was primarily treated as a continuous variable, but was also used to allocate participants into groups for some analyses and illustrations. "Less" education included participants who underwent education up to age 18 (i.e., A Levels or equivalent), and "More" education included participants who continued formal education beyond age 18 (i.e., university).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Language outcomes</head><p>All participants were assessed with a standardised objective language and cognitive assessment -the Comprehensive Aphasia Test, or CAT <ref type="bibr" target="#b47">(Swinburn et al., 2004)</ref>. The timing of the CAT assessment was different for each participant -ranging from 17 days to 42 years post-stroke -depending on when the participant was recruited to the study, and/or when they felt sufficiently recovered to take part. The vast majority of participants were tested in the chronic period (&gt;6 months post-stroke), however a minority (n = 80) took part in the first 6 months post-stroke. To compare performance on each of the tasks (with varying demands and difficulty), raw scores are converted through a non-linear transformation into T-scores, which represent how well the participant performed relative to an independent sample of patients with aphasia. Lower scores indicate poorer performance.</p><p>The focus of the study was on 19 tasks, whose T scores are integrated into 6 "summary" T scores for different language modalities, described below. In addition, these six summary scores were averaged to construct an "overall language ability" score (as in <ref type="bibr" target="#b51">Winans-Mitrik et al., 2014)</ref>.</p><p>(1) Naming combined scores from: object naming, action naming, semantic fluency and letter fluency. Object naming involved naming 24 objects (e.g., frog) from simple line drawings; action naming involved naming 5 actions (e.g., typing); semantic fluency involved producing as many animal names as possible within one minute; and letter fluency involved producing as many s-initial words as possible within one minute. In the CAT, the raw scores for semantic and letter fluency are combined into one T score for overall "word fluency", however in this study, their raw scores were analysed individually, in order to determine any differences in how education influenced each fluency component. (2) Repetition combined scores from: repeating 16 words (e.g., plant), 5 complex words (e.g., defrosted), 5 nonwords (e.g., gart), digit strings (increasing from 2 to 7 numbers), and sentences (increasing from 3 to 6 content words). (3) Reading combined scores from: reading aloud 24 simple words (e.g., family), 3 complex words (e.g., informative), 3 function words (e.g., but) and 5 nonwords (e.g., fask). (4) Spoken picture description involved describing the objects, characters and actions in a scene. The score comprises the total number of appropriate and inappropriate information-carrying words produced in one minute, the grammatical wellformedness and syntactic variety of the sentences, and the speed of production (assessed according to whether the participant spoke with any lengthy delays or hesitations). (5) Spoken Comprehension combined scores from spoken word-to-picture matching, spoken sentence-to-picture matching, and spoken paragraph understanding, which involve an auditory stimulus (e.g., mouse) and require a correct pointresponse in the presence of phonological, semantic and unrelated distractors (house, rabbit, church). (6) Written Comprehension combined scores from written word-to-picture matching and written sentence-to-picture matching, both of which involve a written stimulus (e.g., rocket) and require a correct point-response in the presence of phonological, semantic and unrelated distractors (pocket, aeroplane, sleeve).</p><p>An aphasia/normal threshold for each language summary skill, specified in the CAT manual, indicates whether a T score falls into the aphasic or the normal range (e.g., ≤62 and ≥ 63 for Naming; illustrated in Figure <ref type="figure" target="#fig_0">1</ref>). As the overall language ability score is not part of the CAT, no control range was available to calculate the aphasia threshold score.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Initial aphasia severity</head><p>Each participant was assigned a one week post-stroke initial aphasia severity rating derived from an in-house retrospective participant-reported outcome measure of language ability. The 4 severity categories were: "Severe" (unable to produce any speech, or only able to produce automatic speech), "Moderate" (able to produce single words and phrases), "Mild" (able to produce lexically meaningful short sentences), and "Normal" (no stroke-related difficulties with language production). Research speech and language therapists supported participants to provide an accurate report of their difficulties (for example, differentiating fluent from non-fluent aphasia). The ratings were repeated for speaking, comprehension, reading, and writing. A participant could therefore be assigned to different initial severity groups for different language functions (e.g., if they had speaking difficulties, but intact comprehension). Participants rated as Severe were conscious and medically capable of attempting to speak -but may not have been able to produce any words, due to aphasia (and/or dysarthria/apraxia).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Lesion data</head><p>High-resolution (1 mm × 1 mm x 1 mm), whole brain T1-weighted structural brain images were acquired for all participants on research-dedicated scanners at the Wellcome Centre for Human Neuroimaging and the Birkbeck-UCL Centre for Neuroimaging. The MRI scanners used were all from Siemens Healthcare (Erlangen, Germany). Brain scans were typically obtained on the same day as CAT assessment (ranging from 2 weeks to 42 years post-stroke).</p><p>Using standard procedures within SPM software (Wellcome Centre for Human Neuroimaging, London, UK; <ref type="url" target="https://www.fil.ion.ucl.ac.uk/spm/">https://www.fil.ion.ucl.ac.uk/spm/</ref>), running in MATLAB environment (2018a Mathworks, Sherbon, MA, USA), each T1-weighted image was spatially normalised (to the MNI template) and converted into a quantitative assessment of structural abnormality that is independent of the scanner used <ref type="bibr" target="#b39">(Seghier et al., 2008)</ref>. At each voxel, this "fuzzy" lesion image encodes the degree of abnormality (U) on a continuous scale from 0 (completely normal) to 1 (completely abnormal) relative to normative data from 64 neurologically-intact controls that were collected on the same scanners used for image acquisition in the current study. To delineate the lesions and estimate lesion volume, each fuzzy lesion image was thresholded into a "binary" lesion image (i.e., presence or absence of a lesion, at each voxel). As recommended in <ref type="bibr" target="#b39">Seghier et al. (2008)</ref>, the abnormality/lesion threshold for binary images was set using a U value of 0.3. The resulting binary lesion images were used to calculate left and right hemisphere lesion size separately.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Demographic and assessment variables</head><p>Study questionnaires capture each participant's biological sex, pre-stroke handedness, developmental dyslexia status, date of birth, and date of stroke (see Table <ref type="table" target="#tab_0">1</ref>). Age at stroke was subsequently calculated from date of birth and date of stroke. Semantic impairments were measured using the CAT "semantic memory" task which is, more precisely, Legend: Effects of education on overall language ability, and summary and individual task scores from the CAT, using (i) multiple linear regression and (ii) Bayesian regression. The number in each analysis varies due to missing data for certain covariates. R2 = for the whole model. ns = not significant at a threshold of p = &lt;0.05. BF = Bayes Factor: Positive BF supports an effect of education; Evidence strength: &gt;2=decisive; 1.5-2 = very strong; 1-1.5 = strong; 0.5-1 = substantial; 0-0.5 = anecdotal <ref type="bibr" target="#b19">(Jeffreys, 1961)</ref>. Negative BF refutes the effect (empty cells indicate negative BF). * = significant after correction for multiple comparisons.</p><p>a nonverbal "semantic picture matching" task. It involves matching a target picture (e.g., monkey) to one of four surrounding choice pictures (e.g., banana, pear, chocolate and envelope) and measures the ability to perceive pictures, recognise objects, and identify semantic links. Impairments on this task may impact any language tasks which involve visual or conceptual stimuli (including both pictures, and real words presented visually or aurally), so these task scores were used to control for such impairments. To control for perceptual abilities that might impact the ability to perceive the assessment stimuli, participants' hearing and vision were corrected wherever possible (e.g., with hearing aids, glasses), and their own hearing and vision status was self-reported at the point of assessment.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Statistical analyses</head><p>Three analyses were designed to answer each question of interest (A, B and C).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Which language scores are most sensitive to amount of pre-stroke education?</head><p>This question is approached in three steps: (1) Is there a main effect of education on overall language ability score? (2) Which summary scores drive this effect? (3) Which individual tasks drive effects of education in the summary scores? As there is only one statistical analysis in the first step, there is no need to correct for multiple comparisons.</p><p>The second and third steps involve 6 and 24 different analyses (one for each summary and individual task score). If the main effect in step one is significant, the second and third steps can be considered as descriptive, reducing the need for multiple comparison corrections. Nevertheless, in the Table legends, we note which summary and task scores would survive correction for multiple comparisons if they were considered independently. Each of the analyses described was conducted using multiple linear regression, performed in IBM SPSS Statistics (version 28.0). The following covariates were included in all analyses: age at stroke, time post-stroke of the CAT assessment, left and right hemisphere lesion size, sex, pre-stroke handedness and developmental dyslexia status. The inclusion of other covariates depended on the language task being considered. For example, initial speaking ability was included in the analyses of speaking scores; initial comprehension ability in the analysis of auditory comprehension scores, initial reading ability in the analysis of reading scores, hearing status in the analysis of tasks that used auditory stimuli, visual status in the analysis of tasks that used visual stimuli, and semantic picture matching score in the tasks that required object recognition or semantic knowledge (i.e., any task that used real words/objects, rather than non-words). As some participants had missing data, different participant numbers were included in different analyses; see Table <ref type="table" target="#tab_1">S2</ref> for details of all covariates and Table <ref type="table" target="#tab_1">2</ref> for the participant number in each analysis. We are confident that there was minimal multicollinearity in the data, because no analysis yielded Tolerance values of less than 0.1, nor Variance Inflation Factors (VIF) of greater than 10.</p><p>Bayesian statistics were used to validate the results further by estimating evidence for or against an effect of education on each language measure. This was done by conducting a "naïve Bayesian linear regression" <ref type="bibr" target="#b25">(Lee &amp; Wagenmakers, 2014)</ref> in SPSS; which uses default hyperparameters, and thus uninformative priors. This method involved first repeating the multiple linear regression for each outcome, omitting education, to obtain the standardised residuals, and then regressing these residuals with education. The Bayes Factors were then converted into Log BF. A negative log BF indicates evidence for no effect of education, whereas a positive log BF indicates evidence for an effect of education. The strength of evidence ranges from "anecdotal" to "decisive" <ref type="bibr" target="#b19">(Jeffreys, 1961)</ref>, see Table <ref type="table" target="#tab_1">2</ref> legend for categories of evidence strength.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. How does the effect of education depend on other variables?</head><p>Moderation analyses were used to investigate potential interactions between education and six other variables of interest. The interaction terms were created by multiplying "years of education" with each variable: age at stroke, time post-stroke, initial aphasia severity, semantic picture matching scores, and right and left hemisphere lesion size. Twoway interaction terms were added into a second block of the regression; three-way interaction terms were added into a third block of the regression (along with the relevant two-way interaction terms) and four-way interaction terms were added into a fourth block of the regression (along with the relevant two-way and three-way interaction terms). The first block of the model contained the same covariates as the main analyses. These moderation analyses were conducted first for overall language ability, then repeated as post-hoc tests for each of the six summary scores.</p><p>Post hoc analyses of significant interactions were conducted by testing whether there was an effect of education in different subgroups of participants. For age at stroke, the subgroups were created using the median age: the "younger" group were 17 to 57.88 years (n = 375) and the "older" group were 57.93 to 99 years (n = 374). For initial aphasia severity, the three categories were used (Normal, n = 146; Mild, n = 242; Moderate &amp; Severe, n = 361). Participants with Moderate initial severity were included in the Severe aphasia groups to increase group sizes. For left hemisphere lesion size, two grouping approaches were considered. First, we identified the median left hemisphere lesion size of the full sample (3.3 cm 3 ); and created two subgroups either side of this median ("larger", n = 375, and "smaller", n = 374). Each subgroup was then further split by pre-stroke education amount ("less" versus "more"). However, the educational groups within the larger and smaller lesion categories were not matched for either lesion size or time-post stroke, raising the possibility that higher scores for more versus less education could reflect longer time post-stroke (i.e., more time to recover) or smaller lesions (i.e., less damage and better recovery capacity) instead of a genuine benefit of education. To mitigate this, we removed 177 participants from the "larger" subgroups -leaving 198 participants, whose high versus low education groups were more closely matched for lesion size and time post-stroke.</p><p>The second lesion size approach illustrated the interactive effects between education, lesion size, age and initial aphasia severity. Subgroups were created for participants with left hemisphere lesions of less than 1 cm 3 , and greater than 1 cm 3 (Figure <ref type="figure" target="#fig_2">3</ref>).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Does amount of education influence the degree of recovery?</head><p>Two methods were used to investigate the relationship between education and recovery.</p><p>CAT scores: An effect of education on recovery would be indicated by a significant interaction between education and time post-stroke (investigated in section B) with post hoc tests showing that, as time post-stroke increased, the advantage of more education also increased. However, as the CAT scores were mostly acquired years post-stroke (see Table <ref type="table" target="#tab_0">1</ref>), this analysis will not be sensitive to the influence of education on early recovery (i.e., in the first year post stroke). To determine whether an effect of education on recovery depended on other variables, we examined the three-and four-way interactions between education, time post-stroke and (i) left hemisphere lesion size, (ii) age and (iii) initial severity.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Self-rated scores:</head><p>A "recovery score" was calculated for each participant by dividing [actual improvement at one year post-stroke] by [improvement potential]. Actual improvement is the number of ability levels by which a participant increases between one week and one year <ref type="bibr" target="#b17">(Hope et al., 2019;</ref><ref type="bibr" target="#b21">Kim et al., 2019)</ref>. For example, improving from Severe to Mild equates to an actual improvement of 2 (Severe to Moderate and Moderate to Mild). Improvement potential is the total number of severity levels available to increase by. This is maximum for participants with Severe initial aphasia symptoms who can move up three levels (Severe to Moderate, Moderate to Mild and Mild to Normal). Conversely, those with mild initial aphasia symptoms can only move up one level (Mild to Normal). In line with others <ref type="bibr" target="#b23">(Lazar et al., 2010;</ref><ref type="bibr" target="#b27">Marchi et al., 2017)</ref> and with awareness of the pitfalls <ref type="bibr" target="#b3">(Bonkhoff et al., 2020;</ref><ref type="bibr" target="#b5">Bowman et al., 2021;</ref><ref type="bibr" target="#b17">Hope et al., 2019)</ref>, the recovery score was calculated as a proportion; for example, a participant who improved by 2 out of 3 possible performance increases would receive a recovery score of 0.66. This method of measuring recovery score enables all participants to be analysed together, regardless of their initial severity. Recovery score was calculated for each of the four language skills that we had assessed (speaking, comprehension, reading, and writing). The mean of these recovery scores was also calculated for each participant. Multiple linear regression was used to investigate the relationship between education and recovery score, when left and right hemisphere lesion size, age, sex, and handedness were factored out. As with the CAT recovery analyses, two-and three-way interactions between education and (i) age, (ii) left hemisphere and (iii) right hemisphere lesion size were examined to determine whether an effect of education on recovery depended on these other variables.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Results</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Which language scores are most sensitive to pre-stroke education amount?</head><p>Across all aphasic and non-aphasic participants, the multiple regression analysis revealed that years of education had a significant, positive effect on overall language ability (β = 0.075, p = 0.004), suggesting that, after factoring out the effect of other variables, each additional year of education was associated with a score increase of 0.8 (Table <ref type="table" target="#tab_1">2</ref>). This advantage of more education was also observed, independently, on all six summary scores (Figure <ref type="figure" target="#fig_0">1</ref>).</p><p>As detailed in Table <ref type="table" target="#tab_1">2</ref> and Figure <ref type="figure" target="#fig_1">2</ref>, the effects of education were strongest for: (1) letter fluency and semantic fluency within Naming, (2) digit span and nonword repetition within Repetition, (3) nonword reading within Reading, (4) the total number of words produced during spoken picture description and their grammatical well-formedness, and (5) sentence comprehension within both spoken and written Comprehension scores. The amount of variance explained by education, when education was the only regressor, was 4.1% for letter fluency, 3% for semantic fluency and less than 2% for all other scores (see Table <ref type="table">S3</ref> for all other tasks).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. How does the effect of education depend on other variables?</head><p>The moderation analyses indicated that the benefit of more education was dependent on age for most outcome measures (except for spoken picture description, spoken comprehension and written comprehension), with post hoc tests indicating that the benefit of education was primarily driven by younger participants (Table <ref type="table">S4</ref>). For naming and spoken picture description, there was a significant four-way interaction between education, age, left hemisphere lesion size and initial speaking ability (Table <ref type="table">S4</ref>). This fourway interaction arose because a benefit of more education was observed for younger participants irrespective of lesion size or initial speaking ability (upper part of Figure <ref type="figure" target="#fig_2">3</ref>); whereas in older participants, a benefit of education was only observed when left hemisphere damage was less than 1 cm 3 (i.e., very small) and initial speaking ability was normal or mildly impaired (lower part of Figure <ref type="figure" target="#fig_2">3</ref>). In contrast, no benefit of education was observed on naming scores for older participants whose lesions were larger than 1 cm 3 , irrespective of initial speaking ability.</p><p>There were no other significant interactions between education and other variables on overall language ability or any of the summary scores or individual task scores, after correction for multiple comparisons. Indeed, the benefit of education was remarkably robust across groups of participants with different lesion sizes and different initial severities, with the exception that, for participants with large lesions and severe initial aphasia, all scores were low, irrespective of education amount (Figure <ref type="figure" target="#fig_0">1</ref>).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. The effect of education on the degree of recovery</head><p>CAT scores: Evidence of recovery was observed as a significant positive effect of timepost stroke on overall language ability (p = 0.002, β = 0.088), indicating that with every additional year, scores increased by almost 1 point. Although the interaction between education and time post-stroke did not reach significance, there was a significant threeway interaction between education, time-post stroke and left hemisphere lesion size (p = 0.015). However, this did not reflect education facilitating recovery; it was driven by a decline in language scores, over time, in participants who had large left hemisphere lesions and more education. This observation is likely to reflect sampling bias because of a combination of three study factors: (a) the effect of time post-stroke is across subjects in this analysis; (b) our study requires participants to visit our research centre in London; which is, critically (c) more difficult for those with large left hemisphere lesions and severe impairments. Participants with large lesions are therefore more likely to be recruited early post-stroke if they have mild rather than severe impairments.</p><p>Self-rated scores: Recovery score was not significantly associated with the amount of education for any of the 4 individual language skills or their mean. No interactions were observed between education and any other variables. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Discussion</head><p>Prior studies have demonstrated that performance on language assessments is sensitive to the amount of education undertaken in neurotypical people (see Introduction and Table <ref type="table" target="#tab_0">S1</ref>). The current study is the first to show that the benefit of more education on language performance is remarkably similar for both aphasic and non-aphasic participants. This finding is important, because it emphasises the potential sensitivity of aphasia assessments to amount of education, rather than demonstrating that more education specifically benefits aphasia outcome and recovery. The discussion below addresses our three study questions (a-c), the implications of the findings, study limitations and future directions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Which CAT tasks are most sensitive to education amount, and why?</head><p>The benefit of education was strongest for semantic and letter fluency; but also highly significant for nonword reading, nonword repetition, digit span, written sentence comprehension, spoken sentence comprehension and the number of words produced during spoken picture description, and their grammatical well-formedness (see Results and Table <ref type="table">S3</ref>). Compared to <ref type="bibr" target="#b16">González-Fernández et al. (2011)</ref>, our findings (i) broaden the range of language tasks that may benefit from education to include spoken comprehension (also consistent with <ref type="bibr" target="#b26">Lwi et al. (2021)</ref>), digit span, nonword repetition and picture description, (ii) are consistent in showing no advantage of education on word repetition or object naming and (iii) only found a benefit of education on nonword reading, not word reading. Further studies are now required to determine if the effect of education on reading words depends on stimulus properties (e.g., word frequency, orthographic to phonological regularity, concreteness etc.), or other factors.</p><p>The generic benefits of education on verbal skills are well recognised. Education enriches vocabulary and exposes people to a wider range of linguistic structures for organising, embellishing, and understanding speech. More education may increase proficiency in language use and enhance the underlying cognitive processes that support language production and comprehension. For example, during spoken picture description, visual perception and working memory are required to perceive the stimuli and hold their contents in memory, semantic information needs to be retrieved and integrated, word-finding difficulties need to be circumvented by retrieving other appropriate words, and speech output needs to be self-monitored and self-corrected. All these processes may benefit from more education. In addition, the ability to perform post-stroke language assessments may also benefit from the increased examination experience associated with education.</p><p>Semantic and letter fluency may benefit most from education experience because fluency tasks are facilitated by a range of language and cognitive skills that can be enhanced during education, such as a wide-ranging vocabulary, proficient semantic and phonological retrieval strategies and possibly verbal short-term memory and executive control. For example, cognitive control is required to suppress incorrect responses during both fluency and picture description.</p><p>Finally, although the effects of education are highly significant, it is important to note that they only accounted for a small amount of the variance (see Table <ref type="table">S3</ref> and Figure <ref type="figure" target="#fig_0">1</ref>). This is relevant in the context of the prior studies of education effects in aphasia because such effects may only be reliably detected when large samples are available, as in the current study.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. How the effect of education on task performance depends on other variables</head><p>Age was the only variable to significantly influence the effect of education. This was observed on: overall language ability, naming, repetition and reading summary scores, but not on spoken picture description or comprehension. In each case, the interaction indicated a sub-additive relationship between age and education, with a reduced benefit of more education in older compared to younger participants. This might be a consequence of older participants having reduced cognitive and learning abilities that could not be overcome by educational experience <ref type="bibr" target="#b2">(Blachstein &amp; Vakil, 2016)</ref>. The absence of interactions between education and other variables is further emphasised by the additive effects of education and other variables (e.g., initial severity and lesion size). The one exception to this is that the benefit of education was eroded in older participants with large left hemisphere lesions and severe initial symptoms. These participants likely sustained substantial damage to the brain regions that can support language after stroke making it much harder to improve or recover their abilities irrespective of education. Indeed, lesion size (whole brain and left hemisphere) was significantly larger in participants with Severe compared to Moderate and Mild initial severity (p = &lt;0.001 for both) and in participants with Moderate compared to Mild initial severity (p = 0.001).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. The effect of education on recovery</head><p>The current study did not find any evidence that more education facilitated the degree of recovery from aphasia, using either long-term CAT scores, or self-reports of language change. This is consistent with a study of 34 participants by <ref type="bibr" target="#b15">(de Riesthal &amp; Wertz, 2004)</ref>, but contrasts with the much larger study by <ref type="bibr" target="#b21">Kim et al. (2019)</ref>, which is the only one to demonstrate an effect of education on aphasia recovery. Future studies are now required to understand our null findings here. A key methodological issue is that our recovery measures were based on participants', or their carers' descriptions of their own abilities, typically guided by trained speech and language therapists. As ability was assessed retrospectively, the measures rely on both memory and insight which will undoubtedly result in measurement error, and could de-sensitise our study to the effect of education on recovery. Nonetheless, the same recovery measures demonstrated a significant benefit of clinical therapy on participant-reported recovery <ref type="bibr" target="#b35">(Roberts et al., 2022)</ref> and we have unpublished work showing highly significant relationships between these ability measures and (i) lesion site and (ii) objective assessments from the Comprehensive Aphasia Test (CAT) taken at the same time point post-stroke.</p><p>A second major issue is that the CAT was typically conducted relatively late in the recovery phase (more than one year post-stroke). Given that many patients continue to recover beyond a year <ref type="bibr" target="#b18">(Hope et al., 2017)</ref>, a large proportion had reached ceiling level performance. This results in less variance than when assessments are conducted earlier (e.g., one year post-stroke as in <ref type="bibr" target="#b21">Kim et al., 2019)</ref>, making it more difficult to capture the impact of education on recovery. Ideally, we need to monitor the effect of education on recovery longitudinally, using exactly the same objective language assessments at regular time points throughout the first year and beyond.</p><p>Finally, other differences between <ref type="bibr" target="#b21">Kim et al. (2019)</ref> and our study include the language spoken (Korean versus English), the language assessment (CAT versus the Korean version of the Frenchay Aphasia Screening Test) and cultural differences in education systems and attitudes to formal schooling. It would be interesting to observe if such factors influence the effect of education on language performance.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Clinical and research implications for interpreting post-stroke language impairments</head><p>The sensitivity of the CAT to formal educational differences (according to this study's definition) in stroke patients may have implications for clinical practice and for research. For clinical practice, there is a very small chance that assessment scores could be misinterpreted. However, this concern only applies to patients whose scores are within 2 to 4 points of the aphasia threshold, and is further diminished because clinicians' decision-making and treatment planning already draws information from a range of assessments and observations, including patients' functional abilities, selfreports, and impairments, as well as from social and demographic factors such as education -and so overall, the chance of misdiagnosis should be negligible. Nevertheless, we highlight the value of using participant-reported outcome measures to supplement objective assessment scores. For example, a patient with less education may self-report normal language when the CAT indicates mild aphasia. Conversely, a patient with more education may consider themselves to have aphasia due to subtle post-stroke language changes which go undetected on the CAT, or indeed other standardised language assessments.</p><p>The implications for research are likely to be more significant, because behavioural language data are more likely to be investigated in isolation of other participant characteristics. For example, task scores are often used to categorise participants either as having aphasia or not, or into different levels of aphasia severity. Plausibly, participants could be miscategorised because of their education amount, and erroneously treated as "recovered" when they in fact have mild impairments -or erroneously treated as mildly aphasic when their abilities were in fact back to normal. We found that up to 45% of participants fell within the score range that could be miscategorised as "aphasic" or "normal". For example, for Naming, 122/749 participants scored from 60 to 65, which could be miscategorised if education amount is not considered. Ultimately, this leads to inaccuracies in analyses of outcomes and recovery.</p><p>Given these issues, this study advocates that, for both clinical practice and research, borderline CAT task scores should be interpreted in light of the amount of education a patient completed before their stroke; potentially using the "normative modelling" approach adopted by prior studies of neurotypical and stroke populations <ref type="bibr" target="#b10">(Cavaco et al., 2013;</ref><ref type="bibr" target="#b32">Olabarrieta-Landa et al., 2015;</ref><ref type="bibr" target="#b49">Tombaugh et al., 1999;</ref><ref type="bibr" target="#b54">Zec et al., 2007)</ref>. This approach provides a calculation to adjust any individual's score for the influence of variables such as education, as well as age and sex. The resulting adjusted score indicates how that individual performed with respect to others with similar demographics to them <ref type="bibr" target="#b9">(Casaletto et al., 2015;</ref><ref type="bibr" target="#b41">Shirk et al., 2011)</ref>. As far as we are aware, no such approach has been implemented for the CAT. Considering how individual factors contribute to variation in CAT outcomes is in line with a personalised approach to assessment, management and prediction of outcome and recovery <ref type="bibr" target="#b6">(Brady et al., 2022)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Limitations and future directions</head><p>The measurement and definition of education has varied across prior studies, and there is currently no agreement as to what constitutes "more" or "less" education. In the current study, "years of formal education" was treated as a continuous variable, with "more education" defined as that typically undertaken after the age of 18; and "less education" defined as that typically done before the age of 18. The problem with both of these measurements is that they disregard the possible effect of different education settings or content, which may easily arise within, or across, countries, cultures, and generations (for example, academic versus vocational subjects). A more rigorous approach is therefore needed which incorporates more detail about education setting, content, and attainment, and considers other factors that may moderate education such as intelligence and learning difficulties, as well as traditionally non-academic learning experiences, such as job-specific training or professional development. Furthermore, this study did not measure socioeconomic status, whose close relationship with education compels further consideration of whether the apparent effect of education in fact reflects broader socioeconomic differences <ref type="bibr" target="#b40">(Sheridan &amp; McLaughlin, 2016)</ref>. Indeed, the exclusion of apprenticeships and other "non-academic" learning from our definition of "formal education" may bias the sample. Geographically, we included more participants from London and the South East of England than from the North East of England where more education is less prevalent (Office for National Statistics, 2023). Future studies could investigate this by considering factors such as geographical area and occupational status.</p><p>A second and related limitation is that the current study was unable to control for all of the many factors that influence aphasia outcome and recovery, or that may interact with the effect of education. For example, the amount of speech and language therapy received may have influenced the speed of recovery, and/or interacted with the effect of education on recovery <ref type="bibr" target="#b7">(Brady et al., 2016;</ref><ref type="bibr" target="#b35">Roberts et al., 2022)</ref>. Real-world language practice, such as occupation, and other daily activities and interactions may influence recovery, if they draw on linguistic strategies (e.g., completing crosswords or reading for pleasure). Similarly, non-linguistic cognitive ability, measured in <ref type="bibr" target="#b20">Johnson et al. (2022)</ref> using the WAIS Matrices subtest as an indicator of non-verbal problem solving and reasoning, has been correlated with education amount in prior studies. This may overlap with, or explain the effect of education, if for example non-linguistic skills are associated with more education.</p><p>A third limitation is the potential impact of excluding participants with missing CAT or participant-reported severity scores. If these data were missing because of severe impairments at one week, or pre-stroke illiteracy, then their exclusion could bias the sample towards those with milder initial impairments. However, it is more likely that the data were missing due to participants not being able to remember their early abilities. Conversely, missing CAT data are more likely to occur if participants were unable to complete a task due to aphasia severity. As only 3 participants had missing CAT data, the impact of their exclusion from the analyses is relatively small, and unlikely to inflate the effect of education.</p><p>A fourth limitation is that this study could not assess the impact of education on communication participation and quality of life. A previous study by <ref type="bibr" target="#b52">Worrall et al. (2017)</ref> reported that more education was a negative determinant of participation, in 58 participants. It would be valuable to repeat the current study's approach, using a variety of different aphasia outcome measures (including, for example, quality of life, participation and functional communication), as well as widening the range of social determinants of health that likely interact with the effect of education <ref type="bibr" target="#b31">(O'Halloran et al., 2023)</ref>.</p><p>Finally, by distinguishing participants who reported normal language in the first week post-stroke from those who reported aphasia, we were able to consider this group as "non-aphasic controls", leading to the critical revelation that the CAT is sensitive to education amount, irrespective of the presence of absence of aphasia -as demonstrated by other studies of education effects in neurotypical people. This suggests that future studies should investigate the effect of other non-stroke factors (such as cultural/language background) on language performance.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Summary and conclusions</head><p>Using a large sample of stroke survivors, we found that participants with more pre-stroke education had better performance on a range of language tasks from the Comprehensive Aphasia Test when assessed in the chronic stage of recovery. Moreover, the benefit of more education was found to be independent of (i.e., additive with) the influence of other variables known to impact language performance after stroke. Most strikingly, we did not find a greater benefit of education for aphasic compared to non-aphasic participants. To the contrary, education benefitted all participant groups -except older participants with severe aphasia and large strokes whose outcomes were not influenced by prior education. These results are inconsistent with education bestowing a protective effect on aphasia outcome. Likewise, there was no evidence that education plays a specific role in aphasia recovery. Instead, our results highlight how aphasia assessments are sensitive to the amount of pre-stroke education the participant has received.</p><p>The practical implication of the results is that aphasia clinicians and researchers should consider educational background when they interpret assessment scores. In addition, future studies should consider assessing whether education influences language abilities measured at earlier and more regular timepoints after a stroke, to determine whether a more subtle effect of education on recovery exists.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 .</head><label>1</label><figDesc>Figure 1. The effect of education on six CAT summary scores. Legend: CAT T scores for the six summary scores, grouped by education amount, initial speaking ability and lesion size. Grey = fewer than 10 participants (i.e., not well-sampled). Nor, Mild, Mod, Sev = Normal, Mild aphasia, Moderate aphasia and Severe aphasia. Smaller = smaller left hemisphere lesions (0-3 cm 3 ). Larger = larger left hemisphere lesions (more than 9 cm 3 ). Group numbers are shown in the plot for spoken comprehension (bottom left). See Methods for details of group matching. Aphasia score thresholds for each task are indicated by red horizontal lines.</figDesc><graphic coords="13,60.94,53.41,371.28,295.20" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 2 .</head><label>2</label><figDesc>Figure 2. The variance in CAT task scores explained by (i) education amount and (ii) other variables.</figDesc><graphic coords="14,97.80,53.36,297.60,186.96" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 3 .</head><label>3</label><figDesc>Figure 3. Interaction between education, age, lesion size and initial speaking ability on naming scores in 732 participants. Legend: Average Naming (summary) T scores for participants who were younger (top) or older (bottom), grouped by education amount, initial speaking ability and left hemisphere damage. N, M, S = Normal, Mild aphasia, and Severe aphasia. Participants with Moderate initial severity are included in the Severe aphasia groups to increase group sizes. LH &lt;1 cm 3 = small left hemisphere lesions and/or larger right hemisphere lesions. LH &gt;1 cm 3 = left hemisphere lesions that were larger than 1 cm 3, irrespective of right hemisphere damage. * denotes a significant effect of education across each subgroup pair, at a significance level of p = &lt;0.05.</figDesc><graphic coords="15,97.80,53.36,297.60,374.16" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 .</head><label>1</label><figDesc>Participant characteristics.</figDesc><table><row><cell>Less education</cell><cell>More education</cell></row><row><cell>(n = 413)</cell><cell>(n = 336)</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2 .</head><label>2</label><figDesc>The effect of education on post-stroke CAT scores.</figDesc><table><row><cell>Multiple linear regression</cell><cell>Bayesian regression</cell></row></table></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><head>Acknowledgements</head><p>We thank the participants and their carers for their generous assistance with our research. We also acknowledge and thank other members of the PLORAS team employed between 2003 and 2020 for their help with the acquisition and organisation of behavioural and imaging data. We would like to thank the peer reviewers (<rs type="person">Dr Sam Harvey</rs> and second anonymous reviewer) for their very constructive feedback, which improved the clarity of this paper.</p></div>
+			</div>
+			<div type="funding">
+<div><head>Funding</head><p>This work was funded by <rs type="funder">Wellcome</rs> [<rs type="grantNumber">203147/Z/16/Z</rs>], [<rs type="grantNumber">205103/Z/16/Z</rs>] and [<rs type="grantNumber">224562/Z/21/Z</rs>] to (C.J. P.); the <rs type="funder">Medical Research Council</rs> [<rs type="grantNumber">MR/M023672/1</rs>] to (C.J.P); and the <rs type="funder">Stroke Association</rs> [<rs type="grantNumber">TSA 2014/ 02</rs>] to (C.J.P. and D.W.G.).</p></div>
+			</div>
+			<listOrg type="funding">
+				<org type="funding" xml:id="_aXSV5R5">
+					<idno type="grant-number">203147/Z/16/Z</idno>
+				</org>
+				<org type="funding" xml:id="_yBPAhpQ">
+					<idno type="grant-number">205103/Z/16/Z</idno>
+				</org>
+				<org type="funding" xml:id="_wC47f6Q">
+					<idno type="grant-number">224562/Z/21/Z</idno>
+				</org>
+				<org type="funding" xml:id="_kUTCm6T">
+					<idno type="grant-number">MR/M023672/1</idno>
+				</org>
+				<org type="funding" xml:id="_SnuFFSc">
+					<idno type="grant-number">TSA 2014/ 02</idno>
+				</org>
+			</listOrg>
+
+			<div type="conflict">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Disclosure statement</head><p>No potential conflict of interest was reported by the author(s).</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct status="extracted" xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Effects of age, education, and gender on verbal fluency in healthy adult arabic-speakers in Egypt</title>
+		<author>
+			<persName><forename type="first">Abdel</forename><surname>Aziz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Khater</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">S</forename><surname>Emara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tawfik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">M</forename><surname>Rasheedy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Mohammedin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">S</forename><surname>Tolba</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">F</forename><surname>El-Gabry</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Qassem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename></persName>
+		</author>
+		<idno type="DOI">10.1080/23279095.2016.1185424</idno>
+		<ptr target="https://doi.org/10.1080/23279095.2016.1185424" />
+	</analytic>
+	<monogr>
+		<title level="j">Applied Neuropsychology Adult</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="331" to="341" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Spontaneous language production and aging: Sex and educational effects</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ardila</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Rosselli</surname></persName>
+		</author>
+		<idno type="DOI">10.3109/00207459608990754</idno>
+		<ptr target="https://doi.org/10.3109/00207459608990754" />
+	</analytic>
+	<monogr>
+		<title level="j">The International Journal of Neuroscience</title>
+		<imprint>
+			<biblScope unit="volume">87</biblScope>
+			<biblScope unit="issue">1-2</biblScope>
+			<biblScope unit="page" from="71" to="78" />
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Verbal learning across the lifespan: An analysis of the components of the learning curve</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Blachstein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Vakil</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/13825585.2015.1063579</idno>
+		<ptr target="https://doi.org/10.1080/13825585.2015.1063579" />
+	</analytic>
+	<monogr>
+		<title level="j">Neuropsychology, Development and Cognition B Aging Neuropsychology and Cognition</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="133" to="153" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Bringing proportional recovery into proportion: Bayesian modelling of post-stroke motor impairment</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">K</forename><surname>Bonkhoff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Bzdok</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">G</forename><surname>Guggisberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">L</forename><surname>Hawe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">P</forename><surname>Dukelow</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">K</forename><surname>Rehme</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">R</forename><surname>Fink</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Grefkes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Bowman</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/brain/awaa146</idno>
+		<ptr target="https://doi.org/10.1093/brain/awaa146" />
+	</analytic>
+	<monogr>
+		<title level="j">Brain A Journal of Neurology</title>
+		<imprint>
+			<biblScope unit="volume">143</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="2189" to="2206" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Normative data on the boston diagnostic aphasia examination, parietal lobe battery, and the boston naming test</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename><surname>Borod</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Goodglass</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Kaplan</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/01688638008403793</idno>
+		<ptr target="https://doi.org/10.1080/01688638008403793" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Clinical Neuropsychology</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="209" to="215" />
+			<date type="published" when="1980">1980</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Inflated estimates of proportional recovery from stroke</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Bowman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bonkhoff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Grefkes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Price</surname></persName>
+		</author>
+		<idno type="DOI">10.1161/STROKEAHA.120.033031</idno>
+		<ptr target="https://doi.org/10.1161/STROKEAHA.120.033031" />
+	</analytic>
+	<monogr>
+		<title level="j">Stroke</title>
+		<imprint>
+			<biblScope unit="volume">52</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="1915" to="1920" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Precision rehabilitation for aphasia by patient age, sex, aphasia severity, and time since stroke? A prespecified, systematic review-based, individual participant data, network, subgroup meta-analysis</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Brady</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ali</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Vandenberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">J</forename><surname>Williams</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">R</forename><surname>Williams</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Abo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Becker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bowen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Brandenburg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Breitenstein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Bruehl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Copland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">B</forename><surname>Cranfill</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">D</forename><surname>Pietro-Bachmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Enderby</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fillingham</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Galli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Gandolfi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Glize</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Harris</forename><surname>Wright</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename></persName>
+		</author>
+		<idno type="DOI">10.1177/17474930221097477</idno>
+		<ptr target="https://doi.org/10.1177/17474930221097477" />
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Stroke</title>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="1067" to="1077" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b7">
+	<monogr>
+		<title level="m" type="main">Speech and language therapy for aphasia following stroke. Cochrane Database of Systematic Reviews</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Brady</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Kelly</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Godwin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Enderby</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Campbell</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/14651858.CD000425.pub4</idno>
+		<idno>CD000425. 2016</idno>
+		<ptr target="https://doi.org/10.1002/14651858.CD000425.pub4" />
+		<imprint>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Category fluency test: Effects of age, gender and education on total scores, clustering and switching in Brazilian Portuguese-speaking subjects</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Brucki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">S</forename><surname>Rocha</surname></persName>
+		</author>
+		<idno type="DOI">10.1590/S0100-879X2004001200002</idno>
+		<ptr target="https://doi.org/10.1590/S0100-879X2004001200002" />
+	</analytic>
+	<monogr>
+		<title level="j">Brazilian Journal of Medical &amp; Biological Research</title>
+		<imprint>
+			<biblScope unit="volume">37</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page" from="1771" to="1777" />
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Demographically corrected normative standards for the English version of the NIH toolbox cognition battery</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">B</forename><surname>Casaletto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Umlauf</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Beaumont</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Gershon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Slotkin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Akshoomoff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">K</forename><surname>Heaton</surname></persName>
+		</author>
+		<idno type="DOI">10.1017/S1355617715000351</idno>
+		<ptr target="https://doi.org/10.1017/S1355617715000351" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the International Neuropsychological Society</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="378" to="391" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Semantic fluency and phonemic fluency: Regression-based norms for the Portuguese population</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Cavaco</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gonçalves</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Pinto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Almeida</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Gomes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Moreira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fernandes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Teixeirapinto</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/arclin/act001</idno>
+		<ptr target="https://doi.org/10.1093/arclin/act001" />
+	</analytic>
+	<monogr>
+		<title level="j">Archives of Clinical Neuropsychology</title>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="262" to="271" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b11">
+	<analytic>
+		<title level="a" type="main">A normative study of the digit span in an educationally diverse elderly population</title>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">J</forename><surname>Choi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">Y</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">H</forename><surname>Seo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">K</forename><surname>Jo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">K</forename><surname>Sohn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">M</forename><surname>Choe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">S</forename><surname>Byun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">W</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">G</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename><surname>Yoon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">H</forename><surname>Jhoo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">W</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">I</forename><surname>Woo</surname></persName>
+		</author>
+		<idno type="DOI">10.4306/pi.2014.11.1.39</idno>
+		<ptr target="https://doi.org/10.4306/pi.2014.11.1.39" />
+	</analytic>
+	<monogr>
+		<title level="j">Psychiatry Investigation</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="39" to="43" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Effect of socioeconomic status on aphasia severity and recovery</title>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">T</forename><surname>Connor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">K</forename><surname>Obler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Tocco</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">M</forename><surname>Fitzpatrick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Albert</surname></persName>
+		</author>
+		<idno type="DOI">10.1006/brln.2001.2459</idno>
+		<ptr target="https://doi.org/10.1006/brln" />
+	</analytic>
+	<monogr>
+		<title level="j">Brain and Language</title>
+		<imprint>
+			<biblScope unit="volume">78</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page">2459</biblScope>
+			<date type="published" when="2001">2001. 2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b13">
+	<analytic>
+		<title level="a" type="main">The effects of age and education on executive functioning and oral naming performance in greek cypriot adults: The neurocognitive study for the aging</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Constantinidou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Christodoulou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Prokopiou</surname></persName>
+		</author>
+		<idno type="DOI">10.1159/000340015</idno>
+		<ptr target="https://doi.org/10.1159/000340015" />
+	</analytic>
+	<monogr>
+		<title level="j">Folia Phoniatrica Et Logopaedica</title>
+		<imprint>
+			<biblScope unit="volume">64</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="187" to="198" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Is cognitive reserve associated with the prevention of cognitive decline after stroke? A systematic review and meta-analysis</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Contador</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Alzola</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Stern</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>De La Torre-Luque</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Bermejo-Pareja</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Fernández-Calvo</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.arr.2022.101814</idno>
+		<ptr target="https://doi.org/10.1016/j.arr.2022.101814" />
+	</analytic>
+	<monogr>
+		<title level="j">Ageing Research Reviews</title>
+		<imprint>
+			<biblScope unit="volume">84</biblScope>
+			<biblScope unit="page">101814</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Prognosis for aphasia: Relationship between selected biographical and behavioural variables and outcome and improvement</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>De Riesthal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Wertz</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/02687030444000381</idno>
+		<ptr target="https://doi.org/10.1080/02687030444000381" />
+	</analytic>
+	<monogr>
+		<title level="j">Aphasiology</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="899" to="915" />
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Formal education, socioeconomic status, and the severity of aphasia after stroke</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>González-Fernández</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Davis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">J</forename><surname>Molitoris</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Newhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Leigh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">E</forename><surname>Hillis</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.apmr.2011.05.026</idno>
+		<ptr target="https://doi.org/10.1016/j.apmr.2011.05.026" />
+	</analytic>
+	<monogr>
+		<title level="j">Archives of Physical Medicine &amp; Rehabilitation</title>
+		<imprint>
+			<biblScope unit="volume">92</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="1809" to="1813" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Recovery after stroke: Not so proportional after all?</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M H</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Friston</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Rotshtein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Bowman</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/brain/awy302</idno>
+		<ptr target="https://doi.org/10.1093/brain/awy302" />
+	</analytic>
+	<monogr>
+		<title level="j">Brain A Journal of Neurology</title>
+		<imprint>
+			<biblScope unit="volume">142</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="15" to="22" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Right hemisphere structural adaptation and changing language skills years after left hemisphere stroke</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M H</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Prejawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Bruce</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Haigh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Lim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ramsden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Oberhuber</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Ludersdorfer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Crinion</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Seghier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/brain/awx086</idno>
+		<ptr target="https://doi.org/10.1093/brain/awx086" />
+	</analytic>
+	<monogr>
+		<title level="j">Brain</title>
+		<imprint>
+			<biblScope unit="volume">140</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="1718" to="1728" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Theory of probability</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Jeffreys</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1961">1961</date>
+			<publisher>Oxford University Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Predictors beyond the lesion: Health and demographic factors associated with aphasia severity</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Johnson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Nemati</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Bonilha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Rorden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Busby</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Basilakos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Newman-Norlund</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">E</forename><surname>Hillis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Hickok</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fridriksson</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cortex.2022.06.013</idno>
+		<ptr target="https://doi.org/10.1016/j.cortex.2022.06.013" />
+	</analytic>
+	<monogr>
+		<title level="j">Cortex, A Journal Devoted to the Study of the Nervous System and Behavior</title>
+		<imprint>
+			<biblScope unit="volume">154</biblScope>
+			<biblScope unit="page" from="375" to="389" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Changes in language function and recovery-related prognostic factors in first-ever left hemispheric ischemic stroke</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">A</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">S</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">H</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">Y</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">I</forename><surname>Shin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">Y</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">T</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">H</forename><surname>Kang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">Y</forename><surname>Choi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">H</forename><surname>Kim</surname></persName>
+		</author>
+		<idno type="DOI">10.5535/arm.2019.43.6.625</idno>
+		<ptr target="https://doi.org/10.5535/arm.2019.43.6.625" />
+	</analytic>
+	<monogr>
+		<title level="j">Annals of Rehabilitation Medicine</title>
+		<imprint>
+			<biblScope unit="volume">43</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="625" to="634" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Association of cognitive reserve with stroke outcome: A protocol for a systematic review</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Laura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">U</forename><surname>Roza</surname></persName>
+		</author>
+		<idno type="DOI">10.1136/bmjopen-2021-059378</idno>
+		<ptr target="https://doi.org/10.1136/bmjopen-2021-059378" />
+	</analytic>
+	<monogr>
+		<title level="j">BMJ Open</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page">59378</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Improvement in aphasia scores after stroke is well predicted by initial severity</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">M</forename><surname>Lazar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Minzer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Antoniello</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R</forename><surname>Festa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">W</forename><surname>Krakauer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">S</forename><surname>Marshall</surname></persName>
+		</author>
+		<idno type="DOI">10.1161/STROKEAHA.109.577338</idno>
+		<ptr target="https://doi.org/10.1161/STROKEAHA.109.577338" />
+	</analytic>
+	<monogr>
+		<title level="j">Stroke</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="1485" to="1488" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Variability in language recovery after first-time stroke</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">M</forename><surname>Lazar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">E</forename><surname>Speizer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R</forename><surname>Festa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">W</forename><surname>Krakauer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">S</forename><surname>Marshall</surname></persName>
+		</author>
+		<idno type="DOI">10.1136/jnnp.2007.122457</idno>
+		<ptr target="https://doi.org/10.1136/jnnp.2007.122457" />
+	</analytic>
+	<monogr>
+		<title level="j">Neurosurgery &amp; Psychiatry</title>
+		<imprint>
+			<biblScope unit="volume">79</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="530" to="534" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+	<note>Journal of Neurology</note>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b25">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">D</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E.-J</forename><surname>Wagenmakers</surname></persName>
+		</author>
+		<title level="m">Bayesian cognitive modeling: A practical course</title>
+		<imprint>
+			<publisher>Cambridge University Press</publisher>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Auditory comprehension deficits in post-stroke aphasia: Neurologic and demographic correlates of outcome and recovery</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Lwi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">J</forename><surname>Herron</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">C</forename><surname>Curran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">V</forename><surname>Ivanova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Schendel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">F</forename><surname>Dronkers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">V</forename><surname>Baldo</surname></persName>
+		</author>
+		<idno type="DOI">10.3389/fneur.2021.680248</idno>
+		<ptr target="https://doi.org/10.3389/fneur.2021.680248" />
+	</analytic>
+	<monogr>
+		<title level="j">Frontiers in Neurology</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Principles of proportional recovery after stroke generalize to neglect and aphasia</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">A</forename><surname>Marchi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Ptak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Dipietro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Schnider</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">G</forename><surname>Guggisberg</surname></persName>
+		</author>
+		<idno type="DOI">10.1111/ene.13296</idno>
+		<ptr target="https://doi.org/10.1111/ene.13296" />
+	</analytic>
+	<monogr>
+		<title level="j">European Journal of Neurology</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="1084" to="1087" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Education and dementia in the context of the cognitive reserve hypothesis: A systematic review with meta-analyses and qualitative analyses</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Meng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>D'arcy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Laks</surname></persName>
+		</author>
+		<idno type="DOI">10.1371/journal.pone.0038268</idno>
+		<ptr target="https://doi.org/10.1371/journal.pone.0038268" />
+	</analytic>
+	<monogr>
+		<title level="j">PLOS ONE</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page">38268</biblScope>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Effects of age, education, and living environment on Boston naming test performance</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Neils</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Baris</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Carter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">L</forename><surname>Dell'aira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Nordloh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Weisiger</surname></persName>
+		</author>
+		<idno type="DOI">10.1044/jshr.3805.1143</idno>
+		<ptr target="https://doi.org/10.1044/jshr.3805.1143" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Speech, Language, &amp; Hearing Research</title>
+		<imprint>
+			<biblScope unit="volume">38</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="1143" to="1149" />
+			<date type="published" when="1995">1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Cognitive reserve in stroke and traumatic brain injury patients</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Nunnari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Bramanti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Marino</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10072-014-1897-z</idno>
+		<ptr target="https://doi.org/10.1007/s10072-014-1897-z" />
+	</analytic>
+	<monogr>
+		<title level="j">Office for National Statistics</title>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="1513" to="1518" />
+			<date type="published" when="2014">2014. 2023</date>
+		</imprint>
+	</monogr>
+	<note>Neurological Sciences Education. Census</note>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Do social determinants influence post-stroke aphasia outcomes? A scoping review</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>O'halloran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Renton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Harvey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">P</forename><surname>Mcsween</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Wallace</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/09638288.2023.2193760</idno>
+		<ptr target="https://doi.org/10.1080/09638288.2023.2193760" />
+	</analytic>
+	<monogr>
+		<title level="j">Disability and Rehabilitation</title>
+		<imprint>
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="1" to="14" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b32">
+	<analytic>
+		<title level="a" type="main">García de la Cadena</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Olabarrieta-Landa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Rivera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Galarza-Del-Angel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">T</forename><surname>Garza</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">P</forename><surname>Saracho</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Rodríguez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Chávez-Oliveros</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Rábago</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Leibach</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Schebela</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Martínez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Luna</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Longoni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ocampo-Barba</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Rodríguez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Aliaga</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Esenarro</surname></persName>
+		</author>
+		<idno type="DOI">10.3233/NRE-151279</idno>
+		<ptr target="https://doi.org/10.3233/NRE-151279" />
+	</analytic>
+	<monogr>
+		<title level="m">Verbal fluency tests: Normative data for the Latin American Spanish speaking adult population</title>
+		<editor>
+			<persName><forename type="first">C</forename><surname>Perrin</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">B</forename><forename type="middle">P</forename><surname>Arango-Lasprilla</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename></persName>
+		</editor>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="volume">37</biblScope>
+			<biblScope unit="page" from="515" to="561" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Effects of literacy and education on measures of word fluency</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Ratcliff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ganguli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Chandra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Sharma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Belle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Seaberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Pandav</surname></persName>
+		</author>
+		<idno type="DOI">10.1006/brln.1997.1858</idno>
+		<ptr target="https://doi.org/10.1006/brln.1997.1858" />
+	</analytic>
+	<monogr>
+		<title level="j">Brain and Language</title>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="115" to="122" />
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Performance of French-speaking Quebec adults on the Boston naming test</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">M</forename><surname>Roberts</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Doucet</surname></persName>
+		</author>
+		<ptr target="https://cjslpa.ca/files/2011_CJSLPA_Vol_35/No_03_214-277/Roberts_Doucet_CJSLPA_2011.pdf" />
+	</analytic>
+	<monogr>
+		<title level="j">Canadian Journal of Speech-Language Pathology &amp; Audiology</title>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="page" from="254" to="267" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Better long-term speech outcomes in stroke survivors who received early clinical speech and language therapy: What&apos;s driving recovery?</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Roberts</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">M</forename><surname>Bruce</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Lim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Woodgate</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Ledingham</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Anderson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">L</forename><surname>Lorca-Puls</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gajardo-Vidal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M H</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">W</forename><surname>Green</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">T</forename><surname>Crinion</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/09602011.2021.1944883</idno>
+		<ptr target="https://doi.org/10.1080/09602011.2021.1944883" />
+	</analytic>
+	<monogr>
+		<title level="j">Neuropsychological Rehabilitation</title>
+		<imprint>
+			<biblScope unit="volume">32</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="2319" to="2341" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Normative data for test of verbal fluency and naming on Ecuadorian adult population</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Rodríguez-Lorenzana</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Benito-Sánchez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Adana-Díaz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">P</forename><surname>Paz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Yacelga Ponce</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Rivera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename><surname>Arango-Lasprilla</surname></persName>
+		</author>
+		<idno type="DOI">10.3389/fpsyg.2020.00830</idno>
+		<ptr target="https://doi.org/10.3389/fpsyg.2020.00830" />
+	</analytic>
+	<monogr>
+		<title level="j">Frontiers in Psychology</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="page">830</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Cognitive reserve as an emerging concept in stroke recovery</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Rosenich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Hordacre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Paquet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">A</forename><surname>Koblar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">L</forename><surname>Hillier</surname></persName>
+		</author>
+		<idno type="DOI">10.1177/1545968320907071</idno>
+		<ptr target="https://doi.org/10.1177/1545968320907071" />
+	</analytic>
+	<monogr>
+		<title level="j">Neurorehabilitation and Neural Repair</title>
+		<imprint>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="187" to="199" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b38">
+	<analytic>
+		<title level="a" type="main">The PLORAS database: A data repository for predicting language outcome and recovery after stroke</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Seghier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Patel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Prejawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ramsden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Selmer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Lim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Browne</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Rae</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Haigh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Ezekiel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M H</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neuroimage.2015.03.083</idno>
+		<ptr target="https://doi.org/10.1016/j.neuroimage.2015.03.083" />
+	</analytic>
+	<monogr>
+		<title level="j">Neuroimage</title>
+		<imprint>
+			<biblScope unit="volume">124</biblScope>
+			<biblScope unit="page" from="1208" to="1212" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Lesion identification using unified segmentation-normalisation models and fuzzy clustering</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Seghier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ramlackhansingh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Crinion</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neuroimage.2008.03.028</idno>
+		<ptr target="https://doi.org/10.1016/j.neuroimage.2008.03.028" />
+	</analytic>
+	<monogr>
+		<title level="j">Neuroimage</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1253" to="1266" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b40">
+	<analytic>
+		<title level="a" type="main">Neurobiological models of the impact of adversity on education</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Sheridan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">A</forename><surname>Mclaughlin</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cobeha.2016.05.013</idno>
+		<ptr target="https://doi.org/10.1016/j.cobeha.2016.05.013" />
+	</analytic>
+	<monogr>
+		<title level="j">Current Opinion in Behavioural Sciences</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="page" from="108" to="113" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b41">
+	<analytic>
+		<title level="a" type="main">A web-based normative calculator for the uniform data set (UDS) neuropsychological test battery</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">D</forename><surname>Shirk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">B</forename><surname>Mitchell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">W</forename><surname>Shaughnessy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename><surname>Sherman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">J</forename><surname>Locascio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Weintraub</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Atri</surname></persName>
+		</author>
+		<idno type="DOI">10.1186/alzrt94query</idno>
+		<ptr target="https://doi.org/10.1186/alzrt94query" />
+	</analytic>
+	<monogr>
+		<title level="j">Alzheimer&apos;s Research &amp; Therapy</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page">32</biblScope>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b42">
+	<analytic>
+		<title level="a" type="main">Adaptation and norm determination study of the Boston naming test for healthy Turkish elderly</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">E</forename><surname>Soylu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Cangöz</surname></persName>
+		</author>
+		<idno type="DOI">10.5152/npa.2017.19331</idno>
+		<ptr target="https://doi.org/10.5152/npa.2017.19331" />
+	</analytic>
+	<monogr>
+		<title level="j">Noro psikiyatri arsivi</title>
+		<imprint>
+			<biblScope unit="volume">55</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="341" to="348" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b43">
+	<analytic>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Stern</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neuropsychologia.2009.03.004</idno>
+		<idno>03.004</idno>
+		<ptr target="https://doi.org/10.1016/j.neuropsychologia" />
+	</analytic>
+	<monogr>
+		<title level="m">Cognitive reserve</title>
+		<imprint>
+			<date type="published" when="2009">2009. 2009</date>
+			<biblScope unit="volume">47</biblScope>
+			<biblScope unit="page" from="2015" to="2028" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b44">
+	<analytic>
+		<title level="a" type="main">Cognitive reserve in ageing and Alzheimer&apos;s disease</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Stern</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/S1474-4422(12)70191-6</idno>
+		<ptr target="https://doi.org/10.1016/S1474-4422(12)70191-6" />
+	</analytic>
+	<monogr>
+		<title level="j">Lancet Neurology</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="page" from="1006" to="1012" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b45">
+	<analytic>
+		<title level="a" type="main">A framework for concepts of reserve and resilience in aging</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Stern</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Albert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">A</forename><surname>Barnes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Cabeza</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pascual-Leone</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">R</forename><surname>Rapp</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neurobiolaging.2022.10.015</idno>
+		<ptr target="https://doi.org/10.1016/j.neurobiolaging.2022.10.015" />
+	</analytic>
+	<monogr>
+		<title level="j">Neurobiology of Aging</title>
+		<imprint>
+			<biblScope unit="volume">124</biblScope>
+			<biblScope unit="page" from="100" to="103" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b46">
+	<analytic>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Stern</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">M</forename><surname>Arenaza-Urquijo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Bartrés-Faz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Belleville</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Cantilon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Chetelat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ewers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Franzmeier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Kempermann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">S</forename><surname>Kremen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Okonkwo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Scarmeas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Soldan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Udehmomoh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Valenzuela</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Vemuri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Vuoksimaa</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jalz.2018.07.219query</idno>
+		<ptr target="https://doi.org/10.1016/j.jalz.2018.07.219query" />
+	</analytic>
+	<monogr>
+		<title level="m">Whitepaper: Defining and investigating cognitive reserve, brain reserve, and brain maintenance</title>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page" from="1305" to="1311" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b47">
+	<monogr>
+		<author>
+			<persName><forename type="first">K</forename><surname>Swinburn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Howard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Porter</surname></persName>
+		</author>
+		<title level="m">Comprehensive aphasia test</title>
+		<imprint>
+			<publisher>Psychology Press</publisher>
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Role of cognitive reserve in ischemic stroke prognosis: A systematic review</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Yuan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Liang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wang</surname></persName>
+		</author>
+		<idno type="DOI">10.3389/fneur.2023.1100469</idno>
+		<ptr target="https://doi.org/10.3389/fneur.2023.1100469" />
+	</analytic>
+	<monogr>
+		<title level="j">Frontiers in Neurology</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Normative data stratified by age and education for two measures of verbal fluency: FAS and animal naming</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">N</forename><surname>Tombaugh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kozak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Rees</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/arclin/14.2.167</idno>
+		<ptr target="https://doi.org/10.1093/arclin/14.2.167" />
+	</analytic>
+	<monogr>
+		<title level="j">Archives of Clinical Neuropsychology</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="167" to="177" />
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b50">
+	<analytic>
+		<title level="a" type="main">Normative data for the animal, profession and letter M naming verbal fluency tests for Dutch speaking participants and the effects of age, education, and sex</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Van Der Elst</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">P</forename><surname>Van Boxtel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">J</forename><surname>Van Breukelen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Jolles</surname></persName>
+		</author>
+		<idno type="DOI">10.1017/S1355617706060115</idno>
+		<ptr target="https://doi.org/10.1017/S1355617706060115" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the International Neuropsychological Society</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="80" to="89" />
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Description of an intensive residential aphasia treatment program: Rationale, clinical processes, and outcomes</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">L</forename><surname>Winans-Mitrik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">D</forename><surname>Hula</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">W</forename><surname>Dickey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">G</forename><surname>Schumacher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Swoyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">J</forename><surname>Doyle</surname></persName>
+		</author>
+		<idno type="DOI">10.1044/2014_AJSLP-13-0102</idno>
+		<ptr target="https://doi.org/10.1044/2014_AJSLP-13-0102" />
+	</analytic>
+	<monogr>
+		<title level="j">American Journal of Speech-Language Pathology</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="330" to="342" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b52">
+	<analytic>
+		<title level="a" type="main">Determinants of living well with aphasia in the first year poststroke: A prospective cohort study</title>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">E</forename><surname>Worrall</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Hudson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Khan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Ryan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Simmons-Mackie</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.apmr.2016.06.020</idno>
+		<ptr target="https://doi.org/10.1016/j.apmr.2016.06.020" />
+	</analytic>
+	<monogr>
+		<title level="j">Archives of Physical Medicine &amp; Rehabilitation</title>
+		<imprint>
+			<biblScope unit="volume">98</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="235" to="240" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Influence of age and schooling in written discourse of healthy adults</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Zanichelli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">P</forename><surname>Fonseca</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">Z</forename><surname>Ortiz</surname></persName>
+		</author>
+		<idno type="DOI">10.1186/s41155-020-00148-7</idno>
+		<ptr target="https://doi.org/10.1186/s41155-020-00148-7" />
+	</analytic>
+	<monogr>
+		<title level="j">Psicologia Reflexão e Crítica</title>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">10</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b54">
+	<analytic>
+		<title level="a" type="main">Normative data stratified for age, education, and gender on the Boston naming test</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">F</forename><surname>Zec</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">R</forename><surname>Burkett</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Markwell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">L</forename><surname>Larsen</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/13854040701339356</idno>
+		<ptr target="https://doi.org/10.1080/13854040701339356" />
+	</analytic>
+	<monogr>
+		<title level="j">The Clinical Neuropsychologist</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="617" to="637" />
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b55">
+	<analytic>
+		<title level="a" type="main">Brazilian preliminary norms and investigation of age and education effects on the modified Wisconsin card sorting test, stroop color and word test and digit span test in adults</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Zimmermann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">O</forename><surname>Cardoso</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">M</forename><surname>Trentini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Grassi-Oliveira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">P</forename><surname>Fonseca</surname></persName>
+		</author>
+		<idno type="DOI">10.1590/1980-57642015DN92000006</idno>
+		<ptr target="https://doi.org/10.1590/1980-57642015DN92000006" />
+	</analytic>
+	<monogr>
+		<title level="j">Dementia and Neuropsychologia</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="120" to="127" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Testing the disconnectome symptom discoverer model on out-of-sample post-stroke language outcomes</title>
+				<funder ref="#_MapEEYN">
+					<orgName type="full">Stroke Association</orgName>
+				</funder>
+				<funder ref="#_MSCVJqb">
+					<orgName type="full">European Research Council</orgName>
+					<orgName type="abbreviated">ERC</orgName>
+				</funder>
+				<funder ref="#_3EgdUDF">
+					<orgName type="full">Wellcome</orgName>
+				</funder>
+				<funder ref="#_HXPfpQm">
+					<orgName type="full">Donders Mohrmann</orgName>
+				</funder>
+				<funder ref="#_GbxWvqQ #_Gmrw5Yk">
+					<orgName type="full">unknown</orgName>
+				</funder>
+				<funder ref="#_jbyqVRA">
+					<orgName type="full">Medical Research Council</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability  status="unknown">
+					<licence/>
+				</availability>
+				<date type="published" when="2026-11-09">09 November 2026</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct status="extracted">
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Thomas</forename><forename type="middle">M H</forename><surname>Hope</surname></persName>
+							<email>t.hope@ucl.ac.uk</email>
+							<idno type="ORCID">0000-0003-0714-8545</idno>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Department of Imaging Neuroscience</orgName>
+								<orgName type="department" key="dep2">Institute of Neurology</orgName>
+								<orgName type="laboratory">Wellcome Centre for Human Neuroimaging</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<postCode>WC1N 3AR</postCode>
+									<settlement>London</settlement>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">Department of Psychological and Social Sciences</orgName>
+								<orgName type="institution">John Cabot University</orgName>
+								<address>
+									<postCode>00162</postCode>
+									<settlement>Rome</settlement>
+									<country key="IT">Italy</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Douglas</forename><surname>Neville</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Department of Imaging Neuroscience</orgName>
+								<orgName type="department" key="dep2">Institute of Neurology</orgName>
+								<orgName type="laboratory">Wellcome Centre for Human Neuroimaging</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<postCode>WC1N 3AR</postCode>
+									<settlement>London</settlement>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Lia</forename><surname>Talozzi</surname></persName>
+							<affiliation key="aff2">
+								<orgName type="department">Department of Neurology and Neurological Sciences</orgName>
+								<orgName type="institution">Stanford University School of Medicine</orgName>
+								<address>
+									<postCode>94304</postCode>
+									<settlement>Stanford</settlement>
+									<region>CA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Chris</forename><surname>Foulon</surname></persName>
+							<affiliation key="aff3">
+								<orgName type="laboratory">Brain Connectivity and Behaviour Laboratory</orgName>
+								<orgName type="institution">Sorbonne Universities</orgName>
+								<address>
+									<postCode>75006</postCode>
+									<settlement>Paris</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="department">Queen Square Institute of Neurology</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<postCode>WC1N 3BG</postCode>
+									<settlement>London</settlement>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Stephanie</forename><forename type="middle">J</forename><surname>Forkel</surname></persName>
+							<idno type="ORCID">0000-0003-0493-0283</idno>
+							<affiliation key="aff3">
+								<orgName type="laboratory">Brain Connectivity and Behaviour Laboratory</orgName>
+								<orgName type="institution">Sorbonne Universities</orgName>
+								<address>
+									<postCode>75006</postCode>
+									<settlement>Paris</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="department">Queen Square Institute of Neurology</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<postCode>WC1N 3BG</postCode>
+									<settlement>London</settlement>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff5">
+								<orgName type="department">Donders Institute for Brain Cognition Behaviour</orgName>
+								<orgName type="institution">Radboud University</orgName>
+								<address>
+									<postCode>6525</postCode>
+									<settlement>Nijmegen</settlement>
+									<country key="NL">The Netherlands</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff6">
+								<orgName type="department" key="dep1">Centre for Neuroimaging Sciences</orgName>
+								<orgName type="department" key="dep2">Department of Neuroimaging</orgName>
+								<orgName type="department" key="dep3">Institute of Psychiatry, Psychology and Neuroscience</orgName>
+								<orgName type="institution">King&apos;s College London</orgName>
+								<address>
+									<postCode>SE5 8AF</postCode>
+									<settlement>London</settlement>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff8">
+								<orgName type="department">Department of Imaging</orgName>
+								<orgName type="institution">Neuroscience University College London</orgName>
+								<address>
+									<addrLine>12 Queen Square</addrLine>
+									<postCode>WC1N 3AR</postCode>
+									<settlement>London</settlement>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Michel</forename><surname>Thiebaut De Schotten</surname></persName>
+							<idno type="ORCID">0000-0002-0329-1814</idno>
+							<affiliation key="aff3">
+								<orgName type="laboratory">Brain Connectivity and Behaviour Laboratory</orgName>
+								<orgName type="institution">Sorbonne Universities</orgName>
+								<address>
+									<postCode>75006</postCode>
+									<settlement>Paris</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff7">
+								<orgName type="department" key="dep1">Groupe d&apos;Imagerie Neurofonctionnelle</orgName>
+								<orgName type="department" key="dep2">Institut des Maladies Neurodégénératives</orgName>
+								<orgName type="laboratory">UMR 5293</orgName>
+								<orgName type="institution" key="instit1">CNRS</orgName>
+								<orgName type="institution" key="instit2">CEA</orgName>
+								<orgName type="institution" key="instit3">University of Bordeaux</orgName>
+								<address>
+									<postCode>33076</postCode>
+									<settlement>Bordeaux</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Cathy</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Department of Imaging Neuroscience</orgName>
+								<orgName type="department" key="dep2">Institute of Neurology</orgName>
+								<orgName type="laboratory">Wellcome Centre for Human Neuroimaging</orgName>
+								<orgName type="institution">University College London</orgName>
+								<address>
+									<postCode>WC1N 3AR</postCode>
+									<settlement>London</settlement>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Testing the disconnectome symptom discoverer model on out-of-sample post-stroke language outcomes</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2026-11-09">09 November 2026</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">CD36ACC83885AC0B32F5475C505EF08B</idno>
+					<idno type="DOI">10.1093/brain/awad352</idno>
+					<note type="submission">Received September 15, 2023. Accepted September 29, 2023.</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.9.1" ident="GROBID" when="2026-11-09T16:58+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<label type="revision">0.9.1</label>
+					<label type="parameters">startPage=-1, endPage=-1, consolidateCitations=0, consolidateHeader=0, consolidateFunders=0, includeRawAffiliations=false, includeRawCitations=false, includeRawCopyrights=false, generateTeiIds=false, generateTeiCoordinates=[], flavor=null, debugLabelingCollector=disabled</label>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Introduction</head><p>Stroke is common, and its consequent brain damage can cause various cognitive impairments. Associations between where and how much brain lesion damage a patient has suffered, and the particular impairments that injury has caused (lesion-symptom associations) offer potentially compelling insights into how the brain implements cognition. <ref type="bibr" target="#b0">1</ref> A better understanding of those associations can also fill a gap in current stroke medicine by helping us to predict how individual patients might recover from post-stroke impairments. <ref type="bibr" target="#b1">2</ref> Most recent work in this area employs machine learning models trained with data from stroke patients whose mid-to-long-term outcomes are known. <ref type="bibr" target="#b1">[2]</ref><ref type="bibr" target="#b2">[3]</ref><ref type="bibr" target="#b3">[4]</ref> These machine learning models are tested by predicting new outcomes-typically scores on standardized tests of post-stroke impairment-for patients whose data were not used to train the model. Traditionally, these validation results have been shared in peerreviewed publications describing the model and its training. But recently, and for the first time in this field (as far as we know), one of these pretrained models has been made public-The Disconnectome Symptom Discoverer model (DSD) which draws its predictors from structural disconnection information inferred from stroke patients' brain MRI. <ref type="bibr" target="#b4">5</ref> Here, we test the DSD model on wholly independent data, never seen by the model authors, before they published it. Specifically, we test whether its predictive performance is just as accurate as (i.e. not significantly worse than) that reported in the original (Washington University) dataset, when predicting new patients' outcomes at a similar time post-stroke (∼1 year post-stroke) and also in another independent sample tested later (5+ years) poststroke. A failure to generalize the DSD model occurs if it performs significantly better in the Washington data than in our data from patients tested at a similar time point (∼1 year post-stroke). In addition, a significant decrease in predictive performance for the more chronic sample would be evidence that lesion-symptom associations differ at ∼1 year post-stroke and &gt;5 years post-stroke.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Materials and methods</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>The Disconnectome Symptom Discoverer model</head><p>The technical details of the DSD model are described in Talozzi et al., <ref type="bibr" target="#b4">5</ref> though most of those details are irrelevant to this work, where we treat the model as a black box.</p><p>The input to the DSD model is a binary lesion image in standard Montreal Neurological Institute (MNI) space. The outputs are predicted scores on a wide range of tasks, which include tasks assessing language outcomes after stroke, derived from the Western Aphasia Battery (WAB). <ref type="bibr" target="#b5">6</ref> </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Test data</head><p>Our independent sample is drawn from the Predicting Language Outcomes and Recovery After Stroke (PLORAS) database. <ref type="bibr" target="#b6">7</ref> The database associates more than 1000 stroke patients' brain MRI and demographic/clinical data with language scores derived from the Comprehensive Aphasia Test (CAT). <ref type="bibr" target="#b7">8</ref> Though the CAT is similar to the WAB in that both purport to measure the same or similar language skills, CAT tasks are not identical to WAB tasks. For this reason, we focused on two CAT tasks only. The CAT semantic fluency task was selected because it is essentially the same in the WAB and the CAT-asking patients to name as many animals as possible in 1 min. Likewise, the visual naming task is similar in the WAB and CAT-requiring patients to name a series of common objects, depicted in pictures.</p><p>MRI preprocessing steps are described in detail elsewhere <ref type="bibr" target="#b6">7</ref> ; we use a semi-automated procedure to segment lesions, which is an elaboration of the popular Unified Segmentation algorithm, extended to cater to the damaged brain. <ref type="bibr" target="#b8">9</ref> This is in contrast to the Washington dataset, in which lesions were segmented by hand. Still, both approaches yield the required inputs to the DSD model, which are a 2 × 2 × 2 mm binary lesion image per patient, in standard MNI space. The DSD models converts these lesion images into a disconnectome map using routines distributed with the BCBtoolkit, and making reference to a dataset of n = 176 tractographies derived from 7 T MRI diffusion-weighted scans from healthy controls.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Analyses</head><p>We report the results of two types of analysis. The first is a simple generalization of the pre-trained DSD model to two subsamples of PLORAS patients. The first sample, 'PLORAS 1 year' (n = 314), includes patients whose naming and fluency skills were measured between 6and 18-months post-stroke: i.e. near the 1-year post-stroke time point at which outcomes were assessed in the Washington dataset. The second sample includes PLORAS patients whose naming and fluency skills were assessed &gt;5 years post-stroke, which we refer to as the 'PLORAS 5+ years' sample (n = 340). The rationale here follows from increasing evidence (including that derived from PLORAS data) that recovery from aphasia (language impairments) after stroke can continue over years. <ref type="bibr" target="#b9">10</ref> To the extent that this is true, the DSD model's predictive performance should be better when predicting outcomes at ∼1 year post-stroke (for which the model was trained) than when predicting outcomes many years later.</p><p>Since the DSD model does not predict CAT scores directly, we measure the quality of the predictions as the correlation between the predictions and selected CAT scores, and compare them to those reported for the Washington dataset (Supplementary Table <ref type="table">2</ref> in Talozzi et al. <ref type="bibr" target="#b4">5</ref> ), using a Fisher r-to-z transform. We also report comparisons between the DSD model's performance on PLORAS 5+ years patients and: (i) reported performance on the Washington dataset; and (ii) empirical predictive performance on the PLORAS 1 year patients.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Results</head><p>Table 1 reports summary statistics for the patient samples. When predicting outcomes for the PLORAS 1 year sample, performance was not significantly different from that reported for the Washington dataset (used to test the model in the report than introduced it). However, performance was significantly worse when predicting outcomes for the PLORAS 5+ years sample (though only marginally, for the fluency score) (Table <ref type="table">2</ref>).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Discussion</head><p>Our results suggest that the DSD model generalizes out-of-sample to patients not seen by the model's authors before they released it. Some numerical loss of predictive performance was observed for both fluency and naming skills of PLORAS patients assessed ∼1-year post-stroke, but this was not significant for either outcome variable. This is a good result for the model, and also a confirmation that CAT scores measuring naming and fluency skills are at least somewhat related to the WAB scores that purport to measure the same skills. Predictive performance was worse for the PLORAS 5+ years dataset, both relative to the Washington dataset (where the difference was only significant for naming), and relative to the PLORAS 1 year dataset (where the differences were significant for both naming and fluency). This might be evidence that lesionsymptom associations change between 1 and 5 or more years poststroke, consistent with other reports from the same database. <ref type="bibr" target="#b9">10</ref> However, the PLORAS 5+ year patients also had significantly larger lesions than the PLORAS 1-year sample (Wilcoxon rank sum test: z = 10.99, P &lt; 0.001), which could also explain the difference.</p><p>Table 1 Summary statistics for two subsamples of PLORAS patients Variable name PLORAS 1 year (median/IQR) PLORAS 5+ years (median/IQR) Time post-stroke, years 0.98/0.45 7.98/5.70 Age at stroke onset, years 59.38/18.55 53.64/18.11 Semantic fluency score 14.0/10.0 (109 impaired) 12.5/10.0 (137 impaired) Naming score 45/9 (73 impaired) 46/8 (91 impaired) Sample size 314 340 Lesion volume, cm 3 2.02/12.06 18.40/38.10 Table 2 Predictive results, and comparisons between them R (predicted versus empirical)/P Z (comparing R's)/P Washington PLORAS 1 year PLORAS 5+ years Washington versus 1 year Washington versus 5+ years PLORAS 1 year versus 5+ years Naming 0.35/0.024 a 0.31/&lt;0.001 0.00/0.86 0.28/0.78 2.92/0.004 4.27/&lt;0.001 Fluency 0.41/0.003 a 0.34/&lt;0.001 0.19/&lt;0.001 0.65/0.52 1.94/0.053 2.07/0.04</p><p>The leftmost three columns report the correlation between predicted scores and empirical scores for both naming (first row) and fluency (second row).</p><p>a Inferred from the report of the DSD model (Supplementary Table <ref type="table">2</ref> in Talozzi et al. <ref type="bibr" target="#b4">5</ref> ), rather than calculated directly.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>e12 | BRAIN 2024: 147; e11-e13</head><p>One limitation of this work is that MRI scans were acquired contemporaneously with behavioural data in the PLORAS dataset, whereas in the Washington dataset the model is predicting behavioural scores at ∼1 year post-stroke from scans acquired acutely, within 2 weeks post-onset. This difference is noteworthy, because stroke-induced lesions can change over time post-stroke. <ref type="bibr" target="#b1">2</ref> The difference might explain the numerical (non-significant) performance loss for the DSD model when predicting PLORAS 1 year patients' fluency and naming skills. Conversely, it might confound the comparison between performance on the Washington and PLORAS 5+ years datasets. The comparison could also be confounded because PLORAS patients' lesions were segmented algorithmically, whereas Washington patients' lesions were segmented manually.</p><p>Importantly at first sight the DSD model's performance appears not to match previously reported results in the field. For example, some of us have previously reported predictions that explain ∼60% of the variance in fluency and naming skills, 3 whereas the DSD model's predictions explain &lt;20% of that variance. The comparison may be misleading because the prior results are derived from (i) models combining lesion data with non-lesion factors; and (ii) internal cross-validation, rather than genuinely out-of-sample testing, as used here. It remains to be seen whether those previously reported performance levels can be replicated in analyses like that presented here.</p><p>Despite these limitations, our results are positive because we observe the DSD model to perform roughly as well in PLORAS patients as in the model authors' own data, despite the differences between the two datasets. That this equivalence wanes when predicting the same skills many years after stroke, highlights the need to model changes in language skills over many years poststroke. As far as we know, this is the first time that a pre-trained post-stroke prognostic model has been validated in this way, and in this sense, the DSD model represents a definite advance for the field. We hope that others will consider taking this same step in future, in releasing their own pre-trained models.</p></div>		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><head>Acknowledgements</head><p>PLORAS team members contributed to the acquisition and analysis of behavioural data. They include: <rs type="person">Storm Anderson</rs>, <rs type="person">Rachel Bruce</rs>, <rs type="person">Megan Docksey</rs>, <rs type="person">Kate Ledingham</rs>, <rs type="person">Louise Lim</rs>, <rs type="person">Sophie Roberts</rs>, and <rs type="person">Hayley Woodgate</rs>. We are indebted to the patients and their carers for their generous assistance with our research.</p></div>
+			</div>
+			<div type="funding">
+<div><p>Funding Data acquisition was funded by <rs type="funder">Wellcome</rs> [<rs type="grantNumber">203147/Z/16/Z</rs>; <rs type="grantNumber">205103/Z/ 16/Z</rs>; <rs type="grantNumber">224562/Z/21/Z</rs>], the <rs type="funder">Medical Research Council</rs> [<rs type="grantNumber">MR/M023672/1</rs>] and the <rs type="funder">Stroke Association</rs> [<rs type="grantNumber">TSA 2014/02</rs>]. The work was supported by the <rs type="funder">Donders Mohrmann</rs> Fellowship No. <rs type="grantNumber">2401515</rs> (S.J.F., NEUROVARIABILITY), awarded by the <rs type="institution">Donders Institute for Brain, Cognition and Behaviour</rs>, and the <rs type="funder">European Research Council (ERC)</rs> Consolidator grant No. <rs type="grantNumber">818521</rs> (M.T., DISCONNECTOME). M.T. conducts his work within the framework of the <rs type="institution">University of Bordeaux's IHU 'Precision &amp; Global Vascular Brain Health Institute-VBHI</rs>' and the <rs type="institution">RRI 'IMPACT</rs>', which received financial support from the <rs type="programName">France 2030 program</rs>.</p></div>
+			</div>
+			<listOrg type="funding">
+				<org type="funding" xml:id="_3EgdUDF">
+					<idno type="grant-number">203147/Z/16/Z</idno>
+				</org>
+				<org type="funding" xml:id="_GbxWvqQ">
+					<idno type="grant-number">205103/Z/ 16/Z</idno>
+				</org>
+				<org type="funding" xml:id="_jbyqVRA">
+					<idno type="grant-number">224562/Z/21/Z</idno>
+				</org>
+				<org type="funding" xml:id="_MapEEYN">
+					<idno type="grant-number">MR/M023672/1</idno>
+				</org>
+				<org type="funding" xml:id="_HXPfpQm">
+					<idno type="grant-number">TSA 2014/02</idno>
+				</org>
+				<org type="funding" xml:id="_MSCVJqb">
+					<idno type="grant-number">2401515</idno>
+				</org>
+				<org type="funding" xml:id="_Gmrw5Yk">
+					<idno type="grant-number">818521</idno>
+					<orgName type="program" subtype="full">France 2030 program</orgName>
+				</org>
+			</listOrg>
+
+			<div type="availability">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Data availability</head><p>PLORAS test data, used in this work, can be made available to readers on reasonable request. For the purpose of Open Access, the author has applied a CC BY public copyright licence to any Author Accepted Manuscript version arising from this submission.</p></div>
+			</div>
+
+
+			<div type="conflict">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Competing interests</head><p>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct status="extracted" xml:id="b0">
+	<analytic>
+		<title level="a" type="main">A multivariate lesion symptom mapping toolbox and examination of lesion-volume biases and correction methods in lesion-symptom mapping</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">T</forename><surname>Demarco</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">E</forename><surname>Turkeltaub</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Hum Brain Mapp</title>
+		<imprint>
+			<biblScope unit="volume">39</biblScope>
+			<biblScope unit="page" from="4169" to="4182" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Generalizing post-stroke prognoses from research data to clinical data</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Loughnan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">L</forename><surname>Lorca-Puls</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gajardo-</forename><surname>Vidal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Neuroimage Clin</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="page">102005</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Predicting language outcomes after stroke: Is structural disconnection a useful predictor?</title>
+		<author>
+			<persName><forename type="first">Tmh</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Neuroimage Clin</title>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="page" from="22" to="29" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Improved accuracy of lesion to symptom mapping with multivariate sparse canonical correlations</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Pustina</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Avants</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><forename type="middle">K</forename><surname>Faseyitan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">D</forename><surname>Medaglia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">B</forename><surname>Coslett</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Neuropsychologia</title>
+		<imprint>
+			<biblScope unit="volume">115</biblScope>
+			<biblScope unit="page" from="154" to="166" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Latent disconnectome prediction of long-term cognitive-behavioural symptoms in stroke</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Talozzi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Forkel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Pacella</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Brain</title>
+		<imprint>
+			<biblScope unit="volume">146</biblScope>
+			<biblScope unit="page" from="1963" to="1978" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b5">
+	<analytic>
+		<title level="a" type="main">The Western Aphasia battery: A systematic review of research and clinical applications</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kertesz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Aphasiology</title>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="page" from="21" to="50" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b6">
+	<analytic>
+		<title level="a" type="main">The PLORAS database: A data repository for predicting language outcome and recovery after stroke</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Seghier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Patel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Prejawa</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Neuroimage</title>
+		<imprint>
+			<biblScope unit="volume">124</biblScope>
+			<biblScope unit="page" from="1208" to="1212" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+	<note>Part B</note>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b7">
+	<monogr>
+		<title level="m" type="main">Comprehensive aphasia test</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Swinburn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Porter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Howard</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2004">2004</date>
+			<publisher>Psychology Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Lesion identification using unified segmentation-normalisation models and fuzzy clustering</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Seghier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ramlackhansingh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Crinion</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Neuroimage</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="page" from="1253" to="1266" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Right hemisphere structural adaptation and changing language skills years after left hemisphere stroke</title>
+		<author>
+			<persName><forename type="first">Tmh</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Prejawa</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Brain</title>
+		<imprint>
+			<biblScope unit="volume">140</biblScope>
+			<biblScope unit="page" from="1718" to="1728" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

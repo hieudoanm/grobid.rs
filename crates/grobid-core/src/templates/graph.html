@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__TITLE__ — Citation Graph</title>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+  :root {
+    --bg: #1e1e1e;
+    --panel: #262626;
+    --panel-border: #3a3a3a;
+    --text: #dcddde;
+    --text-dim: #9a9a9a;
+    --accent: #7c6cf0;
+    --edge: rgba(255, 255, 255, 0.08);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text);
+    font: 14px/1.5 -apple-system, "Segoe UI", Inter, sans-serif; overflow: hidden; }
+  #graph { position: absolute; inset: 0; }
+  #graph svg { display: block; }
+  .panel {
+    position: absolute; background: var(--panel); border: 1px solid var(--panel-border);
+    border-radius: 8px; padding: 12px 14px; backdrop-filter: blur(6px);
+  }
+  #hud { top: 14px; left: 14px; width: 320px; max-height: calc(100% - 28px);
+    overflow-y: auto; }
+  #hud h1 { font-size: 15px; margin: 0 0 2px; font-weight: 600; }
+  #hud .sub { color: var(--text-dim); font-size: 12px; }
+  #search {
+    width: 100%; margin-top: 10px; padding: 6px 10px; border-radius: 6px;
+    border: 1px solid var(--panel-border); background: var(--bg); color: var(--text);
+    font-size: 13px; outline: none;
+  }
+  #search:focus { border-color: var(--accent); }
+  #yearchart { margin-top: 12px; }
+  #yearchart .bar { fill: var(--accent); opacity: 0.75; }
+  #yearchart .bar:hover { opacity: 1; }
+  #yearchart text { fill: var(--text-dim); font-size: 9px; }
+  .statblock { margin-top: 12px; }
+  .statblock h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--text-dim); margin: 0 0 6px; font-weight: 600; }
+  .statblock .row { font-size: 12px; padding: 2px 0; display: flex; gap: 6px;
+    align-items: baseline; }
+  .statblock .row .n { color: var(--accent); font-variant-numeric: tabular-nums;
+    min-width: 22px; text-align: right; flex: none; }
+  .statblock .row .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .statblock .row .t a { color: var(--text); text-decoration: none; }
+  .statblock .row .t a:hover { color: var(--accent); }
+  #detail { top: 14px; right: 14px; width: 300px; display: none; max-height: calc(100% - 28px);
+    overflow-y: auto; }
+  #detail h2 { font-size: 14px; margin: 0 0 8px; }
+  #detail .row { margin: 4px 0; font-size: 12.5px; }
+  #detail .lbl { color: var(--text-dim); display: inline-block; min-width: 64px; }
+  #detail a { color: var(--accent); text-decoration: none; word-break: break-all; }
+  #detail a:hover { text-decoration: underline; }
+  #detail .close { position: absolute; top: 8px; right: 10px; cursor: pointer;
+    color: var(--text-dim); font-size: 16px; }
+  .legend { position: absolute; bottom: 14px; left: 14px; display: flex; flex-wrap: wrap;
+    gap: 10px; max-width: 60%; }
+  .legend span { font-size: 11px; color: var(--text-dim); display: flex;
+    align-items: center; gap: 5px; }
+  .legend i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .tooltip {
+    position: absolute; pointer-events: none; background: #000a; color: #fff;
+    padding: 4px 8px; border-radius: 5px; font-size: 12px; display: none;
+    max-width: 260px;
+  }
+  #controls { bottom: 14px; right: 14px; display: flex; gap: 8px; align-items: center; }
+  #controls button, #controls select {
+    background: var(--panel); color: var(--text); border: 1px solid var(--panel-border);
+    border-radius: 6px; padding: 5px 10px; font-size: 12px; cursor: pointer;
+  }
+  #controls button:hover, #controls select:hover { border-color: var(--accent); }
+  .dim { opacity: 0.07; }
+  circle { cursor: pointer; }
+</style>
+</head>
+<body>
+<div id="graph"></div>
+<div id="hud" class="panel">
+  <h1>__TITLE__</h1>
+  <div class="sub" id="stats"></div>
+  <input id="search" type="search" placeholder="Filter works, stats and graph…" autocomplete="off">
+  <div id="yearchart"></div>
+  <div class="statblock"><h3>Most cited in corpus</h3><div id="top-in"></div></div>
+  <div class="statblock"><h3>Most citing</h3><div id="top-out"></div></div>
+  <div class="statblock"><h3>Top authors</h3><div id="top-authors"></div></div>
+</div>
+<div id="detail" class="panel">
+  <span class="close" id="detail-close">✕</span>
+  <div id="detail-body"></div>
+</div>
+<div id="legend" class="legend"></div>
+<div id="controls" class="panel">
+  <select id="mindeg" title="Dim nodes below this in-degree">
+    <option value="0">All degrees</option>
+    <option value="1">1+ citations</option>
+    <option value="2">2+ citations</option>
+    <option value="5">5+ citations</option>
+  </select>
+  <button id="showall" style="display:none">Show all nodes</button>
+</div>
+<div id="tooltip" class="tooltip"></div>
+<script>
+const ALL_NODES = __NODES__;
+const ALL_EDGES = __EDGES__;
+const STATS = __STATS__;
+const MAX_NODES = 400;
+
+// ---- Corpus stats panel ----
+const corpusWorks = ALL_NODES.filter(n => !n.external);
+const extCount = ALL_NODES.length - corpusWorks.length;
+document.getElementById("stats").textContent =
+  `${STATS.works} works · ${STATS.references} refs (${STATS.doi_refs} DOI) · ${extCount} external`;
+
+function esc(s) { return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function doiLink(doi) { return doi ? `https://doi.org/${esc(doi)}` : ""; }
+
+function renderList(elId, items, countIdx) {
+  const el = document.getElementById(elId);
+  el.innerHTML = "";
+  items.slice(0, 10).forEach(it => {
+    const [title, doi, count] = it;
+    const row = document.createElement("div");
+    row.className = "row";
+    const label = title || doi || "untitled";
+    row.dataset.text = `${title} ${doi || ""}`.toLowerCase();
+    row.innerHTML = doi
+      ? `<span class="n">${count}</span><span class="t"><a href="${doiLink(doi)}" target="_blank" rel="noopener">${esc(label)}</a></span>`
+      : `<span class="n">${count}</span><span class="t">${esc(label)}</span>`;
+    el.appendChild(row);
+  });
+}
+renderList("top-in", STATS.top_in_cited.map(x => [x[0], x[1], x[2]]));
+renderList("top-out", STATS.top_citing.map(x => [x[0], x[1], x[2]]));
+renderList("top-authors", STATS.top_authors.map(x => [x[0], "", x[1]]));
+
+// ---- Year distribution chart (hand-rolled SVG, recomputed under filter) ----
+const yearChart = d3.select("#yearchart").append("svg").attr("width", 292).attr("height", 90);
+function drawYears(hist) {
+  yearChart.selectAll("*").remove();
+  if (!hist.length) return;
+  const max = d3.max(hist, d => d.count) || 1;
+  const bw = 292 / hist.length;
+  yearChart.selectAll("rect.bar").data(hist).join("rect")
+    .attr("class", "bar")
+    .attr("x", (d, i) => i * bw + 1)
+    .attr("y", d => 90 - 14 - (d.count / max) * 62)
+    .attr("width", Math.max(bw - 2, 1))
+    .attr("height", d => (d.count / max) * 62 + 2)
+    .append("title").text(d => `${d.year}: ${d.count} works`);
+  yearChart.selectAll("text").data(hist).join("text")
+    .attr("x", (d, i) => i * bw + bw / 2).attr("y", 88)
+    .attr("text-anchor", "middle").text(d => d.year.slice(2));
+}
+drawYears(STATS.years.map(([year, count]) => ({ year, count })));
+
+// ---- Graph ----
+const width = innerWidth, height = innerHeight;
+const svg = d3.select("#graph").append("svg").attr("width", width).attr("height", height);
+const zoom = d3.zoom().scaleExtent([0.05, 8]).on("zoom", e => g.attr("transform", e.transform));
+const g = svg.append("g");
+svg.call(zoom);
+
+let nodeSel, linkSel, labelSel, sim, shownCount = 0;
+
+function nodeColor(n) {
+  if (n.external) return "#5a5a5a";
+  const palette = ["#7c6cf0","#41b883","#e8a33d","#4aa3df","#e05d5d","#8bc34a","#ab47bc","#26a69a","#ec407a","#78909c"];
+  const groups = [...new Set(corpusWorks.map(w => w.kind || "other"))].sort();
+  const idx = groups.indexOf(n.kind || "other");
+  return palette[(idx < 0 ? 0 : idx) % palette.length];
+}
+// Legend for kinds present.
+const legend = document.getElementById("legend");
+[...new Set(corpusWorks.map(w => w.kind || "other"))].sort().forEach((k, i) => {
+  const palette = ["#7c6cf0","#41b883","#e8a33d","#4aa3df","#e05d5d","#8bc34a","#ab47bc","#26a69a","#ec407a","#78909c"];
+  const s = document.createElement("span");
+  s.innerHTML = `<i style="background:${palette[i % palette.length]}"></i>${esc(k)}`;
+  legend.appendChild(s);
+});
+
+function renderGraph(nodes, edges) {
+  g.selectAll("*").remove();
+  sim?.stop();
+  const nodeById = new Map(nodes.map(n => [n.id, n]));
+  const resolved = edges.map(e => ({ source: nodeById.get(e.source), target: nodeById.get(e.target) }))
+    .filter(e => e.source && e.target);
+
+  sim = d3.forceSimulation(nodes)
+    .force("link", d3.forceLink(resolved).id(d => d.id).distance(55).strength(0.5))
+    .force("charge", d3.forceManyBody().strength(-160))
+    .force("collide", d3.forceCollide(d => 3 + Math.sqrt(d.degree) * 2.2).iterations(2))
+    .force("center", d3.forceCenter(width / 2, height / 2));
+
+  linkSel = g.append("g").selectAll("line").data(resolved).join("line")
+    .attr("stroke", "var(--edge)").attr("stroke-width", 0.7);
+  nodeSel = g.append("g").selectAll("circle").data(nodes).join("circle")
+    .attr("r", d => 3 + Math.sqrt(d.degree) * 1.6)
+    .attr("fill", nodeColor)
+    .attr("fill-opacity", d => d.external ? 0.45 : 0.9)
+    .call(d3.drag()
+      .on("start", (e, d) => { if (!e.active) sim.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+      .on("drag", (e, d) => { d.fx = e.x; d.fy = e.y; })
+      .on("end", (e, d) => { if (!e.active) sim.alphaTarget(0); d.fx = null; d.fy = null; }));
+  labelSel = g.append("g").selectAll("text").data(nodes).join("text")
+    .text(d => d.title || d.doi || d.id)
+    .attr("font-size", 10).attr("fill", "#a8a8a8")
+    .attr("dx", 6).attr("dy", 3).style("display", "none");
+
+  nodeSel.on("mouseover", (e, d) => {
+    labelSel.filter(l => l === d).style("display", null);
+    const tip = document.getElementById("tooltip");
+    tip.style.display = "block";
+    tip.textContent = d.title || d.doi || d.id;
+  }).on("mousemove", e => {
+    const tip = document.getElementById("tooltip");
+    tip.style.left = (e.clientX + 12) + "px";
+    tip.style.top = (e.clientY + 12) + "px";
+  }).on("mouseout", (e, d) => {
+    labelSel.filter(l => l === d).style("display", "none");
+    document.getElementById("tooltip").style.display = "none";
+  }).on("click", (e, d) => { e.stopPropagation(); showDetail(d); });
+
+  sim.on("tick", () => {
+    linkSel.attr("x1", d => d.source.x).attr("y1", d => d.source.y)
+           .attr("x2", d => d.target.x).attr("y2", d => d.target.y);
+    nodeSel.attr("cx", d => d.x).attr("cy", d => d.y);
+    labelSel.attr("x", d => d.x).attr("y", d => d.y);
+  });
+}
+
+// Initial view: top-MAX_NODES nodes by in-degree, edges among them only.
+function topSubset() {
+  const nodes = [...ALL_NODES].sort((a, b) => b.degree - a.degree).slice(0, MAX_NODES);
+  const ids = new Set(nodes.map(n => n.id));
+  const edges = ALL_EDGES.filter(e => ids.has(e.source) && ids.has(e.target));
+  return { nodes, edges };
+}
+(function init() {
+  if (ALL_NODES.length <= MAX_NODES) {
+    renderGraph(ALL_NODES, ALL_EDGES);
+    shownCount = ALL_NODES.length;
+  } else {
+    const { nodes, edges } = topSubset();
+    renderGraph(nodes, edges);
+    shownCount = nodes.length;
+    const btn = document.getElementById("showall");
+    btn.style.display = "";
+    btn.textContent = `Show all ${ALL_NODES.length} nodes`;
+    btn.onclick = () => { renderGraph(ALL_NODES, ALL_EDGES); btn.style.display = "none"; };
+  }
+})();
+svg.on("click", () => document.getElementById("detail").style.display = "none");
+
+function showDetail(d) {
+  const el = document.getElementById("detail");
+  const body = document.getElementById("detail-body");
+  const row = (lbl, val) => val ? `<div class="row"><span class="lbl">${lbl}</span>${val}</div>` : "";
+  body.innerHTML =
+    `<h2>${esc(d.title || "Untitled")}</h2>` +
+    row("DOI", d.doi ? `<a href="https://doi.org/${esc(d.doi)}" target="_blank" rel="noopener">${esc(d.doi)}</a>` : "") +
+    row("Authors", esc(d.authors)) +
+    row("Year", esc(d.year)) +
+    row("Journal", esc(d.journal)) +
+    row("Type", esc(d.kind)) +
+    row("Cited by", d.cited_by ?? "") +
+    row("Citations in", d.degree) +
+    (d.external ? `<div class="row" style="color:var(--text-dim)">External work — not in corpus</div>` : "");
+  el.style.display = "block";
+}
+document.getElementById("detail-close").onclick = () => document.getElementById("detail").style.display = "none";
+
+// ---- Unified filter: graph + stats panel share one query ----
+const search = document.getElementById("search");
+const mindeg = document.getElementById("mindeg");
+let matchSet = null;
+
+function applyFilter() {
+  const q = search.value.trim().toLowerCase();
+  matchSet = q ? new Set() : null;
+  if (q) {
+    ALL_NODES.forEach(n => {
+      const hay = [n.title, n.doi, n.authors, n.journal, n.kind].join(" ").toLowerCase();
+      if (hay.includes(q)) matchSet.add(n.id);
+    });
+  }
+  // Graph dimming (only rendered subset).
+  if (nodeSel) {
+    nodeSel.classed("dim", d => (matchSet && !matchSet.has(d.id)) || d.degree < +mindeg.value);
+    linkSel.classed("dim", d => matchSet && !(matchSet.has(d.source.id) && matchSet.has(d.target.id)));
+  }
+  // Stats panel: filter top lists + recompute year chart over matched works.
+  document.querySelectorAll(".statblock .row").forEach(r => {
+    r.style.display = (!q || r.dataset.text.includes(q)) ? "" : "none";
+  });
+  const matched = matchSet
+    ? corpusWorks.filter(n => matchSet.has(n.id))
+    : corpusWorks;
+  const histMap = new Map();
+  matched.forEach(n => { if (n.year) histMap.set(n.year, (histMap.get(n.year) || 0) + 1); });
+  drawYears([...histMap.entries()].sort().map(([year, count]) => ({ year, count })));
+  document.getElementById("stats").textContent = q
+    ? `${matched.length} of ${STATS.works} works match "${search.value.trim()}"`
+    : `${STATS.works} works · ${STATS.references} refs (${STATS.doi_refs} DOI) · ${extCount} external`;
+}
+search.addEventListener("input", applyFilter);
+mindeg.addEventListener("change", applyFilter);
+
+addEventListener("resize", () => svg.attr("width", innerWidth).attr("height", innerHeight));
+</script>
+</body>
+</html>

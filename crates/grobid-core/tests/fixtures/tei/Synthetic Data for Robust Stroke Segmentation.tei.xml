@@ -1,0 +1,1700 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Machine Learning for Biomedical Imaging Synthetic Data for Robust Stroke Segmentation</title>
+				<funder ref="#_ANazUyr #_rXrczSN #_7d8PfpC">
+					<orgName type="full">Wellcome</orgName>
+				</funder>
+				<funder ref="#_FRY8meu">
+					<orgName type="full">EPSRC</orgName>
+				</funder>
+				<funder ref="#_4wANMWu #_wTtHAKz">
+					<orgName type="full">Wellcome Trust</orgName>
+				</funder>
+				<funder ref="#_VFUe9pn">
+					<orgName type="full">Alzheimer&apos;s Association</orgName>
+				</funder>
+				<funder ref="#_umfjYBY">
+					<orgName type="full">NVIDIA</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct status="extracted">
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Liam</forename><surname>Chalcroft</surname></persName>
+							<email>liam.chalcroft.20@ucl.ac.uk</email>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Wellcome Centre for Human Neuroimaging</orgName>
+								<orgName type="institution">University College London</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Ioannis</forename><surname>Pappas</surname></persName>
+							<idno type="ORCID">0000-0003-3363-6454</idno>
+							<affiliation key="aff1">
+								<orgName type="institution">University of Southern Californa</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Cathy</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+							<idno type="ORCID">0000-0002-0168-7014</idno>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Wellcome Centre for Human Neuroimaging</orgName>
+								<orgName type="institution">University College London</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">John</forename><surname>Ashburner</surname></persName>
+							<idno type="ORCID">0000-0001-7448-4835</idno>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Wellcome Centre for Human Neuroimaging</orgName>
+								<orgName type="institution">University College London</orgName>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Machine Learning for Biomedical Imaging Synthetic Data for Robust Stroke Segmentation</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">912DF9825E9E30F70ED876BAC4A71CE2</idno>
+					<idno type="DOI">10.59275/j.melba.2025-f3g6</idno>
+					<note type="submission">Received: 2024-11-08, Published 2025-08-14</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.9.1" ident="GROBID" when="2026-11-09T16:58+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<label type="revision">0.9.1</label>
+					<label type="parameters">startPage=-1, endPage=-1, consolidateCitations=0, consolidateHeader=0, consolidateFunders=0, includeRawAffiliations=false, includeRawCitations=false, includeRawCopyrights=false, generateTeiIds=false, generateTeiCoordinates=[], flavor=null, debugLabelingCollector=disabled</label>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Machine Learning</term>
+					<term>Image Segmentation</term>
+					<term>Domain Adaptation Article informations</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Current deep learning-based approaches to lesion segmentation in neuroimaging often depend on high-resolution images and extensive annotated data, limiting clinical applicability. This paper introduces a novel synthetic data framework tailored for stroke lesion segmentation, expanding the SynthSeg methodology to incorporate lesion-specific augmentations that simulate diverse pathological features. Using a modified nnUNet architecture, our approach trains models with label maps from healthy and stroke datasets, facilitating segmentation across both normal and pathological tissue without reliance on specific sequence-based training. Our method achieves robust out-of-domain performance where conventional approaches fail, with in-domain performance of 48.2% Dice compared to 57.5% for conventional training. Crucially, even with oracle knowledge of the optimal domain adaptation method -an unrealistic scenario in practice -conventionally-trained models cannot match our synthetic approach in out-of-domain settings. The framework demonstrates that synthetic pre-training provides fundamental robustness unachievable through test-time adaptation alone. Our approach reduces reliance on domain-specific training data and helps bridge the gap between research-grade and clinical scans to improve clinical stroke neuroimaging workflows.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>S emantic segmentation is a critical component of neuroimaging pipelines, enabling precise quantification of anatomical structures and lesions for applications like tracking disease progression and planning treatments. In research settings, segmentation labels are typically derived from high-quality, standardised structural scans (e.g., MPRAGE) that benefit from consistent field-of-view, spacing, orientation, and minimal artifacts. In contrast, clinical scans often exhibit significant variability in these factors, which can severely impact deep learning model performance. Consequently, models trained on homogeneous researchgrade data may not generalise well to the diverse, lowerquality images encountered in clinical practice.</p><p>Both traditional probabilistic methods <ref type="bibr" target="#b0">(Ashburner and Friston, 2005)</ref> and modern deep discriminative methods <ref type="bibr" target="#b26">(Isensee et al., 2020)</ref> require prior information to be provided for a given sequence -in the case of a traditional method this may be an atlas or template, and in modern methods this would come in the form of training data. Atlas-based methods build a template of the anatomical structure of the brain, which may be deformed into alignment with a new subject to assign voxel-wise anatomical classes. This is proven to be robust for delineating healthy structure even with shifts in contrast <ref type="bibr" target="#b46">(Puonti et al., 2016)</ref>, however it is non-trivial to include classes of pathology such as stroke within such a model, due to the inherent heterogeneity in location and geometric properties. In the context of generative models, lesions may be included in the form of anomaly detection as demonstrated in <ref type="bibr" target="#b48">Seghier et al. (2008)</ref>. This method is not however directly attempting to label the pathology, and (by design) will label physiological changes such as ventricular enlargement in addition to the responsible infarct.</p><p>Deep discriminative models trained using supervised learning have been able to reach human-level performance when tested in-domain on large datasets for a variety of brain pathologies and imaging modalities <ref type="bibr" target="#b1">(Baid et al., 2021;</ref><ref type="bibr" target="#b12">de la Rosa et al., 2024)</ref>. There is still however a significant gap when trying to translate these models to clinical data, where each hospital is likely to vary both in the scanning equipment used and the choice of imaging sequences <ref type="bibr" target="#b41">(Nguyen et al., 2024)</ref>. This poses a significant challenge to the adoption of deep learning for automating the labelling of clinical data, which could greatly help to accelerate the translation of modern research in stroke prognosis <ref type="bibr" target="#b36">(Loughnan et al., 2019)</ref>.</p><p>To extend such methods to the open-ended domain of clinical scans, models often need to perform on sequences for which no training data may be available. To this end, domain randomisation via synthetic data has been shown to give impressive results for healthy brain parcellation in SynthSeg <ref type="bibr" target="#b4">(Billot et al., 2023)</ref>. In this method, a set of ground truth healthy tissues are used to generate synthetic images, under the assumption that each tissue class' intensity distribution should roughly follow a Gaussian. By assigning random Gaussian distributions to each class, a deep learning model can learn to extract shape information for parcellation in a way that is invariant to the input image's relative tissue contrast, hence allowing the model to be used on any sequence at test-time, without training data or prior knowledge of the sequence. This method of training with synthetic data has since been extended to tasks such as image registration <ref type="bibr" target="#b20">(Hoffmann et al., 2022</ref><ref type="bibr" target="#b21">(Hoffmann et al., , 2023</ref><ref type="bibr" target="#b22">(Hoffmann et al., , 2024))</ref>, image super-resolution <ref type="bibr">(Iglesias et al., 2021</ref><ref type="bibr" target="#b24">(Iglesias et al., , 2023))</ref>, surface estimation <ref type="bibr" target="#b16">(Gopinath et al., 2023</ref><ref type="bibr">(Gopinath et al., , 2024a) )</ref> and vascular segmentation <ref type="bibr" target="#b9">(Chollet et al., 2024)</ref>. A comprehensive overview is available in <ref type="bibr">Gopinath et al. (2024b)</ref>.</p><p>An additional benefit of this method is that the 'forward model' of creating an MRI (or CT) image from tissues of different physical properties is a perfect 1:1 mapping to the 'inverse model' of labeling the tissues (i.e. segmentation) from the acquired image. In structures that exhibit a large amount of inter-rater variability, this is likely to help prevent a model from imitating under-or over-segmentation from imperfect ground truths -the images segmented are generated from the corresponding segmentation labels and so labels will always be a consistent method of segmentation.</p><p>Prior work to SynthSeg demonstrated the potential of encoding anatomical priors in a neural network through pre-training with unpaired parcellation labels <ref type="bibr" target="#b11">(Dalca et al., 2018)</ref>. Such methods face significantly larger challenges when applied to the heterogeneous shape and spatial distribution of lesions. In healthy parcellation, anatomical structures have consistent positions across individuals (e.g., the brainstem reliably appears in the same region of the brain), a regularity that has motivated atlas-based approaches to parcellation. In contrast, lesions are highly variable across individuals -not only in number and size but also in their spatial distribution. Unlike anatomical structures, lesions cannot be reliably mapped to a specific location or shape within an atlas. Although the exact site of lesion initiation is often influenced by the brain's vascular architecturemeaning that certain regions are statistically more susceptible to stroke due to the location of large blood vessels -the resulting lesion's size, shape, and spread are highly variable. Multiple sclerosis serves as an exception, with lesions that are somewhat predictable in their white matter localisation <ref type="bibr" target="#b31">(Lassmann, 2018)</ref>, enabling modelling through synthetic deep learning frameworks <ref type="bibr" target="#b3">(Billot et al., 2021;</ref><ref type="bibr" target="#b30">Laso et al., 2024)</ref> and traditional probabilistic models <ref type="bibr" target="#b7">(Cerri et al., 2021)</ref>. More recently, <ref type="bibr" target="#b33">Liu et al. (2024)</ref> has shown promising results by training a SynthSeg-like model on lesion labels from various pathologies, providing a foundation for fine-tuning on multiple downstream datasets.</p><p>Robust open-domain stroke segmentation remains an unsolved challenge. Most domain-specific frameworks for stroke lesion segmentation are targeted towards lesionpasting <ref type="bibr">(Zhang et al., 2021;</ref><ref type="bibr" target="#b10">Dai et al., 2022;</ref><ref type="bibr" target="#b2">Basaran et al., 2023)</ref>, aiming to augment the anatomical variety without making any attempt to augment the variety in image contrasts. Likewise, label-conditioned generative models such as TumorGAN <ref type="bibr" target="#b32">(Li et al., 2020)</ref> can similarly only generate new lesioned brains within the learned distribution of image intensities. None of these works approach the task of robustness to shifts in image appearance, instead focusing on shape-related augmentation.</p><p>In our work, we extend the SynthSeg framework to the task of stroke lesion segmentation via a novel lesionpasting method that better simulates variety in lesion appearance. Our hybrid approach trades a statistically significant 9.3% median Dice reduction in-domain (57.5% vs 48.2%, p&lt;0.001) for improved out-of-domain robustness. Crucially, we demonstrate that even with oracle knowledge of the optimal domain adaptation method, conventional training cannot match our synthetic approach in out-ofdomain scenarios. We validate this on a comprehensive range of lesion datasets with a wide distribution of image characteristics and lesion physiology. To assist in widespread evaluation of this framework, we release PyTorch training code/weights, and a MATLAB toolbox for SPM to reduce the barrier to clinical adoption.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Methods</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Terminology and Notation</head><p>For clarity, we define the key terms used throughout this work:</p><p>• TTA (Test-Time Augmentation): A procedure at infer-ence where multiple augmented versions (here generated by flips) of an input are processed and their predictions averaged to improve robustness.</p><p>• DA (Domain Adaptation): Techniques applied at test time to adapt a trained model to new data distributions.</p><p>• Oracle DA: The hypothetical best-case scenario where the optimal DA method is known a priori for each dataset/modality combination.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Synthetic Data Generation Framework</head><p>Rationale. Our goal is to create a large, diverse and perfectly labelled training set without the labour of voxelwise annotation. We therefore generate paired image-label volumes by composing healthy tissue maps with realistically shaped stroke lesions, followed by intensity synthesis and heavy image-quality augmentation (Fig. <ref type="figure">2</ref>).</p><p>(i) Healthy-tissue label bank. Instead of the 100+ FreeSurfer classes used by SynthSeg, we adopt the nine posterior tissue maps produced by MultiBrain <ref type="bibr" target="#b5">(Brudfors et al., 2020)</ref>. This reduces memory usage, speeds up sampling and still retains the GM/WM/CSF boundaries that matter for lesion realism (Fig. <ref type="figure" target="#fig_1">1</ref>).</p><p>(ii) Lesion Copy-Paste (Lesion-CP). We extend Soft-CP <ref type="bibr" target="#b10">(Dai et al., 2022)</ref> with random dilate/erode 'feathering' and a spatially varying bias-field multiplier (MONAI Random Bias Field <ref type="bibr" target="#b6">(Cardoso et al., 2022)</ref>) to mimic penumbral intensity fall-off <ref type="bibr" target="#b38">(Middleton et al., 2024)</ref>.</p><p>(iii) Intensity sampling. Each tissue class is assigned µ ∼ U(0, 255), σ ∼ U(0, 16) and Gaussian blur FWHM ∼ U(0, 2). For stroke lesions we modulate the copy-pasted mask with the bias field to create intra-lesion heterogeneity. We sample from a single Gaussian distribution, with the implications of this choice examined via Hartigan's dip-test in Appendix A.</p><p>(iv) Image-quality augmentations. Table <ref type="table" target="#tab_0">1</ref> summarises every random transform (bias field, affine, elastic, skull-strip imperfection, noise, resolution, motion, contrast, etc.). Future work will explore mixture-of-Gaussians modelling <ref type="bibr" target="#b0">(Ashburner and Friston, 2005)</ref> to represent lesions that are simultaneously hyper-and hypo-intense.</p><p>With this synthetic data generation pipeline established, we now describe the datasets, network architecture, and training procedures used in our experiments.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Training Data and Sampling</head><p>Healthy maps: OASIS-3 (N=2 679, 2 579/100 train/val) with MultiBrain segmentation, all warped to ICBM space. Lesion masks: ATLAS (N=655, 419/105/131 train/val/test)  aligned to the same space. During sampling we paste one random ATLAS lesion onto one random OASIS subject and on-the-fly augment as above. Healthy tissue (N&gt;2000) Lesion binary (N&gt;400) Random label selection Lesion paste + INU augment Tissue intensity assignment L SEG (ŷ, y) UNet Figure 2: Schematic overview of the data generation process. Lesions are sampled from a template-normalised bank of lesion binary masks, and healthy tissue maps are sampled from a template-normalised bank of MultiBrain segmentations.</p><p>Pasting of lesions onto healthy tissue maps is performed using a spatially varying lesion intensity to simulate penumbra. Tissue intensities may then be sampled from Gaussian distributions and image-label pairs used to train a segmentation model in a supervised manner.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3">Network Architecture and Optimisation</head><p>Backbone. 3D U-Net (nnUNet template) with six levels (16 → 32 → 64 → 128 → 320 channels), PReLU activations and one residual unit per block <ref type="bibr" target="#b27">(Isensee et al., 2024)</ref>. Comparison model. WMH-SynthSeg <ref type="bibr" target="#b30">(Laso et al., 2024;</ref><ref type="bibr" target="#b14">Fischl, 2012)</ref> is included as an "off-the-shelf" robust-lesion baseline, but its training labels target small, periventricular WMHs and differ substantially from large-cortical stroke lesions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4">Domain Adaptation Methods</head><p>At test time we evaluate a diverse set of unsupervised domain-adaptation (DA) techniques to determine: (i) whether the Baseline model can, under an oracle choice of DA method, match the performance of the DA-free Synth model, and (ii) whether Synth's inherent robustness offers a better starting point for DA on truly unseen data.</p><p>We tested six DA methods (TTA, DAE, TENT, PL, UPL, DPL) and report the best-performing configuration for each modality/dataset combination as Oracle DA in Tables <ref type="table" target="#tab_1">2</ref><ref type="table" target="#tab_2">3</ref><ref type="table">4</ref><ref type="table">5</ref>. This represents an upper bound on baseline performance, as in practice one cannot know a priori which DA method will work best. Full individual results for all methods appear in Appendix B, Tables <ref type="table" target="#tab_0">10</ref><ref type="table" target="#tab_0">11</ref><ref type="table" target="#tab_1">12</ref><ref type="table" target="#tab_2">13</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>DA techniques evaluated.</head><p>(1) TTA -Test-Time Augmentation <ref type="bibr" target="#b52">(Wang et al. (2019)</ref>; denoted TTA). Eight mirror-flipped volumes (2 3 axis-flip combinations) are inferred, logits averaged, and softmax/argmax yields the mask. This heuristic is cheap and rarely degrades performance.</p><p>(2) DAE -Denoising Auto-Encoder Regularisation <ref type="bibr" target="#b29">(Karani et al., 2021)</ref>. We train a 3-layer denoising autoencoder to regularise noisy labels for both Baseline and Synth. At inference a three-layer normalisation network (3×3×3 kernels, 16 channels) is prepended to the frozen segmentor; its activation is</p><formula xml:id="formula_0">f (x) = exp - x 2 σ 2 , (<label>1</label></formula><formula xml:id="formula_1">)</formula><p>where σ is learned. For each test image the network is re-initialised and optimised for 100 steps to minimise Dice + L2 loss between segmentation logits and their DAEcleaned counterpart.</p><p>(3) TENT -Test-Time Entropy Minimisation <ref type="bibr" target="#b51">(Wang et al., 2021)</ref>. Because 3D memory limits rule out batchnorm adaptation, we instead optimise an identical normalisation network (initialised from scratch per subject) for 100 steps to minimise Shannon entropy</p><formula xml:id="formula_2">H(ŷ) = - c p c (ŷ) log p c (ŷ),<label>(2)</label></formula><p>with p c the class-c softmax probability. (4) PL Family -Pseudo-Labelling (Self-Training) <ref type="bibr" target="#b8">(Chen et al., 2021)</ref>. Three variants are tested:</p><p>• PL: threshold softmax at τ = 1.5 N C to keep only highconfidence voxels, where N C is the total number of output classes.</p><p>• UPL: PL plus uncertainty masking via 10-sample Monte-Carlo dropout (variance &gt; 0.05 discarded).</p><p>• DPL: full "prototype-consistency" pipeline that further removes voxels inconsistent with decoder-feature prototypes.</p><p>All PL variants fine-tune all segmentation weights for 2000 iterations with weighted cross-entropy. Common optimiser settings. Every trainable DA method (DAE, TENT, PL, UPL, DPL) uses AdamW <ref type="bibr" target="#b35">(Loshchilov and Hutter, 2019)</ref> with learning-rate 0.002 and weight-decay 0.01. TTA is inference-only and therefore parameter-free.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.5">Large-Scale Pseudo-Labelling</head><p>Because the synthetic pipeline decouples image realism from label accuracy, we can tolerate imperfect pseudolabels. We therefore use Baseline + TTA to annotate 1159 chronic stroke MPRAGE scans from PLORAS Sample 1 <ref type="bibr" target="#b49">(Seghier et al., 2016)</ref>; this PLORAS-MPRAGE cohort feeds the mixed loader exactly like ATLAS.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Experiments</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Datasets</head><p>Models were validated on four stroke-lesion datasets. We assessed the models' in-domain performance on the holdout test set for the ATLAS dataset (131 subjects, 1 mm isotropic MPRAGE). Out-of-domain (OOD) robustness was evaluated on three additional cohorts: the ISLES 2015 dataset <ref type="bibr" target="#b37">(Maier et al., 2017)</ref> (N=28 subjects with skullstripped T1w/T2w/FLAIR/DWI), the ARC dataset <ref type="bibr" target="#b15">(Gibson et al., 2024;</ref><ref type="bibr" target="#b28">Johnson et al., 2024)</ref> (N=229 T2w, 202 T1w, 85 FLAIR; N=84 subjects have all three), and the hospital scans from 661 acute-stroke patients in PLORAS Sample 2 (N=106 T2w, 300 FLAIR, 255 CT), collectively referred to as PLORAS <ref type="bibr" target="#b45">(Price et al., 2010)</ref>. ISLES and PLO-RAS also introduce an acute-versus-chronic shift. There is no overlap in patients between the PLORAS hospital scans (acute) and the PLORAS MPRAGE cohort described in Section 2.5.</p><p>For PLORAS, images are resampled from the original 2 mm isotropic resolution to 1 mm to maintain a single preprocessing pipeline, acknowledging that this constitutes a second resampling step.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Experimental Design</head><p>Pre-processing and inference. All test images are reoriented to RAS, resliced to 1 mm 3 voxels, histogramnormalised and z-scored. Inference uses a 192 3 sliding window with 50 % overlap and a Gaussian blending kernel (σ = 0.125). Test-time augmentation (TTA) averages logits over all eight combinations of left-right, anteriorposterior and inferior-superior flips.</p><p>Multi-modal ensembles. When multiple MR sequences are available for the same subject (ISLES 2015, ARC) we average the per-modality logits before the softmax. This simple ensembling mimics a realistic clinical deployment.</p><p>Pseudo-label training. Pseudo-labels are generated for the PLORAS MPRAGE cohort with the Baseline + TTA model. A new Baseline and a new Synth model are then re-trained using the union of ATLAS and pseudo-labelled data, following exactly the same optimisation schedule as the originals.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">Evaluation Metrics</head><p>Prior to metric computation, predictions and ground truth are resliced to 1 mm and zero-padded to 256 3 voxels. We report Dice and Surface-Dice <ref type="bibr" target="#b50">(Seidlitz et al., 2022)</ref> (1 mm tolerance) in the main text; HD95, absolute volume difference (AVD), absolute lesion difference (ALD), lesionwise F1, true-positive rate (TPR) and false-positive rate (FPR) appear in Appendix B.</p><p>Dice quantifies volumetric overlap (1 = perfect, 0 = none), whereas HD95 captures boundary error while being robust to outliers. AVD reports absolute volume mismatch in cm 3 . ALD counts mismatches in the number of connected components, and lesion-wise F1 scores per-lesion detection accuracy. TPR and FPR follow standard definitions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4">Comparison Methods</head><p>We evaluate four primary approaches:</p><p>(i) Baseline: A standard 3D U-Net trained solely on real MPRAGE images from the ATLAS dataset (N=419) using supervised learning. This represents the conventional approach of training on a single modality with manual annotations.</p><p>(ii) Oracle DA: The baseline model enhanced with the single best-performing domain adaptation method (selected post-hoc from TTA, TENT, DAE, PL, UPL, DPL) for each modality. This represents the theoretical upper bound of what domain adaptation can achieve when the optimal method is known -an unrealistic scenario in practice.</p><p>(iii) WMH-SynthSeg: The pre-trained white matter hyperintensity model from <ref type="bibr" target="#b30">Laso et al. (2024)</ref>; <ref type="bibr" target="#b14">Fischl (2012)</ref>, included as an off-the-shelf robust lesion segmentation baseline. Note that this model was trained for small periventricular WMH lesions, which differ substantially from large cortical stroke lesions.</p><p>(iv) Synth (Ours): Our proposed approach using synthetic data generation as described in Section 2. The model is trained on a mixture of synthetic data (generated from OASIS healthy maps + ATLAS lesion masks) and real AT-LAS MPRAGE images, following the framework illustrated in Figure <ref type="figure">2</ref>.</p><p>For fair comparison, TTA is only applied when a model is explicitly labelled "+TTA" or when it is selected as the Oracle DA. All candidate maps are binarised via argmax on posterior probabilities without additional calibration or threshold tuning.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Results</head><p>Overall results are shown in Figure <ref type="figure" target="#fig_3">3</ref>, which compares (i) the Baseline, (ii) the Oracle DA (best-performing domain adaptation for Baseline only), (iii) WMH-SynthSeg, and (iv) the DA-free Synth model. Oracle DA represents the hy-pothetical best-case scenario where the optimal DA method is known a priori for each dataset/modality. Tables <ref type="table" target="#tab_1">2</ref>, <ref type="table" target="#tab_2">3</ref>, 4 and 5 provide comprehensive results for all tested domain adaptation methods on both Baseline and Synth models.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">ATLAS</head><p>The ATLAS dataset represents the in-domain scenario with T1-weighted images matching our training distribution. Table 2 shows performance on the held-out test set. The conventional Baseline achieves a median Dice of 57.5 %, whereas our Synth model reaches 48.2 %, a 9.3 % gap that represents the 'price of robustness' we accept for the larger out-of-domain gains reported later. Surface Dice follows the same trend (49.4 % vs. 38.1 %).</p><p>Applying test-time augmentation (Baseline+TTA) changes Dice by &lt;0.1 %, indicating that TTA adds little benefit when the evaluation domain is already aligned with training.</p><p>The off-the-shelf WMH-SynthSeg, trained for small periventricular WMH lesions, scores only 7.3 % Dice, confirming that cortical stroke in ATLAS lies well outside its intended scope.</p><p>A paired Wilcoxon test (Appendix Figure <ref type="figure" target="#fig_9">7</ref>) verifies that the Baseline-Synth Dice difference is statistically significant, underscoring that domain-invariant training still sacrifices some in-domain accuracy. Voxel-level metrics in Appendix Table <ref type="table" target="#tab_0">10</ref> reveal the Baseline achieves a higher recall but at the cost of more false positives, suggesting a tendency to over-segment.</p><p>Worst Scanner Syndrome. This in-domain drop is consistent with the 'Worst Scanner Syndrome' hypothesis <ref type="bibr" target="#b39">(Moyer and Golland, 2021)</ref>, which posits that many domaininvariance strategies pull feature quality toward the least informative -or noisiest -domain. As the next Results sections demonstrate, that modest in-domain penalty is offset by substantial gains on heterogeneous clinical data. The ARC dataset contains research-quality chronic stroke scans, representing a moderate domain shift from our AT-LAS training data. We expect T1w performance to be strongest given its proximity to the training domain.</p><p>Table <ref type="table" target="#tab_2">3</ref> shows performance on ARC, comparing Baseline, Oracle DA (best possible domain adaptation for Baseline), WMH-SynthSeg, and our Synth approach. For T1w, both baseline and Oracle DA achieve 75.2% Dice, with Synth at 72.3% -all maintaining strong performance (Appendix Figure <ref type="figure" target="#fig_10">8</ref> shows statistical significance). However, T2w reveals dramatic differences: baseline drops to 0.4% and Oracle DA to 0.1%, while Synth maintains 26.8%. FLAIR shows intermediate performance with Oracle DA at 12.4% versus Synth at 14.1%. The ensemble results are particularly striking: Oracle DA achieves only 11.7% while Synth reaches 60.2%. This pattern -strong baseline performance on T1w but catastrophic failure on other modalities even with optimal DA -demonstrates that synthetic pre-training provides fundamental robustness unachievable through post-hoc adaptation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3">ISLES 2015</head><p>ISLES 2015 contains skull-stripped sub-acute stroke scans, representing our most challenging domain shift with both acquisition and pathology differences from the chronic ATLAS training data.</p><p>The results in Figure <ref type="figure" target="#fig_3">3</ref> and Table <ref type="table">4</ref> show that the Synth model outperforms the Baseline model in all modalities in regards to both Dice and Surface Dice with high statistical significance in the Dice metric evidenced in Appendix Figures 11-13. Baseline performance is near-zero across all modalities. Oracle DA shows minimal recovery: 10.5% for T1w (still below Synth's 11.0%) and 0.0% for all other modalities (T2w, FLAIR, DWI). In contrast, Synth achieves (Ours) 26.8 (23.3-30.2) 12.0 (10.4-13.6) FLAIR Baseline 12.0 (7.6-16.3) 6.3 (4.7-7.8) Oracle DA 12.4 (5.8-19.0) 7.7 (5.2-10.2) WMH-SynthSeg 2.4 (0.9-3.9) 4.3 (3.0-5.5) Synth (Ours) 14.1 (9.7-18.5) 6.6 (4.8-8.4) Ensemble Baseline 3.4 (1.3-5.4) 2.0 (0.8-3.2) Oracle DA 11.7 (8.6-14.7) 6.3 (4.7-7.8) Synth (Ours) 60.2 (56.6-63.8) 26.3 (24.3-28.4)</p><p>11.0% (T1w), 11.1% (T2w), 21.2% (FLAIR), and 5.6% (DWI). The ensemble demonstrates the starkest contrast: 0.0% for both baseline and Oracle DA versus 42.3% for Synth.</p><p>The poor performance correlates with high false positive rates rather than missed detections (Appendix Table <ref type="table" target="#tab_1">12</ref>), suggesting models struggle with tissue discrimination in this domain. When baseline predictions fail catastrophically, no DA method can recover meaningful performance.</p><p>It is also evident from Table <ref type="table">4</ref> that the model performance is highly dependent on the choice of image sequence available. The ensemble improves performance over individual sequences in ISLES2015 (Table <ref type="table">4</ref>) but shows mixed results in ARC, suggesting dataset-specific benefits rather than universal improvement. Although we only show the upper limit of an ensemble of all four sequences, it is expected that in cases where fewer sequences are available we will still observe constructive gains from post-hoc ensembling.</p><p>Table 4: Median results on the ISLES2015 dataset (N=28). Best score shown in bold. Student's t distribution 95% confidence intervals given in brackets. 'Oracle DA' represents the hypothetical best-case scenario where optimal DA method is known a priori for each dataset/modality and applied to the baseline model. Results in Table <ref type="table">5</ref> demonstrate the most extreme performance gap between conventional training and our synthetic approach. On this challenging clinical dataset, Oracle DA achieves at most 0.2% Dice (CT modality), while our Synth model achieves 11.9%, 25.4%, and 11.3% for T2w, FLAIR, and CT respectively. The near-total failure of both baseline and Oracle DA on real clinical data -where acquisition protocols, slice thickness, and image quality vary substantially -validates our core hypothesis: domain adaptation cannot substitute for domain-invariant training when deployment conditions diverge significantly from training data. Even WMH-SynthSeg, despite being trained for robustness, achieves only 0.0-4.9% Dice, likely due to its focus on small periventricular lesions rather than large cortical strokes. Full results for all individual DA methods are provided in Appendix Table <ref type="table" target="#tab_2">13</ref>. A number of samples are also visualised for this dataset in Figure <ref type="figure" target="#fig_5">4</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Table 5: Median results on the PLORAS dataset (N=661).</head><p>Best score shown in bold. Student's t distribution 95% confidence intervals given in brackets. 'Oracle DA' represents the hypothetical best-case scenario where optimal DA method is known a priori for each dataset/modality and applied to the baseline model.</p><p>Modality Model Dice (%) Surface Dice (%) T2w Baseline 0.0 (0.0-1.3) 0.1 (0.0-0.6) Oracle DA 0.1 (0.0-2.2) 0.1 (0.0-0.8) WMH-SynthSeg 4.9 (4.0-5.8) 0.0 (0.0-0.0) Synth (Ours) 11.9 (6.7-17.1) 8.4 (6.1-10.7) FLAIR Baseline 0.0 (0.0-0.4) 0.0 (0.0-0.2) Oracle DA 0.0 (0.0-0.4) 0.0 (0.0-0.2) WMH-SynthSeg 4.6 (4.2-5.0) 0.0 (0.0-0.0) Synth (Ours) 25.4 (22.5-28.3) 8.5 (7.4-9.6) CT Baseline 0.0 (0.0-1.1) 0.0 (0.0-0.5) Oracle DA 0.2 (0.0-0.5) 0.3 (0.0-0.7) WMH-SynthSeg 0.0 (0.0-0.0) 0.0 (0.0-0.0) Synth (Ours) 11.3 (8.0-14.6) 7.9 (6.0-9.8)</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.5">Domain Adaptation</head><p>Tables 3, 4 and 5 demonstrate that even with oracle selection of the optimal domain adaptation method, the baseline model cannot match Synth performance in out-of-domain settings. We evaluated six established DA techniques (TTA, TENT, DAE, PL, UPL, DPL) on both baseline and Synth models to determine whether domain adaptation could enable baseline generalisation. Complete results in Appendix Tables 11-13 consistently show that poor initial baseline predictions prevent effective adaptation. In contrast, when applied to our Synth model, several DA methods yield substantial improvements, demonstrating the potential for compound gains when robust pre-training is combined with appropriate post-hoc adaptation. Analysis of complete DA results (Appendix Tables <ref type="table" target="#tab_0">11</ref><ref type="table" target="#tab_1">12</ref><ref type="table" target="#tab_2">13</ref>) reveals DAE as the most consistently effective method for Synth. DAE achieves substantial improvements: ARC T2w increases from 26.8% to 54.3% Dice, ISLES T1w from 11.0% to 31.1%, and PLORAS CT from 11.3% to 23.9%. TTA provides modest gains for PLORAS FLAIR (25.4% to 29.4%), while TENT benefits ARC FLAIR (14.1% to 36.1%). Pseudo-labeling methods (PL, UPL, DPL) show high variance -occasionally strong but often catastrophic.</p><p>The key finding: while DA cannot rescue baseline models trained on narrow data, it can enhance robustly pretrained models. Synth+DAE consistently outperforms both Synth alone and Baseline+Oracle DA, demonstrating complementary benefits.</p><p>Our domain adaptation experiments serve primarily to establish an upper bound on baseline model performance. Even with oracle knowledge of the optimal DA method for each dataset/modality combination -an unrealistic scenario in practice -the baseline model cannot match Synth performance in out-of-domain settings. Full DA results for all methods appear in Appendix Tables <ref type="table" target="#tab_0">11</ref><ref type="table" target="#tab_1">12</ref><ref type="table" target="#tab_2">13</ref>. While individual DA methods show varied effectiveness, the key finding is that synthetic pre-training provides robustness that cannot be recovered through test-time adaptation alone. This underscores the value of appearance-invariant training, even with our current limitations in modelling stroke heterogeneity through single Gaussian distributions. Domain adaptation results varied substantially by method and modality, with no single approach providing consistent improvements. We present all tested combinations rather than cherry-picking optimal results, as real-world deployment would lack oracle knowledge of the best DA method for unseen data.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.6">Ablation: To mix or not to mix?</head><p>For all experiments shown thus far, the Synth model used a mix of both synthetic data and the real ATLAS dataset. In order to evaluate whether this decision is justified, an ablation is performed where the Synth model using mixed real/synthetic data is compared to a model trained with only synthetic data. This model is trained in the exact same manner as described previously for the baseline and Synth models. Results for the test datasets ATLAS, ARC and ISLES 2015 are shown in Tables 6, 7 and 8 respectively.</p><p>The results reveal a nuanced picture. For in-domain and near-domain T1w data (ATLAS, ARC), mixing with real data provides clear benefits, with pure synthetic training achieving only 19.7% and 46.7% Dice respectively compared to 48.2% and 72.3% for mixed training. However, for several out-of-domain scenarios, pure synthetic training surprisingly often outperforms mixed training: ARC T2w (62.6% vs 26.8%), ISLES T1w (30.4% vs 11.0%), and ISLES FLAIR (37.2% vs 21.2%). This suggests that including real T1w data may inadvertently bias the model toward T1w-specific features, reducing generalisation to other modalities. The T2w and FLAIR improvements with pure synthetic training may reflect these sequences' different tissue contrast patterns, which are better captured by unbiased synthetic variation than by a model partially trained on T1w-specific features. Further improving the realism of the generated lesions with methods proposed in <ref type="bibr" target="#b34">Liu et al. (2025)</ref> may aid in closing the gap for the model trained only on synthetic data, potentially achieving both in-domain performance and out-of-domain generalisation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.7">Use of Pseudo-labelling</head><p>The use of synthetic data for semi-supervised pseudo-label training is also explored through the use of the PLORAS MPRAGE dataset (N=1159), distinct from the PLORAS  <ref type="figure" target="#fig_7">6</ref> and Tables 6, 7 and 8 demonstrate an overall positive effect of pseudo labels in the Synth model, with the exception of FLAIR images in ISLES 2015.</p><p>Notable improvements include: ARC T2w increasing from 26.8% to 37.2% Dice, ISLES T1w from 11.0% to 17.9%, and ARC ensemble from 60.2% to 69.4%. The baseline model shows minimal improvement with pseudolabels in out-of-domain scenarios (e.g., ISLES ensemble remains at 0.0%), suggesting that pseudo-labelling cannot overcome fundamental domain shift. The FLAIR degradation in ISLES 2015 (21.2% to 4.2%) may indicate that pseudo-labels from chronic MPRAGE data introduce biases incompatible with acute FLAIR lesion appearance. The in-domain ATLAS dataset also shows a notable improvement for both models as a result of pseudo labels, with a more marked increase in the baseline model, suggesting Table 8: Median results for ablation and pseudo-label experiments on the ISLES 2015 test set (N=28). Best score shown in bold. Student's t distribution 95% confidence intervals given in brackets. Modality Model Dice (%) Surface Dice (%) T1w Baseline 0.0 (0.0-7.4) 0.0 (0.0-4.8) Baseline+Pseudo 0.3 (0.0-9.1) 0.0 (0.0-4.0) Synth (no real data) 30.4 (21.3-39.6) 9.4 (4.1-14.8) Synth (Ours) 11.0 (1.2-20.8) 3.4 (0.0-8.5) Synth+Pseudo 17.9 (7.6-28.3) 8.0 (2.1-13.8) T2w Baseline 0.0 (0.0-0.5) 0.3 (0.0-1.0) Baseline+Pseudo 0.1 (0.0-0.7) 0.4 (0.0-1.1) Synth (no real data) 7.4 (0.0-18.4) 8.1 (3.0-13.1) Synth (Ours) 11.1 (0.7-21.6) 7.1 (2.7-11.5) Synth+Pseudo 18.1 (7.1-29.1) 9.5 (4.4-14.5) FLAIR Baseline 0.0 (0.0-0.0) 0.0 (0.0-0.0) Baseline+Pseudo 0.0 (0.0-0.3) 0.0 (0.0-0.4) Synth (no real data) 37.2 (25.5-48.9) 16.0 (10.8-21.1) Synth (Ours) 21.2 (8.5-34.0) 14.7 (9.0-20.3) Synth+Pseudo 4.2 (0.0-17.3) 3.9 (0.0-9.8) DWI Baseline 0.0 (0.0-0.0) 0.0 (0.0-0.0) Baseline+Pseudo 0.0 (0.0-0.4) 0.0 (0.0-0.0) Synth (no real data) 8.2 (0.0-16.8) 5.1 (2.0-8.3) Synth (Ours) 5.6 (0.0-14.4) 4.1 (0.8-7.4) Synth+Pseudo 5.6 (0.0-14.7) 4.3 (0.8-7.8) Ensemble Baseline 0.0 (0.0-0.0) 0.0 (0.0-0.0) Baseline+Pseudo 0.0 (0.0-0.0) 0.0 (0.0-0.0) Synth (no real data) 27.2 (15.7-38.8) 15.6 (10.3-20.9) Synth (Ours) 42.3 (30.2-54.5) 19.1 (12.7-25.4) Synth+Pseudo 50.1 (37.6-62.6) 24.9 (18.7-31.1)</p><p>pseudo-labels effectively expand the training distribution when the domain gap is small. These results across four diverse datasets -from researchquality ATLAS to challenging clinical PLORAS scans -re-veal consistent patterns that warrant deeper analysis of the fundamental principles underlying domain robustness.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Discussion</head><p>Our results reveal fundamental principles about domain robustness in medical image segmentation. The consistent failure of domain adaptation to rescue baseline models -even with oracle selection of the optimal method -demonstrates that post-hoc adaptation cannot substitute for domaininvariant training. This finding challenges prevailing assumptions about the sufficiency of test-time adaptation for clinical deployment.</p><p>The compound effect observed with Synth+DAE suggests that synthetic pre-training and test-time adaptation address different aspects of domain shift. Synthetic training provides feature representations invariant to appearance changes, while DA methods fine-tune these representations to specific test-time distributions. However, this synergy only emerges when the base model already possesses sufficient robustness -when initial predictions fail catastrophically (as with baseline models on ISLES 2015 and PLORAS), no amount of adaptation can recover performance.</p><p>The variable benefit of multi-modal ensembling -substantial for ISLES 2015 but mixed for ARC -indicates that fusion strategies must consider dataset-specific characteristics rather than assuming universal improvement. Clinical deployment should balance single-modality robustness with opportunistic multi-modal fusion.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">Limitations and Future Directions</head><p>Appendix A confirms that 20-40% of lesions in several cohorts are multimodal, underscoring the central limitation of our single-Gaussian sampling. While our spatially-varying approach introduces intra-lesion heterogeneity, it does not address the multi-modal nature of stroke appearance. Future implementations should explore mixture models to capture lesions that simultaneously exhibit hyper-and hypointense regions within the same pathology. It may also be advantageous to paste several lesions per subject, each assigned its own independently sampled intensity profile. This would allow a single synthetic brain to display chronic hypointense scars alongside acute hyperintense infarcts, better reflecting the heterogeneous lesion chronology typically observed in stroke cohorts.</p><p>Additional qualitative results in Appendix Figures 18 -23 display further positive and negative results across the available image modalities within the PLORAS dataset. A number of failure modes may be observed here, such as missing cerebellar lesions or under-segmenting large hemispheric lesions.</p><p>Although results in the paper provide strong evidence of the raw value of the segmentation metrics, it is important to further validate that the predictions made from the trained model are useful for downstream tasks. This could be In the context of neuroimaging data, there are many shifts in domain beyond those related to scanner sequence and resolution targeted in this work. Shifts related to anatomical shape, brought on by changes in demographics or the presence of confounding conditions such as atrophy are of equal importance to shifts in image appearance. Prior work has attempted to model such factors through the use of causal inference and counterfactual generation <ref type="bibr" target="#b42">(Pawlowski et al., 2020;</ref><ref type="bibr" target="#b44">Pombo et al., 2023;</ref><ref type="bibr" target="#b47">Ribeiro et al., 2023)</ref>. It is conceivable that such an approach could be used to introduce morphological changes to the healthy tissue maps to create a model that is agnostic to shifts in domains related to both shape and appearance.</p><p>While this study focused on stroke, the results are expected to translate to other similar domains, such as haemorrhage and glioblastoma. Future work will compare the impact of the mixing proportions of real and synthetic data. Additionally, the utility of multi-modal data in a multichannel model will be examined versus post-hoc averaging of individual modality predictions. Lesions often appear differently across modalities, so a model trained with multichannel inputs is expected to leverage these differences more effectively. This relationship between multi-channel inputs may better be modelled using quantitative MRI data.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.">Conclusion</head><p>In this study, we introduced a novel synthetic data generation and training framework for stroke lesion segmentation, building on the success of prior works in healthy brain parcellation. A model trained using this novel framework was evaluated on a wide range of datasets covering research and clinical data, and chronic and acute stroke pathologies. Our experiments demonstrate that synthetic pre-training provides fundamental robustness unachievable through testtime adaptation alone. While accepting a 9.3% median Dice reduction in-domain (48.2% vs 57.5%), our approach maintains performance where conventional methods fail entirely. Even with oracle knowledge of the optimal domain adaptation method -an unrealistic scenario in practiceconventionally-trained models cannot match our synthetic approach in out-of-domain settings.</p><p>Our results demonstrate that even imperfect appearance modelling can provide substantial benefits for cross-modality segmentation. Incorporating recent contemporary work on realistic lesion simulation <ref type="bibr" target="#b34">(Liu et al., 2025)</ref> may further improve performance both in-and out-of-distribution.</p><p>Qualitative results in Figure <ref type="figure" target="#fig_5">4</ref> demonstrate the potential of the model as a starting checkpoint in an active-learning framework such as MONAI Label <ref type="bibr" target="#b13">(Diaz-Pinto et al., 2024)</ref>, where predictions may be refined to generate training data for task-specific fine-tuning. The uncertainty of healthytissue segmentations via MC dropout may also provide an effective heuristic for prioritising items to refine/label in such a framework <ref type="bibr" target="#b40">(Nath et al., 2021)</ref>.</p><p>Results also showed the potential benefit of the model for semi-supervised learning through pseudo labelling, where predicted labels may be fed back into the model with much less caution than is typically required when training with real images <ref type="bibr" target="#b43">(Pham et al., 2021;</ref><ref type="bibr" target="#b53">Xu et al., 2024)</ref>. The ablation study revealed that pure synthetic training can outperform mixed training for certain out-of-domain modalities, suggesting opportunities for further optimisation of the real/synthetic data balance. A simple solution to further reinforce this may be to train a real/fake discriminator to perform automated quality-control and threshold optimisation for the generated binary maps.</p><p>Our approach reduces reliance on domain-specific training data and helps bridge the gap between research-grade and clinical scans to improve clinical stroke neuroimaging workflows, providing a foundation for more robust and widely applicable lesion segmentation tools.</p><p>Table 11: Mean results on the ARC dataset (N=229). Best score per column is shown in bold. FPR values are shown as a multiple of 1000.                </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><figDesc>(a) FreeSurfer<ref type="bibr" target="#b46">(Puonti et al., 2016)</ref> (b) MultiBrain<ref type="bibr" target="#b5">(Brudfors et al., 2020</ref></figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 1 :</head><label>1</label><figDesc>Figure 1: Sample generated images using different labels for a single subject. 1a: FreeSurfer anatomical labels. 1b: MultiBrain tissue labels. 1c: MultiBrain tissue labels masked to simulate skull-stripping.</figDesc><graphic coords="3,355.80,535.53,50.88,50.88" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><figDesc>Output channels. Background + Gray Matter (GM) + White Matter (WM) + GM/WM Partial Volume + Cerebrospinal Fluid (CSF) + Lesion (total six channels) for Synth; Background + Lesion for Baseline. When real images (binary GT) enter the mixed loader we mask the loss to the lesion channel only. Training schedule. 192 3 crops, batch 1, 1 200 epochs × 500 iterations (=6 × 10 5 updates), AdamW (η 0 = 10 -4 , weight-decay 0.01, poly LR decay with power 0.9), combined Dice + CE loss, dropout 0.2, gradient-norm clip 12. Data-loader mixing. Synthetic : Real ratio = 2 579 : 419 (mirrors sample counts). Real MPRAGE images receive the same spatial/intensity transforms as synthetic batches.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 3 :</head><label>3</label><figDesc>Figure3: Dice and Surface Dice metrics for all reported datasets. 'Oracle DA' represents the hypothetical best-case scenario where optimal DA method is known a priori for each dataset/modality and applied to the baseline model.</figDesc><graphic coords="7,28.35,188.19,538.61,121.99" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><figDesc>represents the most extreme domain shift with real clinical data exhibiting large diversity in acquisition protocols and slice thickness. We expect minimal baseline performance given these challenging conditions. For all available modalities, the Synth model outperforms the baseline with statistical significance in Dice (see Appendix Figures15 -17).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Figure 4 :</head><label>4</label><figDesc>Figure 4: Sample visualisations in the PLORAS dataset. Green indicates a true positive prediction, red a false positive, and blue a false negative.</figDesc><graphic coords="9,28.35,502.54,538.59,217.67" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Figure 5 :</head><label>5</label><figDesc>Figure5: Dice and Surface Dice metrics for all reported datasets, for models trained on different combinations of real/synthetic data.</figDesc><graphic coords="11,55.28,202.87,484.71,136.67" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Figure 6 :</head><label>6</label><figDesc>Figure6: Dice and Surface Dice metrics for all reported datasets, for models trained with/without an additional training dataset of MPRAGE images and pseudo-labels.</figDesc><graphic coords="12,55.28,202.74,484.72,136.54" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><figDesc>validated by comparing predictivity of the segmentation masks for functional scores such as the Comprehensive Aphasia Test (CAT) (Hope et al., 2024) or the NIH Stroke Score (NIHSS).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Figure 7 :</head><label>7</label><figDesc>Figure 7: Wilcoxon signed-rank test values for Dice metric measurements in the ATLAS T1w dataset.</figDesc><graphic coords="19,82.20,65.21,430.88,313.02" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Figure 8 :</head><label>8</label><figDesc>Figure 8: Wilcoxon signed-rank test values for Dice metric measurements in the ARC T1w dataset.</figDesc><graphic coords="19,82.20,413.70,430.88,313.02" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>Figure 9 :</head><label>9</label><figDesc>Figure 9: Wilcoxon signed-rank test values for Dice metric measurements in the ARC T2w dataset.</figDesc><graphic coords="20,82.20,65.21,430.88,313.02" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><head>Figure 10 :</head><label>10</label><figDesc>Figure 10: Wilcoxon signed-rank test values for Dice metric measurements in the ARC FLAIR dataset.</figDesc><graphic coords="20,82.20,413.70,430.88,313.02" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head>Figure 11 :</head><label>11</label><figDesc>Figure 11: Wilcoxon signed-rank test values for Dice metric measurements in the ISLES 2015 T1w dataset.</figDesc><graphic coords="21,82.20,65.21,430.88,313.02" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><head>Figure 12 :</head><label>12</label><figDesc>Figure 12: Wilcoxon signed-rank test values for Dice metric measurements in the ISLES 2015 T2w dataset.</figDesc><graphic coords="21,82.20,413.70,430.88,313.02" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_15"><head>Figure 13 :</head><label>13</label><figDesc>Figure 13: Wilcoxon signed-rank test values for Dice metric measurements in the ISLES 2015 FLAIR dataset.</figDesc><graphic coords="22,82.20,65.21,430.88,313.02" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_16"><head>Figure 14 :</head><label>14</label><figDesc>Figure 14: Wilcoxon signed-rank test values for Dice metric measurements in the ISLES 2015 DWI dataset.</figDesc><graphic coords="22,82.20,413.70,430.88,313.02" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_17"><head>Figure 15 :</head><label>15</label><figDesc>Figure 15: Wilcoxon signed-rank test values for Dice metric measurements in the PLORAS T2w dataset.</figDesc><graphic coords="23,82.20,65.21,430.88,313.02" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_18"><head>Figure 16 :</head><label>16</label><figDesc>Figure 16: Wilcoxon signed-rank test values for Dice metric measurements in the PLORAS FLAIR dataset.</figDesc><graphic coords="23,82.20,413.70,430.88,313.02" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_19"><head>Figure 18 :</head><label>18</label><figDesc>Figure 18: Sample visualisations of successful cases in the PLORAS T2w dataset. Green indicates a true positive prediction, red a false positive, and blue a false negative.</figDesc><graphic coords="25,28.35,502.54,538.59,217.67" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_20"><head>Figure 19 :</head><label>19</label><figDesc>Figure 19: Sample visualisations of failure cases in the PLORAS T2w dataset. Green indicates a true positive prediction, red a false positive, and blue a false negative.</figDesc><graphic coords="26,28.35,502.54,538.59,217.67" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_21"><head>Figure 20 :</head><label>20</label><figDesc>Figure 20: Sample visualisations of successful cases in the PLORAS FLAIR dataset. Green indicates a true positive prediction, red a false positive, and blue a false negative.</figDesc><graphic coords="27,28.35,502.54,538.59,217.67" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_22"><head>Figure 21 :</head><label>21</label><figDesc>Figure 21: Sample visualisations of failure cases in the PLORAS FLAIR dataset. Green indicates a true positive prediction, red a false positive, and blue a false negative.</figDesc><graphic coords="28,28.35,502.54,538.59,217.67" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_23"><head>Figure 22 :</head><label>22</label><figDesc>Figure 22: Sample visualisations of successful cases in the PLORAS CT dataset. Green indicates a true positive prediction, red a false positive, and blue a false negative.</figDesc><graphic coords="29,28.35,502.54,538.59,217.67" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_24"><head>Figure 23 :</head><label>23</label><figDesc>Figure 23: Sample visualisations of failure cases in the PLORAS CT dataset. Green indicates a true positive prediction, red a false positive, and blue a false negative.</figDesc><graphic coords="30,28.35,502.54,538.59,217.67" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_25"><graphic coords="24,82.20,65.21,430.88,313.02" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 :</head><label>1</label><figDesc>Parameter ranges for every image-quality augmentation used during synthetic training. † indicates augmentations applied only to synthetic data and not to real ATLAS samples.</figDesc><table><row><cell>Category</cell><cell>Transform</cell><cell>Sampling range / notes</cell></row><row><cell>Bias field</cell><cell>Multiplicative bias</cell><cell>Control points U(2, 7), strength U(0, 0.5)</cell></row><row><cell>Affine</cell><cell>Rotation</cell><cell>U(-15 • , 15 • ) on each axis</cell></row><row><cell></cell><cell>Shear</cell><cell>U(0, 0.012)</cell></row><row><cell></cell><cell>Zoom</cell><cell>U(0.85, 1.15)</cell></row><row><cell>Elastic</cell><cell>Deformation grid</cell><cell>Control points U(0, 10), max disp. U(0, 0.05)</cell></row><row><cell cols="2">Skull-strip flaw  † Dilation</cell><cell>p = 0.3, radius = 2 vox.</cell></row><row><cell></cell><cell>Erosion</cell><cell>p = 0.3, radius = 4 vox.</cell></row><row><cell>Noise</cell><cell>Gaussian (SNR)</cell><cell>SNR U(0, 10), smoothed by g-factor U(2, 5)</cell></row><row><cell>Resolution  †</cell><cell>Slice anisotropy</cell><cell>Thk. factor U(1, 8) (base res. 1 mm 3 )</cell></row><row><cell>Contrast</cell><cell>Gamma</cell><cell>γ = 10 N (0,0.6)</cell></row><row><cell>Motion blur  †</cell><cell cols="2">PSF width (FWHM) U(0, 3) vox.</cell></row><row><cell>Flip</cell><cell>Mirror on each axis</cell><cell>p = 0.8</cell></row><row><cell></cell><cell></cell><cell>.</cell></row><row><cell></cell><cell></cell><cell>.</cell></row><row><cell></cell><cell></cell><cell>.</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2 :</head><label>2</label><figDesc>Median results on the ATLAS hold-out set (N=131). Best score shown in bold. Student's t distribution 95% confidence intervals given in brackets.</figDesc><table><row><cell>Modality</cell><cell>Model</cell><cell>Dice (%)</cell><cell>Surface Dice (%)</cell></row><row><cell></cell><cell>Baseline</cell><cell>57.5 (52.3-62.7)</cell><cell>49.4 (44.5-54.3)</cell></row><row><cell>T1w</cell><cell>Baseline+TTA WMH-SynthSeg</cell><cell>57.5 (52.2-62.8) 7.3 (4.8-9.7)</cell><cell>49.5 (44.5-54.5) 8.9 (6.9-10.9)</cell></row><row><cell></cell><cell>Synth (Ours)</cell><cell>48.2 (43.1-53.4)</cell><cell>38.1 (33.4-42.7)</cell></row><row><cell>4.2 ARC</cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 3 :</head><label>3</label><figDesc>Median results on the ARC dataset (N=229).Best score shown in bold. Student's t distribution 95% confidence intervals given in brackets. 'Oracle DA' represents the hypothetical best-case scenario where optimal DA method is known a priori for each dataset/modality and applied to the baseline model.</figDesc><table><row><cell>Modality</cell><cell>Model</cell><cell>Dice (%)</cell><cell>Surface Dice (%)</cell></row><row><cell></cell><cell>Baseline</cell><cell>75.2 (71.5-79.0)</cell><cell>41.7 (39.1-44.4)</cell></row><row><cell>T1w</cell><cell>Oracle DA WMH-SynthSeg</cell><cell>75.2 (71.3-79.0) 8.3 (6.8-9.8)</cell><cell>42.1 (39.4-44.8) 8.9 (7.7-10.1)</cell></row><row><cell></cell><cell>Synth (Ours)</cell><cell>72.3 (68.4-76.2)</cell><cell>33.7 (31.2-36.2)</cell></row><row><cell></cell><cell>Baseline</cell><cell>0.4 (0.0-1.4)</cell><cell>1.2 (0.8-1.7)</cell></row><row><cell>T2w</cell><cell>Oracle DA WMH-SynthSeg</cell><cell>0.1 (0.0-0.4) 3.2 (2.2-4.2)</cell><cell>1.0 (0.8-1.2) 6.0 (5.2-6.8)</cell></row><row><cell></cell><cell>Synth</cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>Table 6 :</head><label>6</label><figDesc>Median results for ablation and pseudo-label experiments on the ATLAS test set (N=131). Best score shown in bold. Student's t distribution 95% confidence intervals given in brackets.</figDesc><table><row><cell>Modality</cell><cell>Model</cell><cell>Dice (%)</cell><cell>Surface Dice (%)</cell></row><row><cell></cell><cell>Baseline</cell><cell>57.5 (52.3-62.7)</cell><cell>49.4 (44.5-54.3)</cell></row><row><cell></cell><cell>Baseline+Pseudo</cell><cell>59.8 (54.8-64.7)</cell><cell>48.6 (44.0-53.3)</cell></row><row><cell>T1w</cell><cell cols="2">Synth (no real data) 19.7 (15.5-23.9)</cell><cell>14.6 (12.3-16.9)</cell></row><row><cell></cell><cell>Synth (Ours)</cell><cell>48.2 (43.1-53.4)</cell><cell>38.1 (33.4-42.7)</cell></row><row><cell></cell><cell>Synth+Pseudo</cell><cell>49.6 (44.5-54.7)</cell><cell>38.2 (33.8-42.6)</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>Table 7 :</head><label>7</label><figDesc>Median results for ablation and pseudo-label experiments on the ARC test set (N=229). Best score shown in bold. Student's t distribution 95% confidence intervals given in brackets.</figDesc><table><row><cell>Modality</cell><cell>Model</cell><cell>Dice (%)</cell><cell>Surface Dice (%)</cell></row><row><cell></cell><cell>Baseline</cell><cell>75.2 (71.5-79.0)</cell><cell>41.7 (39.1-44.4)</cell></row><row><cell></cell><cell>Baseline+Pseudo</cell><cell>75.9 (72.1-79.7)</cell><cell>38.2 (35.8-40.7)</cell></row><row><cell>T1w</cell><cell cols="2">Synth (no real data) 46.7 (43.0-50.4)</cell><cell>18.2 (16.5-20.0)</cell></row><row><cell></cell><cell>Synth (Ours)</cell><cell>72.3 (68.4-76.2)</cell><cell>33.7 (31.2-36.2)</cell></row><row><cell></cell><cell>Synth+Pseudo</cell><cell>74.3 (70.4-78.2)</cell><cell>36.8 (34.3-39.3)</cell></row><row><cell></cell><cell>Baseline</cell><cell>0.4 (0.0-1.4)</cell><cell>1.2 (0.8-1.7)</cell></row><row><cell></cell><cell>Baseline+Pseudo</cell><cell>1.4 (0.3-2.4)</cell><cell>3.0 (2.5-3.4)</cell></row><row><cell>T2w</cell><cell cols="3">Synth (no real data) 62.6 (58.8-66.5) 30.9 (28.7-33.0)</cell></row><row><cell></cell><cell>Synth (Ours)</cell><cell>26.8 (23.3-30.2)</cell><cell>12.0 (10.4-13.6)</cell></row><row><cell></cell><cell>Synth+Pseudo</cell><cell>37.2 (33.2-41.1)</cell><cell>14.7 (12.7-16.7)</cell></row><row><cell></cell><cell>Baseline</cell><cell>12.0 (7.6-16.3)</cell><cell>6.3 (4.7-7.8)</cell></row><row><cell></cell><cell>Baseline+Pseudo</cell><cell>14.5 (10.1-18.9)</cell><cell>7.0 (5.5-8.5)</cell></row><row><cell>FLAIR</cell><cell>Synth (no real data)</cell><cell>9.6 (7.0-12.3)</cell><cell>7.3 (6.1-8.6)</cell></row><row><cell></cell><cell>Synth (Ours)</cell><cell>14.1 (9.7-18.5)</cell><cell>6.6 (4.8-8.4)</cell></row><row><cell></cell><cell>Synth+Pseudo</cell><cell>12.9 (8.4-17.3)</cell><cell>6.3 (4.4-8.1)</cell></row><row><cell></cell><cell>Baseline</cell><cell>3.4 (1.3-5.4)</cell><cell>2.0 (0.8-3.2)</cell></row><row><cell></cell><cell>Baseline+Pseudo</cell><cell>12.4 (9.7-15.0)</cell><cell>6.5 (5.1-8.0)</cell></row><row><cell>Ensemble</cell><cell cols="2">Synth (no real data) 59.7 (56.2-63.1)</cell><cell>26.0 (24.2-27.9)</cell></row><row><cell></cell><cell>Synth (Ours)</cell><cell>60.2 (56.6-63.8)</cell><cell>26.3 (24.3-28.4)</cell></row><row><cell></cell><cell>Synth+Pseudo</cell><cell cols="2">69.4 (65.8-73.0) 34.0 (31.7-36.3)</cell></row><row><cell cols="4">hospital scans used in the Experiments. This approach lever-</cell></row><row><cell cols="4">ages a key advantage of our framework: because synthetic</cell></row><row><cell cols="4">training decouples image generation from label accuracy,</cell></row><row><cell cols="4">the model can tolerate and potentially benefit from imper-</cell></row><row><cell cols="3">fect pseudo-labels. Results in Figure</cell><cell></cell></row></table></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><head>Acknowledgments</head><p>LC is supported by the <rs type="funder">EPSRC</rs>-funded <rs type="affiliation">UCL Centre for Doctoral Training in Intelligent, Integrated Imaging in Healthcare (i4health</rs>) (<rs type="grantNumber">EP/S021930/1</rs>), and the <rs type="funder">Wellcome Trust</rs> (<rs type="grantNumber">203147/Z/16/Z</rs> and <rs type="grantNumber">205103/Z/16/Z</rs>). IP supported by the <rs type="funder">Alzheimer's Association</rs> grant number <rs type="grantNumber">SG-20-678486-GAAIN2</rs>. CP is funded by <rs type="funder">Wellcome</rs> (<rs type="grantNumber">203147/Z/16/Z</rs>, <rs type="grantNumber">205103/Z/16/Z</rs> and <rs type="grantNumber">224562/Z/21/Z</rs>). This research was supported by <rs type="funder">NVIDIA</rs> and utilised NVIDIA RTX <rs type="grantNumber">A6000 48GB</rs>.</p></div>
+			</div>
+			<listOrg type="funding">
+				<org type="funding" xml:id="_FRY8meu">
+					<idno type="grant-number">EP/S021930/1</idno>
+				</org>
+				<org type="funding" xml:id="_4wANMWu">
+					<idno type="grant-number">203147/Z/16/Z</idno>
+				</org>
+				<org type="funding" xml:id="_wTtHAKz">
+					<idno type="grant-number">205103/Z/16/Z</idno>
+				</org>
+				<org type="funding" xml:id="_VFUe9pn">
+					<idno type="grant-number">SG-20-678486-GAAIN2</idno>
+				</org>
+				<org type="funding" xml:id="_ANazUyr">
+					<idno type="grant-number">203147/Z/16/Z</idno>
+				</org>
+				<org type="funding" xml:id="_rXrczSN">
+					<idno type="grant-number">205103/Z/16/Z</idno>
+				</org>
+				<org type="funding" xml:id="_7d8PfpC">
+					<idno type="grant-number">224562/Z/21/Z</idno>
+				</org>
+				<org type="funding" xml:id="_umfjYBY">
+					<idno type="grant-number">A6000 48GB</idno>
+				</org>
+			</listOrg>
+
+			<div type="availability">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>PyTorch training code and weights are publicly available at <ref type="url" target="https://github.com/liamchalcroft/SynthStroke">https://github.com/liamchalcroft/SynthStroke</ref>, along with an SPM toolbox featuring a plug-and-play model at <ref type="url" target="https://github.com/liamchalcroft/SynthStrokeSPM">https://github.com/liamchalcroft/SynthStrokeSPM</ref>.</p></div>
+			</div>
+
+
+			<div type="availability">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Data availability</head><p>Authors have released public code and weights to reimplement all experiments. Model weights are also made available as a toolbox for SPM. This toolbox is written in pure MATLAB and requires no external installs or compilation, to minimise the barrier for clinical evaluation. All datasets are public except the PLORAS study data, which is part of an ongoing study and will be published upon completion.</p></div>
+			</div>
+
+
+			<div type="conflict">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conflicts of Interest</head><p>We declare we don't have conflicts of interest.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Ethical Standards</head><p>The work follows appropriate ethical standards in conducting research and writing the manuscript, following all applicable laws and regulations regarding treatment of animals or human subjects.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Appendix A. Lesion-intensity unimodality</head><p>Motivation. Most classical stroke-segmentation pipelines, including our synthetic generator, implicitly assume that the grey-level distribution of a lesion is unimodal. That assumption underpins common appearance priors such as single-Gaussian modelling and simple intensity normalisation. However, chronic infarcts often contain a mixture of tissue constituents, and in CT the same infarct can include both hypo-and hyper-dense cores. Quantifying how often real lesions violate unimodality therefore informs whether richer mixture-based priors are warranted.</p><p>Experiment. For every connected component in each dataset, we extracted the raw voxel intensities and applied Hartigan's dip test <ref type="bibr" target="#b19">(Hartigan and Hartigan, 1985)</ref> to the empirical one-dimensional distribution. A lesion was labelled unimodal when the null hypothesis of unimodality could not be rejected at α = 0.05; otherwise it was classified as multimodal. For efficiency, we randomly subsampled at most 2048 voxels per lesion before testing. Table <ref type="table" target="#tab_5">9</ref> summarises the counts.</p><p>Findings. Across MRI datasets the majority of lesions were indeed unimodal, but a non-negligible tail of multimodal cases emerged:</p><p>• ATLAS (chronic MPRAGE T1w) showed &gt; 95% unimodal lesions; only 80 of 1818 connected components exhibited multimodality, in line with mature cavities whose signal is dominated by a single CSF-like class.</p><p>• ISLES 2015 exhibited 12-38% multimodal lesions depending on modality, reflecting mixed-phase tissue in a sub-acute cohort.</p><p>• ARC (chronic research scans) retained a high unimodal rate in T1w/T2w but FLAIR contained 39% multimodal lesions.</p><p>• PLORAS revealed the strongest departure: while T2w/FLAIR remained largely unimodal, CT lesions were predominantly multimodal (58%), underscoring how density heterogeneity dominates in CT.</p><p>Implications. A single-Gaussian appearance prior is largely adequate for T1w/T2w MRI, where ≥ 80% of lesions were unimodal; it begins to break down for modalities that emphasise subtle tissue heterogeneity -most notably FLAIR and especially CT. Adopting explicit mixture-based priors, or synthetically sampling lesions with mixed intensities, therefore represents a principled next step for improving model robustness across modalities and imaging protocols.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Appendix B. Further segmentation metrics</head><p>Additional metrics are reported below in Appendix Tables 10 -13 for all datasets. Here we report individual scores for each DA method, for both the baseline model and our Synth model. Appendix C. Wilcoxon Significance Tests Significance measures are provided below in Figures 7 -17 as Wilcoxon signed-rank test values for pairwise comparisons between models on each dataset. 'Oracle DA' represents the hypothetical best-case scenario where optimal DA method is known a priori for each dataset/modality and applied to the baseline model. Median Dice values are shown along the diagonal. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Appendix D. Additional Qualitative Results</head><p>Results are shown below in Figures <ref type="figure">18</ref><ref type="figure">19</ref><ref type="figure">20</ref><ref type="figure">21</ref><ref type="figure">22</ref><ref type="figure">23</ref>for failure and success cases for the three different sequences in the PLORAS dataset.  </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_26"><head>Figure 17 :</head><label>17</label><figDesc>Wilcoxon signed-rank test values for Dice metric measurements in the PLORAS CT dataset.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head>Table 9 :</head><label>9</label><figDesc>Counts of connected-component lesions that are unimodal or multimodal in each dataset-modality pair. For every lesion larger than 10 voxels we sampled at most 2048 raw intensity values and ran Hartigan's dip test; failure to reject the null hypothesis of unimodality at α = 0.05 yields the Unimodal label, otherwise Multimodal. ATLAS is split into the subjects used for model development(T1w  [Train]) and the held-out evaluation set (T1w[Validation]).</figDesc><table><row><cell>Dataset</cell><cell>Modality</cell><cell cols="2">Unimodal Multimodal</cell></row><row><cell>ATLAS</cell><cell>T1w [Train] T1w [Validation]</cell><cell>1384 354</cell><cell>65 15</cell></row><row><cell></cell><cell>T1w</cell><cell>52</cell><cell>9</cell></row><row><cell>ISLES2015</cell><cell>T2w FLAIR</cell><cell>46 54</cell><cell>15 7</cell></row><row><cell></cell><cell>DWI</cell><cell>38</cell><cell>23</cell></row><row><cell></cell><cell>T1w</cell><cell>286</cell><cell>64</cell></row><row><cell>ARC</cell><cell>T2w</cell><cell>335</cell><cell>48</cell></row><row><cell></cell><cell>FLAIR</cell><cell>90</cell><cell>57</cell></row><row><cell></cell><cell>T2w</cell><cell>203</cell><cell>14</cell></row><row><cell>PLORAS</cell><cell>FLAIR</cell><cell>712</cell><cell>29</cell></row><row><cell></cell><cell>CT</cell><cell>248</cell><cell>342</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_6"><head>Table 10 :</head><label>10</label><figDesc>Mean results on ATLAS hold-out set (N=131).</figDesc><table><row><cell cols="6">Best score shown in bold. FPR values are shown as a</cell></row><row><cell cols="2">multiple of 10 -3 .</cell><cell></cell><cell></cell><cell></cell></row><row><cell>Modality</cell><cell>Model</cell><cell cols="3">Dice HD95 AVD ALD LF1</cell><cell>TPR</cell><cell>FPR</cell></row><row><cell></cell><cell>Baseline</cell><cell>0.500</cell><cell>44.3</cell><cell cols="2">7.60 3.48 0.480 0.510 0.251</cell></row><row><cell>T1w</cell><cell cols="3">Baseline+TTA 0.503 41.4 Synth (Ours) 0.456 47.4</cell><cell cols="2">7.34 2.52 0.537 0.502 0.234 8.73 2.26 0.536 0.426 0.200</cell></row><row><cell></cell><cell>Synth+TTA</cell><cell>0.455</cell><cell>48.3</cell><cell cols="2">8.51 1.76 0.559 0.424 0.191</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_8"><head>Table 12 :</head><label>12</label><figDesc>Mean results on the ISLES2015 dataset (N=28).Best score per column is shown in bold. FPR values are shown as a multiple of 1000.</figDesc><table><row><cell>Modality</cell><cell>Model</cell><cell cols="3">Dice HD95 AVD</cell><cell>ALD</cell><cell>LF1</cell><cell>TPR</cell><cell>FPR</cell></row><row><cell></cell><cell>Baseline</cell><cell>0.115</cell><cell>84.2</cell><cell>38.14</cell><cell>3.32</cell><cell cols="2">0.269 0.076 0.034</cell></row><row><cell></cell><cell>Baseline+TTA</cell><cell cols="3">0.091 113.2 40.11</cell><cell>1.96</cell><cell cols="2">0.311 0.058 0.012</cell></row><row><cell></cell><cell cols="4">Baseline+TENT 0.002 178.2 43.77</cell><cell>2.14</cell><cell cols="2">0.161 0.001 0.001</cell></row><row><cell></cell><cell>Baseline+DAE</cell><cell>0.246</cell><cell>68.2</cell><cell>48.07</cell><cell>7.18</cell><cell cols="2">0.285 0.191 1.604</cell></row><row><cell></cell><cell>Baseline+PL</cell><cell>0.040</cell><cell>81.6</cell><cell cols="4">42.79 643.29 0.003 0.039 1.979</cell></row><row><cell></cell><cell>Baseline+UPL</cell><cell cols="3">0.000 256.0 43.79</cell><cell>2.11</cell><cell cols="2">0.000 0.000 0.000</cell></row><row><cell>T1w</cell><cell>Baseline+DPL Synth (Ours)</cell><cell cols="3">0.000 256.0 43.79 0.222 70.5 30.49</cell><cell>2.11 7.14</cell><cell cols="2">0.000 0.000 0.000 0.208 0.168 0.162</cell></row><row><cell></cell><cell>Synth+TTA</cell><cell>0.230</cell><cell>78.5</cell><cell>31.41</cell><cell>2.18</cell><cell cols="2">0.349 0.163 0.085</cell></row><row><cell></cell><cell>Synth+TENT</cell><cell cols="6">0.076 108.2 33.79 40.86 0.103 0.058 0.265</cell></row><row><cell></cell><cell>Synth+DAE</cell><cell cols="3">0.268 58.1 29.18</cell><cell>3.64</cell><cell cols="2">0.316 0.223 0.293</cell></row><row><cell></cell><cell>Synth+PL</cell><cell>0.050</cell><cell>76.9</cell><cell>42.55</cell><cell>3.93</cell><cell cols="2">0.321 0.028 0.008</cell></row><row><cell></cell><cell>Synth+UPL</cell><cell cols="3">0.000 241.7 43.79</cell><cell>2.04</cell><cell cols="2">0.050 0.000 0.000</cell></row><row><cell></cell><cell>Synth+DPL</cell><cell cols="3">0.001 221.7 43.77</cell><cell>2.46</cell><cell cols="2">0.127 0.000 0.000</cell></row><row><cell></cell><cell>Baseline</cell><cell>0.007</cell><cell>65.4</cell><cell cols="4">50.81 15.00 0.078 0.044 2.786</cell></row><row><cell></cell><cell>Baseline+TTA</cell><cell>0.003</cell><cell>65.5</cell><cell>48.97</cell><cell>6.86</cell><cell cols="2">0.095 0.025 2.260</cell></row><row><cell></cell><cell cols="4">Baseline+TENT 0.001 142.6 43.38</cell><cell>3.75</cell><cell cols="2">0.050 0.001 0.085</cell></row><row><cell></cell><cell>Baseline+DAE</cell><cell>0.006</cell><cell>71.5</cell><cell>88.17</cell><cell>9.43</cell><cell cols="2">0.071 0.069 5.805</cell></row><row><cell></cell><cell>Baseline+PL</cell><cell>0.002</cell><cell>74.2</cell><cell cols="4">71.28 155.21 0.013 0.005 5.055</cell></row><row><cell></cell><cell>Baseline+UPL</cell><cell cols="3">0.000 256.0 43.79</cell><cell>2.11</cell><cell cols="2">0.000 0.000 0.000</cell></row><row><cell>T2w</cell><cell>Baseline+DPL Synth (Ours)</cell><cell cols="6">0.000 256.0 43.79 0.231 74.8 52.73 11.82 0.166 0.443 3.534 2.11 0.000 0.000 0.000</cell></row><row><cell></cell><cell>Synth+TTA</cell><cell>0.245</cell><cell>74.6</cell><cell>50.99</cell><cell>4.68</cell><cell cols="2">0.279 0.454 3.379</cell></row><row><cell></cell><cell>Synth+TENT</cell><cell>0.215</cell><cell>77.4</cell><cell cols="4">33.44 20.11 0.109 0.276 1.755</cell></row><row><cell></cell><cell>Synth+DAE</cell><cell>0.255</cell><cell>63.1</cell><cell>31.10</cell><cell>4.61</cell><cell cols="2">0.280 0.328 1.437</cell></row><row><cell></cell><cell>Synth+PL</cell><cell>0.245</cell><cell>73.3</cell><cell cols="4">37.57 13.71 0.161 0.288 2.280</cell></row><row><cell></cell><cell>Synth+UPL</cell><cell>0.152</cell><cell>63.3</cell><cell cols="4">31.06 12.43 0.138 0.116 0.631</cell></row><row><cell></cell><cell>Synth+DPL</cell><cell>0.111</cell><cell>58.6</cell><cell>35.25</cell><cell>8.11</cell><cell cols="2">0.172 0.073 0.143</cell></row><row><cell></cell><cell>Baseline</cell><cell>0.000</cell><cell>71.4</cell><cell cols="4">40.06 10.79 0.018 0.000 0.515</cell></row><row><cell></cell><cell>Baseline+TTA</cell><cell cols="3">0.000 112.9 41.24</cell><cell>3.43</cell><cell cols="2">0.000 0.000 0.238</cell></row><row><cell></cell><cell cols="4">Baseline+TENT 0.000 119.0 43.47</cell><cell>4.32</cell><cell cols="2">0.000 0.000 0.021</cell></row><row><cell></cell><cell>Baseline+DAE</cell><cell>0.000</cell><cell>80.1</cell><cell cols="4">61.65 15.29 0.015 0.004 3.679</cell></row><row><cell></cell><cell>Baseline+PL</cell><cell>0.000</cell><cell>77.1</cell><cell cols="4">43.43 70.43 0.009 0.000 0.490</cell></row><row><cell></cell><cell>Baseline+UPL</cell><cell cols="3">0.000 256.0 43.79</cell><cell>2.11</cell><cell cols="2">0.000 0.000 0.000</cell></row><row><cell>FLAIR</cell><cell>Baseline+DPL Synth (Ours)</cell><cell cols="6">0.000 256.0 43.79 0.314 62.9 18.84 10.61 0.154 0.346 0.975 2.11 0.000 0.000 0.000</cell></row><row><cell></cell><cell>Synth+TTA</cell><cell>0.329</cell><cell>82.1</cell><cell>18.37</cell><cell>3.50</cell><cell cols="2">0.275 0.359 0.891</cell></row><row><cell></cell><cell>Synth+TENT</cell><cell>0.127</cell><cell>79.0</cell><cell cols="4">28.03 34.54 0.031 0.107 0.460</cell></row><row><cell></cell><cell>Synth+DAE</cell><cell>0.274</cell><cell>55.7</cell><cell>20.25</cell><cell>7.86</cell><cell cols="2">0.152 0.305 0.989</cell></row><row><cell></cell><cell>Synth+PL</cell><cell>0.252</cell><cell>75.7</cell><cell cols="4">50.59 111.43 0.036 0.330 3.176</cell></row><row><cell></cell><cell>Synth+UPL</cell><cell cols="3">0.232 137.9 24.88</cell><cell>3.04</cell><cell cols="2">0.271 0.187 0.111</cell></row><row><cell></cell><cell>Synth+DPL</cell><cell cols="3">0.205 145.6 25.16</cell><cell>7.36</cell><cell cols="2">0.236 0.168 0.191</cell></row><row><cell></cell><cell>Baseline</cell><cell>0.000</cell><cell>80.1</cell><cell>42.63</cell><cell>5.54</cell><cell cols="2">0.023 0.000 0.138</cell></row><row><cell></cell><cell>Baseline+TTA</cell><cell cols="3">0.000 102.8 43.83</cell><cell>2.43</cell><cell cols="2">0.000 0.000 0.133</cell></row><row><cell></cell><cell cols="4">Baseline+TENT 0.000 103.9 43.52</cell><cell>1.89</cell><cell cols="2">0.000 0.000 0.021</cell></row><row><cell></cell><cell>Baseline+DAE</cell><cell>0.000</cell><cell>76.2</cell><cell cols="4">40.04 11.21 0.025 0.000 2.123</cell></row><row><cell></cell><cell>Baseline+PL</cell><cell>0.004</cell><cell>77.5</cell><cell cols="4">40.33 835.36 0.001 0.004 0.726</cell></row><row><cell></cell><cell>Baseline+UPL</cell><cell cols="3">0.000 256.0 43.79</cell><cell>2.11</cell><cell cols="2">0.000 0.000 0.000</cell></row><row><cell>DWI</cell><cell>Baseline+DPL Synth (Ours)</cell><cell cols="6">0.000 256.0 43.79 0.193 82.5 47.64 16.71 0.100 0.352 2.741 2.11 0.000 0.000 0.000</cell></row><row><cell></cell><cell>Synth+TTA</cell><cell>0.204</cell><cell>81.1</cell><cell>44.32</cell><cell>8.39</cell><cell cols="2">0.187 0.336 2.344</cell></row><row><cell></cell><cell>Synth+TENT</cell><cell>0.104</cell><cell>86.6</cell><cell cols="4">30.71 38.50 0.051 0.108 0.882</cell></row><row><cell></cell><cell>Synth+DAE</cell><cell>0.185</cell><cell>80.4</cell><cell cols="4">39.10 12.36 0.106 0.262 2.139</cell></row><row><cell></cell><cell>Synth+PL</cell><cell>0.186</cell><cell>85.2</cell><cell cols="4">81.64 17.43 0.120 0.397 5.759</cell></row><row><cell></cell><cell>Synth+UPL</cell><cell>0.179</cell><cell>60.8</cell><cell cols="4">32.42 19.43 0.154 0.155 0.268</cell></row><row><cell></cell><cell>Synth+DPL</cell><cell cols="3">0.089 117.4 39.27</cell><cell>3.75</cell><cell cols="2">0.300 0.060 0.031</cell></row><row><cell></cell><cell>Baseline</cell><cell cols="3">0.000 242.8 43.79</cell><cell>2.00</cell><cell cols="2">0.000 0.000 0.000</cell></row><row><cell></cell><cell>Baseline+TTA</cell><cell cols="3">0.000 256.0 43.79</cell><cell>2.11</cell><cell cols="2">0.000 0.000 0.000</cell></row><row><cell></cell><cell cols="4">Baseline+TENT 0.000 256.0 43.79</cell><cell>2.11</cell><cell cols="2">0.000 0.000 0.000</cell></row><row><cell></cell><cell>Baseline+DAE</cell><cell cols="3">0.000 231.0 43.68</cell><cell>2.00</cell><cell cols="2">0.000 0.000 0.007</cell></row><row><cell></cell><cell>Baseline+PL</cell><cell cols="3">0.000 198.9 43.79</cell><cell>2.11</cell><cell cols="2">0.024 0.000 0.000</cell></row><row><cell></cell><cell>Baseline+UPL</cell><cell cols="3">0.000 256.0 43.79</cell><cell>2.11</cell><cell cols="2">0.000 0.000 0.000</cell></row><row><cell>Ensemble</cell><cell>Baseline+DPL Synth (Ours)</cell><cell cols="3">0.000 256.0 43.79 0.370 60.4 19.68</cell><cell>2.11 7.50</cell><cell cols="2">0.000 0.000 0.000 0.234 0.339 0.256</cell></row><row><cell></cell><cell>Synth+TTA</cell><cell>0.378</cell><cell>69.7</cell><cell>20.01</cell><cell>2.75</cell><cell cols="2">0.348 0.334 0.223</cell></row><row><cell></cell><cell>Synth+TENT</cell><cell cols="3">0.111 114.8 32.23</cell><cell>3.21</cell><cell cols="2">0.235 0.089 0.047</cell></row><row><cell></cell><cell>Synth+DAE</cell><cell>0.365</cell><cell>51.4</cell><cell>19.84</cell><cell>3.75</cell><cell cols="2">0.354 0.331 0.204</cell></row><row><cell></cell><cell>Synth+PL</cell><cell>0.246</cell><cell>60.7</cell><cell cols="4">29.01 21.18 0.125 0.188 0.150</cell></row><row><cell></cell><cell>Synth+UPL</cell><cell cols="3">0.016 218.2 42.52</cell><cell>5.18</cell><cell cols="2">0.131 0.009 0.000</cell></row><row><cell></cell><cell>Synth+DPL</cell><cell cols="3">0.033 187.3 41.09</cell><cell>6.04</cell><cell cols="2">0.223 0.020 0.000</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_9"><head>Table 13 :</head><label>13</label><figDesc>Mean results on the PLORAS dataset (N=661).Best score per column is shown in bold. FPR values are shown as a multiple of 1000.</figDesc><table><row><cell>Modality</cell><cell>Model</cell><cell cols="3">Dice HD95 AVD</cell><cell>ALD</cell><cell>LF1</cell><cell>TPR</cell><cell>FPR</cell></row><row><cell></cell><cell>Baseline</cell><cell>0.028</cell><cell>80.3</cell><cell>112.82</cell><cell>12.22</cell><cell cols="2">0.101 0.064 9.638</cell></row><row><cell></cell><cell>Baseline+TTA</cell><cell>0.020</cell><cell>79.1</cell><cell>92.69</cell><cell>11.02</cell><cell cols="2">0.103 0.045 8.409</cell></row><row><cell></cell><cell cols="3">Baseline+TENT 0.005 101.5</cell><cell>30.79</cell><cell>5.12</cell><cell cols="2">0.020 0.007 1.849</cell></row><row><cell></cell><cell>Baseline+DAE</cell><cell>0.044</cell><cell>82.7</cell><cell>204.49</cell><cell>2.64</cell><cell cols="2">0.276 0.123 14.983</cell></row><row><cell></cell><cell>Baseline+PL</cell><cell cols="2">0.000 235.8</cell><cell>32.46</cell><cell>2.13</cell><cell cols="2">0.009 0.004 1.696</cell></row><row><cell></cell><cell>Baseline+UPL</cell><cell cols="2">0.000 256.0</cell><cell>32.47</cell><cell>2.12</cell><cell cols="2">0.009 0.004 1.695</cell></row><row><cell>T2w</cell><cell>Baseline+DPL Synth (Ours)</cell><cell cols="2">0.000 256.0 0.250 71.9</cell><cell>32.47 40.20</cell><cell>2.12 8.42</cell><cell cols="2">0.009 0.004 1.695 0.243 0.371 4.156</cell></row><row><cell></cell><cell>Synth+TTA</cell><cell>0.253</cell><cell>70.5</cell><cell>37.00</cell><cell>4.75</cell><cell cols="2">0.329 0.361 3.917</cell></row><row><cell></cell><cell>Synth+TENT</cell><cell>0.202</cell><cell>77.0</cell><cell>61.99</cell><cell>21.23</cell><cell cols="2">0.118 0.330 5.612</cell></row><row><cell></cell><cell>Synth+DAE</cell><cell cols="2">0.291 58.7</cell><cell>23.68</cell><cell>4.28</cell><cell cols="2">0.307 0.312 2.969</cell></row><row><cell></cell><cell>Synth+PL</cell><cell>0.162</cell><cell>81.0</cell><cell>33.28</cell><cell>8.58</cell><cell cols="2">0.179 0.186 3.737</cell></row><row><cell></cell><cell>Synth+UPL</cell><cell>0.101</cell><cell>66.0</cell><cell>25.80</cell><cell>11.07</cell><cell cols="2">0.186 0.073 2.014</cell></row><row><cell></cell><cell>Synth+DPL</cell><cell>0.053</cell><cell>72.1</cell><cell>28.44</cell><cell>3.42</cell><cell cols="2">0.212 0.036 1.832</cell></row><row><cell></cell><cell>Baseline</cell><cell>0.010</cell><cell>74.2</cell><cell>42.12</cell><cell>18.69</cell><cell cols="2">0.033 0.013 2.839</cell></row><row><cell></cell><cell>Baseline+TTA</cell><cell>0.006</cell><cell>74.6</cell><cell>38.04</cell><cell>12.57</cell><cell cols="2">0.026 0.008 2.119</cell></row><row><cell></cell><cell cols="3">Baseline+TENT 0.000 106.3</cell><cell>37.65</cell><cell>4.99</cell><cell cols="2">0.014 0.003 0.718</cell></row><row><cell></cell><cell>Baseline+DAE</cell><cell>0.027</cell><cell>76.2</cell><cell>98.18</cell><cell>3.81</cell><cell cols="2">0.155 0.055 7.805</cell></row><row><cell></cell><cell>Baseline+PL</cell><cell cols="2">0.000 249.9</cell><cell>39.25</cell><cell>2.46</cell><cell cols="2">0.000 0.002 0.582</cell></row><row><cell></cell><cell>Baseline+UPL</cell><cell cols="2">0.000 256.0</cell><cell>39.25</cell><cell>2.53</cell><cell cols="2">0.000 0.002 0.582</cell></row><row><cell>FLAIR</cell><cell>Baseline+DPL Synth (Ours)</cell><cell cols="2">0.000 256.0 0.296 72.1</cell><cell>39.25 48.04</cell><cell>2.53 17.93</cell><cell cols="2">0.000 0.002 0.582 0.137 0.415 3.443</cell></row><row><cell></cell><cell>Synth+TTA</cell><cell>0.314</cell><cell>71.4</cell><cell>41.15</cell><cell>9.07</cell><cell cols="2">0.213 0.412 2.967</cell></row><row><cell></cell><cell>Synth+TENT</cell><cell>0.221</cell><cell>79.4</cell><cell>48.21</cell><cell>9.87</cell><cell cols="2">0.140 0.280 3.362</cell></row><row><cell></cell><cell>Synth+DAE</cell><cell>0.304</cell><cell>63.6</cell><cell>43.34</cell><cell>8.82</cell><cell cols="2">0.199 0.359 3.258</cell></row><row><cell></cell><cell>Synth+PL</cell><cell>0.279</cell><cell>84.3</cell><cell>81.32</cell><cell>20.01</cell><cell cols="2">0.156 0.519 5.573</cell></row><row><cell></cell><cell>Synth+UPL</cell><cell>0.145</cell><cell>78.5</cell><cell>31.51</cell><cell>15.50</cell><cell cols="2">0.115 0.108 1.028</cell></row><row><cell></cell><cell>Synth+DPL</cell><cell>0.243</cell><cell>80.1</cell><cell>25.71</cell><cell>13.82</cell><cell cols="2">0.146 0.224 1.514</cell></row><row><cell></cell><cell>Baseline</cell><cell>0.029</cell><cell>70.9</cell><cell>28.01</cell><cell>8.54</cell><cell cols="2">0.084 0.032 1.492</cell></row><row><cell></cell><cell>Baseline+TTA</cell><cell cols="2">0.017 125.0</cell><cell>27.63</cell><cell>4.11</cell><cell cols="2">0.076 0.011 0.593</cell></row><row><cell></cell><cell cols="3">Baseline+TENT 0.000 207.7</cell><cell>28.74</cell><cell>2.59</cell><cell cols="2">0.018 0.000 0.550</cell></row><row><cell></cell><cell>Baseline+DAE</cell><cell>0.064</cell><cell>78.2</cell><cell>78.65</cell><cell>2.98</cell><cell cols="2">0.198 0.106 5.426</cell></row><row><cell></cell><cell>Baseline+PL</cell><cell>0.011</cell><cell>78.3</cell><cell cols="4">79.93 2010.46 0.002 0.032 6.333</cell></row><row><cell></cell><cell>Baseline+UPL</cell><cell cols="2">0.000 256.0</cell><cell>28.87</cell><cell>2.84</cell><cell cols="2">0.000 0.000 0.542</cell></row><row><cell>CT</cell><cell>Baseline+DPL Synth (Ours)</cell><cell cols="2">0.000 256.0 0.234 66.8</cell><cell>28.87 19.71</cell><cell>2.84 5.43</cell><cell cols="2">0.000 0.000 0.542 0.233 0.204 0.965</cell></row><row><cell></cell><cell>Synth+TTA</cell><cell>0.229</cell><cell>85.2</cell><cell>20.34</cell><cell>2.65</cell><cell cols="2">0.317 0.195 0.913</cell></row><row><cell></cell><cell>Synth+TENT</cell><cell>0.222</cell><cell>58.6</cell><cell>20.82</cell><cell>9.17</cell><cell cols="2">0.139 0.210 1.245</cell></row><row><cell></cell><cell>Synth+DAE</cell><cell cols="2">0.307 51.6</cell><cell>23.81</cell><cell>4.13</cell><cell cols="2">0.258 0.298 1.657</cell></row><row><cell></cell><cell>Synth+PL</cell><cell cols="2">0.000 110.0</cell><cell>26.69</cell><cell>34.56</cell><cell cols="2">0.002 0.001 0.714</cell></row><row><cell></cell><cell>Synth+UPL</cell><cell cols="2">0.000 255.0</cell><cell>28.86</cell><cell>2.84</cell><cell cols="2">0.000 0.000 0.543</cell></row><row><cell></cell><cell>Synth+DPL</cell><cell cols="2">0.000 256.0</cell><cell>28.87</cell><cell>2.84</cell><cell cols="2">0.000 0.000 0.542</cell></row></table></figure>
+			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct status="extracted" xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Unified segmentation</title>
+		<author>
+			<persName><forename type="first">John</forename><surname>Ashburner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Karl</forename><forename type="middle">J</forename><surname>Friston</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">NeuroImage</title>
+		<idno type="ISSN">10538119</idno>
+		<imprint>
+			<biblScope unit="volume">26</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="839" to="851" />
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Suyash Mohan, and others. The RSNA-ASNR-MICCAI BraTS 2021 Benchmark on Brain Tumor Segmentation and Radiogenomic Classification</title>
+		<author>
+			<persName><forename type="first">Ujjwal</forename><surname>Baid</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Satyam</forename><surname>Ghodasara</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Lesionmix: A lesion-level data augmentation method for medical image segmentation</title>
+		<author>
+			<persName><forename type="first">Berke</forename><surname>Doga Basaran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Weitong</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mengyun</forename><surname>Qiao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bernhard</forename><surname>Kainz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paul</forename><forename type="middle">M</forename><surname>Matthews</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/2308.09026" />
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Joint segmentation of multiple sclerosis lesions and brain anatomy in MRI scans of any contrast and resolution with CNNs</title>
+		<author>
+			<persName><forename type="first">Benjamin</forename><surname>Billot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stefano</forename><surname>Cerri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Koen</forename><surname>Van Leemput</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Adrian</forename><forename type="middle">V</forename><surname>Dalca</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Juan</forename><forename type="middle">Eugenio</forename><surname>Iglesias</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2021 IEEE 18th International Symposium on Biomedical Imaging (ISBI)</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2021-04">April 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b4">
+	<analytic>
+		<title level="a" type="main">SynthSeg: Segmentation of brain MRI scans of any contrast and resolution without retraining</title>
+		<author>
+			<persName><forename type="first">Benjamin</forename><surname>Billot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Douglas</forename><forename type="middle">N</forename><surname>Greve</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Oula</forename><surname>Puonti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Axel</forename><surname>Thielscher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Koen</forename><surname>Van Leemput</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Medical Image Analysis</title>
+		<idno type="ISSN">1361-8415</idno>
+		<imprint>
+			<biblScope unit="volume">86</biblScope>
+			<biblScope unit="page">102789</biblScope>
+			<date type="published" when="2023-05">May 2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b5">
+	<monogr>
+		<title level="m" type="main">Flexible Bayesian Modelling for Nonlinear Image Registration</title>
+		<author>
+			<persName><forename type="first">Mikael</forename><surname>Brudfors</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yaël</forename><surname>Balbastre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Guillaume</forename><surname>Flandin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Parashkev</forename><surname>Nachev</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><surname>Ashburner</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<publisher>Springer International Publishing</publisher>
+			<biblScope unit="page" from="253" to="263" />
+		</imprint>
+	</monogr>
+	<note>ISBN 9783030597160.</note>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b6">
+	<monogr>
+		<title level="m" type="main">Monai: An open-source framework for deep learning in healthcare</title>
+		<author>
+			<persName><forename type="first">M</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jorge</forename><surname>Cardoso</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wenqi</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Richard</forename><surname>Brown</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nic</forename><surname>Ma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Eric</forename><surname>Kerfoot</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b7">
+	<analytic>
+		<title level="a" type="main">A contrast-adaptive method for simultaneous whole-brain and lesion segmentation in multiple sclerosis</title>
+		<author>
+			<persName><forename type="first">Stefano</forename><surname>Cerri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Oula</forename><surname>Puonti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dominik</forename><forename type="middle">S</forename><surname>Meier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jens</forename><surname>Wuerfel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mark</forename><surname>Mühlau</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">NeuroImage</title>
+		<idno type="ISSN">1053-8119</idno>
+		<imprint>
+			<biblScope unit="volume">225</biblScope>
+			<biblScope unit="page">117471</biblScope>
+			<date type="published" when="2021-01">January 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b8">
+	<monogr>
+		<title level="m" type="main">Source-free domain adaptive fundus image segmentation with denoised pseudo-labeling</title>
+		<author>
+			<persName><forename type="first">Cheng</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Quande</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yueming</forename><surname>Jin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qi</forename><surname>Dou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pheng-Ann</forename><surname>Heng</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/2109.09735" />
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b9">
+	<monogr>
+		<title level="m" type="main">Neurovascular segmentation in soct with deep learning and synthetic training data</title>
+		<author>
+			<persName><forename type="first">Etienne</forename><surname>Chollet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yaël</forename><surname>Balbastre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chiara</forename><surname>Mauri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Caroline</forename><surname>Magnain</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bruce</forename><surname>Fischl</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/2407.01419" />
+		<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b10">
+	<monogr>
+		<title level="m" type="main">Soft-CP: A credible and effective data augmentation for semantic segmentation of medical lesions</title>
+		<author>
+			<persName><forename type="first">Pingping</forename><surname>Dai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Licong</forename><surname>Dong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ruihan</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Haiming</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jie</forename><surname>Wu</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Anatomical priors in convolutional networks for unsupervised biomedical segmentation</title>
+		<author>
+			<persName><forename type="first">Adrian</forename><forename type="middle">V</forename><surname>Dalca</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><surname>Guttag</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mert</forename><forename type="middle">R</forename><surname>Sabuncu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-06">June 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b12">
+	<monogr>
+		<title level="m" type="main">A robust ensemble algorithm for ischemic stroke lesion segmentation: Generalizability and clinical utility beyond the isles challenge</title>
+		<author>
+			<persName><forename type="first">Ezequiel</forename><surname>De</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">La</forename><surname>Rosa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mauricio</forename><surname>Reyes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sook-Lei</forename><surname>Liew</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexandre</forename><surname>Hutton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Roland</forename><surname>Wiest</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/2403.19425" />
+		<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Monai label: A framework for ai-assisted interactive labeling of 3d medical images</title>
+		<author>
+			<persName><forename type="first">Andres</forename><surname>Diaz-Pinto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sachidanand</forename><surname>Alle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vishwesh</forename><surname>Nath</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yucheng</forename><surname>Tang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alvin</forename><surname>Ihsani</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.media.2024.103207</idno>
+		<ptr target="http://dx.doi.org/10.1016/j.media.2024.103207" />
+	</analytic>
+	<monogr>
+		<title level="j">Medical Image Analysis</title>
+		<idno type="ISSN">1361-8415</idno>
+		<imprint>
+			<biblScope unit="volume">95</biblScope>
+			<biblScope unit="page">103207</biblScope>
+			<date type="published" when="2024-07">July 2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b14">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">Bruce</forename><surname>Fischl</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Freesurfer</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neuroimage.2012.01.021</idno>
+		<ptr target="http://dx.doi.org/10.1016/j.neuroimage.2012.01.021" />
+	</analytic>
+	<monogr>
+		<title level="j">NeuroImage</title>
+		<idno type="ISSN">1053-8119</idno>
+		<imprint>
+			<biblScope unit="volume">62</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="774" to="781" />
+			<date type="published" when="2012-08">August 2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b15">
+	<analytic>
+		<title level="a" type="main">The Aphasia Recovery Cohort, an open-source chronic stroke repository</title>
+		<author>
+			<persName><forename type="first">Makayla</forename><surname>Gibson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Roger</forename><surname>Newman-Norlund</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Leonardo</forename><surname>Bonilha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Julius</forename><surname>Fridriksson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gregory</forename><surname>Hickok</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/s41597-024-03819-7</idno>
+		<ptr target="http://dx.doi.org/10.1038/s41597-024-03819-7" />
+	</analytic>
+	<monogr>
+		<title level="m">Scientific Data</title>
+		<imprint>
+			<date type="published" when="2024">2024</date>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="page" from="1" to="8" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b16">
+	<monogr>
+		<title level="m" type="main">Cortical analysis of heterogeneous clinical brain mri scans for large-scale neuroimaging studies</title>
+		<author>
+			<persName><forename type="first">Karthik</forename><surname>Gopinath</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Douglas</forename><forename type="middle">N</forename><surname>Greve</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sudeshna</forename><surname>Das</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Steve</forename><surname>Arnold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Colin</forename><surname>Magdamo</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/2305.01827" />
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b17">
+	<monogr>
+		<title level="m" type="main">Recon-all-clinical: Cortical surface reconstruction and analysis of heterogeneous clinical brain mri</title>
+		<author>
+			<persName><forename type="first">Karthik</forename><surname>Gopinath</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Douglas</forename><forename type="middle">N</forename><surname>Greve</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Colin</forename><surname>Magdamo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Steve</forename><surname>Arnold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sudeshna</forename><surname>Das</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/2409.03889" />
+		<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Synthetic data in generalizable, learning-based neuroimaging</title>
+		<author>
+			<persName><forename type="first">Karthik</forename><surname>Gopinath</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andrew</forename><surname>Hoopes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daniel</forename><forename type="middle">C</forename><surname>Alexander</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Steven</forename><forename type="middle">E</forename><surname>Arnold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yael</forename><surname>Balbastre</surname></persName>
+		</author>
+		<idno type="DOI">10.1162/imag_a_00337</idno>
+		<ptr target="http://dx.doi.org/10.1162/imag_a_00337" />
+	</analytic>
+	<monogr>
+		<title level="j">Imaging Neuroscience</title>
+		<idno type="ISSN">2837-6056</idno>
+		<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b19">
+	<analytic>
+		<title level="a" type="main">The dip test of unimodality</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Hartigan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">M</forename><surname>Hartigan</surname></persName>
+		</author>
+		<idno type="DOI">10.1214/aos/1176346577</idno>
+		<ptr target="http://dx.doi.org/10.1214/aos/1176346577" />
+	</analytic>
+	<monogr>
+		<title level="j">The Annals of Statistics</title>
+		<idno type="ISSN">0090-5364</idno>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<date type="published" when="1985-03">March 1985</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Synthmorph: learning contrast-invariant registration without acquired images</title>
+		<author>
+			<persName><forename type="first">Malte</forename><surname>Hoffmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Benjamin</forename><surname>Billot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Juan</forename><forename type="middle">Eugenio</forename><surname>Douglas N Greve</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bruce</forename><surname>Iglesias</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Fischl</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Medical Imaging</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="543" to="558" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Anatomy-specific acquisition-agnostic affine registration learned from fictitious images</title>
+		<author>
+			<persName><forename type="first">Malte</forename><surname>Hoffmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andrew</forename><surname>Hoopes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bruce</forename><surname>Fischl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Adrian</forename><forename type="middle">V</forename><surname>Dalca</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Medical Imaging 2023: Image Processing</title>
+		<imprint>
+			<publisher>SPIE</publisher>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="volume">12464</biblScope>
+			<biblScope unit="page">1246402</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Anatomy-aware and acquisition-agnostic joint registration with synthmorph</title>
+		<author>
+			<persName><forename type="first">Malte</forename><surname>Hoffmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andrew</forename><surname>Hoopes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bruce</forename><surname>Douglas N Greve</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Adrian</forename><forename type="middle">V</forename><surname>Fischl</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Dalca</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Imaging Neuroscience</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="1" to="33" />
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b23">
+	<monogr>
+		<title level="m" type="main">Continuous lesion images drive more accurate predictions of outcomes after stroke than binary lesion images</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">H</forename><surname>Thomas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Douglas</forename><surname>Hope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohamed</forename><forename type="middle">L</forename><surname>Neville</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cathy</forename><forename type="middle">J</forename><surname>Seghier</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Price</surname></persName>
+		</author>
+		<idno type="DOI">10.1101/2024.10.04.616726</idno>
+		<ptr target="http://dx.doi.org/10.1101/2024.10.04.616726" />
+		<imprint>
+			<date type="published" when="2024-10">October 2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Synthsr: A public ai tool to turn heterogeneous clinical brain scans into high-resolution t1-weighted images for 3d morphometry</title>
+		<author>
+			<persName><forename type="first">Juan</forename><forename type="middle">E</forename><surname>Iglesias</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Benjamin</forename><surname>Billot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yaël</forename><surname>Balbastre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Colin</forename><surname>Magdamo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Steven</forename><forename type="middle">E</forename><surname>Arnold</surname></persName>
+		</author>
+		<idno type="DOI">10.1126/sciadv.add3607</idno>
+		<ptr target="http://dx.doi.org/10.1126/sciadv.add3607" />
+	</analytic>
+	<monogr>
+		<title level="j">Science Advances</title>
+		<idno type="ISSN">2375- 2548</idno>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<date type="published" when="2023-02">February 2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Joint super-resolution and synthesis of 1 mm isotropic MP-RAGE volumes from clinical MRI exams with scans of different orientation, resolution and contrast</title>
+		<author>
+			<persName><forename type="first">Juan</forename><surname>Eugenio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Iglesias</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Benjamin</forename><surname>Billot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yaël</forename><surname>Balbastre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Azadeh</forename><surname>Tabari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><surname>Conklin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">NeuroImage</title>
+		<imprint>
+			<biblScope unit="volume">237</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Net: a selfconfiguring method for deep learning-based biomedical image segmentation</title>
+		<author>
+			<persName><forename type="first">Fabian</forename><surname>Isensee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paul</forename><forename type="middle">F</forename><surname>Jaeger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Simon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jens</forename><surname>Kohl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Klaus</forename><forename type="middle">H</forename><surname>Petersen</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Maier-Hein</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature Methods</title>
+		<idno type="ISSN">1548-7105</idno>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="203" to="211" />
+			<date type="published" when="2020-12">December 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b27">
+	<monogr>
+		<title level="m" type="main">nnu-net revisited: A call for rigorous validation in 3d medical image segmentation</title>
+		<author>
+			<persName><forename type="first">Fabian</forename><surname>Isensee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tassilo</forename><surname>Wald</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Constantin</forename><surname>Ulrich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Baumgartner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Saikat</forename><surname>Roy</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/2404.09556" />
+		<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Progressive lesion necrosis is related to increasing aphasia severity in chronic stroke</title>
+		<author>
+			<persName><forename type="first">Lisa</forename><surname>Johnson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Roger</forename><surname>Newman-Norlund</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alex</forename><surname>Teghipco</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">NeuroImage: Clinical</title>
+		<idno type="ISSN">22131582</idno>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<date type="published" when="2024">1 2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Test-time adaptable neural networks for robust medical image segmentation</title>
+		<author>
+			<persName><forename type="first">Neerav</forename><surname>Karani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ertunc</forename><surname>Erdil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Krishna</forename><surname>Chaitanya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ender</forename><surname>Konukoglu</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.media.2020.101907</idno>
+		<ptr target="http://dx.doi.org/10.1016/j.media.2020.101907" />
+	</analytic>
+	<monogr>
+		<title level="j">Medical Image Analysis</title>
+		<idno type="ISSN">1361-8415</idno>
+		<imprint>
+			<biblScope unit="volume">68</biblScope>
+			<biblScope unit="page">101907</biblScope>
+			<date type="published" when="2021-02">February 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b30">
+	<monogr>
+		<title level="m" type="main">Quantifying white matter hyperintensity and brain volumes in heterogeneous clinical and low-field portable mri</title>
+		<author>
+			<persName><forename type="first">Pablo</forename><surname>Laso</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stefano</forename><surname>Cerri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Annabel</forename><surname>Sorby-Adams</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jennifer</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Farrah</forename><surname>Mateen</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/2312.05119" />
+		<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Multiple sclerosis pathology</title>
+		<author>
+			<persName><forename type="first">Hans</forename><surname>Lassmann</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Cold Spring Harbor Perspectives in Medicine</title>
+		<idno type="ISSN">2157-1422</idno>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page">28936</biblScope>
+			<date type="published" when="2018-01">January 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Tumorgan: A multi-modal data augmentation framework for brain tumor segmentation</title>
+		<author>
+			<persName><forename type="first">Qingyun</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhibin</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yubo</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Haiyong</forename><surname>Zheng</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/s20154203</idno>
+		<ptr target="http://dx.doi.org/10.3390/s20154203" />
+	</analytic>
+	<monogr>
+		<title level="j">Sensors</title>
+		<idno type="ISSN">1424-8220</idno>
+		<imprint>
+			<biblScope unit="volume">20</biblScope>
+			<biblScope unit="issue">15</biblScope>
+			<biblScope unit="page">4203</biblScope>
+			<date type="published" when="2020-07">July 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b33">
+	<monogr>
+		<title level="m" type="main">PEPSI: Pathology-Enhanced Pulse-Sequence-Invariant Representations for Brain MRI</title>
+		<author>
+			<persName><forename type="first">Peirong</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Oula</forename><surname>Puonti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Annabel</forename><surname>Sorby-Adams</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">William</forename><forename type="middle">T</forename><surname>Kimberly</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Juan</forename><forename type="middle">E</forename><surname>Iglesias</surname></persName>
+		</author>
+		<ptr target="http://arxiv.org/abs/2403.06227" />
+		<imprint>
+			<date type="published" when="2024">3 2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b34">
+	<monogr>
+		<title level="m" type="main">Unraveling normal anatomy via fluid-driven anomaly randomization</title>
+		<author>
+			<persName><forename type="first">Peirong</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ana</forename><surname>Lawry Aguila</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Juan</forename><forename type="middle">E</forename><surname>Iglesias</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/2501.13370" />
+		<imprint>
+			<date type="published" when="2025">2025</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b35">
+	<monogr>
+		<title level="m" type="main">Decoupled weight decay regularization</title>
+		<author>
+			<persName><forename type="first">Ilya</forename><surname>Loshchilov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Frank</forename><surname>Hutter</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Generalizing post-stroke prognoses from research data to clinical data</title>
+		<author>
+			<persName><forename type="first">Robert</forename><surname>Loughnan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Diego</forename><forename type="middle">L</forename><surname>Lorca-Puls</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andrea</forename><surname>Gajardo-Vidal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Valeria</forename><surname>Espejo-Videla</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Céline</forename><forename type="middle">R</forename><surname>Gillebert</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.nicl.2019.102005</idno>
+		<ptr target="https://doi.org/10.1016/j.nicl.2019.102005" />
+	</analytic>
+	<monogr>
+		<title level="j">NeuroImage: Clinical</title>
+		<idno type="ISSN">22131582</idno>
+		<imprint>
+			<biblScope unit="page">102005</biblScope>
+			<date type="published" when="2019-10">October 2019. 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b37">
+	<analytic>
+		<title level="a" type="main">ISLES 2015 -a public evaluation benchmark for ischemic stroke lesion segmentation from multispectral MRI</title>
+		<author>
+			<persName><forename type="first">Oskar</forename><surname>Maier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bjoern</forename><forename type="middle">H</forename><surname>Menze</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Janina Von Der</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Levin</forename><surname>Gablentz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mattias</forename><forename type="middle">P</forename><surname>Häni</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Heinrich</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Medical Image Analysis</title>
+		<idno type="ISSN">1361-8415</idno>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="page" from="250" to="269" />
+			<date type="published" when="2017-01">January 2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b38">
+	<monogr>
+		<title level="m" type="main">Local gamma augmentation for ischemic stroke lesion segmentation on mri</title>
+		<author>
+			<persName><forename type="first">Jon</forename><surname>Middleton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marko</forename><surname>Bauer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kaining</forename><surname>Sheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jacob</forename><surname>Johansen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mathias</forename><surname>Perslev</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/2401.06893" />
+		<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b39">
+	<monogr>
+		<title level="m" type="main">Harmonization and the worst scanner syndrome</title>
+		<author>
+			<persName><forename type="first">Daniel</forename><surname>Moyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Polina</forename><surname>Golland</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/2101.06255" />
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b40">
+	<analytic>
+		<title level="a" type="main">Diminishing uncertainty within the training pool: Active learning for medical image segmentation</title>
+		<author>
+			<persName><forename type="first">Vishwesh</forename><surname>Nath</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dong</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bennett</forename><forename type="middle">A</forename><surname>Landman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daguang</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Holger</forename><forename type="middle">R</forename><surname>Roth</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/TMI.2020.3048055</idno>
+		<ptr target="http://dx.doi.org/10.1109/TMI.2020.3048055" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Medical Imaging</title>
+		<idno type="ISSN">1558-254X</idno>
+		<imprint>
+			<biblScope unit="volume">40</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="2534" to="2547" />
+			<date type="published" when="2021-10">October 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b41">
+	<analytic>
+		<title level="a" type="main">Endovascular management of acute stroke</title>
+		<author>
+			<persName><forename type="first">Mohamad</forename><surname>Thanh N Nguyen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Urs</forename><surname>Abdalkader</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhongming</forename><surname>Fischer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Simon</forename><surname>Qiu</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Nagel</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/S0140-6736(24)01410-7</idno>
+		<ptr target="http://dx.doi.org/10.1016/S0140-6736(24" />
+	</analytic>
+	<monogr>
+		<title level="j">The Lancet</title>
+		<idno type="ISSN">0140-6736</idno>
+		<imprint>
+			<biblScope unit="volume">404</biblScope>
+			<biblScope unit="page" from="1410" to="1417" />
+			<date type="published" when="2024">10459. September 2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b42">
+	<monogr>
+		<title level="m" type="main">Deep structural causal models for tractable counterfactual inference</title>
+		<author>
+			<persName><forename type="first">Nick</forename><surname>Pawlowski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Daniel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ben</forename><surname>Castro</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Glocker</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/2006.06485" />
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b43">
+	<monogr>
+		<author>
+			<persName><forename type="first">Hieu</forename><surname>Pham</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zihang</forename><surname>Dai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qizhe</forename><surname>Xie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Minh-Thang</forename><surname>Luong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Quoc</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Le</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/2003.10580" />
+		<title level="m">Meta pseudo labels</title>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b44">
+	<analytic>
+		<title level="a" type="main">Equitable modelling of brain imaging by counterfactual augmentation with morphologically constrained 3D deep generative models</title>
+		<author>
+			<persName><forename type="first">Guilherme</forename><surname>Pombo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Robert</forename><surname>Gray</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jorge</forename><surname>Cardoso</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sebastien</forename><surname>Ourselin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Geraint</forename><surname>Rees</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><surname>Ashburner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Parashkev</forename><surname>Nachev</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Med. Image Anal</title>
+		<imprint>
+			<biblScope unit="volume">84</biblScope>
+			<biblScope unit="page">102723</biblScope>
+			<date type="published" when="2023">102723. February 2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b45">
+	<analytic>
+		<title level="a" type="main">Predicting language outcome and recovery after stroke: The PLORAS system</title>
+		<author>
+			<persName><forename type="first">Cathy</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohamed</forename><forename type="middle">L</forename><surname>Seghier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alex</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature Reviews Neurology</title>
+		<idno type="ISSN">17594758</idno>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="202" to="210" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b46">
+	<analytic>
+		<title level="a" type="main">Fast and sequence-adaptive whole-brain segmentation using parametric Bayesian modeling</title>
+		<author>
+			<persName><forename type="first">Oula</forename><surname>Puonti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Juan</forename><forename type="middle">Eugenio</forename><surname>Iglesias</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Koen</forename><surname>Van Leemput</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neuroimage.2016.09.011</idno>
+		<ptr target="http://dx.doi.org/10.1016/j.neuroimage.2016.09.011" />
+	</analytic>
+	<monogr>
+		<title level="j">NeuroImage</title>
+		<idno type="ISSN">10959572</idno>
+		<imprint>
+			<biblScope unit="volume">143</biblScope>
+			<biblScope unit="page" from="235" to="249" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b47">
+	<monogr>
+		<title level="m" type="main">High fidelity image counterfactuals with probabilistic causal models</title>
+		<author>
+			<persName><forename type="first">Fabio</forename><surname>De</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sousa</forename><surname>Ribeiro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tian</forename><surname>Xia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Miguel</forename><surname>Monteiro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nick</forename><surname>Pawlowski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ben</forename><surname>Glocker</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/2306.15764" />
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Lesion identification using unified segmentation-normalisation models and fuzzy clustering</title>
+		<author>
+			<persName><forename type="first">Mohamed</forename><forename type="middle">L</forename><surname>Seghier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anil</forename><surname>Ramlackhansingh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jenny</forename><surname>Crinion</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexander</forename><forename type="middle">P</forename><surname>Leff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cathy</forename><forename type="middle">J</forename><surname>Price</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neuroimage.2008.03.028</idno>
+		<ptr target="http://dx.doi.org/10.1016/j.neuroimage.2008.03.028" />
+	</analytic>
+	<monogr>
+		<title level="j">NeuroImage</title>
+		<idno type="ISSN">10538119</idno>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1253" to="1266" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b49">
+	<analytic>
+		<title level="a" type="main">The PLORAS Database: A data repository for Predicting Language Outcome and Recovery After Stroke</title>
+		<author>
+			<persName><forename type="first">Mohamed</forename><forename type="middle">L</forename><surname>Seghier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Elnas</forename><surname>Patel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Susan</forename><surname>Prejawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sue</forename><surname>Ramsden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andre</forename><surname>Selmer</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neuroimage.2015.03.083</idno>
+		<ptr target="http://dx.doi.org/10.1016/j.neuroimage.2015.03.083" />
+	</analytic>
+	<monogr>
+		<title level="j">NeuroImage</title>
+		<idno type="ISSN">10959572</idno>
+		<imprint>
+			<biblScope unit="volume">124</biblScope>
+			<biblScope unit="page" from="1208" to="1212" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b50">
+	<analytic>
+		<title level="a" type="main">Robust deep learningbased semantic organ segmentation in hyperspectral images</title>
+		<author>
+			<persName><forename type="first">Silvia</forename><surname>Seidlitz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jan</forename><surname>Sellner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jan</forename><surname>Odenthal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Berkin</forename><surname>Özdemir</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexander</forename><surname>Studier-Fischer</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.media.2022.102488</idno>
+		<ptr target="http://dx.doi.org/10.1016/j.media.2022.102488" />
+	</analytic>
+	<monogr>
+		<title level="j">Medical Image Analysis</title>
+		<idno type="ISSN">1361-8415</idno>
+		<imprint>
+			<biblScope unit="volume">80</biblScope>
+			<biblScope unit="page">102488</biblScope>
+			<date type="published" when="2022-08">August 2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b51">
+	<monogr>
+		<title level="m" type="main">Tent: Fully test-time adaptation by entropy minimization</title>
+		<author>
+			<persName><forename type="first">Dequan</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Evan</forename><surname>Shelhamer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shaoteng</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bruno</forename><surname>Olshausen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Trevor</forename><surname>Darrell</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b52">
+	<monogr>
+		<title level="m" type="main">Automatic Brain Tumor Segmentation Using Convolutional Neural Networks with Test-Time Augmentation</title>
+		<author>
+			<persName><forename type="first">Guotai</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wenqi</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sébastien</forename><surname>Ourselin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tom</forename><surname>Vercauteren</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-11726-9_6</idno>
+		<ptr target="http://dx.doi.org/10.1007/978-3-030-11726-9_6" />
+		<imprint>
+			<date type="published" when="2019">2019. ISBN 9783030117269</date>
+			<publisher>Springer International Publishing</publisher>
+			<biblScope unit="page" from="61" to="72" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Expectation maximisation pseudo labels</title>
+		<author>
+			<persName><forename type="first">Moucheng</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yukun</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chen</forename><surname>Jin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marius</forename><surname>De Groot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daniel</forename><forename type="middle">C</forename><surname>Alexander</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.media.2024.103125</idno>
+		<ptr target="http://dx.doi.org/10.1016/j.media.2024.103125" />
+	</analytic>
+	<monogr>
+		<title level="j">Medical Image Analysis</title>
+		<idno type="ISSN">1361-8415</idno>
+		<imprint>
+			<biblScope unit="volume">94</biblScope>
+			<biblScope unit="page">103125</biblScope>
+			<date type="published" when="2024-05">May 2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct status="extracted" xml:id="b54">
+	<analytic>
+		<title level="a" type="main">CarveMix: A Simple Data Augmentation Method for Brain Lesion Segmentation</title>
+		<author>
+			<persName><forename type="first">Xinru</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chenghao</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ni</forename><surname>Ou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiangzhu</forename><surname>Zeng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaoliang</forename><surname>Xiong</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-87193-2_19</idno>
+		<ptr target="http://dx.doi.org/10.1007/978-3-030-87193-2_19" />
+	</analytic>
+	<monogr>
+		<title level="m">2021. ISBN 9783030871932</title>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<biblScope unit="page" from="196" to="205" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

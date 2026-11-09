@@ -15,7 +15,16 @@ AI-friendly. It is a pnpm/turbo monorepo plus a root-level Rust workspace:
   only, no app functionality.
 
 Pipeline: `pdf/` → GROBID `processFulltextDocument` → TEI XML → Markdown with
-YAML frontmatter (title, authors, year, journal, volume/issue/pages, DOI).
+YAML frontmatter (title, authors, year, journal, volume/issue/pages, DOI,
+optional Crossref `type`/`cited_by`). Each converted work is also indexed
+into `<data-dir>/grobid.db` (SQLite `works` + `refs` citation edges) with a
+JSON export at `index.json`, per-work files under `metadata/`, and a run
+manifest at `process.json` — all inside `<data-dir>/.grobid/` next to
+`pdf/`/`tei/`/`md/`; `grobid search|stats|graph|mcp` query that corpus
+offline, `grobid graph` emits a self-contained dashboard
+`.grobid/index.html` (d3-force graph + stats sidebar + year chart +
+unified filter), and `grobid mcp` serves the corpus to AI agents over
+stdio MCP.
 
 ## Repository Layout
 
@@ -31,12 +40,16 @@ crates/
 │   │   ├── config.rs       # env config, ports, image, META_FIELDS
 │   │   ├── grobid_client.rs# Docker management + PDF→TEI HTTP calls
 │   │   ├── metadata.rs     # TEI → Metadata (frontmatter fields)
-│   │   ├── render.rs       # TEI → Markdown rendering + unit tests
-│   │   ├── paths.rs        # pdf/tei/md dir resolution
+│   │   ├── render.rs       # TEI → Markdown + ParsedReference extraction
+│   │   ├── corpus.rs       # SQLite works/refs index, search, stats, graph HTML
+│   │   ├── enrich.rs       # optional Crossref metadata enrichment
+│   │   ├── paths.rs        # pdf/tei/md dirs + .grobid/ artifact paths
 │   │   ├── utils.rs        # logging, yaml_string, text helpers
-│   │   └── version.rs      # version from binary mtime
-│   └── tests/fixtures/ # sample pdf/tei/md fixture data
+│   │   ├── version.rs      # version from binary mtime
+│   │   └── templates/graph.html  # Obsidian-style dashboard page (include_str!)
+│   └── tests/fixtures/ # sample pdf/tei/md fixture data + committed .grobid/ examples
 └── grobid-cli/        # grobid binary (clap + tokio)
+    ├── src/mcp.rs     # stdio MCP server: stats/search/works/graph tools
     └── tests/e2e.sh   # end-to-end run against the fixtures
 packages/
 └── landing/              # flat static site deployed to GitHub Pages:
@@ -66,17 +79,17 @@ Git hooks: `.husky/pre-commit` runs `pnpm turbo run format` + `lint`
 
 ## Environment Variables
 
-| Variable               | Default                  | Used by |
-| ---------------------- | ------------------------ | ------- |
-| `GROBID_DATA_DIR` / `ARTICLES_DATA_DIR` | cwd | CLI: base dir for `pdf/`, `tei/`, `md/` |
-| `GROBID_PORT`          | `8070`                   | CLI + compose |
-| `GROBID_URL`           | —                        | CLI: remote GROBID base URL (disables Docker auto-start) |
-| `GROBID_IMAGE`         | `grobid/grobid:0.9.1-crf`| CLI Docker auto-start |
-| `GROBID_CONTAINER`     | `grobid-cli`             | CLI Docker auto-start |
-| `GROBID_CONCURRENCY`   | `4`                      | CLI: max concurrent PDF→TEI requests |
-| `GROBID_LOG`           | `info`                   | CLI Logger level (`fatal`..`trace`); `-v`/`-vv` flags override |
-| `RUST_LOG`             | info                     | CLI tracing filter |
-| `GROBID_CONCURRENCY`   | `4`                      | CLI: concurrent PDF→TEI requests |
+| Variable                                | Default                   | Used by                                                        |
+| --------------------------------------- | ------------------------- | -------------------------------------------------------------- |
+| `GROBID_DATA_DIR` / `ARTICLES_DATA_DIR` | cwd                       | CLI: base dir for `pdf/`, `tei/`, `md/`                        |
+| `GROBID_PORT`                           | `8070`                    | CLI + compose                                                  |
+| `GROBID_URL`                            | —                         | CLI: remote GROBID base URL (disables Docker auto-start)       |
+| `GROBID_IMAGE`                          | `grobid/grobid:0.9.1-crf` | CLI Docker auto-start                                          |
+| `GROBID_CONTAINER`                      | `grobid-cli`              | CLI Docker auto-start                                          |
+| `GROBID_CONCURRENCY`                    | `4`                       | CLI: max concurrent PDF→TEI requests                           |
+| `GROBID_ENRICH`                         | —                         | CLI: `1` enables Crossref enrichment (same as `--enrich`)      |
+| `GROBID_LOG`                            | `info`                    | CLI Logger level (`fatal`..`trace`); `-v`/`-vv` flags override |
+| `RUST_LOG`                              | info                      | CLI tracing filter                                             |
 
 ## Conventions
 

@@ -6,7 +6,7 @@ grobid.rs is a local, focused document-conversion tool. Drop PDFs into a `pdf/` 
 
 [📚 Documentation](docs/README.md) · [🚀 Quick Start](#get-started) · [🔍 See It In Action](#see-it-in-action)
 
-![grobid.rs](assets/og/og.png)
+![grobid.rs](assets/branding/png/og.png)
 
 ## The Problem
 
@@ -32,6 +32,12 @@ grobid.rs provides a focused, local-first workflow: drop PDFs into `pdf/`, run `
 - **PDF → TEI → Markdown** — Full conversion pipeline using GROBID's TEI XML extraction via `grobid` client (`processFulltextDocument`).
 - **Auto-starts GROBID** — Automatically launches the `grobid/grobid:0.9.1-crf` Docker container on port 8070 if not already running.
 - **Rich metadata** — Extracts title, authors, journal, year, volume, issue, pages, DOI, and DOI link and adds them as YAML frontmatter.
+- **DOI-linked references** — Reference entries carrying a DOI render their titles as `https://doi.org/…` links.
+- **Crossref enrichment** — Optional `--enrich`/`GROBID_ENRICH` resolves works against the Crossref API to fill type, citation count, and abstract gaps.
+- **SQLite corpus index** — Every converted work and its citation edges are indexed into `.grobid/grobid.db`, with a JSON export, per-work metadata files, and a run manifest.
+- **Corpus search & stats** — `grobid search` (unified substring search) and `grobid stats` (counts, year histogram, top authors, in/out-degree citation rankings).
+- **Corpus dashboard** — `grobid graph` writes a self-contained `.grobid/index.html`: an Obsidian-style d3-force citation graph with stats sidebar, year-distribution chart, and one unified filter.
+- **MCP server** — `grobid mcp` exposes the corpus (stats, search, works, graph) to AI agents over stdio.
 - **Structured output** — Preserves abstract, article sections, references, tables, lists, and figures.
 - **Simple CLI** — One command (`grobid`) converts all PDFs in `pdf/` to TEI in `tei/` and Markdown in `md/`.
 - **Resumable** — Skips already-converted TEI/XML and Markdown files; auto-creates directories.
@@ -46,7 +52,7 @@ grobid.rs provides a focused, local-first workflow: drop PDFs into `pdf/`, run `
 
 ## See It in Action
 
-![Grobid CLI Demo](assets/demo/demo.png)
+![Grobid CLI Demo](assets/branding/png/demo.png)
 
 Or read the full documentation in [`docs/`](docs/README.md).
 
@@ -123,7 +129,21 @@ doi_link: "https://doi.org/10.1234/example"
 your-project/
 ├── pdf/          # Input PDFs
 ├── tei/          # Generated TEI XML (intermediate)
-└── md/           # Output Markdown files
+├── md/           # Output Markdown files
+└── .grobid/      # Corpus artifacts: grobid.db, index.json, metadata/,
+                  # process.json, index.html (dashboard)
+```
+
+### Corpus commands
+
+After converting, the corpus can be searched, summarized, visualized, or
+served to AI agents — all offline, straight from `.grobid/grobid.db`:
+
+```sh
+grobid search "stroke"     # unified search across title/authors/DOI/...
+grobid stats               # counts, year histogram, top authors, rankings
+grobid graph               # → .grobid/index.html (open in a browser)
+grobid mcp                 # MCP server over stdio for AI agents
 ```
 
 ### Installation
