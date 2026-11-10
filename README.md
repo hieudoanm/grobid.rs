@@ -36,7 +36,7 @@ grobid.rs provides a focused, local-first workflow: drop PDFs into `pdf/`, run `
 - **Crossref enrichment** — Optional `--enrich`/`GROBID_ENRICH` resolves works against the Crossref API to fill type, citation count, and abstract gaps.
 - **SQLite corpus index** — Every converted work and its citation edges are indexed into `.grobid/grobid.db`, with a JSON export, per-work metadata files, and a run manifest.
 - **Corpus search & stats** — `grobid search` (unified substring search) and `grobid stats` (counts, year histogram, top authors, in/out-degree citation rankings).
-- **Corpus dashboard** — `grobid graph` writes a self-contained `.grobid/index.html`: an Obsidian-style d3-force citation graph with stats sidebar, year-distribution chart, and one unified filter.
+- **Corpus dashboard** — Every run writes a self-contained `.grobid/index.html`: an Obsidian-style d3-force citation graph with stats sidebar, year-distribution chart, and one unified filter (`grobid graph` regenerates it).
 - **MCP server** — `grobid mcp` exposes the corpus (stats, search, works, graph) to AI agents over stdio.
 - **Structured output** — Preserves abstract, article sections, references, tables, lists, and figures.
 - **Simple CLI** — One command (`grobid`) converts all PDFs in `pdf/` to TEI in `tei/` and Markdown in `md/`.

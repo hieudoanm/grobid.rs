@@ -217,6 +217,24 @@ fn index_corpus(outcomes: &[PdfOutcome]) {
             meta_dir.display()
         ));
     }
+
+    // Regenerate the corpus dashboard (index.html) on every index pass.
+    match corpus::render_graph_html(&db) {
+        Ok(html) => {
+            let out = paths::graph_path();
+            let write_result = (|| -> std::io::Result<()> {
+                if let Some(parent) = out.parent() {
+                    fs::create_dir_all(parent)?;
+                }
+                fs::write(&out, html)
+            })();
+            match write_result {
+                Ok(()) => log().info(&format!("Wrote dashboard {}", out.display())),
+                Err(e) => log().warn(&format!("Could not write dashboard {}: {e}", out.display())),
+            }
+        }
+        Err(e) => log().warn(&format!("Could not render dashboard: {e}")),
+    }
 }
 
 pub async fn convert_pdf_to_md(enrich: bool) -> anyhow::Result<i32> {
@@ -295,10 +313,7 @@ pub async fn convert_pdf_to_md(enrich: bool) -> anyhow::Result<i32> {
     }
     log().info("Conversion completed");
     log().info(&format!("Corpus DB: {}", paths::db_path().display()));
-    log().info(&format!(
-        "Graph: run `grobid graph` → {}",
-        paths::graph_path().display()
-    ));
+    log().info(&format!("Dashboard: {}", paths::graph_path().display()));
     log().info(&"=".repeat(60).to_string());
     Ok(0)
 }

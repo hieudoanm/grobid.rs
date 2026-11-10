@@ -24,8 +24,10 @@ grobid mcp [--db PATH]
 
 ### `graph`
 
-Writes a self-contained corpus dashboard to
-`<data-dir>/.grobid/index.html` — an Obsidian-style page with a
+Regenerates the corpus dashboard at
+`<data-dir>/.grobid/index.html` (conversion already writes it on every
+run; use this to rebuild without re-converting). The page is
+Obsidian-style, with a
 `d3-force` citation graph (pan/zoom, drag, per-node metadata panel, nodes
 colored by work type) plus a stats sidebar: corpus counts, a year
 distribution chart, and top in-degree/out-degree/author rankings. One
@@ -129,6 +131,8 @@ are expected relative to where you run the command.
    Each run is also appended to `<data-dir>/.grobid/process.json` (a
    manifest of the last 50 runs: per-file `converted`/`cached`/`failed`
    statuses, counts, duration, concurrency, enrich flag, and GROBID URL).
+   The run also regenerates `<data-dir>/.grobid/index.html`, the corpus
+   dashboard described under [`graph`](#graph) below.
 6. Exit code is `0` when every file succeeded (or there was nothing to do)
    and `1` if GROBID was unavailable or any file failed. Corpus indexing
    failures are warnings, not fatal.
