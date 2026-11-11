@@ -4,9 +4,14 @@ on:
   push:
     branches: [master]
   pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 concurrency:
-  group: ci-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -14,7 +19,7 @@ jobs:
     name: CLI
     runs-on: ubuntu-latest
     permissions:
-      contents: write # needed for the release steps on master/main
+      contents: write # needed for the release steps on master
     steps:
       - name: Checkout
         uses: actions/checkout@v7.0.1
@@ -46,7 +51,7 @@ jobs:
           retention-days: 7
 
       - name: Read release notes from README.md
-        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         id: readme
         run: |
           echo "body<<EOF" >> $GITHUB_OUTPUT
@@ -54,7 +59,7 @@ jobs:
           echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Delete existing "latest" release
-        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -62,7 +67,7 @@ jobs:
           git push origin :refs/tags/latest || true
 
       - name: Create/Update "latest" Release
-        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         uses: softprops/action-gh-release@v3.0.4
         with:
           tag_name: latest
@@ -78,10 +83,8 @@ jobs:
     name: Landing
     if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     permissions:
+      contents: read
       pages: write
       id-token: write
     steps:
