@@ -9,7 +9,7 @@
     "url": "https://hieudoanm.github.io"
   },
   "engines": {
-    "node": "26.13.0"
+    "node": "26.13.1"
   },
   "scripts": {
     "lint": "make -C .. lint",
