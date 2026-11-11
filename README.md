@@ -1,5 +1,8 @@
 # grobid.rs
 
+[![CI](https://github.com/hieudoanm/grobid.rs/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/hieudoanm/grobid.rs/actions/workflows/ci.yaml?branch=master)  [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+
 **Convert PDF articles to Markdown via GROBID TEI XML — making PDFs AI-friendly on your own machine.**
 
 grobid.rs is a local, focused document-conversion tool. Drop PDFs into a `pdf/` directory, run the `grobid` command, and get clean, structured Markdown with rich metadata in YAML frontmatter — plus TEI XML intermediates. GROBID starts automatically in Docker on port 8070, and a static landing page documents the CLI. Everything runs locally — no cloud account or infrastructure setup.
