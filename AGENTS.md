@@ -7,7 +7,7 @@ AI-friendly. It is a pnpm/turbo monorepo plus a root-level Rust workspace:
 
 - **`crates/`** — Rust workspace (`grobid`): converts all PDFs in `pdf/` to TEI
   XML in `tei/` and Markdown in `md/`, auto-starting GROBID in Docker.
-  - `grobid-core` — GROBID HTTP client, Docker management, TEI parsing,
+  - `grobid-core` — GROBID HTTP client, local JVM/Docker backend management, TEI parsing,
     metadata extraction, Markdown rendering
   - `grobid-cli` — `grobid` binary (clap + tokio) and batch orchestration
 - **`packages/landing`** — plain static landing page (`index.html` +
@@ -38,7 +38,7 @@ crates/
 ├── grobid-core/       # grobid-core library
 │   ├── src/
 │   │   ├── config.rs       # env config, ports, image, META_FIELDS
-│   │   ├── grobid_client.rs# Docker management + PDF→TEI HTTP calls
+│   │   ├── grobid_client.rs# local JVM/Docker backend management + PDF→TEI HTTP calls
 │   │   ├── metadata.rs     # TEI → Metadata (frontmatter fields)
 │   │   ├── render.rs       # TEI → Markdown + ParsedReference extraction
 │   │   ├── corpus.rs       # SQLite works/refs index, search, stats, graph HTML
@@ -79,17 +79,19 @@ Git hooks: `.husky/pre-commit` runs `pnpm turbo run format` + `lint`
 
 ## Environment Variables
 
-| Variable                                | Default                   | Used by                                                        |
-| --------------------------------------- | ------------------------- | -------------------------------------------------------------- |
-| `GROBID_DATA_DIR` / `ARTICLES_DATA_DIR` | cwd                       | CLI: base dir for `pdf/`, `tei/`, `md/`                        |
-| `GROBID_PORT`                           | `8070`                    | CLI + compose                                                  |
-| `GROBID_URL`                            | —                         | CLI: remote GROBID base URL (disables Docker auto-start)       |
-| `GROBID_IMAGE`                          | `grobid/grobid:0.9.1-crf` | CLI Docker auto-start                                          |
-| `GROBID_CONTAINER`                      | `grobid-cli`              | CLI Docker auto-start                                          |
-| `GROBID_CONCURRENCY`                    | `4`                       | CLI: max concurrent PDF→TEI requests                           |
-| `GROBID_ENRICH`                         | —                         | CLI: `1` enables Crossref enrichment (same as `--enrich`)      |
-| `GROBID_LOG`                            | `info`                    | CLI Logger level (`fatal`..`trace`); `-v`/`-vv` flags override |
-| `RUST_LOG`                              | info                      | CLI tracing filter                                             |
+| Variable                                | Default                   | Used by                                                                                                                                                                      |
+| --------------------------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `GROBID_DATA_DIR` / `ARTICLES_DATA_DIR` | cwd                       | CLI: base dir for `pdf/`, `tei/`, `md/`                                                                                                                                      |
+| `GROBID_PORT`                           | `8070`                    | CLI + compose                                                                                                                                                                |
+| `GROBID_URL`                            | —                         | CLI: remote GROBID base URL (disables local backend management)                                                                                                              |
+| `GROBID_LOCAL_BIN`                      | —                         | CLI: path to local `grobid-service` launcher (default `~/.local/share/grobid.rs/grobid/grobid-service/bin/grobid-service` if present); spawned on demand and stopped on exit |
+| `GROBID_LOCAL_KEEP`                     | —                         | CLI: `1` leaves the spawned local service running after exit                                                                                                                 |
+| `GROBID_IMAGE`                          | `grobid/grobid:0.9.1-crf` | CLI Docker auto-start (fallback when no local service)                                                                                                                       |
+| `GROBID_CONTAINER`                      | `grobid-cli`              | CLI Docker auto-start                                                                                                                                                        |
+| `GROBID_CONCURRENCY`                    | `4`                       | CLI: max concurrent PDF→TEI requests                                                                                                                                         |
+| `GROBID_ENRICH`                         | —                         | CLI: `1` enables Crossref enrichment (same as `--enrich`)                                                                                                                    |
+| `GROBID_LOG`                            | `info`                    | CLI Logger level (`fatal`..`trace`); `-v`/`-vv` flags override                                                                                                               |
+| `RUST_LOG`                              | info                      | CLI tracing filter                                                                                                                                                           |
 
 ## Conventions
 

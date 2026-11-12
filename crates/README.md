@@ -42,15 +42,17 @@ grobid mcp               # MCP server over stdio for AI agents
 | --- | --- | --- |
 | `GROBID_DATA_DIR` / `ARTICLES_DATA_DIR` | `.` | Base directory containing `pdf/`, `tei/`, `md/`, `.grobid/` |
 | `GROBID_PORT` | `8070` | GROBID service port |
-| `GROBID_URL` | — | Remote GROBID base URL (disables Docker auto-start) |
-| `GROBID_IMAGE` | `grobid/grobid:0.9.1-crf` | Docker image for GROBID |
+| `GROBID_URL` | — | Remote GROBID base URL (disables local backend management) |
+| `GROBID_LOCAL_BIN` | — | Path to `grobid-service` launcher; defaults to `~/.local/share/grobid.rs/grobid/grobid-service/bin/grobid-service` when it exists (spawned on demand, stopped on exit) |
+| `GROBID_LOCAL_KEEP` | — | `1` keeps the spawned local service running after the CLI exits |
+| `GROBID_IMAGE` | `grobid/grobid:0.9.1-crf` | Docker image for GROBID (fallback backend) |
 | `GROBID_CONTAINER` | `grobid-cli` | Docker container name |
 | `GROBID_CONCURRENCY` | `4` | Max concurrent PDF→TEI requests |
 | `GROBID_ENRICH` | — | `1` enables Crossref enrichment |
 
 ## Features
 
-- **Auto-start GROBID**: Starts a Docker container if GROBID isn't running
+- **Auto-start GROBID**: Starts a local JVM service (`grobid-service`) when installed, else a Docker container; does nothing when `GROBID_URL` points at a remote instance
 - **Resumable**: Skips PDFs/TEIs/MDs that already exist
 - **Metadata extraction**: YAML frontmatter with title, authors, year, journal, volume/issue/pages, DOI/DOI link
 - **DOI-linked references**: Reference titles with DOIs render as `https://doi.org/…` links
@@ -72,7 +74,7 @@ pipeline against them.
 
 ## Requirements
 
-- Docker (for auto-starting GROBID)
+- GROBID backend: a local JVM install (`scripts/setup-grobid-local.sh`, needs OpenJDK 21+) or Docker for the container fallback
 - Rust toolchain for building from source
 
 ## License

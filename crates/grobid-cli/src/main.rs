@@ -81,15 +81,14 @@ async fn main() -> anyhow::Result<()> {
         return Ok(());
     }
 
-    let exit_code = match args.command {
-        Some(Command::Graph { db, out }) => cli::graph_cmd(db, out)?,
-        Some(Command::Search { query, limit, db }) => cli::search_cmd(&query, limit, db)?,
-        Some(Command::Stats { db }) => cli::stats_cmd(db)?,
-        Some(Command::Mcp { db }) => {
-            mcp::serve(db).await?;
-            return Ok(());
-        }
-        None => cli::convert_pdf_to_md(args.enrich).await?,
+    let result = match args.command {
+        Some(Command::Graph { db, out }) => cli::graph_cmd(db, out),
+        Some(Command::Search { query, limit, db }) => cli::search_cmd(&query, limit, db),
+        Some(Command::Stats { db }) => cli::stats_cmd(db),
+        Some(Command::Mcp { db }) => mcp::serve(db).await.map(|_| 0),
+        None => cli::convert_pdf_to_md(args.enrich).await,
     };
-    std::process::exit(exit_code);
+    // Stop a locally spawned GROBID service (no-op for Docker/remote/external).
+    grobid_core::grobid_client::stop_local_service();
+    std::process::exit(result?);
 }

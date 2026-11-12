@@ -32,7 +32,13 @@ cd "$WORK_DIR"
 echo "==> Downloading grobid-$VERSION source"
 curl -fsSL --retry 3 -o "grobid-$VERSION.zip" \
   "https://github.com/grobidOrg/grobid/archive/refs/tags/$VERSION.zip"
-unzip -q "grobid-$VERSION.zip"
+# bsdtar handles the archive's non-ASCII training-data filenames better
+# than Info-ZIP unzip (which can abort with spurious "disk full" errors).
+if command -v bsdtar >/dev/null 2>&1; then
+  bsdtar -xf "grobid-$VERSION.zip"
+else
+  unzip -q "grobid-$VERSION.zip"
+fi
 cd "grobid-$VERSION"
 chmod +x gradlew
 
@@ -51,9 +57,11 @@ mkdir -p "$INSTALL_DIR"
 rm -rf "$INSTALL_DIR/grobid-service" "$INSTALL_DIR/grobid-home"
 unzip -q "$SERVICE_ZIP" -d "$INSTALL_DIR"
 unzip -q "$HOME_ZIP" -d "$INSTALL_DIR"
-mv "$INSTALL_DIR/grobid-service-$VERSION" "$INSTALL_DIR/grobid-service"
-mv "$INSTALL_DIR/grobid-home-$VERSION" "$INSTALL_DIR/grobid-home"
 chmod +x "$INSTALL_DIR/grobid-service/bin/grobid-service"
+# The grobid-home zip does not preserve exec bits — pdfalto must be
+# executable or every conversion fails with "Permission denied".
+find "$INSTALL_DIR/grobid-home/pdfalto" -type f \( -name 'pdfalto' -o -name 'pdfalto_server' \) \
+  -exec chmod +x {} +
 
 cat <<EOF
 

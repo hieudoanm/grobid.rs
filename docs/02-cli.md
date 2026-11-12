@@ -86,9 +86,11 @@ Like the other corpus commands, `mcp` reads
 | ---------------------- | ------------------------ | ------------------------------------------------------ |
 | `GROBID_DATA_DIR`      | `ARTICLES_DATA_DIR`, then cwd | Base directory containing `pdf/`, `tei/`, `md/`  |
 | `ARTICLES_DATA_DIR`    | —                        | Legacy alias for `GROBID_DATA_DIR`                     |
-| `GROBID_URL`           | —                        | Full base URL of a GROBID instance (e.g. `http://grobid:8070`); when set, the CLI never manages a local Docker container and `GROBID_PORT` is ignored |
+| `GROBID_URL`           | —                        | Full base URL of a GROBID instance (e.g. `http://grobid:8070`); when set, the CLI never manages a local backend and `GROBID_PORT` is ignored |
 | `GROBID_PORT`          | `8070`                   | Port the GROBID service listens on                     |
-| `GROBID_IMAGE`         | `grobid/grobid:0.9.1-crf`| Docker image used when auto-starting GROBID            |
+| `GROBID_LOCAL_BIN`     | `~/.local/share/grobid.rs/grobid/grobid-service/bin/grobid-service` | Path to a locally installed `grobid-service` launcher; when present the CLI spawns it instead of Docker and stops it on exit. Install with `scripts/setup-grobid-local.sh` (needs OpenJDK 21+, no Docker) |
+| `GROBID_LOCAL_KEEP`    | —                        | `1` keeps the spawned local service running after the CLI exits |
+| `GROBID_IMAGE`         | `grobid/grobid:0.9.1-crf`| Docker image used when auto-starting GROBID (fallback when no local service) |
 | `GROBID_CONTAINER`     | `grobid-cli`             | Docker container name used when auto-starting GROBID   |
 | `GROBID_CONCURRENCY`   | `4`                      | Max concurrent PDF→TEI requests                        |
 | `GROBID_ENRICH`        | —                        | `1` enables Crossref enrichment (same as `--enrich`)   |

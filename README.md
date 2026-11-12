@@ -5,7 +5,7 @@
 
 **Convert PDF articles to Markdown via GROBID TEI XML — making PDFs AI-friendly on your own machine.**
 
-grobid.rs is a local, focused document-conversion tool. Drop PDFs into a `pdf/` directory, run the `grobid` command, and get clean, structured Markdown with rich metadata in YAML frontmatter — plus TEI XML intermediates. GROBID starts automatically in Docker on port 8070, and a static landing page documents the CLI. Everything runs locally — no cloud account or infrastructure setup.
+grobid.rs is a local, focused document-conversion tool. Drop PDFs into a `pdf/` directory, run the `grobid` command, and get clean, structured Markdown with rich metadata in YAML frontmatter — plus TEI XML intermediates. Everything runs locally — no cloud account or infrastructure setup.
 
 [📚 Documentation](docs/README.md) · [🚀 Quick Start](#get-started) · [🔍 See It In Action](#see-it-in-action)
 
@@ -18,22 +18,22 @@ AI models struggle to extract clean, structured content from PDFs. Raw PDFs are 
 A useful local conversion tool needs to make it possible to:
 
 - Drop PDFs into a `pdf/` directory and convert them in one command.
-- Auto-start GROBID in Docker if it is not already running.
+- Auto-start GROBID on port 8070 if it is not already running — either a locally installed JVM service (no Docker) or a Docker container.
 - Extract title, authors, journal, year, volume, issue, pages, and DOI as YAML frontmatter.
 - Preserve abstract, article sections, references, tables, lists, and formulas.
 - Convert resumably: skip TEI and Markdown files that already exist.
-- Run the whole system with Docker Compose: the GROBID service on port 8070.
+- Run the whole system with Docker Compose: the GROBID service on port 8070. Optional — a local JVM GROBID install works without Docker.
 
 grobid.rs brings these workflows together in one coherent application.
 
 ## The Solution
 
-grobid.rs provides a focused, local-first workflow: drop PDFs into `pdf/`, run `grobid`, review the Markdown in `md/` (with TEI XML in `tei/`). It uses GROBID's state-of-the-art PDF parsing to produce clean, structured Markdown that LLMs can understand and reason about effectively, behind one `pdf/` → `tei/` → `md/` pipeline, with metadata captured as YAML frontmatter. Everything runs locally via Docker Compose — no third-party services, no account creation.
+grobid.rs provides a focused, local-first workflow: drop PDFs into `pdf/`, run `grobid`, review the Markdown in `md/` (with TEI XML in `tei/`). It uses GROBID's state-of-the-art PDF parsing to produce clean, structured Markdown that LLMs can understand and reason about effectively, behind one `pdf/` → `tei/` → `md/` pipeline, with metadata captured as YAML frontmatter. Everything runs locally — Docker is optional; a native JVM GROBID install works just as well.
 
 ## Features
 
 - **PDF → TEI → Markdown** — Full conversion pipeline using GROBID's TEI XML extraction via `grobid` client (`processFulltextDocument`).
-- **Auto-starts GROBID** — Automatically launches the `grobid/grobid:0.9.1-crf` Docker container on port 8070 if not already running.
+- **Auto-starts GROBID** — Launches the GROBID service on port 8070 if not already running: prefers a locally installed JVM distribution (`scripts/setup-grobid-local.sh`, no Docker) and falls back to the `grobid/grobid:0.9.1-crf` Docker container.
 - **Rich metadata** — Extracts title, authors, journal, year, volume, issue, pages, DOI, and DOI link and adds them as YAML frontmatter.
 - **DOI-linked references** — Reference entries carrying a DOI render their titles as `https://doi.org/…` links.
 - **Crossref enrichment** — Optional `--enrich`/`GROBID_ENRICH` resolves works against the Crossref API to fill type, citation count, and abstract gaps.
@@ -65,7 +65,8 @@ The fastest way to run grobid.rs locally:
 
 ### Prerequisites
 
-- [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) v2
+- [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) v2 — **optional**, only needed for the Docker backend
+- GROBID itself — either the Docker image (auto-pulled) or a local JVM install via `scripts/setup-grobid-local.sh` (needs OpenJDK 21+; no Docker)
 - Rust toolchain (only needed to build the CLI from source; a prebuilt binary is available)
 
 ### Run the stack
@@ -159,10 +160,14 @@ curl -fsSL https://github.com/hieudoanm/grobid.rs/releases/download/latest/grobi
 chmod +x /usr/local/bin/grobid
 ```
 
-Or use the install script — it downloads the binary, checks for Docker, and warns if it is missing:
+Or use the install script — it downloads the binary and, if neither Docker
+nor a local GROBID install is present, prints a hint for setting one up:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/hieudoanm/grobid.rs/master/scripts/install.sh | bash
+
+# also build + install the local GROBID JVM service (needs OpenJDK 21+, no Docker)
+curl -fsSL https://raw.githubusercontent.com/hieudoanm/grobid.rs/master/scripts/install.sh | bash -s -- --with-grobid
 ```
 
 > **Note:** the release currently ships a single `linux/amd64` binary. On
@@ -173,6 +178,9 @@ curl -fsSL https://raw.githubusercontent.com/hieudoanm/grobid.rs/master/scripts/
 ```bash
 # Build and install to ~/.local/bin (or $INSTALL_DIR)
 ./scripts/install-local.sh
+
+# also build + install the local GROBID JVM service (no Docker)
+./scripts/install-local.sh --with-grobid
 
 # or manually
 cargo build --release

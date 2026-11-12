@@ -1,16 +1,57 @@
 # GROBID service
 
 The CLI needs a running GROBID instance. It prefers one that is already up and
-only starts its own Docker container as a fallback.
+only starts its own backend as a fallback. There are three ways to provide it,
+in order of precedence:
+
+1. **`GROBID_URL` set** → external/remote instance; the CLI never manages
+   local processes.
+2. **Local JVM service** — `GROBID_LOCAL_BIN` or the default install at
+   `~/.local/share/grobid.rs/grobid/grobid-service/bin/grobid-service`
+   (see below).
+3. **Docker** — auto-started container (see below).
+
+## Local JVM service (no Docker)
+
+GROBID ships a standalone distribution — no container required, just a JDK.
+Install it once:
+
+```bash
+scripts/setup-grobid-local.sh        # builds GROBID 0.9.1 from source (OpenJDK 21+)
+```
+
+The script downloads the source, runs `gradlew clean assemble`, and installs
+`grobid-service` + `grobid-home` under `~/.local/share/grobid.rs/grobid/`. Set
+`GROBID_LOCAL_HOME` to change the install root, or `GROBID_LOCAL_BIN` to point
+at a `grobid-service` launcher elsewhere (e.g. a manual build).
+
+When the CLI needs GROBID and the service isn't already answering, it spawns
+`grobid-service/bin/grobid-service` as a child JVM process and polls
+`/api/isalive` for up to 180 seconds. The service is **stopped when the CLI
+exits** — set `GROBID_LOCAL_KEEP=1` to leave it running between runs.
+Services the CLI did not spawn (already-running instance, Docker container,
+remote `GROBID_URL`) are never touched. Output goes to
+`grobid-service/grobid-service.log` inside the install.
+
+Manual start/stop without the CLI:
+
+```bash
+~/.local/share/grobid.rs/grobid/grobid-service/bin/grobid-service   # foreground
+pkill -f grobid-service                                          # stop
+```
+
+First start loads CRF models and can take a couple of minutes; subsequent
+starts are faster.
 
 ## Health check
 
 `GET {grobid_url}/api/isalive` is polled before and during startup. The base
 URL is `http://localhost:{GROBID_PORT}` (default port `8070`).
 
-## Auto-start
+## Auto-start (Docker)
 
-When `isalive` fails and `docker` is on `PATH`, the CLI runs:
+When `isalive` fails, no local service is installed, and `docker` is on
+`PATH`, the CLI runs:
 
 ```bash
 docker rm -f "$GROBID_CONTAINER"          # best-effort cleanup of stale container
@@ -74,7 +115,8 @@ useful when you want a persistent GROBID with named volumes or a fixed port.
 
 | Symptom                              | Likely cause / fix                                   |
 | ------------------------------------ | ---------------------------------------------------- |
-| `GROBID is not available`            | Docker missing and nothing on `:8070`; start GROBID manually |
-| `GROBID did not become ready in time`| First run pulls the image; re-run once pulled, or raise the wait by patching `start_grobid` |
+| `GROBID is not available`            | No Docker and no local service; start GROBID manually or run `scripts/setup-grobid-local.sh` |
+| Local service fails to spawn        | Check `~/.local/share/grobid.rs/grobid/grobid-service/grobid-service.log`; usually missing `grobid-home` or a bad JDK |
+| `GROBID did not become ready in time`| First run pulls the image (Docker) or loads CRF models (JVM); re-run once warmed up |
 | Port already in use                  | Set `GROBID_PORT` or stop the conflicting service    |
 | Slow first conversion                | CRF models load on first request; subsequent calls are faster |

@@ -8,7 +8,7 @@ manifest lives at the repository root (`Cargo.toml`); crates live in `crates/`.
 ## Structure
 
 - `grobid-core/src/config.rs` - Configuration and constants
-- `grobid-core/src/grobid_client.rs` - GROBID HTTP client + Docker container management
+- `grobid-core/src/grobid_client.rs` - GROBID HTTP client + local JVM service / Docker container management
 - `grobid-core/src/metadata.rs` - Metadata extraction and YAML frontmatter
 - `grobid-core/src/render.rs` - TEI XML to Markdown rendering + reference parsing
 - `grobid-core/src/corpus.rs` - SQLite corpus index (works + citation edges), search/stats/graph/dashboard HTML
@@ -42,6 +42,7 @@ cargo fmt --all -- --check
 
 - `GROBID_DATA_DIR` or `ARTICLES_DATA_DIR`: base directory for pdf/tei/md + `.grobid/` corpus artifacts
 - `GROBID_PORT`: GROBID port (default 8070)
-- `GROBID_IMAGE`: Docker image (default grobid/grobid:0.9.1-crf)
+- `GROBID_IMAGE`: Docker image (default grobid/grobid:0.9.1-crf, fallback backend)
+- `GROBID_LOCAL_BIN`: path to a local `grobid-service` launcher (install via `scripts/setup-grobid-local.sh`; no Docker needed)
 - `GROBID_CONTAINER`: Container name (default grobid-cli)
 - `GROBID_ENRICH`: `1` enables Crossref enrichment (same as `--enrich`)

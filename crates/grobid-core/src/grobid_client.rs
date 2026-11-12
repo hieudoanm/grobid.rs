@@ -195,10 +195,15 @@ pub async fn start_grobid() -> bool {
     false
 }
 
+/// Locally spawned GROBID service child, killed on CLI exit unless
+/// `GROBID_LOCAL_KEEP=1` asked for a persistent service.
+static LOCAL_SERVICE: std::sync::Mutex<Option<std::process::Child>> = std::sync::Mutex::new(None);
+
 /// Spawn the standalone GROBID JVM service (`grobid-service/bin/grobid-service`)
-/// as a detached child process and wait for the health endpoint. The service
-/// keeps running after this CLI exits, mirroring the Docker container's
-/// lifecycle; stdout/stderr go to `grobid-service.log` next to the install.
+/// as a child process and wait for the health endpoint. By default the
+/// service is killed when the CLI exits; set `GROBID_LOCAL_KEEP=1` to leave
+/// it running (e.g. for repeated conversions). stdout/stderr go to
+/// `grobid-service/grobid-service.log` inside the install.
 async fn start_local_service(bin: &Path, probe: &reqwest::Client) -> bool {
     // Note: if an instance is already booting, a duplicate spawn simply fails
     // to bind the port and exits — wait_alive() still succeeds once the
@@ -226,21 +231,51 @@ async fn start_local_service(bin: &Path, probe: &reqwest::Client) -> bool {
     let stdout = open_log();
     let stderr = open_log();
 
-    let mut cmd = tokio::process::Command::new(bin);
+    let mut cmd = std::process::Command::new(bin);
+    // The service resolves `grobid-home/config/grobid.yaml` relative to the
+    // working directory; run it from the install root (parent of
+    // `grobid-service/`) for the standard distribution layout.
+    if let Some(root) = bin
+        .parent()
+        .and_then(|p| p.parent())
+        .and_then(|p| p.parent())
+    {
+        cmd.current_dir(root);
+    }
     cmd.stdin(std::process::Stdio::null())
-        .stdout(stdout.unwrap_or_else(|| std::process::Stdio::null()))
-        .stderr(stderr.unwrap_or_else(|| std::process::Stdio::null()))
-        // Detach: do NOT kill_on_drop — the service must outlive this CLI.
-        .kill_on_drop(false);
+        .stdout(stdout.unwrap_or_else(std::process::Stdio::null))
+        .stderr(stderr.unwrap_or_else(std::process::Stdio::null));
 
     match cmd.spawn() {
-        Ok(_) => {
+        Ok(child) => {
             tracing::info!("Starting GROBID local service {}...", bin.display());
+            let keep = std::env::var("GROBID_LOCAL_KEEP").is_ok_and(|v| v == "1" || v == "true");
+            if !keep {
+                if let Ok(mut guard) = LOCAL_SERVICE.lock() {
+                    *guard = Some(child);
+                }
+            }
+            // keep=true: dropping the Child detaches the service.
             wait_alive(probe, 180).await
         }
         Err(e) => {
-            tracing::error!("Failed to spawn GROBID local service {}: {e}", bin.display());
+            tracing::error!(
+                "Failed to spawn GROBID local service {}: {e}",
+                bin.display()
+            );
             false
+        }
+    }
+}
+
+/// Kill the local GROBID service if this CLI spawned it. No-op for
+/// externally managed instances (Docker container, remote URL, or a
+/// service the user started themselves).
+pub fn stop_local_service() {
+    if let Ok(mut guard) = LOCAL_SERVICE.lock() {
+        if let Some(mut child) = guard.take() {
+            let _ = child.kill();
+            let _ = child.wait();
         }
     }
 }
