@@ -2,10 +2,16 @@
 
 [![CI](https://github.com/hieudoanm/grobid.rs/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/hieudoanm/grobid.rs/actions/workflows/ci.yaml?branch=master)  [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
+keywords: `pdf`, `grobid`, `tei`, `markdown`, `rust`, `cli`, `mcp`
+
 
 **Convert PDF articles to Markdown via GROBID TEI XML — making PDFs AI-friendly on your own machine.**
 
 grobid.rs is a local, focused document-conversion tool. Drop PDFs into a `pdf/` directory, run the `grobid` command, and get clean, structured Markdown with rich metadata in YAML frontmatter — plus TEI XML intermediates. Everything runs locally — no cloud account or infrastructure setup.
+
+**Live demo:** <https://hieudoanm.github.io/grobid.rs/>
+
+![grobid.rs demo](assets/demo/gif/demo.gif)
 
 ## Table of Contents
 
