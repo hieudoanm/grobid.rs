@@ -7,9 +7,24 @@
 
 grobid.rs is a local, focused document-conversion tool. Drop PDFs into a `pdf/` directory, run the `grobid` command, and get clean, structured Markdown with rich metadata in YAML frontmatter — plus TEI XML intermediates. Everything runs locally — no cloud account or infrastructure setup.
 
-[📚 Documentation](docs/README.md) · [🚀 Quick Start](#get-started) · [🔍 See It In Action](#see-it-in-action)
+## Table of Contents
 
-![grobid.rs](assets/branding/png/og.png)
+- [The Problem](#the-problem)
+- [The Solution](#the-solution)
+- [Features](#features)
+- [Key Benefits](#key-benefits)
+- [See It in Action](#see-it-in-action)
+- [Get Started](#get-started)
+- [Use Cases](#use-cases)
+- [Why This Project?](#why-this-project)
+- [Project Status and Trust](#project-status-and-trust)
+- [Community and Contributions](#community-and-contributions)
+- [Call to Action](#call-to-action)
+- [License](#license)
+
+<p align="center">
+  <img src="assets/branding/png/og.png" alt="grobid.rs — convert PDF articles to Markdown via GROBID TEI XML" width="720">
+</p>
 
 ## The Problem
 
