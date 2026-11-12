@@ -105,9 +105,8 @@ Git hooks: `.husky/pre-commit` runs `pnpm turbo run format` + `lint`
 - **Versions**: pnpm pinned via `packageManager` in root `package.json`
   (corepack); Node `26.13.0`; Rust deps pinned exactly in the root
   `Cargo.toml` workspace.
-- **Supply chain**: `pnpm-workspace.yaml` sets `minimumReleaseAge: 1440`
-  (1 day — longer windows break installs since renovate pins fresh
-  versions); dependency build scripts gated by `allowBuilds`.
+- **Supply chain**: `pnpm-workspace.yaml` sets `minimumReleaseAge: 0`;
+  dependency build scripts gated by `allowBuilds`.
 
 ## Docker & Release
 
