@@ -48,6 +48,21 @@ pub fn grobid_container() -> String {
     std::env::var("GROBID_CONTAINER").unwrap_or_else(|_| "grobid-cli".to_string())
 }
 
+/// Path to a locally installed GROBID service launcher
+/// (`grobid-service/bin/grobid-service` from the standalone Gradle
+/// distribution). `GROBID_LOCAL_BIN` overrides; otherwise the default
+/// install location is probed. When set/found, the CLI spawns this JVM
+/// process instead of managing a Docker container.
+pub fn grobid_local_bin() -> Option<PathBuf> {
+    if let Ok(path) = std::env::var("GROBID_LOCAL_BIN") {
+        let p = PathBuf::from(path);
+        return p.is_file().then_some(p);
+    }
+    let home = std::env::var_os("HOME").map(PathBuf::from)?;
+    let candidate = home.join(".local/share/grobid.rs/grobid/grobid-service/bin/grobid-service");
+    candidate.is_file().then_some(candidate)
+}
+
 /// Resolve the data directory from environment variables.
 pub fn get_data_dir() -> PathBuf {
     if let Ok(dir) =

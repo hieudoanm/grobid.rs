@@ -94,13 +94,19 @@ pub async fn start_grobid() -> bool {
     }
 
     // A custom GROBID_URL implies a remote/external instance — never try to
-    // manage a local Docker container for it.
+    // manage a local process for it.
     if std::env::var("GROBID_URL").is_ok() {
         tracing::warn!(
             "GROBID_URL is set but {} is not reachable",
             config::grobid_url()
         );
         return false;
+    }
+
+    // Docker-free mode: a locally installed GROBID JVM service
+    // (GROBID_LOCAL_BIN or the default ~/.local/share/grobid.rs path).
+    if let Some(bin) = config::grobid_local_bin() {
+        return start_local_service(&bin, &probe).await;
     }
 
     if which("docker").is_none() {
@@ -186,6 +192,69 @@ pub async fn start_grobid() -> bool {
     }
 
     tracing::error!("GROBID did not become ready in time");
+    false
+}
+
+/// Spawn the standalone GROBID JVM service (`grobid-service/bin/grobid-service`)
+/// as a detached child process and wait for the health endpoint. The service
+/// keeps running after this CLI exits, mirroring the Docker container's
+/// lifecycle; stdout/stderr go to `grobid-service.log` next to the install.
+async fn start_local_service(bin: &Path, probe: &reqwest::Client) -> bool {
+    // Note: if an instance is already booting, a duplicate spawn simply fails
+    // to bind the port and exits — wait_alive() still succeeds once the
+    // original comes up.
+    // Service log lives next to the grobid-service dir; fresh file per spawn.
+    let log_path = bin
+        .parent()
+        .and_then(|p| p.parent())
+        .map(|dir| dir.join("grobid-service.log"));
+    if let Some(path) = &log_path {
+        if let Some(parent) = path.parent() {
+            let _ = std::fs::create_dir_all(parent);
+        }
+        let _ = std::fs::remove_file(path);
+    }
+    let open_log = || -> Option<std::process::Stdio> {
+        let path = log_path.as_ref()?;
+        std::fs::OpenOptions::new()
+            .create(true)
+            .append(true)
+            .open(path)
+            .ok()
+            .map(std::process::Stdio::from)
+    };
+    let stdout = open_log();
+    let stderr = open_log();
+
+    let mut cmd = tokio::process::Command::new(bin);
+    cmd.stdin(std::process::Stdio::null())
+        .stdout(stdout.unwrap_or_else(|| std::process::Stdio::null()))
+        .stderr(stderr.unwrap_or_else(|| std::process::Stdio::null()))
+        // Detach: do NOT kill_on_drop — the service must outlive this CLI.
+        .kill_on_drop(false);
+
+    match cmd.spawn() {
+        Ok(_) => {
+            tracing::info!("Starting GROBID local service {}...", bin.display());
+            wait_alive(probe, 180).await
+        }
+        Err(e) => {
+            tracing::error!("Failed to spawn GROBID local service {}: {e}", bin.display());
+            false
+        }
+    }
+}
+
+/// Poll the health endpoint for up to `secs` seconds.
+async fn wait_alive(probe: &reqwest::Client, secs: u64) -> bool {
+    for i in 0..secs {
+        if alive(probe).await {
+            tracing::info!("GROBID ready after {}s", i + 1);
+            return true;
+        }
+        tokio::time::sleep(Duration::from_secs(1)).await;
+    }
+    tracing::error!("GROBID did not become ready in {secs}s");
     false
 }
 
