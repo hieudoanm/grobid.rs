@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/hieudoanm/grobid.rs/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/hieudoanm/grobid.rs/actions/workflows/ci.yaml?branch=master)  [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-keywords: `pdf`, `grobid`, `tei`, `markdown`, `rust`, `cli`, `mcp`
+Topics: `pdf`, `grobid`, `tei`, `markdown`, `rust`, `cli`, `mcp`
 
 
 **Convert PDF articles to Markdown via GROBID TEI XML — making PDFs AI-friendly on your own machine.**
