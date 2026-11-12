@@ -146,7 +146,7 @@ const HomePage: NextPage = () => (
         { value: '0', label: 'cloud calls' },
         { value: 'resumable', label: 'skips finished files' },
       ]}>
-      <Terminal caption="pdf/ → md/ in one command" lines={HERO_LINES} />
+      <Terminal lines={HERO_LINES} />
     </Hero>
 
     <Features
@@ -165,7 +165,6 @@ const HomePage: NextPage = () => (
           {DEMO_TERMINALS.map((t) => (
             <Terminal
               key={t.caption}
-              caption={t.caption}
               lines={t.lines}
               className={t.wide ? 'lg:col-span-2' : ''}
             />
@@ -194,7 +193,7 @@ const HomePage: NextPage = () => (
           title="Get started"
           description="Grab the prebuilt binary from GitHub Releases, or build from source with Cargo. Docker is only needed for the GROBID service, which the CLI can start for you. Requires Docker; Rust 1.85+ for source builds."
         />
-        <Terminal caption="Install" lines={INSTALL_LINES} />
+        <Terminal lines={INSTALL_LINES} />
         <p className="text-base-content/60 mt-6 text-center text-sm">
           Or build from source:{' '}
           <code className="bg-base-300 rounded px-1.5 py-0.5 font-mono text-xs">
