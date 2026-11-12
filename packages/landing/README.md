@@ -16,8 +16,8 @@ sitemap.xml   # single-URL sitemap for the Pages site
 humans.txt    # project/team credits
 ```
 
-Asset paths are relative, so the same files work locally and under the
-GitHub Pages `/grobid.rs/` base path. Open `index.html` directly or serve the
+Asset paths are relative, so the same files work locally and under the GitHub
+Pages `/grobid.rs/` base path. Open `index.html` directly or serve the
 directory:
 
 ```bash
