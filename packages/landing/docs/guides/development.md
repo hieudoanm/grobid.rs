@@ -1,7 +1,7 @@
 # Development guide
 
-The repository has two build systems: Cargo for the Rust workspace (manifest
-at the repo root) and pnpm/Turborepo for the Node packages.
+The repository has two build systems: Cargo for the Rust workspace (manifest at
+the repo root) and pnpm/Turborepo for the Node packages.
 
 ## Toolchain
 
@@ -58,9 +58,9 @@ python3 -m http.server 8000 -d packages/landing
 
 ## Fixtures and e2e
 
-`crates/grobid-core/tests/fixtures/` contains one real GROBID conversion
-(sample PDF, generated TEI XML, expected Markdown). The unit test renders the
-TEI fixture; the e2e script exercises the full pipeline:
+`crates/grobid-core/tests/fixtures/` contains one real GROBID conversion (sample
+PDF, generated TEI XML, expected Markdown). The unit test renders the TEI
+fixture; the e2e script exercises the full pipeline:
 
 ```bash
 ./crates/grobid-cli/tests/e2e.sh

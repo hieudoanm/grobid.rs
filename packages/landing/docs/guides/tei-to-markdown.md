@@ -1,8 +1,8 @@
 # TEI → Markdown
 
 After GROBID produces TEI XML, `grobid-core` renders it to Markdown. The same
-parsed document feeds both metadata extraction and body rendering, so the XML
-is read and parsed exactly once per file.
+parsed document feeds both metadata extraction and body rendering, so the XML is
+read and parsed exactly once per file.
 
 ## Parsing model
 
@@ -21,15 +21,15 @@ is read and parsed exactly once per file.
 
 `extract_metadata_doc` walks `teiHeader` only:
 
-| Field      | Source                                                        |
-| ---------- | ------------------------------------------------------------- |
-| `title`    | `fileDesc/titleStmt/title`, preferring `type="main"`          |
-| `authors`  | every `author` element under the header (via `author_name`)   |
-| `journal`  | `sourceDesc/biblStruct/monogr/title` with `level="j"`         |
-| `year`     | `imprint/date[@when]` (or `notBefore`), first 4 chars         |
-| `volume` / `issue` / `pages` | `imprint/biblScope` by `unit` attribute         |
-| `doi`      | first `idno[@type='DOI']` under the header                  |
-| `doi_link` | the DOI itself if it starts with `http`, else `https://doi.org/<doi>` |
+| Field                        | Source                                                                |
+| ---------------------------- | --------------------------------------------------------------------- |
+| `title`                      | `fileDesc/titleStmt/title`, preferring `type="main"`                  |
+| `authors`                    | every `author` element under the header (via `author_name`)           |
+| `journal`                    | `sourceDesc/biblStruct/monogr/title` with `level="j"`                 |
+| `year`                       | `imprint/date[@when]` (or `notBefore`), first 4 chars                 |
+| `volume` / `issue` / `pages` | `imprint/biblScope` by `unit` attribute                               |
+| `doi`                        | first `idno[@type='DOI']` under the header                            |
+| `doi_link`                   | the DOI itself if it starts with `http`, else `https://doi.org/<doi>` |
 
 Scoping to `teiHeader` is deliberate: document-wide searches pick up authors
 from `listBibl` reference entries, which must not appear in frontmatter.
@@ -40,15 +40,15 @@ and a numeric `year` is emitted unquoted):
 
 ```yaml
 ---
-title: "..."
-authors: "..."
+title: '...'
+authors: '...'
 year: 2024
-journal: "..."
-volume: "10"
-issue: "2"
-pages: "100-115"
-doi: "10.1234/example"
-doi_link: "https://doi.org/10.1234/example"
+journal: '...'
+volume: '10'
+issue: '2'
+pages: '100-115'
+doi: '10.1234/example'
+doi_link: 'https://doi.org/10.1234/example'
 ---
 ```
 
@@ -63,32 +63,35 @@ doi_link: "https://doi.org/10.1234/example"
 
 # <title or filename stem>
 
-**Authors:** ...        (when present)
+**Authors:** ... (when present)
 
-## Abstract              (when present)
+## Abstract (when present)
+
 ...
 
-## Article               (body sections, preserving heading levels)
+## Article (body sections, preserving heading levels)
+
 ...
 
-## References            (from listBibl/biblStruct or bibl entries)
+## References (from listBibl/biblStruct or bibl entries)
+
 - ...
 ```
 
 Rendered constructs include headings, paragraphs, inline emphasis, lists,
-tables, formulas, figures, and the reference list. When no title is found in
-the TEI, the Markdown `#` heading falls back to the input file's stem.
+tables, formulas, figures, and the reference list. When no title is found in the
+TEI, the Markdown `#` heading falls back to the input file's stem.
 
 ## References
 
-Entries inside `listBibl` (`biblStruct`/`bibl`) are parsed by
-`parse_reference` into a `ParsedReference` (authors, analytic title,
-container title preferring `level="j"`, imprint year, and `idno[@type='DOI']`)
-and rendered as `Authors. Title. Journal. Year`. When a DOI is present the
-title becomes a `[Title](https://doi.org/…)` link; unstructured entries fall
-back to flattened text. `extract_references` exposes the same parsed list
-to the corpus indexer (`corpus.rs`), which stores citation edges — including
-DOIs of works not present in the corpus — in `grobid.db`.
+Entries inside `listBibl` (`biblStruct`/`bibl`) are parsed by `parse_reference`
+into a `ParsedReference` (authors, analytic title, container title preferring
+`level="j"`, imprint year, and `idno[@type='DOI']`) and rendered as
+`Authors. Title. Journal. Year`. When a DOI is present the title becomes a
+`[Title](https://doi.org/…)` link; unstructured entries fall back to flattened
+text. `extract_references` exposes the same parsed list to the corpus indexer
+(`corpus.rs`), which stores citation edges — including DOIs of works not present
+in the corpus — in `grobid.db`.
 
 ## Tests
 

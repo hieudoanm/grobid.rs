@@ -8,13 +8,13 @@ with no runtime role in the pipeline.
 
 ### Rust workspace (`crates/`)
 
-The Cargo workspace manifest lives at the repository root (`Cargo.toml`),
-with `Cargo.lock`, `rust-toolchain.toml`, and a root `Makefile`. Crate
-directories are named after their packages.
+The Cargo workspace manifest lives at the repository root (`Cargo.toml`), with
+`Cargo.lock`, `rust-toolchain.toml`, and a root `Makefile`. Crate directories
+are named after their packages.
 
 - `grobid-core` is the library crate. It owns:
-  - `config.rs` — environment-driven configuration (port, image, container,
-    data dir) and constants (TEI namespace, metadata fields, service name)
+  - `config.rs` — environment-driven configuration (port, image, container, data
+    dir) and constants (TEI namespace, metadata fields, service name)
   - `grobid_client.rs` — GROBID health checks, Docker container lifecycle, and
     the `processFulltextDocument` HTTP call (PDF → TEI)
   - `metadata.rs` — TEI `teiHeader` traversal producing `Metadata` and YAML
@@ -31,11 +31,11 @@ directories are named after their packages.
 ### Node workspace (`packages/`)
 
 - `packages/landing` is a dependency-free static site (`index.html` +
-  `styles.css`) deployed to GitHub Pages as-is. It documents the CLI only —
-  no build step, no server logic.
-- `crates/package.json` (`@grobid/cli`) is a thin shim so `pnpm lint`, `pnpm
-  test`, and `pnpm build` at the root still drive the Rust workspace through
-  the root `Makefile`.
+  `styles.css`) deployed to GitHub Pages as-is. It documents the CLI only — no
+  build step, no server logic.
+- `crates/package.json` (`@grobid/cli`) is a thin shim so `pnpm lint`,
+  `pnpm test`, and `pnpm build` at the root still drive the Rust workspace
+  through the root `Makefile`.
 
 ## Conversion pipeline
 
@@ -74,7 +74,7 @@ exits `1` if any file failed.
 
 ## Landing page
 
-`packages/landing` uses relative asset paths, so the same files work locally
-and under the `/grobid.rs/` Pages base path; the page is light-themed with
-dark terminal mockups. CI uploads the directory to GitHub Pages on pushes to
-`master` — there is no build step.
+`packages/landing` uses relative asset paths, so the same files work locally and
+under the `/grobid.rs/` Pages base path; the page is light-themed with dark
+terminal mockups. CI uploads the directory to GitHub Pages on pushes to `master`
+— there is no build step.
