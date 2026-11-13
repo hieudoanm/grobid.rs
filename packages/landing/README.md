@@ -4,7 +4,7 @@ Static landing page for grobid.rs — plain HTML + CSS, no build step.
 
 ## Structure
 
-```
+```text
 index.html    # single-page site (nav, hero, features, demo, pipeline, install, footer)
 404.html      # GitHub Pages 404 page
 styles.css    # all styles; light page, dark terminals

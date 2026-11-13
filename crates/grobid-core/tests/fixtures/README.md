@@ -6,7 +6,7 @@ unit tests in `grobid-core` and the end-to-end script
 
 ## Directory Structure
 
-```
+```text
 fixtures/
 ├── pdf/         # Input PDF files (8 papers)
 ├── tei/         # TEI XML output (GROBID-generated)

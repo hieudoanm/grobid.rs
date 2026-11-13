@@ -15,22 +15,31 @@ grobid.rs is a local, focused document-conversion tool. Drop PDFs into a `pdf/` 
 
 ## Table of Contents
 
-- [The Problem](#the-problem)
-- [The Solution](#the-solution)
-- [Features](#features)
-- [Key Benefits](#key-benefits)
-- [See It in Action](#see-it-in-action)
-- [Get Started](#get-started)
-- [Use Cases](#use-cases)
-- [Why This Project?](#why-this-project)
-- [Project Status and Trust](#project-status-and-trust)
-- [Community and Contributions](#community-and-contributions)
-- [Call to Action](#call-to-action)
-- [License](#license)
+- [grobid.rs](#grobidrs)
+  - [Table of Contents](#table-of-contents)
+  - [The Problem](#the-problem)
+  - [The Solution](#the-solution)
+  - [Features](#features)
+  - [Key Benefits](#key-benefits)
+  - [See It in Action](#see-it-in-action)
+  - [Get Started](#get-started)
+    - [Prerequisites](#prerequisites)
+    - [Run the stack](#run-the-stack)
+    - [CLI usage](#cli-usage)
+    - [Output Example](#output-example)
+    - [Directory Structure](#directory-structure)
+    - [Corpus commands](#corpus-commands)
+    - [Installation](#installation)
+      - [Option 1: Prebuilt binary](#option-1-prebuilt-binary)
+      - [Option 2: From source](#option-2-from-source)
+  - [Use Cases](#use-cases)
+  - [Why This Project?](#why-this-project)
+  - [Project Status and Trust](#project-status-and-trust)
+  - [Community and Contributions](#community-and-contributions)
+  - [Call to Action](#call-to-action)
+  - [License](#license)
 
-<p align="center">
-  <img src="assets/branding/png/og.png" alt="grobid.rs — convert PDF articles to Markdown via GROBID TEI XML" width="720">
-</p>
+![grobid.rs — convert PDF articles to Markdown via GROBID TEI XML](assets/branding/png/og.png)
 
 ## The Problem
 
@@ -150,7 +159,7 @@ doi_link: "https://doi.org/10.1234/example"
 
 ### Directory Structure
 
-```
+```text
 your-project/
 ├── pdf/          # Input PDFs
 ├── tei/          # Generated TEI XML (intermediate)
